@@ -8,25 +8,30 @@ public class PickUpItem : MonoBehaviour
     public GameObject pickedItem;
     // Bit shift the index of the layer (6) to get a bit mask
     int layerMask = 1 << 6;
+    bool picked = false;
+    
+
+    Transform test;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, layerMask))
+            if (!picked)
             {
-                hit.transform.position = transform.position;
-                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                //Debug.Log("Did Hit");
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                Debug.Log("Did not Hit");
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, layerMask))
+                {
+                    test = hit.transform;
+                    picked = true;
+                    hit.transform.SetParent(transform);
+                }
+
+            } else {
+                test.transform.SetParent(null);
+                picked = false;
             }
         }
-        
     }
 }
