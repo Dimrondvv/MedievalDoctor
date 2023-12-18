@@ -32,10 +32,7 @@ public class Cell
     {
         cellContent = content;
     }
-    public void SetState(RoomState state) //Sets state of the room
-    {
-        roomState = state;
-    }
+    
     public void CheckForState() //Raycast at position and traslate tag of the floor under to enum state
     {
         RaycastHit hit;
