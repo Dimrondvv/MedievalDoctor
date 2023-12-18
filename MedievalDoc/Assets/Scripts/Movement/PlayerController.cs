@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.MovePosition(transform.position + (transform.forward*input.magnitude) * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + (transform.forward*input.normalized.magnitude) * speed * Time.deltaTime);
     }
 
 
