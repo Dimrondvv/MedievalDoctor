@@ -36,8 +36,32 @@ public class Cell
     {
         roomState = state;
     }
+    public void CheckForState() //Raycast at position and traslate tag of the floor under to enum state
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(cellPosition, Vector3.down, out hit))
+        {
+            
+            string tag = hit.transform.gameObject.tag;
+            switch (tag)
+            {
+                case "Reception":
+                    roomState = RoomState.Reception;
+                    break;
+                case "Clinic":
+                    roomState = RoomState.Clinic;
+                    break;
+                case "Workshop":
+                    roomState = RoomState.Workshop;
+                    break;
+                default:
+                    Debug.Log("Wrong tag");
+                    break;
+            }
+        }
+    }
     public void DebugPosition()
     {
-        Debug.Log(cellPosition);
+        Debug.Log(cellPosition + " " + roomState);
     }
 }

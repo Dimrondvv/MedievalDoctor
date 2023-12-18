@@ -8,13 +8,14 @@ public static class Grid
     
     private static int sizeX;
     private static int sizeZ;
+    private static int gridSpacing;
 
 
-
-    public static void SetSize(int x, int y) //Set x and y size
+    public static void SetSize(int x, int y, int spacing) //Set x and y size
     {
         sizeX = x;
         sizeZ = y;
+        gridSpacing = spacing;
     }
 
     public static void InitializeArray() //Initialize array if the x and y sizes are set
@@ -33,7 +34,8 @@ public static class Grid
         {
             for(int z = 0; z < sizeZ; z++)
             {
-                grid[x, z] = new Cell(new Vector3(x, 0, z));
+                grid[x, z] = new Cell(new Vector3(x*gridSpacing, 0, z*gridSpacing));
+                grid[x, z].CheckForState();
             }
         }
     }
