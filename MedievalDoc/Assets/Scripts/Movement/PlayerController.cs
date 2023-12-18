@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
 
     void GatherInput()
     {
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        float xAxis = Input.GetAxisRaw("Horizontal");
+        float zAxis = Input.GetAxisRaw("Vertical");
+        // (new Vector3(xAxis, 0, zAxis)
+        input = new Vector3(xAxis, 0, zAxis);//new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
 
     // Check rotation
@@ -37,15 +40,30 @@ public class PlayerController : MonoBehaviour
         {
             var relative = (transform.position + input) - transform.position;
             var rotation = Quaternion.LookRotation(relative, Vector3.up);
+           // Debug.Log(Input.GetAxis("Horizontal"));
 
             transform.rotation = rotation;//Quaternion.RotateTowards(transform.rotation, rotation, turnSpeed * Time.deltaTime);
         }
     }
 
-
+    // leMovement leTroll
     void Move()
     {
-        rb.MovePosition(transform.position + (transform.forward*input.normalized.magnitude) * speed * Time.deltaTime);
+
+        Debug.Log(Input.GetAxis("Horizontal"));
+
+
+
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") == 0)
+        {
+            rb.MovePosition(transform.position + (transform.forward * input.normalized.magnitude) * speed*10f * Time.deltaTime);
+
+        }
+
+        else
+        {
+            rb.MovePosition(transform.position + (transform.forward * input.normalized.magnitude) * speed * Time.deltaTime);
+        }
     }
 
 
