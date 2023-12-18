@@ -33,5 +33,15 @@ public class PickUpItem : MonoBehaviour
                 picked = false;
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, layerMask))
+            {
+               
+            }
+        }
     }
 }
