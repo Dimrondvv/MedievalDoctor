@@ -14,7 +14,8 @@ public class Cell
     {
         Reception,
         Clinic,
-        Workshop
+        Workshop,
+        NotValid
     }
 
     public Cell(Vector3 position) //Constructor that sets only position
@@ -44,15 +45,19 @@ public class Cell
             {
                 case "Reception":
                     roomState = RoomState.Reception;
+                    isInRoom = true;
                     break;
                 case "Clinic":
                     roomState = RoomState.Clinic;
+                    isInRoom = true;
                     break;
                 case "Workshop":
                     roomState = RoomState.Workshop;
+                    isInRoom = true;
                     break;
                 default:
-                    Debug.Log("Wrong tag");
+                    roomState = RoomState.NotValid;
+                    isInRoom = false;
                     break;
             }
         }
