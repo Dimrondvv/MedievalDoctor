@@ -50,13 +50,12 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
 
-        Debug.Log(Input.GetAxis("Horizontal"));
 
 
 
         if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") == 0)
         {
-            rb.MovePosition(transform.position + (transform.forward * input.normalized.magnitude) * speed*10f * Time.deltaTime);
+            rb.MovePosition(transform.position + (transform.forward * input.normalized.magnitude) * speed*2f * Time.deltaTime);
 
         }
 
