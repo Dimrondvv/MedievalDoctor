@@ -16,7 +16,7 @@ public class PickUpItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.R))
         {
             if (!picked)
             {
@@ -24,6 +24,8 @@ public class PickUpItem : MonoBehaviour
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, layerMask))
                 {
                     test = hit.transform;
+                    pickedItem = hit.transform.gameObject;
+                    pickedItem.GetComponent<Collider>().enabled = false;
                     picked = true;
                     hit.transform.SetParent(transform);
                 }
@@ -31,6 +33,8 @@ public class PickUpItem : MonoBehaviour
             } else {
                 test.transform.SetParent(null);
                 picked = false;
+                pickedItem.GetComponent<Collider>().enabled = true;
+                pickedItem = null;
             }
         }
 
