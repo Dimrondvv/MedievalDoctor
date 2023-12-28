@@ -37,10 +37,11 @@ public class Cell
     public void CheckForState() //Raycast at position and traslate tag of the floor under to enum state
     {
         RaycastHit hit;
-        if(Physics.Raycast(cellPosition, Vector3.down, out hit))
+        if (Physics.Raycast(new Vector3(cellPosition.x, cellPosition.y +0.0001f, cellPosition.z), Vector3.down, out hit))
         {
             
             string tag = hit.transform.gameObject.tag;
+            Debug.Log(tag + " " + cellPosition);
             switch (tag)
             {
                 case "Reception":
@@ -64,6 +65,7 @@ public class Cell
     }
     public void DebugPosition()
     {
-        Debug.Log(cellPosition + " " + roomState);
+        if(roomState!=RoomState.NotValid)
+            Debug.Log(cellPosition + " " + roomState);
     }
 }
