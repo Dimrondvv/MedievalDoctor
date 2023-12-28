@@ -7,8 +7,22 @@ public class Patient : MonoBehaviour, IInteractable
     [SerializeField] GameObject player;
 
     [SerializeField] SicknessScriptableObject sickness;
+    DeathTimer DeathTimer;
 
     List<GameObject> usedItems;
+
+
+
+
+    public void Death()
+    {
+        DeathTimer.elapsedTime = 0; // change it to 0 to give him more time to live
+        Debug.Log("death");
+        Destroy(this.gameObject); // if dead = destroy object
+    }
+
+
+
 
     public void Interact()
     {
@@ -38,6 +52,7 @@ public class Patient : MonoBehaviour, IInteractable
     private void Awake()
     {
         usedItems = new List<GameObject>();
+        DeathTimer = GetComponent<DeathTimer>();
     }
     private int CompareItems() //Compares items used on a patient to the items needed to cure, returns 0 if wrong item is used, 1 if
     {                          //the items so far are correct, and 3 if all the items are correct and requirements for curement are met
