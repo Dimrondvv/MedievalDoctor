@@ -43,7 +43,7 @@ public static class Grid
     {
         foreach(var cell in grid)
         {
-            cell.DebugPosition();
+            //cell.DebugPosition();
         }
     }
 }
