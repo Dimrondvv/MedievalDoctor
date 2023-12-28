@@ -21,7 +21,7 @@ public class PickUpItem : MonoBehaviour
         {
             if (!picked)
             {
-                Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), Quaternion.identity, layerMask); // get All objects when u click "R"
+                Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation, layerMask); // get All objects when u click "R"
                 if (hitColliders.Length == 1) // Works when ther is only one object
                 { // Pick up object
                     Debug.Log(hitColliders[0].gameObject.name);
@@ -56,6 +56,6 @@ public class PickUpItem : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
-        Gizmos.DrawWireCube(transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0));
+        Gizmos.DrawWireCube(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0));
     }
 }
