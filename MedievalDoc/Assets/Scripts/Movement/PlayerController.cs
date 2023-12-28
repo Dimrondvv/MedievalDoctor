@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
        
         if (Input.GetAxis("Vertical") > 0 & Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") < 0 & Input.GetAxis("Horizontal") == 0)
         {
-            rb.MovePosition(transform.position + (transform.forward * input.normalized.magnitude) * speed *1.3f* Time.deltaTime);
+            rb.MovePosition(transform.position + (transform.forward * input.normalized.magnitude) * speed *1.35f* Time.deltaTime);
         }
         else
         {
