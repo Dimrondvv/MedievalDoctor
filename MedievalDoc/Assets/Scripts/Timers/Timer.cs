@@ -7,7 +7,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    float elapsedTime;
+    int elapsedTime;
     float timeRemaining = 1;
 
     void Update()
@@ -34,6 +34,7 @@ public class Timer : MonoBehaviour
             elapsedTime += 1;
             timeRemaining = 1;
             TimeCheck();
+            Debug.Log(10 % 5+"hsdljkv");
         }
     }
 
@@ -41,11 +42,14 @@ public class Timer : MonoBehaviour
 
     void TimeCheck()
     {
+        Debug.Log(elapsedTime);
+
         if(elapsedTime > 1)
         {
+
             if(elapsedTime % 5 == 0)
             {
-               // Debug.Log("Minê³o 5 sekund");
+               Debug.Log("Minê³o 5 sekund");
             }
         }
     }

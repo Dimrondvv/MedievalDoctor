@@ -32,8 +32,6 @@ public class DeathTimer : MonoBehaviour
     void Update()
     {
         OneSecondTimer();
-        Debug.Log(elapsedTime);
-        //CheckAlive();
     }
 
     void OneSecondTimer()
