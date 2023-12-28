@@ -6,7 +6,7 @@ public class DeathTimer : MonoBehaviour
 {
     public float elapsedTime;
     float timeRemaining = 1;
-    [SerializeField] int countdown;
+    [SerializeField] public int countdown;
     public bool isAlive = true;
     Patient Patient;
 
@@ -14,11 +14,8 @@ public class DeathTimer : MonoBehaviour
     {
         if(elapsedTime == countdown)
         {
-            //Debug.Log(this.gameObject);
             isAlive = false;
-            //Time.timeScale = 0;
             Patient.Death();
-
         }
     }
 
@@ -26,7 +23,6 @@ public class DeathTimer : MonoBehaviour
     {
         Patient = GetComponent<Patient>();
     }
-
 
     // Update is called once per frame
     void Update()

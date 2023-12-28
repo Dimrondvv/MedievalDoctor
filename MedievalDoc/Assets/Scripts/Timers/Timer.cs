@@ -33,25 +33,6 @@ public class Timer : MonoBehaviour
         {
             elapsedTime += 1;
             timeRemaining = 1;
-            TimeCheck();
-            Debug.Log(10 % 5+"hsdljkv");
         }
     }
-
-
-
-    void TimeCheck()
-    {
-        Debug.Log(elapsedTime);
-
-        if(elapsedTime > 1)
-        {
-
-            if(elapsedTime % 5 == 0)
-            {
-               Debug.Log("Minê³o 5 sekund");
-            }
-        }
-    }
-
 }
