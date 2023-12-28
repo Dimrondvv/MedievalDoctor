@@ -15,4 +15,5 @@ MonoBehaviour:
   toolsRequired:
   - {fileID: 9160934616160321296, guid: c45529f4c165c3a45b90fc20fab9a970, type: 3}
   - {fileID: 4622855080629322249, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-  sicknessName: Test
+  sicknessName: Cancer
+  timeToDie: 20
