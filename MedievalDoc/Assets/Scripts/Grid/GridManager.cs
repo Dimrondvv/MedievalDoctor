@@ -16,7 +16,7 @@ public class GridManager : MonoBehaviour
         Grid.LogGrid();
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         for(int x = 0; x < sizeX; x+=gridSpacing)
         {
@@ -26,5 +26,5 @@ public class GridManager : MonoBehaviour
                 Gizmos.DrawCube(new Vector3(x, 0, z), new Vector3(0.1f, 0.1f, 0.1f));
             }
         }
-    }
+    }*/
 }

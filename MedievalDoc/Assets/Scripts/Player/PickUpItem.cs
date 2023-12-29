@@ -28,6 +28,7 @@ public class PickUpItem : MonoBehaviour
                     objTransform = hitColliders[0].transform;
                     pickedItem = hitColliders[0].transform.gameObject;
                     pickedItem.GetComponent<Collider>().enabled = false;
+                    pickedItem.transform.position = transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0);
                     picked = true;
                     hitColliders[0].transform.SetParent(transform);
                 }
