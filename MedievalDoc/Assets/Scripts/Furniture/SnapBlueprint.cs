@@ -21,7 +21,7 @@ public class SnapBlueprint : MonoBehaviour
         blueprint.GetComponent<MeshRenderer>().material = blueprintBlue;
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
-        blueprint.AddComponent<Rigidbody>();
+        //blueprint.AddComponent<Rigidbody>();
         blueprint.AddComponent<BlueprintTrigger>();
         blueprint.GetComponent<BlueprintTrigger>().blueprintBlue = blueprintBlue;
         blueprint.GetComponent<BlueprintTrigger>().blueprintRed = blueprintRed;
