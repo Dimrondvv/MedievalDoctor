@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class SnapBlueprint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject blueprint;
+    [SerializeField] PickUpItem playerItem;
+    public void CreateBlueprint()
     {
-        
+        blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, playerItem.transform.rotation);
+        //TODO: Enable shader
+    }
+    public void DestroyBlueprint()
+    {
+        Destroy(blueprint);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
+        if (blueprint == null)
+            return;
         
+
     }
+
+
+
 }

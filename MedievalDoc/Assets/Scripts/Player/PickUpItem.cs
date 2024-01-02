@@ -27,8 +27,9 @@ public class PickUpItem : MonoBehaviour
                     Debug.Log(hitColliders[0].gameObject.name);
                     objTransform = hitColliders[0].transform;
                     pickedItem = hitColliders[0].transform.gameObject;
-                    pickedItem.GetComponent<Collider>().enabled = false;
+                    pickedItem.GetComponent<Collider>().enabled = false;                 
                     pickedItem.transform.position = transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0);
+                    pickedItem.GetComponent<SnapBlueprint>().CreateBlueprint();
                     picked = true;
                     hitColliders[0].transform.SetParent(transform);
                 }
@@ -37,6 +38,7 @@ public class PickUpItem : MonoBehaviour
                 objTransform.transform.SetParent(null);
                 picked = false;
                 pickedItem.GetComponent<Collider>().enabled = true;
+                pickedItem.GetComponent<SnapBlueprint>().DestroyBlueprint();
                 pickedItem = null;
             }
         }
