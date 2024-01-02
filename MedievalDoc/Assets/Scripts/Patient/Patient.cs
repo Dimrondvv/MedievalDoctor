@@ -6,7 +6,7 @@ public class Patient : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject player;
 
-    [SerializeField] SicknessScriptableObject sickness;
+    [SerializeField] public SicknessScriptableObject sickness;
     DeathTimer DeathTimer;
 
     List<GameObject> usedItems;

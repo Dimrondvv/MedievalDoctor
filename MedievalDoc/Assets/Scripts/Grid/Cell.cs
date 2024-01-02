@@ -41,7 +41,7 @@ public class Cell
         {
             
             string tag = hit.transform.gameObject.tag;
-            Debug.Log(tag + " " + cellPosition);
+            //Debug.Log(tag + " " + cellPosition);
             switch (tag)
             {
                 case "Reception":

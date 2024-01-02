@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Furniture : MonoBehaviour
+public class Chair : MonoBehaviour
 {
+    public bool isOccupied;
+
 
 }
