@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class SnapBlueprint : MonoBehaviour
 {
-    [SerializeField] private string blueprintPrefabName;
-    private GameObject blueprintPrefab;
-
-    public void InstantiateBlueprint()
+    private GameObject blueprint;
+    [SerializeField] PickUpItem playerItem;
+    public void CreateBlueprint()
     {
-        Instantiate(blueprintPrefab, )
+        blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, playerItem.transform.rotation);
+        //TODO: Enable shader
+    }
+    public void DestroyBlueprint()
+    {
+        Destroy(blueprint);
     }
 
-    void Start()
-    {
-        blueprintPrefab = Resources.Load<GameObject>("Resources/"+blueprintPrefabName);
-    }
 
-    // Update is called once per frame
-    void Update()
-    { 
-        Vector3 blueprintPosition = transform.rotation * Vector3.forward;
+    private void Update()
+    {
+        if (blueprint == null)
+            return;
         
+
     }
+
+
+
 }
