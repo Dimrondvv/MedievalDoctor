@@ -15,8 +15,8 @@ public class SpawnPatientTimer : MonoBehaviour
     [SerializeField] List<GameObject> SpawnPoints;
 
 
-    [SerializeField]  List<GameObject> OccupiedSpawners;
-    [SerializeField]  List<GameObject> AvailableSpawners;
+    private List<GameObject> OccupiedSpawners;
+    private List<GameObject> AvailableSpawners;
 
     private int sicknessID;
     private int deathTimer;
