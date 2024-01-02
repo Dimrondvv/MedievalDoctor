@@ -9,6 +9,12 @@ public class SnapBlueprint : MonoBehaviour
     [SerializeField] PickUpItem playerItem;
     [SerializeField] Material blueprintBlue;
     [SerializeField] Material blueprintRed;
+
+    public GameObject Blueprint
+    {
+        get { return blueprint; }
+    }
+
     public void CreateBlueprint()
     {
         blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, playerItem.transform.rotation);
@@ -44,7 +50,4 @@ public class SnapBlueprint : MonoBehaviour
         blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position);
 
     }
-
-
-
 }
