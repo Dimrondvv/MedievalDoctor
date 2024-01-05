@@ -9,4 +9,14 @@ public class SicknessScriptableObject : ScriptableObject
     public string sicknessName;
     public int timeToDieMin;
     public int timeToDieMax;
+
+    public List<SymptomStruct> symptomList;
+
+    [System.Serializable]
+    public struct SymptomStruct
+    {
+        public Symptom symptom;
+        public bool isTreatable;
+        public bool isCritical;
+    }
 }
