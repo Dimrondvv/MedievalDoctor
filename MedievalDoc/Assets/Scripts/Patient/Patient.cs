@@ -11,13 +11,16 @@ public class Patient : MonoBehaviour, IInteractable
 
     List<GameObject> usedItems;
 
+    public int spawnerID;
+    [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
+
 
 
 
     public void Death()
     {
         DeathTimer.elapsedTime = 0; // change it to 0 to give him more time to live
-        Debug.Log("death");
+        SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         Destroy(this.gameObject); // if dead = destroy object
     }
 

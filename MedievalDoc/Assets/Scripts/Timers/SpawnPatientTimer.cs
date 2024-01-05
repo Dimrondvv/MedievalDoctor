@@ -12,11 +12,11 @@ public class SpawnPatientTimer : MonoBehaviour
     GameObject SpawnedPatient;
     [SerializeField] List<SicknessScriptableObject> Sicknesses;
 
-    [SerializeField] List<GameObject> SpawnPoints;
+    [SerializeField] public List<GameObject> SpawnPoints;
 
 
     private List<GameObject> OccupiedSpawners;
-    private List<GameObject> AvailableSpawners;
+    public List<GameObject> AvailableSpawners;
 
     private int sicknessID;
     private int deathTimer;
@@ -26,56 +26,60 @@ public class SpawnPatientTimer : MonoBehaviour
     [SerializeField] int maxPatientCounter;
     private int currentSpawnedPatients;
 
-    void Spawning()
+    private int availableSpawners;
+
+     void Spawning()
     {
 
         CheckSpawners();
 
-        if (AvailableSpawners.Count == 0) {
-            Debug.Log("No available chairs for patients.");  
+        if (availableSpawners == 0)
+        {
+            Debug.Log("No available chairs for patients.");
         }
 
         else if (currentSpawnedPatients == maxPatientCounter)
         {
             Debug.Log("Maximum number of patients spawned");
         }
-
-        else {
-            Debug.Log("Spawning patient.");
-            spawnerID = Random.Range(0, AvailableSpawners.Count);
-
-            SpawnedPatient = Instantiate(Patient, AvailableSpawners[spawnerID].transform.position, Quaternion.identity);
-
-            AvailableSpawners[spawnerID].GetComponent<Chair>().isOccupied = true;
-
-            RandomizeSickness();
-
-            SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0; // time of his life set to 0
-            SpawnedPatient.GetComponent<DeathTimer>().countdown = deathTimer; // for how long he can live without help
-            SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
-            CheckSpawners();
-            currentSpawnedPatients += 1;
-            Debug.Log("Spawned patients:"+currentSpawnedPatients);
+        else
+        {
+            TrySpawning();
         }
+        availableSpawners = 0;
     }
 
+    void TrySpawning()
+    {
+        spawnerID = Random.Range(0, SpawnPoints.Count);
+
+        if(SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied == true)
+        {
+            TrySpawning();
+        }
+        else
+        {
+            Patient.GetComponent<Patient>().spawnerID = spawnerID;
+
+            SpawnedPatient = Instantiate(Patient, SpawnPoints[spawnerID].transform.position, Quaternion.identity);
+            SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = true;
+            RandomizeSickness();
+
+            SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0;
+            SpawnedPatient.GetComponent<DeathTimer>().countdown = deathTimer;
+            SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
+
+        }
+
+    }
 
     void CheckSpawners()
     {
-        OccupiedSpawners = new List<GameObject>();
-        AvailableSpawners = new List<GameObject>();
-        foreach (GameObject chair in SpawnPoints)
-        {
-
-            if (chair.GetComponent<Chair>().isOccupied == false)
+        availableSpawners = 0;
+        foreach (GameObject chair in SpawnPoints) if (chair.GetComponent<Chair>().isOccupied == false)
             {
-                AvailableSpawners.Add(chair);
+                availableSpawners += 1;
             }
-            else
-            {
-                OccupiedSpawners.Add(chair);
-            }
-        }
     }
 
 
@@ -88,11 +92,7 @@ public class SpawnPatientTimer : MonoBehaviour
     void RandomizeSickness()
     {
         sicknessID = Random.Range(0, Sicknesses.Count);
-
         deathTimer = Random.Range(Sicknesses[sicknessID].timeToDieMin, Sicknesses[sicknessID].timeToDieMax);
-
-        Debug.Log("Sickness:"+ Sicknesses[sicknessID].sicknessName + "Time to die:"+deathTimer);
-
     }
 
 
