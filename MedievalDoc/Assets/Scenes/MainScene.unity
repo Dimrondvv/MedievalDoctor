@@ -1063,8 +1063,7 @@ MonoBehaviour:
   - {fileID: 176523996}
   - {fileID: 2028706909}
   - {fileID: 1284725685}
-  AvailableSpawners: []
-  maxPatientCounter: 12
+  maxPatientCounter: 1
 --- !u!114 &852320926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,6 +1078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1251825721}
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
+  immune: 0
+  health: 0
+  maxHealth: 0
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 852320925}
 --- !u!4 &852320927
@@ -2656,10 +2658,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 8928851103861156466, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: SpawnPatientTimer
+      value: 
+      objectReference: {fileID: 852320925}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: immune
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1251825721}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: sickness
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: SpawnPatientSpawner
       value: 

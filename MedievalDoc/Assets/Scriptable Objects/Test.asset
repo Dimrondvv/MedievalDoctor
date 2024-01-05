@@ -18,3 +18,10 @@ MonoBehaviour:
   sicknessName: Cancer
   timeToDieMin: 2
   timeToDieMax: 5
+  symptomList:
+  - symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
+    isTreatable: 1
+    isCritical: 1
+  - symptom: {fileID: 11400000, guid: f54dc357f34779e41b9c0038520c7d50, type: 2}
+    isTreatable: 1
+    isCritical: 0

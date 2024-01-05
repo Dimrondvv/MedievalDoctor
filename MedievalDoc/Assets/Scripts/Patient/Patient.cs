@@ -14,6 +14,8 @@ public class Patient : MonoBehaviour, IInteractable
     public int spawnerID;
     [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
+    public int health;
+
 
 
 

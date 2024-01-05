@@ -15,7 +15,7 @@ public class SpawnPatientTimer : MonoBehaviour
     [SerializeField] public List<GameObject> SpawnPoints;
 
     private int sicknessID;
-    private int deathTimer;
+    //private int deathTimer;
 
     private int spawnerID;
 
@@ -23,6 +23,8 @@ public class SpawnPatientTimer : MonoBehaviour
     private int currentSpawnedPatients;
 
     private int availableSpawners;
+
+    public int damageFromSymptoms;
 
      void Spawning()
     {
@@ -62,11 +64,19 @@ public class SpawnPatientTimer : MonoBehaviour
             RandomizeSickness();
 
             SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0;
-            SpawnedPatient.GetComponent<DeathTimer>().countdown = deathTimer;
             SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
-            currentSpawnedPatients += 1;
-            Debug.Log(currentSpawnedPatients);
 
+            for (int i = 0; i < Sicknesses[sicknessID].symptomList.Count; i++)
+            {
+                damageFromSymptoms += Sicknesses[sicknessID].symptomList[i].symptom.damage;
+            }
+
+            Debug.Log(damageFromSymptoms);
+
+            SpawnedPatient.GetComponent<DeathTimer>().damage = damageFromSymptoms;
+
+
+            currentSpawnedPatients += 1;
         }
 
     }
@@ -80,8 +90,6 @@ public class SpawnPatientTimer : MonoBehaviour
             }
     }
 
-
-
     void Update()
     {
         OneSecondTimer();
@@ -90,7 +98,7 @@ public class SpawnPatientTimer : MonoBehaviour
     void RandomizeSickness()
     {
         sicknessID = Random.Range(0, Sicknesses.Count);
-        deathTimer = Random.Range(Sicknesses[sicknessID].timeToDieMin, Sicknesses[sicknessID].timeToDieMax);
+        //deathTimer = Random.Range(Sicknesses[sicknessID].timeToDieMin, Sicknesses[sicknessID].timeToDieMax);
     }
 
 

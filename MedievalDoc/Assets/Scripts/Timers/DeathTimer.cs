@@ -7,12 +7,13 @@ public class DeathTimer : MonoBehaviour
     public float elapsedTime;
     float timeRemaining = 1;
     [SerializeField] public int countdown;
+    public int damage;
     public bool isAlive = true;
     Patient Patient;
 
     void CheckAlive()
     {
-        if(elapsedTime == countdown)
+        if(Patient.health <= 0)
         {
             isAlive = false;
             Patient.Death();
@@ -40,7 +41,14 @@ public class DeathTimer : MonoBehaviour
         {
             elapsedTime += 1;
             timeRemaining = 1;
-            CheckAlive();
+            TakeDamage();
+            CheckAlive();          
         }
+    }
+
+
+    void TakeDamage()
+    {
+        Patient.health -= damage;
     }
 }

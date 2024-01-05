@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SymptomScriptable", menuName = "ScriptableObjects/Symptom", order = 2)]
 public class Symptom : ScriptableObject
 {
-    public string symptomname;
+    public string symptomName;
     //todo: animacja
-    public List<GameObject> toolsrequired;
+    public List<GameObject> toolsRequired;
     public int damage; //how much hp does symptom take per tick
 }
