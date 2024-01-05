@@ -21,6 +21,8 @@ public class Patient : MonoBehaviour, IInteractable
     {
         DeathTimer.elapsedTime = 0; // change it to 0 to give him more time to live
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
+        GameManager.Instance.deathCounter+=1;
+        Debug.Log(GameManager.Instance.deathCounter);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
