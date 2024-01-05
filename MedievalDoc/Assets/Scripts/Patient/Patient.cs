@@ -9,9 +9,10 @@ public class Patient : MonoBehaviour, IInteractable
     [SerializeField] public SicknessScriptableObject sickness;
     DeathTimer DeathTimer;
 
-
-
     List<GameObject> usedItems;
+
+    public int spawnerID;
+    [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
 
 
@@ -19,9 +20,7 @@ public class Patient : MonoBehaviour, IInteractable
     public void Death()
     {
         DeathTimer.elapsedTime = 0; // change it to 0 to give him more time to live
-        Debug.Log("death");
-        GameManager.Instance.deathCounter+=1;
-        Debug.Log(GameManager.Instance.deathCounter);
+        SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         Destroy(this.gameObject); // if dead = destroy object
     }
 

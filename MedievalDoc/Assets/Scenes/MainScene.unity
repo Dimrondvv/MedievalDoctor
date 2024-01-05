@@ -457,8 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerItem: {fileID: 1251825722}
-  blueprintBlue: {fileID: 0}
-  blueprintRed: {fileID: 0}
+  blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
+  blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
 --- !u!1 &285061578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4698177314315259816, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
@@ -1063,7 +1063,8 @@ MonoBehaviour:
   - {fileID: 176523996}
   - {fileID: 2028706909}
   - {fileID: 1284725685}
-  maxPatientCounter: 9
+  AvailableSpawners: []
+  maxPatientCounter: 12
 --- !u!114 &852320926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,7 +1079,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1251825721}
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
-  manager: {fileID: 892383445}
+  spawnerID: 0
+  SpawnPatientSpawner: {fileID: 852320925}
 --- !u!4 &852320927
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,52 +1091,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &892383444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 892383446}
-  - component: {fileID: 892383445}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &892383445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892383444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe59e31caca60e4c95c2481b482de8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDeaths: 2
-  deathCounter: 0
---- !u!4 &892383446
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892383444}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.941567, y: -3.1858664, z: 13.160413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2686,9 +2642,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1251825721}
     - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: manager
+      propertyPath: SpawnPatientSpawner
       value: 
-      objectReference: {fileID: 892383445}
+      objectReference: {fileID: 852320925}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2941,4 +2897,3 @@ SceneRoots:
   - {fileID: 1251825720}
   - {fileID: 1999111985}
   - {fileID: 852320927}
-  - {fileID: 892383446}
