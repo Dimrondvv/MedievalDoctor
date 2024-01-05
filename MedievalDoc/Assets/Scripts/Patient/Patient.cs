@@ -8,7 +8,7 @@ public class Patient : MonoBehaviour, IInteractable
 
     [SerializeField] public SicknessScriptableObject sickness;
     DeathTimer DeathTimer;
-    [SerializeField] Manager manager;
+
 
 
     List<GameObject> usedItems;
@@ -20,8 +20,8 @@ public class Patient : MonoBehaviour, IInteractable
     {
         DeathTimer.elapsedTime = 0; // change it to 0 to give him more time to live
         Debug.Log("death");
-        manager.deathCounter+=1;
-        Debug.Log(manager.deathCounter);
+        GameManager.Instance.deathCounter+=1;
+        Debug.Log(GameManager.Instance.deathCounter);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
