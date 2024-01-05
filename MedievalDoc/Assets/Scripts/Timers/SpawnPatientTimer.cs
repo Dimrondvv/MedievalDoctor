@@ -6,7 +6,6 @@ public class SpawnPatientTimer : MonoBehaviour
 {
     public float elapsedTime;
     float timeRemaining = 1;
-    //[SerializeField] int countdown;
     [SerializeField] GameObject Patient;
     [SerializeField] int SpawnTime; // Timer for patient spawning
     GameObject SpawnedPatient;
@@ -15,8 +14,6 @@ public class SpawnPatientTimer : MonoBehaviour
     [SerializeField] public List<GameObject> SpawnPoints;
 
     private int sicknessID;
-    //private int deathTimer;
-
     private int spawnerID;
 
     [SerializeField] int maxPatientCounter;
@@ -98,7 +95,6 @@ public class SpawnPatientTimer : MonoBehaviour
     void RandomizeSickness()
     {
         sicknessID = Random.Range(0, Sicknesses.Count);
-        //deathTimer = Random.Range(Sicknesses[sicknessID].timeToDieMin, Sicknesses[sicknessID].timeToDieMax);
     }
 
 
@@ -119,8 +115,6 @@ public class SpawnPatientTimer : MonoBehaviour
 
     void TimeCheck()
     {
-        //Debug.Log(elapsedTime);
-
         if (elapsedTime > 1)
         {
 

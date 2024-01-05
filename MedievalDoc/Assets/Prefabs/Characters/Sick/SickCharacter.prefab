@@ -513,6 +513,7 @@ MonoBehaviour:
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 0}
+  health: 100
 --- !u!114 &8928851103861156466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   countdown: 0
+  damage: 0
   isAlive: 1
 --- !u!64 &2022668518691434428
 MeshCollider:
@@ -674,6 +676,7 @@ MonoBehaviour:
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 0}
+  health: 100
 --- !u!114 &5974001914533877099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   countdown: 0
+  damage: 0
   isAlive: 1
 --- !u!1 &7582166684369618016
 GameObject:

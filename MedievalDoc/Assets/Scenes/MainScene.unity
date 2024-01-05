@@ -1064,6 +1064,7 @@ MonoBehaviour:
   - {fileID: 2028706909}
   - {fileID: 1284725685}
   maxPatientCounter: 1
+  damageFromSymptoms: 0
 --- !u!114 &852320926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,11 +1079,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1251825721}
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
-  immune: 0
-  health: 0
-  maxHealth: 0
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 852320925}
+  health: 0
 --- !u!4 &852320927
 Transform:
   m_ObjectHideFlags: 0
@@ -2065,25 +2064,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508698998}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1593800070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 495865580938467515, guid: 31c0d7dc3c249a74db62298029e32397, type: 3}
-  m_PrefabInstance: {fileID: 2040393153}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1593800071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593800070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe59e31caca60e4c95c2481b482de8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDeaths: 10
-  deathCounter: 0
 --- !u!1 &1642847535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,34 +2634,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5728264044964685655, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1251825721}
+    - target: {fileID: 5728264044964685655, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: SpawnPatientSpawner
+      value: 
+      objectReference: {fileID: 852320925}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_Name
       value: SickCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 8928851103861156466, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: SpawnPatientTimer
-      value: 
-      objectReference: {fileID: 852320925}
-    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: immune
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1251825721}
-    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: sickness
-      value: 
-      objectReference: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
-    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: SpawnPatientSpawner
       value: 
@@ -2906,10 +2874,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 495865580938467515, guid: 31c0d7dc3c249a74db62298029e32397, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1593800071}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31c0d7dc3c249a74db62298029e32397, type: 3}
 --- !u!1001 &6642089469504080445
 PrefabInstance:
@@ -2959,25 +2924,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2260282648214916673, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: isOccupied
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2290152766402159045, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
       propertyPath: m_Name
       value: Room_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561130915780184985, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: isOccupied
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4532322609760522926, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: isOccupied
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8449118644780366807, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: isOccupied
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
