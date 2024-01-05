@@ -14,10 +14,6 @@ public class SpawnPatientTimer : MonoBehaviour
 
     [SerializeField] public List<GameObject> SpawnPoints;
 
-
-    private List<GameObject> OccupiedSpawners;
-    public List<GameObject> AvailableSpawners;
-
     private int sicknessID;
     private int deathTimer;
 
@@ -68,6 +64,8 @@ public class SpawnPatientTimer : MonoBehaviour
             SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0;
             SpawnedPatient.GetComponent<DeathTimer>().countdown = deathTimer;
             SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
+            currentSpawnedPatients += 1;
+            Debug.Log(currentSpawnedPatients);
 
         }
 
