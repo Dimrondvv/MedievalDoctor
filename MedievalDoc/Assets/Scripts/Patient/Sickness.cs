@@ -7,5 +7,6 @@ public class SicknessScriptableObject : ScriptableObject
 {
     public List<GameObject> toolsRequired;
     public string sicknessName;
-    public int timeToDie;
+    public int timeToDieMin;
+    public int timeToDieMax;
 }

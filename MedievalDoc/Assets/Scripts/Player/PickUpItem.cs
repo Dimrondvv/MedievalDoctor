@@ -35,11 +35,15 @@ public class PickUpItem : MonoBehaviour
                 }
 
             } else { // Put down object
-                pickedItem.GetComponent<SnapBlueprint>().DestroyBlueprint();
-                objTransform.transform.SetParent(null);
-                picked = false;
-                pickedItem.GetComponent<Collider>().enabled = true;
-                pickedItem = null;
+                if (pickedItem.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable)
+                {
+                    pickedItem.transform.position = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.position;
+                    pickedItem.GetComponent<SnapBlueprint>().DestroyBlueprint();
+                    objTransform.transform.SetParent(null);
+                    picked = false;
+                    pickedItem.GetComponent<Collider>().enabled = true;
+                    pickedItem = null;
+                }
             }
         }
 
