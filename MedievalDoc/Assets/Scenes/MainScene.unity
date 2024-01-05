@@ -1080,7 +1080,7 @@ MonoBehaviour:
   player: {fileID: 1251825721}
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
   spawnerID: 0
-  SpawnPatientSpawner: {fileID: 0}
+  SpawnPatientSpawner: {fileID: 852320925}
 --- !u!4 &852320927
 Transform:
   m_ObjectHideFlags: 0
