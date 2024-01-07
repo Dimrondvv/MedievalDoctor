@@ -1022,81 +1022,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 692550290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &852320924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 852320927}
-  - component: {fileID: 852320926}
-  - component: {fileID: 852320925}
-  m_Layer: 0
-  m_Name: PatientSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &852320925
+--- !u!114 &852320925 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+  m_PrefabInstance: {fileID: 7379580859878192006}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852320924}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43499905c9e69a843951b470bbe8cbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elapsedTime: 0
-  Patient: {fileID: 1907035001}
-  SpawnTime: 5
-  Sicknesses:
-  - {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
-  - {fileID: 11400000, guid: c726c4a1182f04d4bbe237b411906de6, type: 2}
-  SpawnPoints:
-  - {fileID: 285061578}
-  - {fileID: 176523996}
-  - {fileID: 2028706909}
-  - {fileID: 1284725685}
-  maxPatientCounter: 1
-  damageFromSymptoms: 0
---- !u!114 &852320926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852320924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5d0aa613ef2494db1ac875f9c81dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1251825721}
-  sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
-  spawnerID: 0
-  SpawnPatientSpawner: {fileID: 852320925}
-  health: 0
---- !u!4 &852320927
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852320924}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +2869,91 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
+--- !u!1001 &7379580859878192006
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: Patient
+      value: 
+      objectReference: {fileID: 1907035001}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: maxPatientCounter
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: SpawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 285061578}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: SpawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 176523996}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: SpawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 2028706909}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: SpawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1284725685}
+    - target: {fileID: 2138131498301780534, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_Name
+      value: PatientSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661804075920910968, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1251825721}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6726066039034577602, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f11e3283374d0484587a4c16d0813597, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2946,5 +2967,5 @@ SceneRoots:
   - {fileID: 261801711}
   - {fileID: 1251825720}
   - {fileID: 1999111985}
-  - {fileID: 852320927}
+  - {fileID: 7379580859878192006}
   - {fileID: 2040393153}
