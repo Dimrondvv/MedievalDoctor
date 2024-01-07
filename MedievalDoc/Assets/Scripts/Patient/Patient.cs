@@ -33,10 +33,9 @@ public class Patient : MonoBehaviour, IInteractable
     public void Interact()
     {
         GameObject playerItem = player.GetComponent<PickUpItem>().pickedItem;
-        Debug.Log(playerItem);
         if(playerItem == null)
         {
-            Debug.Log("Player holds no item");
+            sickness.ListSymptoms();
         }
         else //Add the item to usedItems list and then compare it with tools required to cure the patient
         {

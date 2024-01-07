@@ -16,5 +16,18 @@ public class SicknessScriptableObject : ScriptableObject
         public Symptom symptom;
         public bool isTreatable;
         public bool isCritical;
+
+        public string GetSymptomName()
+        {
+            return symptom.symptomName;
+        }
+    }
+
+    public void ListSymptoms()
+    {
+        foreach(SymptomStruct symptom in symptomList)
+        {
+            Debug.Log(symptom.GetSymptomName());
+        }
     }
 }
