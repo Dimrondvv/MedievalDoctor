@@ -35,7 +35,6 @@ public class SpawnPatientTimer : MonoBehaviour
 
         else if (currentSpawnedPatients == maxPatientCounter)
         {
-            Debug.Log("Maximum number of patients spawned");
         }
         else
         {
@@ -68,7 +67,6 @@ public class SpawnPatientTimer : MonoBehaviour
                 damageFromSymptoms += Sicknesses[sicknessID].symptomList[i].symptom.damage;
             }
 
-            Debug.Log(damageFromSymptoms);
 
             SpawnedPatient.GetComponent<DeathTimer>().damage = damageFromSymptoms;
 

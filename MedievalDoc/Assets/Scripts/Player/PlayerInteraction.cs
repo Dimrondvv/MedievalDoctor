@@ -11,16 +11,27 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactionRange))
+            Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation);
+            List<Collider> interactableColliders = new List<Collider>();
+            foreach (Collider collider in hitColliders) //Add all collider with interactable script to the list
             {
+                if (collider.transform.GetComponent<IInteractable>() != null)
+                {
+                    interactableColliders.Add(collider);
+                }
 
-                IInteractable interactable = hit.transform.gameObject.GetComponent<IInteractable>();
-                if (interactable != null)
-                    interactable.Interact();
-                else
-                    Debug.Log("Not a valid object");
+            }
+            if (interactableColliders.Count > 0)
+            {
+                Collider highestCollider = interactableColliders[0]; //Set the collider with highest y as the highewst collider
+                foreach (Collider collider in interactableColliders)
+                {
+                    if(collider.transform.position.y > highestCollider.transform.position.y)
+                        highestCollider = collider;
+                }
+                IInteractable interactable = highestCollider.transform.GetComponent<IInteractable>(); //Trigger an interaction with the highest collider
+
+                interactable.Interact();
             }
         }
     }
