@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class DeathTimer : MonoBehaviour
 {
-    public float elapsedTime;
-    float timeRemaining = 1;
-    [SerializeField] public int countdown;
+    public int elapsedTime;
     public int damage;
     public bool isAlive = true;
     Patient Patient;
+
+    void Start()
+    {
+        InvokeRepeating("OneSecondTimer", 2, 1);
+    }
 
     void CheckAlive()
     {
@@ -25,27 +28,12 @@ public class DeathTimer : MonoBehaviour
         Patient = GetComponent<Patient>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        OneSecondTimer();
-    }
-
     void OneSecondTimer()
     {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            elapsedTime += 1;
-            timeRemaining = 1;
-            TakeDamage();
-            CheckAlive();          
-        }
+        elapsedTime+=1;
+        TakeDamage();
+        CheckAlive();         
     }
-
 
     void TakeDamage()
     {

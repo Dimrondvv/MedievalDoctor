@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnPatientTimer : MonoBehaviour
 {
     public float elapsedTime;
-    float timeRemaining = 1;
     [SerializeField] GameObject Patient;
     [SerializeField] int SpawnTime; // Timer for patient spawning
     GameObject SpawnedPatient;
@@ -23,11 +22,21 @@ public class SpawnPatientTimer : MonoBehaviour
 
     public int damageFromSymptoms;
 
-     void Spawning()
+
+    void Start()
     {
+        InvokeRepeating("OneSecondTimer", 2, 1);
+    }
 
+    void OneSecondTimer()
+    {
+        elapsedTime+=1;
+        TimeCheck();
+    }
+
+    void Spawning()
+    {
         CheckSpawners();
-
         if (availableSpawners == 0)
         {
             Debug.Log("No available chairs for patients.");
@@ -35,6 +44,7 @@ public class SpawnPatientTimer : MonoBehaviour
 
         else if (currentSpawnedPatients == maxPatientCounter)
         {
+            Debug.Log("Maximum ammount of Patients has been reached.");
         }
         else
         {
@@ -66,14 +76,9 @@ public class SpawnPatientTimer : MonoBehaviour
             {
                 damageFromSymptoms += Sicknesses[sicknessID].symptomList[i].symptom.damage;
             }
-
-
             SpawnedPatient.GetComponent<DeathTimer>().damage = damageFromSymptoms;
-
-
             currentSpawnedPatients += 1;
         }
-
     }
 
     void CheckSpawners()
@@ -84,31 +89,9 @@ public class SpawnPatientTimer : MonoBehaviour
                 availableSpawners += 1;
             }
     }
-
-    void Update()
-    {
-        OneSecondTimer();
-    }
-
     void RandomizeSickness()
     {
         sicknessID = Random.Range(0, Sicknesses.Count);
-    }
-
-
-
-    void OneSecondTimer()
-    {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            elapsedTime += 1;
-            timeRemaining = 1;
-            TimeCheck();
-        }
     }
 
     void TimeCheck()

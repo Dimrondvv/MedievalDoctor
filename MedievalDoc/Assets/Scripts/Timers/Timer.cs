@@ -8,31 +8,17 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     int elapsedTime;
-    float timeRemaining = 1;
 
-    void Update()
+    void Start()
     {
-
-        OneSecondTimer();
-
-
-       // elapsedTime += Time.deltaTime;
-
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        InvokeRepeating("OneSecondTimer", 2, 1);
     }
 
     void OneSecondTimer()
     {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            elapsedTime += 1;
-            timeRemaining = 1;
-        }
+        elapsedTime+=1;
+        int minutes = Mathf.FloorToInt(elapsedTime / 60);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
