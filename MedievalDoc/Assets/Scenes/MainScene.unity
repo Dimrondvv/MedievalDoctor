@@ -2826,7 +2826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 238444266337130131, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8503723e-17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 238444266337130131, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2881,10 +2881,6 @@ PrefabInstance:
       propertyPath: Patient
       value: 
       objectReference: {fileID: 1907035001}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: maxPatientCounter
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.data[0]
       value: 

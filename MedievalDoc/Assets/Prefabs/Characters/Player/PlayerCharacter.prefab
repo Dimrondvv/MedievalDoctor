@@ -116,12 +116,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2734638569587361428}
   - component: {fileID: 2802415554505426055}
-  - component: {fileID: 8584054576889260703}
   - component: {fileID: 5285953387689067569}
   - component: {fileID: 1884887805224570617}
   - component: {fileID: 335548194395667564}
   - component: {fileID: 7157005792562065649}
   - component: {fileID: 5252379838975886592}
+  - component: {fileID: 4470098012275991662}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -159,21 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   picUpRange: 1
   pickedItem: {fileID: 0}
---- !u!114 &8584054576889260703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315980341070210326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55fb03a4a7fd684d8fd7efaf253406b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1884887805224570617}
-  speed: 5
-  turnSpeed: 360
 --- !u!114 &5285953387689067569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +271,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4470098012275991662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315980341070210326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55fb03a4a7fd684d8fd7efaf253406b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  turnSpeed: 10
 --- !u!1 &3861083321221578353
 GameObject:
   m_ObjectHideFlags: 0

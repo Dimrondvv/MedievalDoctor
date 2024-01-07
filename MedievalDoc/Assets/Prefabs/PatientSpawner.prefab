@@ -73,5 +73,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  maxPatientCounter: 1
+  maxPatientCounter: 3
   damageFromSymptoms: 0
