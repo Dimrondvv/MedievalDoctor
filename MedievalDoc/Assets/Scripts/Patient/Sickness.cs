@@ -7,8 +7,8 @@ public class SicknessScriptableObject : ScriptableObject
 {
     public List<GameObject> toolsRequired;
     public string sicknessName;
-
     public List<SymptomStruct> symptomList;
+    public List<string> stories;
 
     [System.Serializable]
     public struct SymptomStruct
@@ -23,8 +23,10 @@ public class SicknessScriptableObject : ScriptableObject
         }
     }
 
+
     public void ListSymptoms()
     {
+
         foreach(SymptomStruct symptom in symptomList)
         {
             Debug.Log(symptom.GetSymptomName());

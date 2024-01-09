@@ -1628,10 +1628,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4064664653945640464, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2692,6 +2688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 8928851103861156466, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: SpawnPatientTimer
+      value: 
+      objectReference: {fileID: 852320925}
     - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: player
       value: 
@@ -2970,25 +2970,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2177979465155768572, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2290152766402159045, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
       propertyPath: m_Name
       value: Room_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644071251876735024, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5520393579175990996, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6829666025791189239, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -16,6 +16,7 @@ public class Patient : MonoBehaviour, IInteractable
 
     public int health;
 
+    public string patientStory;
 
 
 
@@ -24,6 +25,7 @@ public class Patient : MonoBehaviour, IInteractable
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         GameManager.Instance.deathCounter+=1;
         Debug.Log(GameManager.Instance.deathCounter);
+        Debug.Log(patientStory);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
@@ -36,6 +38,7 @@ public class Patient : MonoBehaviour, IInteractable
         if(playerItem == null)
         {
             sickness.ListSymptoms();
+            
         }
         else //Add the item to usedItems list and then compare it with tools required to cure the patient
         {

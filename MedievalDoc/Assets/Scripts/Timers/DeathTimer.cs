@@ -8,6 +8,7 @@ public class DeathTimer : MonoBehaviour
     public int damage;
     public bool isAlive = true;
     Patient Patient;
+    SpawnPatientTimer SpawnPatientTimer;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class DeathTimer : MonoBehaviour
     private void Awake()
     {
         Patient = GetComponent<Patient>();
+        SpawnPatientTimer = GetComponent<SpawnPatientTimer>();
     }
 
     void OneSecondTimer()

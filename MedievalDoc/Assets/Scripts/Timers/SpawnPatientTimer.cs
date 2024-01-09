@@ -14,6 +14,8 @@ public class SpawnPatientTimer : MonoBehaviour
 
     private int sicknessID;
     private int spawnerID;
+    public int storyID;
+
 
     [SerializeField] int maxPatientCounter;
     private int currentSpawnedPatients;
@@ -72,11 +74,13 @@ public class SpawnPatientTimer : MonoBehaviour
             SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0;
             SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
 
+            SpawnedPatient.GetComponent<Patient>().patientStory = Sicknesses[sicknessID].stories[storyID];
+
+
             for (int i = 0; i < Sicknesses[sicknessID].symptomList.Count; i++)
             {
-                damageFromSymptoms += Sicknesses[sicknessID].symptomList[i].symptom.damage;
+                SpawnedPatient.GetComponent<DeathTimer>().damage += Sicknesses[sicknessID].symptomList[i].symptom.damage;
             }
-            SpawnedPatient.GetComponent<DeathTimer>().damage = damageFromSymptoms;
             currentSpawnedPatients += 1;
         }
     }
@@ -92,6 +96,7 @@ public class SpawnPatientTimer : MonoBehaviour
     void RandomizeSickness()
     {
         sicknessID = Random.Range(0, Sicknesses.Count);
+        storyID = Random.Range(0, Sicknesses[sicknessID].stories.Count);
     }
 
     void TimeCheck()
