@@ -2087,7 +2087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185503671e43e124ca3cbf53dec94105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notebookCanvas: {fileID: 0}
+  notebookCanvas: {fileID: 1182073717}
+  symptomsText: {fileID: 1635518522}
+  historyText: {fileID: 1656745939}
 --- !u!4 &1163429267
 Transform:
   m_ObjectHideFlags: 0
@@ -2121,7 +2123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1182073718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4107,6 +4109,10 @@ PrefabInstance:
       propertyPath: Patient
       value: 
       objectReference: {fileID: 1907035001}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: maxPatientCounter
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.data[0]
       value: 

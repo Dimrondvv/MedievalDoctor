@@ -16,12 +16,13 @@ MonoBehaviour:
   - {fileID: 9160934616160321296, guid: c45529f4c165c3a45b90fc20fab9a970, type: 3}
   - {fileID: 4622855080629322249, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
   sicknessName: Cancer
-  timeToDieMin: 2
-  timeToDieMax: 5
   symptomList:
   - symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
     isTreatable: 1
     isCritical: 1
+  - symptom: {fileID: 11400000, guid: f54dc357f34779e41b9c0038520c7d50, type: 2}
+    isTreatable: 1
+    isCritical: 0
   - symptom: {fileID: 11400000, guid: f54dc357f34779e41b9c0038520c7d50, type: 2}
     isTreatable: 1
     isCritical: 0
