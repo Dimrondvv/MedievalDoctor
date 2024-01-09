@@ -35,7 +35,11 @@ public class Patient : MonoBehaviour, IInteractable
         GameObject playerItem = player.GetComponent<PickUpItem>().pickedItem;
         if(playerItem == null)
         {
-            sickness.ListSymptoms();
+            if(!UIManager.Instance.IsNotebookEnabled)
+                UIManager.Instance.EnableNotebook(sickness);
+            else if (UIManager.Instance.IsNotebookEnabled)
+                UIManager.Instance.DisableNoteBook();
+            Debug.Log("abcd");
         }
         else //Add the item to usedItems list and then compare it with tools required to cure the patient
         {
