@@ -10,11 +10,40 @@ public class BlueprintTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isPlacable = false;
-        GetComponent<MeshRenderer>().material = blueprintRed;
+        ChangeBlueprintToBlue(this.gameObject);
     }
+
     private void OnTriggerExit(Collider other)
     {
         isPlacable = true;
-        GetComponent<MeshRenderer>().material = blueprintBlue;
+        ChangeBlueprintToRed(this.gameObject);
+    }
+
+    public void ChangeBlueprintToBlue(GameObject obj) {
+        if (obj.transform.childCount > 0) {// Check if object contains chilndren
+            var mats = obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
+
+            for (int i = 0; i < mats.Length; i++) {
+                mats[i] = blueprintRed; // Change all material to chosen
+            }
+
+            obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to gameObject
+        } else {
+            GetComponent<Renderer>().material = blueprintRed;
+        }
+    }
+
+    private void ChangeBlueprintToRed(GameObject obj) {
+        if (obj.transform.childCount > 0) {// Check if object contains chilndren
+            var mats = obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
+
+            for (int i = 0; i < mats.Length; i++) {
+                mats[i] = blueprintBlue; // Change all material to chosen
+            }
+
+            obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to gameObject
+        } else {
+            GetComponent<Renderer>().material = blueprintBlue;
+        }
     }
 }

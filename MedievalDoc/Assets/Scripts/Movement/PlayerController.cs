@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     //CharacterController characterController;
 
     private PlayerInputActions playerInputActions;
+    private Quaternion rotation;
 
     private void Awake(){
         playerInputActions = new PlayerInputActions();
@@ -58,7 +59,16 @@ public class PlayerController : MonoBehaviour
             transform.position += moveDirection * moveDistance;
         }
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime*turnSpeed);
+        rotation = this.transform.rotation;
+    }
 
+    public Vector3 GetPlayerRoundedRotation()
+    {
+        var vec = transform.eulerAngles;
+        vec.x = 0;
+        vec.y = Mathf.Round(vec.y / 90) * 90;
+        vec.z = 0;
 
+        return vec;
     }
 }

@@ -7,6 +7,7 @@ public class PickUpItem : MonoBehaviour
     public int picUpRange = 1;
     public GameObject pickedItem;
 
+    
     int layerMask = 1 << 6; // Bit shift the index of the layer (6) to get a bit mask
     bool picked = false;
     
@@ -38,6 +39,7 @@ public class PickUpItem : MonoBehaviour
                 if (pickedItem.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable)
                 {
                     pickedItem.transform.position = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.position;
+                    pickedItem.transform.rotation = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.rotation;
                     pickedItem.GetComponent<SnapBlueprint>().DestroyBlueprint();
                     objTransform.transform.SetParent(null);
                     picked = false;
