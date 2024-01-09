@@ -15,8 +15,7 @@ public class Patient : MonoBehaviour, IInteractable
     [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
     public int health;
-
-
+    public string patientStory;
 
 
     public void Death()
@@ -36,7 +35,7 @@ public class Patient : MonoBehaviour, IInteractable
         if(playerItem == null)
         {
             if(!UIManager.Instance.IsNotebookEnabled)
-                UIManager.Instance.EnableNotebook(sickness);
+                UIManager.Instance.EnableNotebook(this);
             else if (UIManager.Instance.IsNotebookEnabled)
                 UIManager.Instance.DisableNoteBook();
             Debug.Log("abcd");

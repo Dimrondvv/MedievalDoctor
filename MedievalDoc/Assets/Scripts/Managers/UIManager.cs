@@ -36,17 +36,18 @@ public class UIManager : MonoBehaviour
             symptomsText.text += $"-{symptom.GetSymptomName()} \n";
         }
     }
-    public void SetNotebookHistory()
+    public void SetNotebookHistory(string story)
     {
-        historyText.text = "Lorem ipsum dolores chuj";
+        Debug.Log(story);
+        historyText.text = story;
         //TODO: SET HISTORIA
     }
-    public void EnableNotebook(SicknessScriptableObject sickness)
+    public void EnableNotebook(Patient patient)
     {
         notebookCanvas.SetActive(true);
         isNotebookEnabled = true;
-        SetNotebookSymptoms(sickness.symptomList);
-        SetNotebookHistory();
+        SetNotebookSymptoms(patient.sickness.symptomList);
+        SetNotebookHistory(patient.patientStory);
         
     }
     public void DisableNoteBook()
