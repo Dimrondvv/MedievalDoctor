@@ -50,7 +50,7 @@ public class SnapBlueprint : MonoBehaviour
         if (blueprint == null)
             return;
         blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position);
-        blueprint.transform.eulerAngles = player.GetPlayerRotation();
+        blueprint.transform.eulerAngles = player.GetPlayerRoundedRotation();
 
     }
 }

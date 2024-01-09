@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         rotation = this.transform.rotation;
     }
 
-    public Vector3 GetPlayerRotation()
+    public Vector3 GetPlayerRoundedRotation()
     {
         var vec = transform.eulerAngles;
         vec.x = 0;
