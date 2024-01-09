@@ -18,29 +18,6 @@ public class PlayerController : MonoBehaviour
         playerInputActions.Player.Enable();
     }
 
-    // Dobry movement ale nie działa rotacja
-    // private void Start(){
-    //     characterController = GetComponent<CharacterController>();
-    // }
-
-    // private void Update(){
-    //     PlayerMove();
-    // }
-
-    // private void PlayerMove(){
-    //     float x = Input.GetAxis("Horizontal");
-    //     float z = Input.GetAxis("Vertical");
-
-    //     Vector3 move = transform.right * x + transform.forward * z;
-    //     characterController.Move(move*speed*Time.deltaTime);
-
-    //     // Vector3 rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed * Time.deltaTime, 0);
-    //     // this.transform.Rotate(rotation);
-    //     Vector3 moveDirection = new Vector3(x,0f,z);
-    //     transform.rotation= Quaternion.Euler(Vector3.Slerp(transform.forward, move, Time.deltaTime*turnSpeed));
-    // }
-
-
     private void FixedUpdate(){
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
   
@@ -54,9 +31,6 @@ public class PlayerController : MonoBehaviour
         float moveDistance = Time.deltaTime*speed;
 
         bool canMove = !Physics.CapsuleCast(transform.position,transform.position+Vector3.up *playerHeight, playerRadius, moveDirection, moveDistance);
-
-
-
 
         if (!canMove){
 

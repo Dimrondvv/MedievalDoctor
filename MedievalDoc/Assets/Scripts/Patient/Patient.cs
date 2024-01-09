@@ -16,7 +16,6 @@ public class Patient : MonoBehaviour, IInteractable
 
     public int health;
 
-    public string patientStory;
 
 
 
@@ -25,7 +24,6 @@ public class Patient : MonoBehaviour, IInteractable
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         GameManager.Instance.deathCounter+=1;
         Debug.Log(GameManager.Instance.deathCounter);
-        Debug.Log(patientStory);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
@@ -37,8 +35,11 @@ public class Patient : MonoBehaviour, IInteractable
         GameObject playerItem = player.GetComponent<PickUpItem>().pickedItem;
         if(playerItem == null)
         {
-            sickness.ListSymptoms();
-            
+            if(!UIManager.Instance.IsNotebookEnabled)
+                UIManager.Instance.EnableNotebook(sickness);
+            else if (UIManager.Instance.IsNotebookEnabled)
+                UIManager.Instance.DisableNoteBook();
+            Debug.Log("abcd");
         }
         else //Add the item to usedItems list and then compare it with tools required to cure the patient
         {
