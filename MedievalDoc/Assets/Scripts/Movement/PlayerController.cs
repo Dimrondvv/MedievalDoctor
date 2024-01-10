@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputActions playerInputActions;
     private Quaternion rotation;
+    private Vector3 moveDirection;
 
     private void Awake(){
         playerInputActions = new PlayerInputActions();
@@ -23,8 +24,9 @@ public class PlayerController : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
   
         inputVector = inputVector.normalized;
+       
+        moveDirection = new Vector3(inputVector.x,0f,inputVector.y);
 
-        Vector3 moveDirection = new Vector3(inputVector.x,0f,inputVector.y);
 
         float playerRadius = GetComponent<CapsuleCollider>().radius;
         float playerHeight = GetComponent<CapsuleCollider>().height;
@@ -70,5 +72,9 @@ public class PlayerController : MonoBehaviour
         vec.z = 0;
 
         return vec;
+    }
+
+    public Vector3 GetPlayerMoveDirection() {
+        return moveDirection;
     }
 }

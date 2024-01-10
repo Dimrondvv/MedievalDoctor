@@ -7,14 +7,36 @@ public class PickUpItem : MonoBehaviour
     public int picUpRange = 1;
     public GameObject pickedItem;
 
-    
+    private PlayerInputActions playerInputActions;
     int layerMask = 1 << 6; // Bit shift the index of the layer (6) to get a bit mask
     bool picked = false;
     
 
 
     Transform objTransform;
-    
+
+    private void Awake() {
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        
+        playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
+        
+    }
+
+    private void RotateBlueprint_performed(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
+        if (pickedItem != null) {
+            float inputVector = playerInputActions.Player.RotateBlueprint.ReadValue<float>();
+            if (inputVector == 1) {
+                pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles += new Vector3(0, 90f, 0);
+                Debug.Log("Dzia³a? " + inputVector);
+            } else {
+                pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles -= new Vector3(0, 90f, 0);
+                Debug.Log("Dzia³a? " + inputVector);
+            }
+            
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
