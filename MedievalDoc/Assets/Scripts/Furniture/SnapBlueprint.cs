@@ -19,7 +19,6 @@ public class SnapBlueprint : MonoBehaviour
     public void CreateBlueprint()
     {
         blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
-        Debug.Log(playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position);
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
         blueprint.AddComponent<Rigidbody>();
@@ -38,7 +37,7 @@ public class SnapBlueprint : MonoBehaviour
     {
         float roundX = Mathf.RoundToInt(position.x);
         float roundZ = Mathf.RoundToInt(position.z);
-        Vector3 roundedPos = new Vector3(roundX, 0.5f, roundZ);
+        Vector3 roundedPos = new Vector3(roundX, 0f, roundZ);
         return roundedPos;
     }
     
