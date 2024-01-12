@@ -2121,23 +2121,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508698998}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1544529461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8624027024241166820, guid: c793b438b48145343a829d39acaca6e5, type: 3}
-  m_PrefabInstance: {fileID: 7204720577724057583}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1544529463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544529461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e64654c4ba437c449939f8a1c184fe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1642847535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,10 +2838,6 @@ PrefabInstance:
       propertyPath: playerItem
       value: 
       objectReference: {fileID: 1251825722}
-    - target: {fileID: 5812179973506052653, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: m_Center.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_Name
       value: SickCharacter
@@ -3042,10 +3021,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1251825724}
-    - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -3439,10 +3414,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8624027024241166820, guid: c793b438b48145343a829d39acaca6e5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1544529463}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c793b438b48145343a829d39acaca6e5, type: 3}
 --- !u!1001 &7379580859878192006
 PrefabInstance:
@@ -3584,10 +3556,6 @@ PrefabInstance:
     - target: {fileID: 4622855080629322249, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: m_Name
       value: Counter
-      objectReference: {fileID: 0}
-    - target: {fileID: 4622855080629322249, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
