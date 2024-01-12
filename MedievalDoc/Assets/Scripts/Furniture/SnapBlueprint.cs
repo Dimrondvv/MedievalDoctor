@@ -21,7 +21,8 @@ public class SnapBlueprint : MonoBehaviour
         blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
-        blueprint.AddComponent<Rigidbody>();
+       // blueprint.AddComponent<Rigidbody>();
+       // blueprint.AddComponent<Rigidbody>();
         blueprint.AddComponent<BlueprintTrigger>();
         blueprint.GetComponent<BlueprintTrigger>().blueprintBlue = blueprintBlue;
         blueprint.GetComponent<BlueprintTrigger>().blueprintRed = blueprintRed;

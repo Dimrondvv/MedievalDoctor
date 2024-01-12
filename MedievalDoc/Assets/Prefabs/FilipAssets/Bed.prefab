@@ -54,7 +54,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 0.9446817, z: 2.01051}
-  m_Center: {x: 0, y: 0.47522327, z: -0.0005493164}
+  m_Center: {x: 0, y: 0.47522327, z: 0}
 --- !u!114 &5433737236969319706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   playerItem: {fileID: 0}
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
+  player: {fileID: 0}
 --- !u!1001 &6410083005953355421
 PrefabInstance:
   m_ObjectHideFlags: 0
