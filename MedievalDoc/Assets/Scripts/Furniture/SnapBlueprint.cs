@@ -22,6 +22,7 @@ public class SnapBlueprint : MonoBehaviour
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
         blueprint.AddComponent<Rigidbody>();
+        blueprint.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition; // Freeze rigid body position
         blueprint.AddComponent<BlueprintTrigger>();
         blueprint.GetComponent<BlueprintTrigger>().blueprintBlue = blueprintBlue;
         blueprint.GetComponent<BlueprintTrigger>().blueprintRed = blueprintRed;
@@ -32,7 +33,7 @@ public class SnapBlueprint : MonoBehaviour
     {
         Destroy(blueprint);
     }
-
+    
     Vector3 RoundPosition(Vector3 position)
     {
         float roundX = Mathf.RoundToInt(position.x);
