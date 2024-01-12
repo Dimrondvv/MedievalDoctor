@@ -7,29 +7,19 @@ public class SpawnPatientTimer : MonoBehaviour
     public float elapsedTime;
     [SerializeField] GameObject Patient;
     [SerializeField] int SpawnTime; // Timer for patient spawning
-    GameObject SpawnedPatient;
-    [SerializeField] List<SicknessScriptableObject> Sicknesses;
-
+    public GameObject SpawnedPatient;
+    [SerializeField] public List<SicknessScriptableObject> Sicknesses;
     [SerializeField] public List<GameObject> SpawnPoints;
-
-    private int sicknessID;
-    private int spawnerID;
-    public int storyID;
-
-
+    public int spawnerID;
+    RandomizeSickness randomizeSickness;
     [SerializeField] int maxPatientCounter;
-
-    [SerializeField] Timer Timer;
     private int currentSpawnedPatients;
-
     private int availableSpawners;
-
-    public int damageFromSymptoms;
-
 
     void Start()
     {
         InvokeRepeating("TimeCheck", 2, 1);
+        randomizeSickness = GetComponent<RandomizeSickness>();
     }
 
     void Spawning()
@@ -62,27 +52,10 @@ public class SpawnPatientTimer : MonoBehaviour
         else
         {
             Patient.GetComponent<Patient>().spawnerID = spawnerID;
-
             SpawnedPatient = Instantiate(Patient, SpawnPoints[spawnerID].transform.position, Quaternion.identity);
+            SpawnedPatient.GetComponent<PatientDamage>().enabled = true;
             SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = true;
-            RandomizeSickness();
-
-            SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0;
-            SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
-
-            string story = string.Empty;
-
-            for (int i = 0; i < Sicknesses[sicknessID].stories.Count; i++)
-            {
-                story += Sicknesses[sicknessID].stories[i] + "\n";
-            }
-            SpawnedPatient.GetComponent<Patient>().patientStory = story;
-
-
-            for (int i = 0; i < Sicknesses[sicknessID].symptomList.Count; i++)
-            {
-                SpawnedPatient.GetComponent<DeathTimer>().damage += Sicknesses[sicknessID].symptomList[i].symptom.damage;
-            }
+            randomizeSickness.RandomizeSicknessFunction();
             currentSpawnedPatients += 1;
         }
     }
@@ -95,25 +68,17 @@ public class SpawnPatientTimer : MonoBehaviour
                 availableSpawners += 1;
             }
     }
-    void RandomizeSickness()
-    {
-        sicknessID = Random.Range(0, Sicknesses.Count);
-        storyID = Random.Range(0, Sicknesses[sicknessID].stories.Count);
-    }
 
     void TimeCheck()
     {
-        Debug.Log(Timer.elapsedTime);
-        if (Timer.elapsedTime > 1)
+        Debug.Log(TimerManager.Instance.ElapsedTime);
+        if (TimerManager.Instance.ElapsedTime > 1)
         {
 
-            if (Timer.elapsedTime % SpawnTime == 0)
+            if (TimerManager.Instance.ElapsedTime % SpawnTime == 0)
             {
                 Spawning();
             }
         }
     }
-
-
-
 }

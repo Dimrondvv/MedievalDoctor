@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class RandomizeSickness : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    SpawnPatientTimer spawnPatientTimer;
+    private int sicknessID;
+    private int storyID;
+
+    public void RandomizeSicknessFunction()
     {
-        
+        sicknessID = Random.Range(0, spawnPatientTimer.Sicknesses.Count);
+        storyID = Random.Range(0, spawnPatientTimer.Sicknesses[sicknessID].stories.Count);
+
+        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().sickness = spawnPatientTimer.Sicknesses[sicknessID];
+        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().patientStory = spawnPatientTimer.Sicknesses[sicknessID].stories[storyID];
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        spawnPatientTimer = GetComponent<SpawnPatientTimer>();
     }
 }
