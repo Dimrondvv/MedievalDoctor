@@ -5,9 +5,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
-    [SerializeField] TextMeshProUGUI symptomsText;
-    [SerializeField] TextMeshProUGUI historyText;
 
+    private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;
     public bool IsNotebookEnabled
     {
@@ -28,33 +27,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetNotebookSymptoms(List<SicknessScriptableObject.SymptomStruct> symptoms)
+    
+    public void EnableNotebook(SicknessScriptableObject sickness)
     {
-        symptomsText.text = "";
-        foreach(var symptom in symptoms)
-        {
-            symptomsText.text += $"-{symptom.GetSymptomName()} \n";
-        }
-    }
-    public void SetNotebookHistory(string story)
-    {
-        Debug.Log(story);
-        historyText.text = story;
-        //TODO: SET HISTORIA
-    }
-    public void EnableNotebook(Patient patient)
-    {
-        notebookCanvas.SetActive(true);
+        instantiatedNotebook = Instantiate(notebookCanvas);
+        instantiatedNotebook.GetComponent<PatientNotebook>().Sickness = sickness;
+        instantiatedNotebook.SetActive(true);
         isNotebookEnabled = true;
-        SetNotebookSymptoms(patient.sickness.symptomList);
-        SetNotebookHistory(patient.patientStory);
-        Debug.LogError("LeTroll " + patient.patientStory);
-
+        
+        
     }
     public void DisableNoteBook()
     {
         isNotebookEnabled = false;
-        notebookCanvas.SetActive(false);
+        Destroy(instantiatedNotebook);
     }
 
 
