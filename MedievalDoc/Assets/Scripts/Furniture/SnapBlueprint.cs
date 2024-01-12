@@ -9,6 +9,7 @@ public class SnapBlueprint : MonoBehaviour
     [SerializeField] PickUpItem playerItem;
     [SerializeField] Material blueprintBlue;
     [SerializeField] Material blueprintRed;
+    [SerializeField] private PlayerController player;
 
     public GameObject Blueprint
     {
@@ -17,15 +18,16 @@ public class SnapBlueprint : MonoBehaviour
 
     public void CreateBlueprint()
     {
-        blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, playerItem.transform.rotation);
-        blueprint.GetComponent<MeshRenderer>().material = blueprintBlue;
+        blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
         blueprint.AddComponent<Rigidbody>();
         blueprint.AddComponent<BlueprintTrigger>();
         blueprint.GetComponent<BlueprintTrigger>().blueprintBlue = blueprintBlue;
         blueprint.GetComponent<BlueprintTrigger>().blueprintRed = blueprintRed;
+        blueprint.GetComponent<BlueprintTrigger>().ChangeBlueprintToBlue(blueprint);
     }
+
     public void DestroyBlueprint()
     {
         Destroy(blueprint);
@@ -35,7 +37,7 @@ public class SnapBlueprint : MonoBehaviour
     {
         float roundX = Mathf.RoundToInt(position.x);
         float roundZ = Mathf.RoundToInt(position.z);
-        Vector3 roundedPos = new Vector3(roundX, 0.5f, roundZ);
+        Vector3 roundedPos = new Vector3(roundX, 0f, roundZ);
         return roundedPos;
     }
     
@@ -47,7 +49,6 @@ public class SnapBlueprint : MonoBehaviour
     {
         if (blueprint == null)
             return;
-        blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position);
-
+        blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position);    
     }
 }
