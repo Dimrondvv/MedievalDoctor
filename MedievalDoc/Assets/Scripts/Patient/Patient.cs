@@ -23,6 +23,8 @@ public class Patient : MonoBehaviour, IInteractable
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         GameManager.Instance.deathCounter+=1;
         Debug.Log(GameManager.Instance.deathCounter);
+        //PlayerManager.Instance.PlayerHealth -= 10;
+        //Debug.Log(PlayerManager.Instance.PlayerHealth);
         Destroy(this.gameObject); // if dead = destroy object
     }
 

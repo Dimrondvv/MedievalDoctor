@@ -71,10 +71,8 @@ public class SpawnPatientTimer : MonoBehaviour
 
     void TimeCheck()
     {
-        Debug.Log(TimerManager.Instance.ElapsedTime);
         if (TimerManager.Instance.ElapsedTime > 1)
         {
-
             if (TimerManager.Instance.ElapsedTime % SpawnTime == 0)
             {
                 Spawning();
