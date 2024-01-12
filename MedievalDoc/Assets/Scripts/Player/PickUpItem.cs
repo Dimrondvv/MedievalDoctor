@@ -9,7 +9,7 @@ public class PickUpItem : MonoBehaviour
 
     [SerializeField] Transform furniturePickupPoint;
     private PlayerInputActions playerInputActions;
-    int layerMask = 1 << 6; // Bit shift the index of the layer (6) to get a bit mask
+    int furnitureLayerMask = 1 << 6; // Bit shift the index of the layer (6) to get a bit mask
     bool picked = false;
     
 
@@ -42,7 +42,7 @@ public class PickUpItem : MonoBehaviour
         {
             if (!picked)
             {
-                Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation, layerMask); // get All objects when u click "R"
+                Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation, furnitureLayerMask); // get All objects when u click "R"
                 if (hitColliders.Length == 1) // Works when ther is only one object
                 { // Pick up object
                     //Debug.Log(hitColliders[0].gameObject.name);
@@ -76,7 +76,7 @@ public class PickUpItem : MonoBehaviour
         {
             
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, layerMask))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, furnitureLayerMask))
             {
                
             }
