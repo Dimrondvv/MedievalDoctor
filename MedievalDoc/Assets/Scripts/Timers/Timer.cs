@@ -7,7 +7,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    int elapsedTime;
+    public int elapsedTime;
     bool gamePaused = false;
 
 

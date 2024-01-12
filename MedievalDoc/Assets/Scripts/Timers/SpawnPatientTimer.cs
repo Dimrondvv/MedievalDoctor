@@ -18,6 +18,8 @@ public class SpawnPatientTimer : MonoBehaviour
 
 
     [SerializeField] int maxPatientCounter;
+
+    [SerializeField] Timer Timer;
     private int currentSpawnedPatients;
 
     private int availableSpawners;
@@ -27,13 +29,7 @@ public class SpawnPatientTimer : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("OneSecondTimer", 2, 1);
-    }
-
-    void OneSecondTimer()
-    {
-        elapsedTime+=1;
-        TimeCheck();
+        InvokeRepeating("TimeCheck", 2, 1);
     }
 
     void Spawning()
@@ -59,7 +55,7 @@ public class SpawnPatientTimer : MonoBehaviour
     {
         spawnerID = Random.Range(0, SpawnPoints.Count);
 
-        if(SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied == true)
+        if (SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied == true)
         {
             TrySpawning();
         }
@@ -74,7 +70,13 @@ public class SpawnPatientTimer : MonoBehaviour
             SpawnedPatient.GetComponent<DeathTimer>().elapsedTime = 0;
             SpawnedPatient.GetComponent<Patient>().sickness = Sicknesses[sicknessID];
 
-            SpawnedPatient.GetComponent<Patient>().patientStory = Sicknesses[sicknessID].stories[storyID];
+            string story = string.Empty;
+
+            for (int i = 0; i < Sicknesses[sicknessID].stories.Count; i++)
+            {
+                story += Sicknesses[sicknessID].stories[i] + "\n";
+            }
+            SpawnedPatient.GetComponent<Patient>().patientStory = story;
 
 
             for (int i = 0; i < Sicknesses[sicknessID].symptomList.Count; i++)
@@ -101,10 +103,11 @@ public class SpawnPatientTimer : MonoBehaviour
 
     void TimeCheck()
     {
-        if (elapsedTime > 1)
+        Debug.Log(Timer.elapsedTime);
+        if (Timer.elapsedTime > 1)
         {
 
-            if (elapsedTime % SpawnTime == 0)
+            if (Timer.elapsedTime % SpawnTime == 0)
             {
                 Spawning();
             }

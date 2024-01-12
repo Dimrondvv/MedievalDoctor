@@ -48,7 +48,8 @@ public class UIManager : MonoBehaviour
         isNotebookEnabled = true;
         SetNotebookSymptoms(patient.sickness.symptomList);
         SetNotebookHistory(patient.patientStory);
-        
+        Debug.LogError("Dupa " + patient.patientStory);
+
     }
     public void DisableNoteBook()
     {
