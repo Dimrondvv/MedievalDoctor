@@ -35,7 +35,7 @@ public class Patient : MonoBehaviour, IInteractable
         if(playerItem == null)
         {
             if(!UIManager.Instance.IsNotebookEnabled)
-                UIManager.Instance.EnableNotebook(this);
+                UIManager.Instance.EnableNotebook(sickness);
             else if (UIManager.Instance.IsNotebookEnabled)
                 UIManager.Instance.DisableNoteBook();
             Debug.Log("abcd");
