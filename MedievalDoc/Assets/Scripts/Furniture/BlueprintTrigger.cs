@@ -20,31 +20,34 @@ public class BlueprintTrigger : MonoBehaviour
     }
 
     public void ChangeBlueprintToBlue(GameObject obj) {
+        // Debug.Log("Ilosc dzieci" + obj.transform.GetChild(0).transform.gameObject.activeSelf); // .GetComponentsInChildren<Renderer>().Length
         if (obj.transform.childCount > 0) {// Check if object contains chilndren
             Transform firstChild = obj.transform.GetChild(0);
   
             if (firstChild.childCount > 0) // Check if children has any childrens
             {
-                Transform firstChildOfaChild = firstChild.transform.GetChild(0);
+                for (int i = 0; i < firstChild.childCount; i++) {
+                    Transform secondLayerChild = firstChild.transform.GetChild(i);
 
-                var mats = firstChildOfaChild.gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
+                    var mats = secondLayerChild.gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
 
-                for (int i = 0; i < mats.Length; i++)
-                {
-                    mats[i] = blueprintBlue; // Change all material to chosen
+                    for (int j = 0; j < mats.Length; j++) {
+                        mats[j] = blueprintBlue; // Change all material to chosen
+                    }
+
+                    firstChild.transform.GetChild(i).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to child gameObject
                 }
-
-                obj.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to child gameObject
+                
             }else
             {
-                var mats = obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
+                var mats = firstChild.gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
 
                 for (int i = 0; i < mats.Length; i++)
                 {
                     mats[i] = blueprintBlue; // Change all material to chosen
                 }
 
-                obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to gameObject
+                firstChild.gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to gameObject
             } 
         } else {
             GetComponent<Renderer>().material = blueprintBlue;
@@ -63,37 +66,33 @@ public class BlueprintTrigger : MonoBehaviour
         //} else {
         //    GetComponent<Renderer>().material = blueprintBlue;
         //}
-        if (obj.transform.childCount > 0)
-        {// Check if object contains chilndren
+        if (obj.transform.childCount > 0) {// Check if object contains chilndren
             Transform firstChild = obj.transform.GetChild(0);
 
             if (firstChild.childCount > 0) // Check if children has any childrens
             {
-                Transform firstChildOfaChild = firstChild.transform.GetChild(0);
+                for (int i = 0; i < firstChild.childCount; i++) {
+                    Transform secondLayerChild = firstChild.transform.GetChild(i);
 
-                var mats = firstChildOfaChild.gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
+                    var mats = secondLayerChild.gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
 
-                for (int i = 0; i < mats.Length; i++)
-                {
+                    for (int j = 0; j < mats.Length; j++) {
+                        mats[j] = blueprintRed; // Change all material to chosen
+                    }
+
+                    firstChild.transform.GetChild(i).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to child gameObject
+                }
+
+            } else {
+                var mats = firstChild.gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
+
+                for (int i = 0; i < mats.Length; i++) {
                     mats[i] = blueprintRed; // Change all material to chosen
                 }
 
-                obj.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to child gameObject
+                firstChild.gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to gameObject
             }
-            else
-            {
-                var mats = obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials; // Create list of materials to change
-
-                for (int i = 0; i < mats.Length; i++)
-                {
-                    mats[i] = blueprintRed; // Change all material to chosen
-                }
-
-                obj.transform.GetChild(0).gameObject.GetComponent<Renderer>().materials = mats; // Assign materials to gameObject
-            }
-        }
-        else
-        {
+        } else {
             GetComponent<Renderer>().material = blueprintRed;
         }
     }
