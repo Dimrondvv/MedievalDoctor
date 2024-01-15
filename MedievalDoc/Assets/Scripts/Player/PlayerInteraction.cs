@@ -6,10 +6,11 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private float interactionRange;
     private PlayerInputActions playerInputActions;
-
+    private PlayerController controller;
 
     private void Start()
     {
+        controller = GetComponent<PlayerController>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += PlayerInteract;
@@ -20,25 +21,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         
         Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation);
-        List<Collider> interactableColliders = new List<Collider>();
-        foreach (Collider collider in hitColliders) //Add all collider with interactable script to the list
-        {
-            if (collider.transform.GetComponent<Interact>() != null)
-            {
-                interactableColliders.Add(collider);
-            }
 
-        }
-        if (interactableColliders.Count > 0)
+        Collider highestCollider = hitColliders[0];
+        foreach(Collider collider in hitColliders)
         {
-            Collider highestCollider = interactableColliders[0]; //Set the collider with highest y as the highewst collider
-            foreach (Collider collider in interactableColliders)
-            {
-                if (collider.transform.position.y > highestCollider.transform.position.y)
-                    highestCollider = collider;
-            }
-            highestCollider.transform.GetComponent<Interact>().CallInteract(GetComponent<PlayerController>());
+            if(collider.transform.position.y > highestCollider.transform.position.y)
+                highestCollider = collider;
         }
+        PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
     }
 
 }

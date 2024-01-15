@@ -16,7 +16,6 @@ public class Patient : MonoBehaviour, IInteractable
     public int health;
     public string patientStory;
     public bool isAlive;
-    public Interact interact;
 
 
 
@@ -33,23 +32,28 @@ public class Patient : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        interact = GetComponent<Interact>();
-        if (interact)
-        {
-            interact.GetInteractEvent.HasInteracted += InteractWithPatient;
-        }
+        PlayerController.OnInteract.AddListener(InteractWithPatient);
     }
     private void OnDisable()
     {
-        if (interact)
+        PlayerController.OnInteract.RemoveListener(InteractWithPatient);
+    }
+    public void InteractWithPatient(GameObject interactedObject, PlayerController controller)
+    {
+        if (interactedObject != this.gameObject)
+            return;
+
+        if(controller.GetComponent<PickUpItem>().PickedItem == null)
         {
-            interact.GetInteractEvent.HasInteracted -= InteractWithPatient;
+            PatientEventManager.Instance.OnHandInteract.Invoke(this);
+        }
+        else if(controller.GetComponent<PickUpItem>().PickedItem.GetComponent<SnapBlueprint>() != null)
+        {
+            PatientEventManager.Instance.OnToolInteract.Invoke(controller.GetComponent<PickUpItem>().PickedItem, this);
         }
     }
-    public void InteractWithPatient()
-    {
-        Debug.Log("abcd");
-    }
+
+    
 
     public void Interact()
     {

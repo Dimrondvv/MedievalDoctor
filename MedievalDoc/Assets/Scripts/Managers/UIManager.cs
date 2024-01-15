@@ -28,8 +28,10 @@ public class UIManager : MonoBehaviour
     }
 
     
-    public void EnableNotebook(SicknessScriptableObject sickness)
+    public void EnableNotebook(Patient patient)
     {
+        SicknessScriptableObject sickness = patient.sickness; 
+
         instantiatedNotebook = Instantiate(notebookCanvas);
         instantiatedNotebook.GetComponent<PatientNotebook>().Sickness = sickness;
         instantiatedNotebook.SetActive(true);
@@ -43,9 +45,21 @@ public class UIManager : MonoBehaviour
         Destroy(instantiatedNotebook);
     }
 
+    private void ChangeNotebookState(Patient patient)
+    {
+        if (isNotebookEnabled)
+            DisableNoteBook();
+        else 
+            EnableNotebook(patient);
+
+    }
 
     private void Awake()
     {
         instance = this;
+    }
+    private void Start()
+    {
+        PatientEventManager.Instance.OnHandInteract.AddListener(ChangeNotebookState);
     }
 }
