@@ -1565,10 +1565,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7157005792562065649, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -1388986636967069719, guid: d5a84e7eefa9d4645a3af1dd53b621e0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3031,10 +3027,6 @@ PrefabInstance:
     - target: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
       propertyPath: m_Name
       value: UIPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6833057571285270505, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
       propertyPath: m_Pivot.x
