@@ -51,6 +51,10 @@ public class SicknessScriptableObject : ScriptableObject
         }
         Debug.Log("Symptom not found");
     }
+    public bool CheckIfCured()
+    {
+        return symptomList.Count == 0;
+    }
     public void ListSymptoms()
     {
 

@@ -26,12 +26,19 @@ public class PlayerManager : MonoBehaviour
         playerHealth = 100;
         money = 0;
     }
-
+    private void Start()
+    {
+        PatientEventManager.Instance.OnCureDisease.AddListener(IncrementScore);
+    }
     private void Update()
     {
         uiText.text = $"Score: {score} \nHealth: {playerHealth} \n$$$: {money}";
     }
 
-
+    private void IncrementScore(GameObject toolUsed, Patient patient)
+    {
+        score++;
+        Destroy(patient.gameObject);
+    }
 
 }
