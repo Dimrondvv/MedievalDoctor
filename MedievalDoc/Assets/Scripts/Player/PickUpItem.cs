@@ -89,7 +89,6 @@ public class PickUpItem : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
         Gizmos.DrawWireCube(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0));
     }
 }
