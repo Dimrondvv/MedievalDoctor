@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     private int money; // money
     public int Money { get { return money; } set { money = value; } }
 
-
+    [SerializeField] TextMeshProUGUI uiText;
 
     private void Awake()
     {
@@ -24,6 +25,11 @@ public class PlayerManager : MonoBehaviour
         score = 0;
         playerHealth = 100;
         money = 0;
+    }
+
+    private void Update()
+    {
+        uiText.text = $"Score: {score} \nHealth: {playerHealth} \n$$$: {money}";
     }
 
 

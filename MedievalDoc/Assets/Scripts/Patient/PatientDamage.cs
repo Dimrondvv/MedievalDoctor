@@ -8,17 +8,17 @@ public class PatientDamage : MonoBehaviour
     Patient patient;
     private int tempelapsedTime;
 
-
     private void Start()
     {
         patient = GetComponent<Patient>();
         tempelapsedTime = TimerManager.Instance.ElapsedTime;
 
+
     }
 
     private void CheckAlive()
     {
-        if (patient.health <= 0)
+        if (patient.Health <= 0)
         {
             patient.isAlive = false;
             patient.Death();
@@ -37,11 +37,15 @@ public class PatientDamage : MonoBehaviour
 
     private void TakeDamage()
     {
+        if(patient.Immune){
 
-        for (int i = 0; i < patient.sickness.symptomList.Count; i++)
-        {
-            patient.health -= patient.sickness.symptomList[i].symptom.damage;
-            CheckAlive();
+        }
+        else{
+            for (int i = 0; i < patient.sickness.symptomList.Count; i++)
+            {
+                patient.Health -= patient.sickness.symptomList[i].symptom.damage;
+                CheckAlive();
+            }
         }
         
     }

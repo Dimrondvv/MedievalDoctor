@@ -8,9 +8,10 @@ public class TimerManager : MonoBehaviour
 {
     private static TimerManager instance;
     public static TimerManager Instance { get { return instance; } }
-    [SerializeField] TextMeshProUGUI timerText;
     private int elapsedTime;
     public int ElapsedTime { get { return elapsedTime; } }
+    
+    [SerializeField] TextMeshProUGUI timerText;
 
     bool gamePaused = false;
 

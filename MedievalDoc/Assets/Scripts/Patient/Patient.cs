@@ -13,11 +13,22 @@ public class Patient : MonoBehaviour, IInteractable
     public int spawnerID;
     [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
-    public int health;
+    //public int health;
+    [SerializeField] private int health; // player Health (if =< 0 - game over)
+    public int Health { get { return health; } set { health = value; } }
+
+
     public string patientStory;
     public bool isAlive;
 
+    [SerializeField] private bool immune; // immunity for tests
+    public bool Immune { get { return immune; } set { immune = value; } }
 
+    
+
+    private void Start(){
+        health = 100;
+    }
 
 
     public void Death()
@@ -25,7 +36,7 @@ public class Patient : MonoBehaviour, IInteractable
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         GameManager.Instance.deathCounter+=1;
         Debug.Log(GameManager.Instance.deathCounter);
-        //PlayerManager.Instance.PlayerHealth -= 10;
+        PlayerManager.Instance.PlayerHealth -= 10;
         //Debug.Log(PlayerManager.Instance.PlayerHealth);
         Destroy(this.gameObject); // if dead = destroy object
     }
