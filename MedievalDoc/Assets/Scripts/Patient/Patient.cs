@@ -16,6 +16,9 @@ public class Patient : MonoBehaviour, IInteractable
     public int health;
     public string patientStory;
     public bool isAlive;
+    public Interact interact;
+
+
 
 
     public void Death()
@@ -28,13 +31,30 @@ public class Patient : MonoBehaviour, IInteractable
         Destroy(this.gameObject); // if dead = destroy object
     }
 
-
-
+    private void OnEnable()
+    {
+        interact = GetComponent<Interact>();
+        if (interact)
+        {
+            interact.GetInteractEvent.HasInteracted += InteractWithPatient;
+        }
+    }
+    private void OnDisable()
+    {
+        if (interact)
+        {
+            interact.GetInteractEvent.HasInteracted -= InteractWithPatient;
+        }
+    }
+    public void InteractWithPatient()
+    {
+        Debug.Log("abcd");
+    }
 
     public void Interact()
     {
-        GameObject playerItem = player.GetComponent<PickUpItem>().pickedItem;
-        if(playerItem == null)
+        GameObject playerItem = player.GetComponent<PickUpItem>().PickedItem;
+        /*if(playerItem == null)
         {
             if(!UIManager.Instance.IsNotebookEnabled)
                 UIManager.Instance.EnableNotebook(sickness);
@@ -57,7 +77,7 @@ public class Patient : MonoBehaviour, IInteractable
             {
                 Debug.Log("Wrong item");
             }
-        }
+        }*/
     }
     private void Awake()
     {

@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float speed;
     [SerializeField] private float turnSpeed;
-     Vector3 velocity;
+    Vector3 velocity;
 
     //CharacterController characterController;
 
     private PlayerInputActions playerInputActions;
     private Quaternion rotation;
     private Vector3 moveDirection;
+    public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
+
 
     private void Awake(){
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+    }
+
+    public GameObject GetPickedItem()
+    {
+        return GetComponent<PickUpItem>().PickedItem;
     }
 
     private void FixedUpdate(){
