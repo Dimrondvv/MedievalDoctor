@@ -1436,7 +1436,7 @@ GameObject:
   - component: {fileID: 1118875296}
   - component: {fileID: 1118875295}
   m_Layer: 0
-  m_Name: Patient Event Manager
+  m_Name: PatientEventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
