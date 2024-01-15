@@ -4,16 +4,25 @@ using UnityEngine;
 using TMPro;
 
 
-public class Timer : MonoBehaviour
+public class TimerManager : MonoBehaviour
 {
+    private static TimerManager instance;
+    public static TimerManager Instance { get { return instance; } }
     [SerializeField] TextMeshProUGUI timerText;
-    int elapsedTime;
+    private int elapsedTime;
+    public int ElapsedTime { get { return elapsedTime; } }
+
     bool gamePaused = false;
 
 
-    void Start()
+    private void Start()
     {
         InvokeRepeating("OneSecondTimer", 2, 1);
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
 
     void OneSecondTimer()

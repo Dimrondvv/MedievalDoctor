@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
-    public int picUpRange = 1;
-    public GameObject pickedItem;
+    private int picUpRange = 1;
+    private GameObject pickedItem;
+
+    public GameObject PickedItem { get { return pickedItem; } }
 
     [SerializeField] Transform furniturePickupPoint;
     private PlayerInputActions playerInputActions;

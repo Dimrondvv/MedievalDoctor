@@ -7,7 +7,6 @@ public class Patient : MonoBehaviour, IInteractable
     [SerializeField] GameObject player;
 
     [SerializeField] public SicknessScriptableObject sickness;
-    DeathTimer DeathTimer;
 
     List<GameObject> usedItems;
 
@@ -15,6 +14,8 @@ public class Patient : MonoBehaviour, IInteractable
     [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
     public int health;
+    public string patientStory;
+    public bool isAlive;
 
 
 
@@ -24,16 +25,40 @@ public class Patient : MonoBehaviour, IInteractable
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         GameManager.Instance.deathCounter+=1;
         Debug.Log(GameManager.Instance.deathCounter);
+        //PlayerManager.Instance.PlayerHealth -= 10;
+        //Debug.Log(PlayerManager.Instance.PlayerHealth);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
+    private void OnEnable()
+    {
+        PlayerController.OnInteract.AddListener(InteractWithPatient);
+    }
+    private void OnDisable()
+    {
+        PlayerController.OnInteract.RemoveListener(InteractWithPatient);
+    }
+    public void InteractWithPatient(GameObject interactedObject, PlayerController controller)
+    {
+        if (interactedObject != this.gameObject)
+            return;
 
+        if(controller.GetComponent<PickUpItem>().PickedItem == null)
+        {
+            PatientEventManager.Instance.OnHandInteract.Invoke(this);
+        }
+        else if(controller.GetComponent<PickUpItem>().PickedItem.GetComponent<SnapBlueprint>() != null)
+        {
+            PatientEventManager.Instance.OnToolInteract.Invoke(controller.GetComponent<PickUpItem>().PickedItem, this);
+        }
+    }
 
+    
 
     public void Interact()
     {
-        GameObject playerItem = player.GetComponent<PickUpItem>().pickedItem;
-        if(playerItem == null)
+        GameObject playerItem = player.GetComponent<PickUpItem>().PickedItem;
+        /*if(playerItem == null)
         {
             if(!UIManager.Instance.IsNotebookEnabled)
                 UIManager.Instance.EnableNotebook(sickness);
@@ -56,12 +81,11 @@ public class Patient : MonoBehaviour, IInteractable
             {
                 Debug.Log("Wrong item");
             }
-        }
+        }*/
     }
     private void Awake()
     {
         usedItems = new List<GameObject>();
-        DeathTimer = GetComponent<DeathTimer>();
     }
     private int CompareItems() //Compares items used on a patient to the items needed to cure, returns 0 if wrong item is used, 1 if
     {                          //the items so far are correct, and 3 if all the items are correct and requirements for curement are met

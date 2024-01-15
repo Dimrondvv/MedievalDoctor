@@ -18,7 +18,7 @@ public class SnapBlueprint : MonoBehaviour
 
     public void CreateBlueprint()
     {
-        blueprint = Instantiate(playerItem.pickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
+        blueprint = Instantiate(playerItem.PickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.PickedItem.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
         blueprint.AddComponent<Rigidbody>();
@@ -50,6 +50,6 @@ public class SnapBlueprint : MonoBehaviour
     {
         if (blueprint == null)
             return;
-        blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.pickedItem.transform.position);    
+        blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.PickedItem.transform.position);    
     }
 }

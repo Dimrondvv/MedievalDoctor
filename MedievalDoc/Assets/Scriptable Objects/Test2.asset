@@ -16,9 +16,11 @@ MonoBehaviour:
   - {fileID: 9160934616160321296, guid: c45529f4c165c3a45b90fc20fab9a970, type: 3}
   - {fileID: 5459813597836062982, guid: 01d6298bcbf44664faa58754752f33ec, type: 3}
   sicknessName: Autism
-  timeToDieMin: 3
-  timeToDieMax: 7
   symptomList:
   - symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
     isTreatable: 1
     isCritical: 0
+  stories:
+  - Test2 Story1
+  - Test2 Story2
+  - Test2 Story3
