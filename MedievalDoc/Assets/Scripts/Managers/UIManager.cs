@@ -31,10 +31,8 @@ public class UIManager : MonoBehaviour
     
     public void EnableNotebook(Patient patient)
     {
-        SicknessScriptableObject sickness = patient.sickness; 
-
         instantiatedNotebook = Instantiate(notebookCanvas);
-        instantiatedNotebook.GetComponent<PatientNotebook>().Sickness = sickness;
+        instantiatedNotebook.GetComponent<PatientNotebook>().Patient = patient;
         instantiatedNotebook.SetActive(true);
         isNotebookEnabled = true;
         

@@ -33,8 +33,16 @@ public class SicknessScriptableObject : ScriptableObject
         {
             if (item.symptom == symptom)
             {
-                symptomList.Remove(item);
-                return;
+                if (item.isCritical && item.isTreatable)
+                {
+                    symptomList.Clear();
+                    return;
+                }
+                else if (item.isTreatable)
+                {
+                    symptomList.Remove(item);
+                    return;
+                }
             }
         }
         Debug.Log("Symptom not found");

@@ -444,6 +444,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &261647874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7430747740795456587, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+  m_PrefabInstance: {fileID: 1245927511457461819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &261801707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,6 +1547,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
   m_PrefabInstance: {fileID: 1245927511457461819}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1243029525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1222643312366437849, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+  m_PrefabInstance: {fileID: 1245927511457461819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1251825720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2985,6 +3007,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4790751406883457929, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: historyText
+      value: 
+      objectReference: {fileID: 1243029525}
+    - target: {fileID: 4790751406883457929, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: symptomsText
+      value: 
+      objectReference: {fileID: 261647874}
     - target: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_Name
       value: Notebook Canvas
