@@ -21,6 +21,10 @@ public class PatientNotebook : MonoBehaviour
         {
             symptomsText.text += $"-{symptom.GetSymptomName()} \n";
         }
+        if(symptomsText.text == "")
+        {
+            symptomsText.text = "Chlop zdrowy B)";
+        }
     }
     public void SetNotebookHistory()
     {

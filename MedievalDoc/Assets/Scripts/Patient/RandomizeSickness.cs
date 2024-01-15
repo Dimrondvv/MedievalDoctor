@@ -13,8 +13,10 @@ public class RandomizeSickness : MonoBehaviour
         sicknessID = Random.Range(0, spawnPatientTimer.Sicknesses.Count);
         storyID = Random.Range(0, spawnPatientTimer.Sicknesses[sicknessID].stories.Count);
 
-        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().sickness = spawnPatientTimer.Sicknesses[sicknessID];
-        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().patientStory = spawnPatientTimer.Sicknesses[sicknessID].stories[storyID];
+
+        SicknessScriptableObject sicknessCopy = Instantiate(spawnPatientTimer.Sicknesses[sicknessID]);
+        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().sickness = sicknessCopy;
+        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().patientStory = sicknessCopy.stories[storyID];
     }
 
     private void Awake()

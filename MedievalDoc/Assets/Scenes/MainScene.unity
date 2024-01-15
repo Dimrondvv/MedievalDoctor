@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 261801709}
   - component: {fileID: 261801708}
   - component: {fileID: 261801712}
+  - component: {fileID: 261801713}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -566,6 +567,28 @@ MonoBehaviour:
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
   player: {fileID: 1251825724}
+--- !u!114 &261801713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261801707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  symptomAdded:
+    isValid: 0
+    symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
+  symptomRemoved:
+    isValid: 1
+    symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
+  symptomChecked:
+    isValid: 0
+    symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
+  itemIcon: {fileID: 0}
 --- !u!1 &285061578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4698177314315259816, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
