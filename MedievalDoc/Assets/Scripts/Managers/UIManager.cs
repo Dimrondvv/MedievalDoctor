@@ -5,7 +5,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
-    [SerializeField] GameObject uiPrefab;
+    [SerializeField] private GameObject uiPrefab;
+    public GameObject UiPrefab { get { return uiPrefab; } }
 
     private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;
@@ -27,6 +28,8 @@ public class UIManager : MonoBehaviour
             return instance;
         }
     }
+
+
 
     
     public void EnableNotebook(Patient patient)

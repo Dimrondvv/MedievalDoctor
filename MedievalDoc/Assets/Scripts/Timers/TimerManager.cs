@@ -10,15 +10,20 @@ public class TimerManager : MonoBehaviour
     public static TimerManager Instance { get { return instance; } }
     private int elapsedTime;
     public int ElapsedTime { get { return elapsedTime; } }
+
     
-    [SerializeField] TextMeshProUGUI timerText;
+    //[SerializeField] TextMeshProUGUI timerText;
 
     bool gamePaused = false;
 
+    private GameObject timerText;
+    private GameObject timerChild;
 
     private void Start()
     {
         InvokeRepeating("OneSecondTimer", 2, 1);
+        timerText = UIManager.Instance.UiPrefab;
+        timerChild = timerText.transform.GetChild(1).gameObject;
     }
 
     private void Awake()
@@ -31,7 +36,7 @@ public class TimerManager : MonoBehaviour
         elapsedTime+=1;
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerChild.GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void PauseGame()
