@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
+  sickness: {fileID: 0}
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 575417472191014539}
   health: 0
+  maxHealth: 0
   patientStory: 
   isAlive: 0
   immune: 0
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   Patient: {fileID: 0}
-  SpawnTime: 5
+  SpawnTime: 1
   SpawnedPatient: {fileID: 0}
   Sicknesses:
   - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}

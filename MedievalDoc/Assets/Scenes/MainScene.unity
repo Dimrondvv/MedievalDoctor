@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &40120751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 493285645525011492, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
+  m_PrefabInstance: {fileID: 6642089469504080445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69489930
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +462,8 @@ GameObject:
   - component: {fileID: 261801709}
   - component: {fileID: 261801708}
   - component: {fileID: 261801712}
+  - component: {fileID: 261801713}
+  - component: {fileID: 261801715}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -565,6 +572,44 @@ MonoBehaviour:
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
   player: {fileID: 1251825724}
+--- !u!114 &261801713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261801707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  symptomAdded:
+    isValid: 0
+    symptom: {fileID: 0}
+  symptomRemoved:
+    isValid: 0
+    symptom: {fileID: 0}
+  symptomChecked:
+    isValid: 0
+    symptom: {fileID: 0}
+  itemIcon: {fileID: 0}
+--- !u!114 &261801715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261801707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8781600bd1f5ac41a67c97510e4da2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1251825721}
+  furniturePickupPoint: {fileID: 1959281113}
+  playerController: {fileID: 1251825724}
+  picked: 0
 --- !u!1 &285061578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4698177314315259816, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
@@ -893,17 +938,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518000703}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &608948162 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1222643312366437849, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
-  m_PrefabInstance: {fileID: 1245927511457461819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &692550289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,10 +1823,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2802415554505426055, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1251825724}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2035,11 +2065,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280944313}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1284725685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6354871828915700902, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
-  m_PrefabInstance: {fileID: 6642089469504080445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1401758648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,9 +3032,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2028706909 stripped
+--- !u!1 &2015456004 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4416946528016147894, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2386291324140000771, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
   m_PrefabInstance: {fileID: 6642089469504080445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2040393153
@@ -3225,10 +3250,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4790751406883457929, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
-      propertyPath: historyText
-      value: 
-      objectReference: {fileID: 608948162}
     - target: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_Name
       value: Notebook Canvas
@@ -3379,11 +3400,11 @@ PrefabInstance:
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 2028706909}
+      objectReference: {fileID: 2015456004}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.data[3]
       value: 
-      objectReference: {fileID: 1284725685}
+      objectReference: {fileID: 40120751}
     - target: {fileID: 2138131498301780534, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: m_Name
       value: PatientSpawner

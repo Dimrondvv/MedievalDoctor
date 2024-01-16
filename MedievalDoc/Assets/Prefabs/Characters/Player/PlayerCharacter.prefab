@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f068dc88f79d54ba6b41570c30f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupRange: 0
+  pickupRange: 1
   playerController: {fileID: 4470098012275991662}
 --- !u!1 &3861083321221578353
 GameObject:
