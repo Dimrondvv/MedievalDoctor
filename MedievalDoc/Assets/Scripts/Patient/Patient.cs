@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Patient : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class Patient : MonoBehaviour
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     public int Health { get { return health; } set { health = value; } }
 
+    [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
+    public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
+
+
     private List<string> discoveredSymptoms = new List<string>();
     public List<string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
@@ -25,10 +30,16 @@ public class Patient : MonoBehaviour
     [SerializeField] private bool immune; // immunity for tests
     public bool Immune { get { return immune; } set { immune = value; } }
 
-    
+
+
+    public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
+
+
+
 
     private void Start(){
         health = 100;
+        maxHealth = 100;
     }
 
 
