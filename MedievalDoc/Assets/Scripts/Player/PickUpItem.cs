@@ -4,92 +4,145 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
-    private int picUpRange = 1;
-    private GameObject pickedItem;
 
-    public GameObject PickedItem { get { return pickedItem; } }
-
-    [SerializeField] Transform furniturePickupPoint;
+    [SerializeField] private float pickupRange;
+    [SerializeField] private PlayerController playerController;
     private PlayerInputActions playerInputActions;
-    int furnitureLayerMask = 1 << 6; // Bit shift the index of the layer (6) to get a bit mask
-    bool picked = false;
     
 
 
-    Transform objTransform;
 
-    private void Awake() {
+
+    private void Start() {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        
-        playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
-        
+        playerInputActions.Player.Pickup.performed += PlayerPickup;
     }
 
-    private void RotateBlueprint_performed(UnityEngine.InputSystem.InputAction.CallbackContext callback) { // Rotate Blueprint
-        if (pickedItem != null) {
-            float inputVector = playerInputActions.Player.RotateBlueprint.ReadValue<float>();
-            if (inputVector == 1) {
-                pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles += new Vector3(0, 90f, 0);
-            } else {
-                pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles -= new Vector3(0, 90f, 0);
-            } 
+
+    void PlayerPickup(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
+        
+        if (playerController.PickedItem == null) {
+            Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale/2, transform.rotation);
+            if (hitColliders.Length == 0) {
+                return;
+            }
+
+            Collider highestCollider = hitColliders[0];
+            foreach (Collider collider in hitColliders) {
+                if (collider.transform.position.y > highestCollider.transform.position.y)
+                    highestCollider = collider;
+            }
+            if (highestCollider.GetComponent<PlayerController>() == null) {
+                Debug.Log("Podnosi: " + highestCollider);
+                PlayerController.OnPickup.Invoke(highestCollider.gameObject);
+            }
+        } else {
+            Debug.Log("Upuszcza: " + playerController.PickedItem);
+            PlayerController.OnPutdown.Invoke(playerController);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            if (!picked)
-            {
-                Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation, furnitureLayerMask); // get All objects when u click "R"
-                if (hitColliders.Length == 1) // Works when ther is only one object
-                { // Pick up object
-                    //Debug.Log(hitColliders[0].gameObject.name);
-                    objTransform = hitColliders[0].transform;
-                    pickedItem = hitColliders[0].transform.gameObject;
-                    pickedItem.GetComponent<Collider>().enabled = false;
-                    pickedItem.transform.position = furniturePickupPoint.position; //transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0);
-                    pickedItem.GetComponent<SnapBlueprint>().CreateBlueprint();
-                    picked = true;
-                    hitColliders[0].transform.SetParent(transform);
-
-                    var lastChild = this.transform.childCount - 1; 
-                    this.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
-                }
-
-            } else { // Put down object
-                if (pickedItem.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable)
-                {
-                    pickedItem.transform.position = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.position;
-                    pickedItem.transform.rotation = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.rotation;
-                    pickedItem.GetComponent<SnapBlueprint>().DestroyBlueprint();
-                    objTransform.transform.SetParent(null);
-                    picked = false;
-                    pickedItem.GetComponent<Collider>().enabled = true;
-                    pickedItem = null;
-                }
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, furnitureLayerMask))
-            {
-               
-            }
-        }
+    private void Update() {
+        VisualiseBox.DisplayBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale/2, transform.rotation);
     }
 
     // Draw Gizmos
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
+    //void OnDrawGizmos() {
+    //    Gizmos.color = Color.red;
 
-        Gizmos.DrawWireCube(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0));
-    }
+    //    Gizmos.DrawWireCube(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0));
+    //}
+
+    //private int picUpRange = 1;
+    //private GameObject pickedItem;
+
+    //public GameObject PickedItem { get { return pickedItem; } }
+
+    //[SerializeField] Transform furniturePickupPoint;
+    //private PlayerInputActions playerInputActions;
+    //int furnitureLayerMask = 1 << 6; // Bit shift the index of the layer (6) to get a bit mask
+    //bool picked = false;
+
+
+
+    //Transform objTransform;
+
+    //private void Awake() {
+    //    playerInputActions = new PlayerInputActions();
+    //    playerInputActions.Player.Enable();
+
+    //    playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
+
+    //}
+
+
+    //private void RotateBlueprint_performed(UnityEngine.InputSystem.InputAction.CallbackContext callback) { // Rotate Blueprint
+    //    if (pickedItem != null) {
+    //        float inputVector = playerInputActions.Player.RotateBlueprint.ReadValue<float>();
+    //        if (inputVector == 1) {
+    //            pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles += new Vector3(0, 90f, 0);
+    //        } else {
+    //            pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles -= new Vector3(0, 90f, 0);
+    //        } 
+    //    }
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.R))
+    //    {
+    //        if (!picked)
+    //        {
+
+    //            Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation, furnitureLayerMask); // get All objects when u click "R"
+    //            if (hitColliders.Length == 1) // Works when ther is only one object
+    //            { // Pick up object
+    //                //Debug.Log(hitColliders[0].gameObject.name);
+    //                PlayerController.OnPickup.Invoke(hitColliders[0].transform.gameObject);
+    //                objTransform = hitColliders[0].transform;
+    //                pickedItem = hitColliders[0].transform.gameObject;
+    //                pickedItem.GetComponent<Collider>().enabled = false;
+    //                pickedItem.transform.position = furniturePickupPoint.position; //transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0);
+    //                pickedItem.GetComponent<SnapBlueprint>().CreateBlueprint();
+    //                picked = true;
+    //                hitColliders[0].transform.SetParent(transform);
+
+    //                var lastChild = this.transform.childCount - 1; 
+    //                this.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
+    //            }
+
+    //        } else { // Put down object
+    //            if (pickedItem.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable)
+    //            {
+    //                pickedItem.transform.position = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.position;
+    //                pickedItem.transform.rotation = pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.rotation;
+    //                pickedItem.GetComponent<SnapBlueprint>().DestroyBlueprint();
+    //                objTransform.transform.SetParent(null);
+    //                picked = false;
+    //                pickedItem.GetComponent<Collider>().enabled = true;
+    //                pickedItem = null;
+    //            }
+    //        }
+    //    }
+
+    //    if (Input.GetKeyUp(KeyCode.E))
+    //    {
+
+    //        RaycastHit hit;
+    //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, picUpRange, furnitureLayerMask))
+    //        {
+
+    //        }
+    //    }
+    //}
+
+    //// Draw Gizmos
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+
+    //    Gizmos.DrawWireCube(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0));
+    //}
 }

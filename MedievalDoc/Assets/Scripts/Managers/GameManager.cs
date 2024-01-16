@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(deathCounter >= maxDeaths){
-	    Debug.Log("MAX DEATHS");
+	    //Debug.Log("MAX DEATHS");
 	}
     }
 }

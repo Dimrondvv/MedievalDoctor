@@ -6,7 +6,8 @@ public class SnapBlueprint : MonoBehaviour
 {
     private GameObject blueprint;
     private Vector3 storedPosition; //Variable that stores the position of the picked up item to change blueprint position on ints
-    [SerializeField] PickUpItem playerItem;
+    
+    //[SerializeField] PickUpItem playerItem;
     [SerializeField] Material blueprintBlue;
     [SerializeField] Material blueprintRed;
     [SerializeField] private PlayerController player;
@@ -16,9 +17,9 @@ public class SnapBlueprint : MonoBehaviour
         get { return blueprint; }
     }
 
-    public void CreateBlueprint()
+    public void CreateBlueprint(GameObject pickedObject)
     {
-        blueprint = Instantiate(playerItem.PickedItem, playerItem.transform.rotation * Vector3.forward + playerItem.PickedItem.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
+        blueprint = Instantiate(pickedObject, pickedObject.transform.rotation * Vector3.forward + pickedObject.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
         blueprint.GetComponent<Collider>().isTrigger = true;
         blueprint.GetComponent<Collider>().enabled = true;
         blueprint.AddComponent<Rigidbody>();
@@ -48,8 +49,11 @@ public class SnapBlueprint : MonoBehaviour
     }
     private void Update()
     {
-        if (blueprint == null)
+        if (blueprint == null) 
             return;
-        blueprint.transform.position = RoundPosition(playerItem.transform.rotation * Vector3.forward + playerItem.PickedItem.transform.position);    
+
+        if (player.PickedItem != null) {
+            blueprint.transform.position = RoundPosition(player.PickedItem.transform.rotation * Vector3.forward + player.PickedItem.transform.position);
+        }
     }
 }

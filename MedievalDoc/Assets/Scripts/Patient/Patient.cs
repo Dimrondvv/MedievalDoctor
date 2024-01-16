@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patient : MonoBehaviour, IInteractable
+public class Patient : MonoBehaviour
 {
     [SerializeField] GameObject player;
 
@@ -24,7 +24,7 @@ public class Patient : MonoBehaviour, IInteractable
     {
         SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
         GameManager.Instance.deathCounter+=1;
-        Debug.Log(GameManager.Instance.deathCounter);
+        //Debug.Log(GameManager.Instance.deathCounter);
         //PlayerManager.Instance.PlayerHealth -= 10;
         //Debug.Log(PlayerManager.Instance.PlayerHealth);
         Destroy(this.gameObject); // if dead = destroy object
@@ -43,46 +43,16 @@ public class Patient : MonoBehaviour, IInteractable
         if (interactedObject != this.gameObject)
             return;
 
-        if(controller.GetComponent<PickUpItem>().PickedItem == null)
+        if(controller.PickedItem == null)
         {
             PatientEventManager.Instance.OnHandInteract.Invoke(this);
         }
-        else if(controller.GetComponent<PickUpItem>().PickedItem.GetComponent<SnapBlueprint>() != null)
+        else if(controller.PickedItem.GetComponent<SnapBlueprint>() != null)
         {
-            PatientEventManager.Instance.OnToolInteract.Invoke(controller.GetComponent<PickUpItem>().PickedItem, this);
+            PatientEventManager.Instance.OnToolInteract.Invoke(controller.PickedItem, this);
         }
     }
 
-    
-
-    public void Interact()
-    {
-        GameObject playerItem = player.GetComponent<PickUpItem>().PickedItem;
-        /*if(playerItem == null)
-        {
-            if(!UIManager.Instance.IsNotebookEnabled)
-                UIManager.Instance.EnableNotebook(sickness);
-            else if (UIManager.Instance.IsNotebookEnabled)
-                UIManager.Instance.DisableNoteBook();
-            Debug.Log("abcd");
-        }
-        else //Add the item to usedItems list and then compare it with tools required to cure the patient
-        {
-            usedItems.Add(playerItem);
-            if(CompareItems() == 2)
-            {
-                Debug.Log("Patient cured");
-            }
-            else if(CompareItems() == 1)
-            {
-                Debug.Log("Correct item");
-            }
-            else if(CompareItems() == 0)
-            {
-                Debug.Log("Wrong item");
-            }
-        }*/
-    }
     private void Awake()
     {
         usedItems = new List<GameObject>();

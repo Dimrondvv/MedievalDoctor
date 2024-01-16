@@ -15,20 +15,30 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private Quaternion rotation;
     private Vector3 moveDirection;
+    private GameObject pickedItem;
+
     public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
+    public static UnityEvent<GameObject> OnPickup = new UnityEvent<GameObject>();
+    public static UnityEvent<PlayerController> OnPutdown = new UnityEvent<PlayerController>();
+    public GameObject PickedItem { 
+        get { return pickedItem; } 
+        set { pickedItem = value; }
+    }
 
 
     private void Awake(){
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+        playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
     }
 
-    public GameObject GetPickedItem()
-    {
-        return GetComponent<PickUpItem>().PickedItem;
-    }
+    //public GameObject GetPickedItem()
+    //{
+    //    return GetComponent<PickUpItem>().PickedItem;
+    //}
 
     private void FixedUpdate(){
+        
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
   
         inputVector = inputVector.normalized;
@@ -84,5 +94,21 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 GetPlayerMoveDirection() {
         return moveDirection;
+    }
+
+    public void SetPickedItem(GameObject pickedObject) {
+        pickedItem = pickedObject;
+        
+    }
+
+    private void RotateBlueprint_performed(UnityEngine.InputSystem.InputAction.CallbackContext callback) { // Rotate Blueprint
+        if (pickedItem != null) {
+            float inputVector = playerInputActions.Player.RotateBlueprint.ReadValue<float>();
+            if (inputVector == 1) {
+                pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles += new Vector3(0, 90f, 0);
+            } else {
+                pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles -= new Vector3(0, 90f, 0);
+            }
+        }
     }
 }

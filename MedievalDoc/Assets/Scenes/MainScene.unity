@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 261801710}
   - component: {fileID: 261801709}
   - component: {fileID: 261801708}
+  - component: {fileID: 261801713}
   - component: {fileID: 261801712}
   m_Layer: 6
   m_Name: Cube
@@ -562,10 +563,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74168d17fb6de74f8b5fe9f2a95c6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerItem: {fileID: 1251825722}
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
   player: {fileID: 1251825724}
+--- !u!114 &261801713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261801707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8781600bd1f5ac41a67c97510e4da2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1251825721}
+  furniturePickupPoint: {fileID: 874824704}
+  playerController: {fileID: 1251825724}
+  picked: 0
 --- !u!1 &285061578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4698177314315259816, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}
@@ -1093,6 +1109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43499905c9e69a843951b470bbe8cbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &874824704 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8399770146452407381, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+  m_PrefabInstance: {fileID: 1251825720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,6 +1671,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1057027327184217019, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+      propertyPath: m_Name
+      value: FurniturePickupPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 2315980341070210326, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -1694,6 +1719,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2802415554505426055, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1251825724}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3053,15 +3082,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3083,10 +3112,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1251825724}
-    - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
-      propertyPath: playerItem
+    - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1251825722}
+      objectReference: {fileID: 1251825721}
+    - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1251825724}
+    - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
+      propertyPath: furniturePickupPoint
+      value: 
+      objectReference: {fileID: 874824704}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
