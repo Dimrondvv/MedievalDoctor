@@ -67,13 +67,11 @@ public class Tool : MonoBehaviour
         if (pickedTool == this.gameObject)
         {
             playerController.SetPickedItem(pickedTool);
-            Debug.Log("Podnieœ");
             pickedTool.GetComponent<Collider>().enabled = false;
             pickedTool.transform.position = toolPickupPoint.position;
             pickedTool.transform.SetParent(player.transform);
 
             var lastChild = player.transform.childCount - 1;
-            //Debug.Log(picked);
 
             player.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
         }
