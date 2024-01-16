@@ -23,7 +23,7 @@ public class PickUpItem : MonoBehaviour
     void PlayerPickup(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
         
         if (playerController.PickedItem == null) {
-            Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale/2, transform.rotation);
+            Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), new Vector3(0.5f, 1f, 0.5f), transform.rotation);
             if (hitColliders.Length == 0) {
                 return;
             }
@@ -44,7 +44,7 @@ public class PickUpItem : MonoBehaviour
     }
 
     private void Update() {
-        VisualiseBox.DisplayBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale/2, transform.rotation);
+        VisualiseBox.DisplayBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), new Vector3(0.5f, 1f, 0.5f), transform.rotation);
     }
 
     // Draw Gizmos
