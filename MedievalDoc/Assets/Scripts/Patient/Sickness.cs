@@ -23,7 +23,47 @@ public class SicknessScriptableObject : ScriptableObject
         }
     }
 
-
+    public void AddSymptom(Symptom symptom)
+    {
+        symptomList.Add(new SymptomStruct { symptom = symptom, isTreatable = true, isCritical = false});
+    }
+    public void RemoveSymptom(Symptom symptom)
+    {
+        foreach(var item in symptomList)
+        {
+            if (item.symptom == symptom)
+            {
+                if (item.isCritical && item.isTreatable)
+                {
+                    symptomList.Clear();
+                    return;
+                }
+                else if (item.isTreatable)
+                {
+                    symptomList.Remove(item);
+                    return;
+                }
+            }
+        }
+        Debug.Log("Symptom not found");
+    }
+    public bool CheckSymptom(Symptom symptom)
+    {
+        foreach (var item in symptomList)
+        {
+            if (item.symptom == symptom)
+            {
+                Debug.Log($"Symptom found {item.symptom.name}");
+                return true;
+            }
+        }
+        Debug.Log("Symptom not found");
+        return false;
+    }
+    public bool CheckIfCured()
+    {
+        return symptomList.Count == 0;
+    }
     public void ListSymptoms()
     {
 

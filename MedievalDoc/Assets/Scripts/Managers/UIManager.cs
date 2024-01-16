@@ -5,6 +5,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
+    [SerializeField] GameObject uiPrefab;
 
     private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;
@@ -30,10 +31,8 @@ public class UIManager : MonoBehaviour
     
     public void EnableNotebook(Patient patient)
     {
-        SicknessScriptableObject sickness = patient.sickness; 
-
         instantiatedNotebook = Instantiate(notebookCanvas);
-        instantiatedNotebook.GetComponent<PatientNotebook>().Sickness = sickness;
+        instantiatedNotebook.GetComponent<PatientNotebook>().Patient = patient;
         instantiatedNotebook.SetActive(true);
         isNotebookEnabled = true;
         
@@ -61,5 +60,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         PatientEventManager.Instance.OnHandInteract.AddListener(ChangeNotebookState);
+        uiPrefab.SetActive(true);
     }
 }

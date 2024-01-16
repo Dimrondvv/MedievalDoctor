@@ -7,31 +7,34 @@ public class PatientNotebook : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI symptomsText;
     [SerializeField] private TextMeshProUGUI historyText;
-
-    private SicknessScriptableObject sickness;
-    public SicknessScriptableObject Sickness
+    private Patient patient;
+    public Patient Patient
     {
-        get { return sickness; }
-        set { sickness = value; }
+        get { return patient; }
+        set { patient = value; }
     }
-    public void SetNotebookSymptoms(List<SicknessScriptableObject.SymptomStruct> symptoms)
+    public void SetNotebookSymptoms(Patient patient)
     {
         symptomsText.text = "";
-        foreach (var symptom in symptoms)
+        foreach (var symptom in patient.DiscoveredSymptoms)
         {
-            symptomsText.text += $"-{symptom.GetSymptomName()} \n";
+            symptomsText.text += $"-{symptom} \n";
+        }
+        if(symptomsText.text == "")
+        {
+            symptomsText.text = "No symptoms";
         }
     }
-    public void SetNotebookHistory()
+    public void SetNotebookHistory(string story)
     {
-        historyText.text = "Lorem ipsum dolores chuj";
+        historyText.text = patient.patientStory;
         //TODO: SET HISTORIA
     }
 
     void Start()
     {
-        SetNotebookSymptoms(sickness.symptomList);
-        SetNotebookHistory();
+        SetNotebookSymptoms(patient);
+        SetNotebookHistory(patient.patientStory);
     }
 
     // Update is called once per frame

@@ -23,12 +23,16 @@ public class PlayerInteraction : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), transform.localScale + new Vector3(0, 1f, 0), transform.rotation);
 
         Collider highestCollider = hitColliders[0];
+
         foreach(Collider collider in hitColliders)
-        {
+        {                
             if(collider.transform.position.y > highestCollider.transform.position.y)
                 highestCollider = collider;
         }
-        PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
+        if (highestCollider.GetComponent<PlayerController>() == null)
+        {
+            PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
+        }
     }
 
 }
