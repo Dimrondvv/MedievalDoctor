@@ -31,14 +31,9 @@ public class SicknessScriptableObject : ScriptableObject
     {
         foreach(var item in symptomList)
         {
-            if (item.symptom == symptom)
+            if (item.symptom == symptom) // le troll
             {
-                if (item.isCritical && item.isTreatable)
-                {
-                    symptomList.Clear();
-                    return;
-                }
-                else if (item.isTreatable)
+                if (item.isTreatable)
                 {
                     symptomList.Remove(item);
                     return;
