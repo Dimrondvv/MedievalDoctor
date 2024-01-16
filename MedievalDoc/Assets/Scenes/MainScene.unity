@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 261801708}
   - component: {fileID: 261801712}
   - component: {fileID: 261801713}
+  - component: {fileID: 261801715}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -587,13 +588,12 @@ MonoBehaviour:
     isValid: 0
     symptom: {fileID: 0}
   symptomRemoved:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+    isValid: 0
+    symptom: {fileID: 0}
   symptomChecked:
     isValid: 0
     symptom: {fileID: 0}
   itemIcon: {fileID: 0}
-<<<<<<< Updated upstream
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
   playerController: {fileID: 0}
@@ -609,11 +609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8781600bd1f5ac41a67c97510e4da2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
->>>>>>> Stashed changes
   player: {fileID: 1251825721}
-  toolPickupPoint: {fileID: 1959281113}
+  furniturePickupPoint: {fileID: 1959281113}
   playerController: {fileID: 1251825724}
+  picked: 0
 --- !u!1 &285061578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4698177314315259816, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}

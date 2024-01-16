@@ -16,7 +16,7 @@ public class PatientNotebook : MonoBehaviour
     public void SetNotebookSymptoms(Patient patient)
     {
         symptomsText.text = "";
-        foreach (var symptom in patient.DiscoveredSymptoms.Values)
+        foreach (var symptom in patient.DiscoveredSymptoms)
         {
             symptomsText.text += $"-{symptom} \n";
         }
