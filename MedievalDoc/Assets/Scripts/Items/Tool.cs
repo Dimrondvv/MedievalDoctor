@@ -15,6 +15,10 @@ public class Tool : MonoBehaviour
     [SerializeField] Transform toolPickupPoint;
     [SerializeField] private PlayerController playerController;
     private PlayerInputActions playerInputActions;
+    public Sprite ItemIcon
+    {
+        get { return itemIcon; }
+    }
 
     private void AddSymptom(GameObject tool, Patient patient)
     {

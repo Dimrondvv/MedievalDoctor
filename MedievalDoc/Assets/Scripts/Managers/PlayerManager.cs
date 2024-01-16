@@ -33,10 +33,7 @@ public class PlayerManager : MonoBehaviour
         uiText = UIManager.Instance.UiPrefab;
         uiTextChild = uiText.transform.GetChild(0).gameObject;
     }
-    private void Update()
-    {
-        uiTextChild.GetComponent<TMP_Text>().text = $"Score: {score} \nHealth: {playerHealth} \n$$$: {money}";
-    }
+    
 
     private void IncrementScore(Patient patient)
     {
