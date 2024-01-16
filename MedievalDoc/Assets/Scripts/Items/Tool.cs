@@ -33,11 +33,11 @@ public class Tool : MonoBehaviour
         if (tool != this.gameObject || !symptomRemoved.isValid)
             return;
 
-        patient.sickness.RemoveSymptom(symptomRemoved.symptom);
+        bool isRemoved = patient.sickness.RemoveSymptom(symptomRemoved.symptom);
 
         if(patient.sickness.CheckIfCured())
             PatientEventManager.Instance.OnCureDisease.Invoke(patient);
-        else
+        else if(isRemoved)
             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptomRemoved.symptom, patient);
 
     }
