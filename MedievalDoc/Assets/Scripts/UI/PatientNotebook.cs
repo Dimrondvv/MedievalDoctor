@@ -13,16 +13,16 @@ public class PatientNotebook : MonoBehaviour
         get { return patient; }
         set { patient = value; }
     }
-    public void SetNotebookSymptoms(List<SicknessScriptableObject.SymptomStruct> symptoms)
+    public void SetNotebookSymptoms(Patient patient)
     {
         symptomsText.text = "";
-        foreach (var symptom in symptoms)
+        foreach (var symptom in patient.DiscoveredSymptoms)
         {
-            symptomsText.text += $"-{symptom.GetSymptomName()} \n";
+            symptomsText.text += $"-{symptom} \n";
         }
         if(symptomsText.text == "")
         {
-            symptomsText.text = "Chlop zdrowy B)";
+            symptomsText.text = "No symptoms";
         }
     }
     public void SetNotebookHistory(string story)
@@ -33,7 +33,7 @@ public class PatientNotebook : MonoBehaviour
 
     void Start()
     {
-        SetNotebookSymptoms(patient.sickness.symptomList);
+        SetNotebookSymptoms(patient);
         SetNotebookHistory(patient.patientStory);
     }
 

@@ -69,6 +69,11 @@ public class SpawnPatientTimer : MonoBehaviour
             }
     }
 
+    void FreeUpChair(Patient patient)
+    {
+        SpawnPoints[patient.spawnerID].GetComponent<Chair>().isOccupied = false;
+    }
+
     void TimeCheck()
     {
         if (TimerManager.Instance.ElapsedTime > 1)

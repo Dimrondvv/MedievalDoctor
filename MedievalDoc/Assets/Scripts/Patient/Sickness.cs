@@ -47,17 +47,18 @@ public class SicknessScriptableObject : ScriptableObject
         }
         Debug.Log("Symptom not found");
     }
-    public void CheckSymptom(Symptom symptom)
+    public bool CheckSymptom(Symptom symptom)
     {
         foreach (var item in symptomList)
         {
             if (item.symptom == symptom)
             {
                 Debug.Log($"Symptom found {item.symptom.name}");
-                return;
+                return true;
             }
         }
         Debug.Log("Symptom not found");
+        return false;
     }
     public bool CheckIfCured()
     {

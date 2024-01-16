@@ -17,7 +17,8 @@ public class Patient : MonoBehaviour, IInteractable
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     public int Health { get { return health; } set { health = value; } }
 
-
+    private List<string> discoveredSymptoms = new List<string>();
+    public List<string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
     public bool isAlive;
 
@@ -44,6 +45,11 @@ public class Patient : MonoBehaviour, IInteractable
     private void OnEnable()
     {
         PlayerController.OnInteract.AddListener(InteractWithPatient);
+        if (PatientEventManager.Instance != null)
+        {
+            PatientEventManager.Instance.OnHandInteract.AddListener(DiscoverNonCriticalSymptoms);
+            PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
+        }
     }
     private void OnDisable()
     {
@@ -64,7 +70,30 @@ public class Patient : MonoBehaviour, IInteractable
         }
     }
 
-    
+    private void DiscoverNonCriticalSymptoms(Patient patient)
+    {
+        if (patient != this || DiscoveredSymptoms.Count != 0)
+            return;
+        foreach(var symptom in sickness.symptomList)
+        {
+            if (!symptom.isCritical)
+                DiscoveredSymptoms.Add(symptom.GetSymptomName());
+            else
+                DiscoveredSymptoms.Add("?");
+        }
+    }
+    private void DiscoverSymptom(Symptom symptom, Patient patient)
+    {
+        if (patient != this)
+            return;
+        for(int i = 0; i < patient.DiscoveredSymptoms.Count; i++)
+        {
+            if(patient.DiscoveredSymptoms[i] == "?")
+            {
+                patient.DiscoveredSymptoms[i] = symptom.symptomName; 
+            }
+        }
+    }
 
     public void Interact()
     {

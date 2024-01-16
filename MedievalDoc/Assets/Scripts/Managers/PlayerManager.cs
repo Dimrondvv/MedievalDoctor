@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         uiText.text = $"Score: {score} \nHealth: {playerHealth} \n$$$: {money}";
     }
 
-    private void IncrementScore(GameObject toolUsed, Patient patient)
+    private void IncrementScore(Patient patient)
     {
         score++;
         Destroy(patient.gameObject);
