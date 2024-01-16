@@ -777,17 +777,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
   m_PrefabInstance: {fileID: 488478473}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &488478475 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4153168815528365451, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
-  m_PrefabInstance: {fileID: 488478473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &488478476 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1152872908189070028, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
@@ -904,6 +893,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518000703}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &608948162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1222643312366437849, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+  m_PrefabInstance: {fileID: 1245927511457461819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692550289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,7 +2716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 97194763017634155, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8.51
       objectReference: {fileID: 0}
     - target: {fileID: 97194763017634155, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2754,10 +2754,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1251825724}
-    - target: {fileID: 3238783951277862441, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: playerItem
-      value: 
-      objectReference: {fileID: 1251825722}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_Name
       value: SickCharacter
@@ -2996,7 +2992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6be99e942c8224480dab087b873fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 488478475}
 --- !u!4 &1999111985
 Transform:
   m_ObjectHideFlags: 0
@@ -3230,6 +3225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4790751406883457929, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: historyText
+      value: 
+      objectReference: {fileID: 608948162}
     - target: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_Name
       value: Notebook Canvas
