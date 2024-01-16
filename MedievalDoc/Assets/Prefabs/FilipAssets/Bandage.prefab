@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3666776307591895051}
   - component: {fileID: 8560332493809285954}
+  - component: {fileID: 654025317762458701}
   m_Layer: 0
   m_Name: Bandage
   m_TagString: Untagged
@@ -58,6 +59,28 @@ MonoBehaviour:
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
   playerController: {fileID: 0}
+--- !u!64 &654025317762458701
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2842683310417224088, guid: c1d5ccc497b501646ac77cf29216b508, type: 3}
 --- !u!1001 &3025894020605814952
 PrefabInstance:
   m_ObjectHideFlags: 0
