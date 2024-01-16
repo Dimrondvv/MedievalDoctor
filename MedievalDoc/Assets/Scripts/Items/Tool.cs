@@ -35,7 +35,7 @@ public class Tool : MonoBehaviour
         if(patient.sickness.CheckIfCured())
             PatientEventManager.Instance.OnCureDisease.Invoke(patient);
         else
-            PatientEventManager.Instance.OnRemoveSymptom.Invoke(tool, patient);
+            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptomRemoved.symptom, patient);
 
     }
     private void CheckSymptom(GameObject tool, Patient patient)
