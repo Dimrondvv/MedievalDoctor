@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,9 +461,7 @@ GameObject:
   - component: {fileID: 261801710}
   - component: {fileID: 261801709}
   - component: {fileID: 261801708}
-  - component: {fileID: 261801712}
   - component: {fileID: 261801713}
-  - component: {fileID: 261801715}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -557,21 +555,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &261801712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261801707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74168d17fb6de74f8b5fe9f2a95c6a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
-  blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
-  player: {fileID: 1251825724}
 --- !u!114 &261801713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,31 +571,15 @@ MonoBehaviour:
     isValid: 0
     symptom: {fileID: 0}
   symptomRemoved:
-    isValid: 0
-    symptom: {fileID: 0}
+    isValid: 1
+    symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
   symptomChecked:
     isValid: 0
     symptom: {fileID: 0}
   itemIcon: {fileID: 0}
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
---- !u!114 &261801715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261801707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8781600bd1f5ac41a67c97510e4da2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   player: {fileID: 1251825721}
-  furniturePickupPoint: {fileID: 1959281113}
+  toolPickupPoint: {fileID: 1959281113}
   playerController: {fileID: 1251825724}
-  picked: 0
 --- !u!1 &285061578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4698177314315259816, guid: 3c63bb7bec7b09b449aee6904c4f6c5d, type: 3}

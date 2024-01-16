@@ -21,8 +21,7 @@ public class Tool : MonoBehaviour
         if (tool != this.gameObject || !symptomAdded.isValid)
             return;
 
-        patient.sickness.AddSymptom(symptomAdded.symptom);
-        PatientEventManager.Instance.OnAddSymptom.Invoke(tool, patient);
+        PatientEventManager.Instance.OnAddSymptom.Invoke(symptomAdded.symptom, patient);
 
     }
     private void RemoveSymptom(GameObject tool, Patient patient)
