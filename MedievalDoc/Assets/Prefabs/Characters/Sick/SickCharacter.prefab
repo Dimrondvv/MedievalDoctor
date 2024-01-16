@@ -802,6 +802,7 @@ GameObject:
   - component: {fileID: 2487607957396924146}
   - component: {fileID: 3238783951277862441}
   - component: {fileID: 5812179973506052653}
+  - component: {fileID: 5717076916740530043}
   m_Layer: 6
   m_Name: SickCharacter
   m_TagString: Untagged
@@ -897,6 +898,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &5717076916740530043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227786057089029331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60367d43f9341a4e85dfe36a93e6fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  player: {fileID: 0}
+  toolPickupPoint: {fileID: 0}
 --- !u!1 &6265525569222478492
 GameObject:
   m_ObjectHideFlags: 0

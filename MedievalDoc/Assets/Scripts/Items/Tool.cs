@@ -29,12 +29,12 @@ public class Tool : MonoBehaviour
         if (tool != this.gameObject || !symptomRemoved.isValid)
             return;
 
-        patient.sickness.RemoveSymptom(symptomRemoved.symptom);
+        patient.sickness.RemoveSymptom(symptomAdded.symptom);
 
         if(patient.sickness.CheckIfCured())
             PatientEventManager.Instance.OnCureDisease.Invoke(patient);
         else
-            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptomRemoved.symptom, patient);
+            PatientEventManager.Instance.OnRemoveSymptom.Invoke(tool, patient);
 
     }
     private void CheckSymptom(GameObject tool, Patient patient)
@@ -66,13 +66,11 @@ public class Tool : MonoBehaviour
         if (pickedTool == this.gameObject)
         {
             playerController.SetPickedItem(pickedTool);
-            Debug.Log("Podnieœ");
             pickedTool.GetComponent<Collider>().enabled = false;
             pickedTool.transform.position = toolPickupPoint.position;
             pickedTool.transform.SetParent(player.transform);
 
             var lastChild = player.transform.childCount - 1;
-            //Debug.Log(picked);
 
             player.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
         }

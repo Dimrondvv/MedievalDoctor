@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Furniture : MonoBehaviour
 {
-    private int picUpRange = 1;
     [SerializeField] GameObject player;
     [SerializeField] Transform furniturePickupPoint;
     private PlayerInputActions playerInputActions;
@@ -37,14 +36,12 @@ public class Furniture : MonoBehaviour
     private void PickupFurniture(GameObject pickedFurniture) {
         if (pickedFurniture == this.gameObject) {
             playerController.SetPickedItem(pickedFurniture);
-            Debug.Log("Podnieœ");
             pickedFurniture.GetComponent<Collider>().enabled = false;
             pickedFurniture.transform.position = furniturePickupPoint.position;
             pickedFurniture.GetComponent<SnapBlueprint>().CreateBlueprint(pickedFurniture);
             pickedFurniture.transform.SetParent(player.transform);
 
             var lastChild = player.transform.childCount - 1;
-            //Debug.Log(picked);
 
             player.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
         }   
@@ -52,7 +49,6 @@ public class Furniture : MonoBehaviour
 
     private void PutdownFurniture(PlayerController pickedFurniture, Transform trans) {
         if (pickedFurniture.PickedItem != null && playerController.PickedItem.GetComponent<Furniture>() != null) {
-            Debug.Log("FURNITURE - Putdown");
             GameObject putDownFurniture = pickedFurniture.PickedItem;
             if (putDownFurniture.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable) {
                 putDownFurniture.transform.position = putDownFurniture.GetComponent<SnapBlueprint>().Blueprint.transform.position;

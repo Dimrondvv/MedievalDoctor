@@ -34,7 +34,7 @@ public class PickUpItem : MonoBehaviour
             if (collider.transform.position.y > highestCollider.transform.position.y)
                 highestCollider = collider;
 
-            if (collider.GetComponentInChildren<ItemLayDownPoint>())
+            if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>())
                 itemLaydownPoint = collider.transform;
         }
         
