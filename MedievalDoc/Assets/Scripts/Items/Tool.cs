@@ -15,6 +15,7 @@ public class Tool : MonoBehaviour
     [SerializeField] Transform toolPickupPoint;
     [SerializeField] private PlayerController playerController;
     private PlayerInputActions playerInputActions;
+    
 
     private void AddSymptom(GameObject tool, Patient patient)
     {
@@ -81,14 +82,12 @@ public class Tool : MonoBehaviour
         
         if (pickedTool.PickedItem != null && playerController.PickedItem.GetComponent<Tool>() != null && pickupPoint)
         { 
-
-            GameObject putDownFurniture = pickedTool.PickedItem;
-            putDownFurniture.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position;
-            putDownFurniture.transform.rotation = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.rotation;
-            putDownFurniture.transform.SetParent(pickupPoint);
-            putDownFurniture.GetComponent<Collider>().enabled = true;
-            playerController.SetPickedItem(null);
-            
+            GameObject putDownTool = pickedTool.PickedItem;
+            putDownTool.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position;
+            putDownTool.transform.rotation = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.rotation;
+            putDownTool.transform.SetParent(pickupPoint);
+            putDownTool.GetComponent<Collider>().enabled = true;
+            playerController.SetPickedItem(null);  
         }
     }
 
