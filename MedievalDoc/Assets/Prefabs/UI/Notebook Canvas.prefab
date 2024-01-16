@@ -731,8 +731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53925b8691e343249bd20fc58ff65cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptomsText: {fileID: 5187810880310492048}
-  historyText: {fileID: 8207706798667910983}
+  symptomsText: {fileID: 7430747740795456587}
+  historyText: {fileID: 7809470798179317438}
 --- !u!1 &6429311441645746831
 GameObject:
   m_ObjectHideFlags: 0
