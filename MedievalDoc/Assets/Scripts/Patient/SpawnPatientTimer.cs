@@ -27,10 +27,12 @@ public class SpawnPatientTimer : MonoBehaviour
         CheckSpawners();
         if (availableSpawners == 0)
         {
+            Debug.Log("No available chairs for patients.");
         }
 
         else if (currentSpawnedPatients == maxPatientCounter)
         {
+            Debug.Log("Maximum ammount of Patients has been reached.");
         }
         else
         {
