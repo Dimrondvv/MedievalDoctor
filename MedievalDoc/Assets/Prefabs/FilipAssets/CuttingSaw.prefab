@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
+    isValid: 1
+    symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
   symptomRemoved:
-    isValid: 0
-    symptom: {fileID: 0}
+    isValid: 1
+    symptom: {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
   symptomChecked:
     isValid: 0
     symptom: {fileID: 0}

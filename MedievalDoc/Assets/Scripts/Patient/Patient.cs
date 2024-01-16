@@ -21,9 +21,10 @@ public class Patient : MonoBehaviour
     [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
     public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
 
+    private List<Symptom> additionalSymptoms = new List<Symptom>();
 
-    private List<string> discoveredSymptoms = new List<string>();
-    public List<string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
+    private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
+    public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
     public bool isAlive;
 
@@ -40,6 +41,10 @@ public class Patient : MonoBehaviour
     private void Start(){
         health = 100;
         maxHealth = 100;
+        if (sickness)
+            DiscoverNonCriticalSymptoms(this);
+        else
+            Debug.LogError("No sickness");
     }
 
 
@@ -55,11 +60,13 @@ public class Patient : MonoBehaviour
 
     private void OnEnable()
     {
+
         PlayerController.OnInteract.AddListener(InteractWithPatient);
         if (PatientEventManager.Instance != null)
         {
-            PatientEventManager.Instance.OnHandInteract.AddListener(DiscoverNonCriticalSymptoms);
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
+            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
+            PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
         }
     }
     private void OnDisable()
@@ -75,41 +82,53 @@ public class Patient : MonoBehaviour
         {
             PatientEventManager.Instance.OnHandInteract.Invoke(this);
         }
-        else if(controller.PickedItem.GetComponent<SnapBlueprint>() != null)
+        else if(controller.PickedItem.GetComponent<Tool>() != null)
         {
             PatientEventManager.Instance.OnToolInteract.Invoke(controller.PickedItem, this);
         }
+    }
+
+    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient)
+    {
+        if (patient != this)
+            return;
+        patient.DiscoveredSymptoms.Remove(symptom);
+    }
+
+    private void AddAdditionalSymptom(Symptom symptom, Patient patient)
+    {
+        if (patient != this)
+            return;
+
+        patient.additionalSymptoms.Add(symptom);
+        patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
     }
 
     private void DiscoverNonCriticalSymptoms(Patient patient)
     {
         if (patient != this || DiscoveredSymptoms.Count != 0)
             return;
+
         foreach(var symptom in sickness.symptomList)
         {
             if (!symptom.isCritical)
-                DiscoveredSymptoms.Add(symptom.GetSymptomName());
+                DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());
             else
-                DiscoveredSymptoms.Add("?");
+                DiscoveredSymptoms.Add(symptom.symptom, "?");
         }
     }
     private void DiscoverSymptom(Symptom symptom, Patient patient)
     {
         if (patient != this)
             return;
-        for(int i = 0; i < patient.DiscoveredSymptoms.Count; i++)
-        {
-            if(patient.DiscoveredSymptoms[i] == "?")
-            {
-                patient.DiscoveredSymptoms[i] = symptom.symptomName; 
-            }
-        }
+        patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
 
     
     private void Awake()
     {
         usedItems = new List<GameObject>();
+        
     }
     private int CompareItems() //Compares items used on a patient to the items needed to cure, returns 0 if wrong item is used, 1 if
     {                          //the items so far are correct, and 3 if all the items are correct and requirements for curement are met
