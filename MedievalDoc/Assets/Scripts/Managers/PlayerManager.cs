@@ -17,7 +17,8 @@ public class PlayerManager : MonoBehaviour
     private int money; // money
     public int Money { get { return money; } set { money = value; } }
 
-    [SerializeField] TextMeshProUGUI uiText;
+    private GameObject uiText;
+    private GameObject uiTextChild;
 
     private void Awake()
     {
@@ -29,10 +30,12 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         PatientEventManager.Instance.OnCureDisease.AddListener(IncrementScore);
+        uiText = UIManager.Instance.UiPrefab;
+        uiTextChild = uiText.transform.GetChild(0).gameObject;
     }
     private void Update()
     {
-        uiText.text = $"Score: {score} \nHealth: {playerHealth} \n$$$: {money}";
+        uiTextChild.GetComponent<TMP_Text>().text = $"Score: {score} \nHealth: {playerHealth} \n$$$: {money}";
     }
 
     private void IncrementScore(Patient patient)
@@ -40,5 +43,4 @@ public class PlayerManager : MonoBehaviour
         score++;
         Destroy(patient.gameObject);
     }
-
 }

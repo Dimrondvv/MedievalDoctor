@@ -53,6 +53,7 @@ public class SpawnPatientTimer : MonoBehaviour
         {
             Patient.GetComponent<Patient>().spawnerID = spawnerID;
             SpawnedPatient = Instantiate(Patient, SpawnPoints[spawnerID].transform.position, Quaternion.identity);
+            SpawnedPatient.SetActive(true);
             SpawnedPatient.GetComponent<PatientDamage>().enabled = true;
             SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = true;
             randomizeSickness.RandomizeSicknessFunction();

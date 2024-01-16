@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5634228055233779756}
   - component: {fileID: 4153168815528365451}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4183768770763891736}
   - component: {fileID: 6583401901481503406}
   m_Layer: 5
-  m_Name: UIPrefab
+  m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
