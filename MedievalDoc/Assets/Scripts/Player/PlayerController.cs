@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
     public static UnityEvent<GameObject> OnPickup = new UnityEvent<GameObject>();
-    public static UnityEvent<PlayerController> OnPutdown = new UnityEvent<PlayerController>();
+    public static UnityEvent<PlayerController, Transform> OnPutdown = new UnityEvent<PlayerController, Transform>();
     public GameObject PickedItem { 
         get { return pickedItem; } 
         set { pickedItem = value; }
