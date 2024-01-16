@@ -594,6 +594,9 @@ MonoBehaviour:
     isValid: 0
     symptom: {fileID: 0}
   itemIcon: {fileID: 0}
+  player: {fileID: 0}
+  toolPickupPoint: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &261801715
 MonoBehaviour:
   m_ObjectHideFlags: 0
