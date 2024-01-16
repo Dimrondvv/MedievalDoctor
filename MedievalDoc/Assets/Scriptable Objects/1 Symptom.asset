@@ -19,7 +19,7 @@ MonoBehaviour:
   symptomList:
   - symptom: {fileID: 11400000, guid: d4e44b3a71aace745b15448bed59075c, type: 2}
     isTreatable: 1
-    isCritical: 0
+    isCritical: 1
   stories:
   - MAm autyzm
   - mam autyzm
