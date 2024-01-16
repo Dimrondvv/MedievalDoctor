@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
-  m_Name: Symptom1
+  m_Name: Poor eyesight
   m_EditorClassIdentifier: 
-  symptomName: Bleeding
-  toolsRequired:
-  - {fileID: 9160934616160321296, guid: c45529f4c165c3a45b90fc20fab9a970, type: 3}
-  damage: 1
+  symptomName: Poor eyesight
+  toolsRequired: []
+  damage: 0

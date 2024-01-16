@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
+  m_Name: Arrow
+  m_EditorClassIdentifier: 
+  toolsRequired: []
+  sicknessName: Struck with arrow
+  symptomList:
+  - symptom: {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
+    isTreatable: 1
+    isCritical: 0
+  - symptom: {fileID: 11400000, guid: 9a607e11757ae1c48b7095cd3bb2d73b, type: 2}
+    isTreatable: 1
+    isCritical: 0
+  - symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+    isTreatable: 1
+    isCritical: 0
+  - symptom: {fileID: 11400000, guid: 3488f744b0bf1b24491cd6cdfa6e8a10, type: 2}
+    isTreatable: 1
+    isCritical: 1
+  stories:
+  - I was an adventurer once, but i took an arrow to the knee
