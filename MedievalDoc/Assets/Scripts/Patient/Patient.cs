@@ -22,8 +22,8 @@ public class Patient : MonoBehaviour
     public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
 
 
-    private List<string> discoveredSymptoms = new List<string>();
-    public List<string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
+    private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
+    public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
     public bool isAlive;
 
@@ -60,6 +60,7 @@ public class Patient : MonoBehaviour
         {
             PatientEventManager.Instance.OnHandInteract.AddListener(DiscoverNonCriticalSymptoms);
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
+            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
         }
     }
     private void OnDisable()
@@ -81,6 +82,13 @@ public class Patient : MonoBehaviour
         }
     }
 
+    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient)
+    {
+        if (patient != this)
+            return;
+        patient.DiscoveredSymptoms.Remove(symptom);
+    }
+
     private void DiscoverNonCriticalSymptoms(Patient patient)
     {
         if (patient != this || DiscoveredSymptoms.Count != 0)
@@ -88,22 +96,16 @@ public class Patient : MonoBehaviour
         foreach(var symptom in sickness.symptomList)
         {
             if (!symptom.isCritical)
-                DiscoveredSymptoms.Add(symptom.GetSymptomName());
+                DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());
             else
-                DiscoveredSymptoms.Add("?");
+                DiscoveredSymptoms.Add(symptom.symptom, "?");
         }
     }
     private void DiscoverSymptom(Symptom symptom, Patient patient)
     {
         if (patient != this)
             return;
-        for(int i = 0; i < patient.DiscoveredSymptoms.Count; i++)
-        {
-            if(patient.DiscoveredSymptoms[i] == "?")
-            {
-                patient.DiscoveredSymptoms[i] = symptom.symptomName; 
-            }
-        }
+        patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
 
     
