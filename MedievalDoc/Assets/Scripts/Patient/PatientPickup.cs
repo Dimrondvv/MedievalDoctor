@@ -25,7 +25,7 @@ public class PatientPickup : MonoBehaviour
 
             var lastChild = player.transform.childCount - 1;
 
-            player.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
+            player.transform.GetChild(lastChild).localEulerAngles = Vector3.zero;
         }
     }
 
@@ -37,7 +37,7 @@ public class PatientPickup : MonoBehaviour
             GameObject putDownFurniture = pickedTool.PickedItem;
             Quaternion rotation = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.rotation;
             putDownFurniture.transform.position = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.position;
-            putDownFurniture.transform.eulerAngles = new Vector3(-90f, rotation.y, rotation.z);
+            putDownFurniture.transform.rotation = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.rotation;
             putDownFurniture.transform.SetParent(pickupPoint);
             putDownFurniture.GetComponent<Collider>().enabled = true;
             playerController.SetPickedItem(null);
