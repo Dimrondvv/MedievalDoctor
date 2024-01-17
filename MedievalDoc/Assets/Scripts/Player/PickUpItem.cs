@@ -21,7 +21,7 @@ public class PickUpItem : MonoBehaviour
 
 
     void PlayerPickup(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
-        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), new Vector3(0.5f, 1f, 0.5f), transform.rotation);
+        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + new Vector3(0, 1f, 0), new Vector3(0.25f, 1f, 0.25f), transform.rotation);
         if (hitColliders.Length == 0)
         {
             return;
@@ -51,6 +51,7 @@ public class PickUpItem : MonoBehaviour
     }
 
     private void Update() {
-        VisualiseBox.DisplayBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), new Vector3(0.5f, 1f, 0.5f), transform.rotation);
+        VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + new Vector3(0, 1f, 0), new Vector3(0.25f, 1f, 0.25f), transform.rotation);
+        Debug.Log(transform.rotation * Vector3.forward + transform.position);
     }
 }
