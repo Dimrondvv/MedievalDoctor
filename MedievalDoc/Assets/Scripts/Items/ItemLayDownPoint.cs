@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ItemLayDownPoint : MonoBehaviour
 {
-    //========================================================================
-    // Only for children finding purposes!!!!!!!!!!!!!!!!!!!!!!!
-    //========================================================================
+    private bool isOccupied;
+    public bool checkIfOccupied {
+        get { return isOccupied; }
+        set { isOccupied = value; }
+    }
 }

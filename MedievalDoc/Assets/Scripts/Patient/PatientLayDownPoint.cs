@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PatientLayDownPoint : MonoBehaviour
 {
-    //========================================================================
-    // Only for children finding purposes!!!!!!!!!!!!!!!!!!!!!!!
-    //========================================================================
+    private bool isOccupied;
+    public bool IfOccupied {
+        get { return isOccupied; }
+        set { isOccupied = value; }
+    }
 }

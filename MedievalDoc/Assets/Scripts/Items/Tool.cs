@@ -62,10 +62,14 @@ public class Tool : MonoBehaviour
         PlayerController.OnPutdown.AddListener(PutdownTool);
     }
 
-    private void PickupTool(GameObject pickedTool)
+    private void PickupTool(GameObject pickedTool, Transform objectPoint)
     {
         if (pickedTool == this.gameObject)
         {
+            if (objectPoint != null) {
+                objectPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = false;
+            }
+
             playerController.SetPickedItem(pickedTool);
             pickedTool.GetComponent<Collider>().enabled = false;
             pickedTool.transform.position = toolPickupPoint.position;
@@ -80,9 +84,10 @@ public class Tool : MonoBehaviour
     private void PutdownTool(PlayerController pickedTool, Transform pickupPoint)
     {
         
-        if (pickedTool.PickedItem != null && playerController.PickedItem.GetComponent<Tool>() != null && pickupPoint)
+        if (pickedTool.PickedItem != null && playerController.PickedItem.GetComponent<Tool>() != null && pickupPoint && pickupPoint.GetComponentInChildren<ItemLayDownPoint>() && !pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied)
         { 
             GameObject putDownTool = pickedTool.PickedItem;
+            pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = true;
             putDownTool.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position;
             putDownTool.transform.rotation = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.rotation;
             putDownTool.transform.SetParent(pickupPoint);

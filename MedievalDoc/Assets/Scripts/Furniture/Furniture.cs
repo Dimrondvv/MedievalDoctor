@@ -33,7 +33,7 @@ public class Furniture : MonoBehaviour
         PlayerController.OnPutdown.RemoveListener(PutdownFurniture);
     }
 
-    private void PickupFurniture(GameObject pickedFurniture) {
+    private void PickupFurniture(GameObject pickedFurniture, Transform objectPoint) {
         if (pickedFurniture == this.gameObject) {
             playerController.SetPickedItem(pickedFurniture);
             pickedFurniture.GetComponent<Collider>().enabled = false;

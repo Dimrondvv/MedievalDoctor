@@ -28,24 +28,25 @@ public class PickUpItem : MonoBehaviour
         }
 
         Collider highestCollider = hitColliders[0];
-        Transform itemLaydownPoint = null;
+        Transform itemPoint = null;
         foreach (Collider collider in hitColliders)
         {
-            if (collider.transform.position.y > highestCollider.transform.position.y)
+            if (collider.transform.position.y > highestCollider.transform.position.y) {
                 highestCollider = collider;
+            }
+                
 
             if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>())
-                itemLaydownPoint = collider.transform;
+                itemPoint = collider.transform;
         }
         
         if (playerController.PickedItem == null) {
             if (highestCollider.GetComponent<PlayerController>() == null)
             {
-                Debug.Log("Podnosi: " + highestCollider);
-                PlayerController.OnPickup.Invoke(highestCollider.gameObject);
+                PlayerController.OnPickup.Invoke(highestCollider.gameObject, itemPoint);
             }
         } else {
-                PlayerController.OnPutdown.Invoke(playerController, itemLaydownPoint);
+                PlayerController.OnPutdown.Invoke(playerController, itemPoint);
         }
     }
 
