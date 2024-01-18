@@ -22,7 +22,7 @@ public class PlayerUI : MonoBehaviour
         PlayerController.OnPutdown.AddListener(NullItemSlot);
     }
 
-    private void SetItemSlot(GameObject item)
+    private void SetItemSlot(GameObject item, Transform obj)
     {
         Tool tool = item.GetComponent<Tool>();
         if (!tool)
