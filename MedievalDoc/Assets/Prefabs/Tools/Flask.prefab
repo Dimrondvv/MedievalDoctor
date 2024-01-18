@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3666776307591895051}
   - component: {fileID: 8328407067703756327}
-  - component: {fileID: 3434734592631689083}
   m_Layer: 0
   m_Name: Flask
   m_TagString: Untagged
@@ -46,40 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
-  itemIcon: {fileID: 0}
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
---- !u!114 &3434734592631689083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622855080629322249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
+  symptomAdded: {fileID: 0}
+  symptomRemoved: {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
+  symptomChecked: {fileID: 0}
   itemIcon: {fileID: 0}
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}

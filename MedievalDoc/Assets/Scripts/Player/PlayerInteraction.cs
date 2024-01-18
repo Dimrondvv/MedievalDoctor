@@ -20,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     void PlayerInteract(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         
-        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * Vector3.forward + transform.position + new Vector3(0, 1f, 0), new Vector3(0.5f, 1f, 0.5f) , transform.rotation);
+        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + new Vector3(0, 1f, 0), new Vector3(0.25f, 1f, 0.25f), transform.rotation);
 
         Collider highestCollider = hitColliders[0];
 

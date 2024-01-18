@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1219,6 +1219,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518000703}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &525721548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4622855080629322249, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
+  m_PrefabInstance: {fileID: 1338453720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &558231612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
@@ -1244,22 +1249,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1251825724}
-    - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-      propertyPath: symptomAdded.isValid
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-      propertyPath: symptomAdded.symptom
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-      propertyPath: symptomRemoved.isValid
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-      propertyPath: symptomRemoved.symptom
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1304,13 +1293,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuttingSaw
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5468742773611710801, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1251825721}
+    - target: {fileID: 5468742773611710801, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+      propertyPath: toolPickupPoint
+      value: 
+      objectReference: {fileID: 1251825723}
+    - target: {fileID: 5468742773611710801, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1251825724}
+    m_RemovedComponents:
+    - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4320257882572419364, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1092880122}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
 --- !u!4 &609178786 stripped
 Transform:
@@ -2059,36 +2058,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
   m_PrefabInstance: {fileID: 998016714}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1092880118 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4320257882572419364, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-  m_PrefabInstance: {fileID: 609178785}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1092880122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092880118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
-  itemIcon: {fileID: 0}
-  player: {fileID: 1251825721}
-  toolPickupPoint: {fileID: 1251825723}
-  playerController: {fileID: 1251825724}
 --- !u!1 &1106126354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,40 +3149,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandage
       objectReference: {fileID: 0}
-    - target: {fileID: 8560332493809285954, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1251825721}
-    - target: {fileID: 8560332493809285954, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      propertyPath: toolPickupPoint
-      value: 
-      objectReference: {fileID: 1251825723}
-    - target: {fileID: 8560332493809285954, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1251825724}
-    - target: {fileID: 8560332493809285954, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      propertyPath: symptomChecked.isValid
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560332493809285954, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      propertyPath: symptomChecked.symptom
-      value: 
-      objectReference: {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
-    - target: {fileID: 8560332493809285954, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      propertyPath: symptomRemoved.isValid
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8713386820704438159, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4622855080629322249, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1338453723}
   m_SourcePrefab: {fileID: 100100000, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
 --- !u!4 &1338453721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3666776307591895051, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
   m_PrefabInstance: {fileID: 1338453720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1338453723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525721548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  symptomsAdded: []
+  symptomsRemoved:
+  - {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
+  - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+  - {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
+  - {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
+  - {fileID: 11400000, guid: c5e6adf1ec6a6384bbb9f18c78dba87f, type: 2}
+  - {fileID: 11400000, guid: 62a4bd26cb5381748a26469541ed584e, type: 2}
+  - {fileID: 11400000, guid: 9a607e11757ae1c48b7095cd3bb2d73b, type: 2}
+  - {fileID: 11400000, guid: 3488f744b0bf1b24491cd6cdfa6e8a10, type: 2}
+  - {fileID: 11400000, guid: d43bafb74962721479654c989012e6f6, type: 2}
+  - {fileID: 11400000, guid: c42c8ee49b8a20345a18c28f2163664d, type: 2}
+  - {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
+  symptomsChecked: []
+  player: {fileID: 1251825721}
+  toolPickupPoint: {fileID: 1251825723}
+  playerController: {fileID: 1251825724}
 --- !u!1 &1401758648
 GameObject:
   m_ObjectHideFlags: 0
@@ -5436,18 +5415,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bone manipulator
       objectReference: {fileID: 0}
-    - target: {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1251825721}
-    - target: {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
-      propertyPath: toolPickupPoint
-      value: 
-      objectReference: {fileID: 1251825723}
-    - target: {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1251825724}
     - target: {fileID: 7988666620461382551, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6096,18 +6063,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cast
       objectReference: {fileID: 0}
-    - target: {fileID: 6462084872254177113, guid: e8281acf74f329748b908c4e045a5c6a, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1251825721}
-    - target: {fileID: 6462084872254177113, guid: e8281acf74f329748b908c4e045a5c6a, type: 3}
-      propertyPath: toolPickupPoint
-      value: 
-      objectReference: {fileID: 1251825723}
-    - target: {fileID: 6462084872254177113, guid: e8281acf74f329748b908c4e045a5c6a, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1251825724}
     - target: {fileID: 9046181329431136124, guid: e8281acf74f329748b908c4e045a5c6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
   m_Name: Cold
   m_EditorClassIdentifier: 
-  toolsRequired: []
   sicknessName: Cold
   symptomList:
   - symptom: {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
-    isTreatable: 1
-    isCritical: 0
+    isHidden: 0
+    symptomsRequiredToCure: []
   - symptom: {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
-    isTreatable: 1
-    isCritical: 0
+    isHidden: 0
+    symptomsRequiredToCure: []
   stories:
   - 'Damn i''m coughing and i have runny nose '
+  solution:
+  - {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
+  - {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}

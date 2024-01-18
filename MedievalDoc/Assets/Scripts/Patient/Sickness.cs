@@ -8,13 +8,14 @@ public class SicknessScriptableObject : ScriptableObject
     public string sicknessName;
     public List<SymptomStruct> symptomList;
     public List<string> stories;
+    public List<Symptom> solution;
+
 
     [System.Serializable]
     public struct SymptomStruct
     {
         public Symptom symptom;
-        public bool isTreatable;
-        public bool isCritical;
+        public bool isHidden;
 
         public List<Symptom> symptomsRequiredToCure;
 
@@ -24,10 +25,7 @@ public class SicknessScriptableObject : ScriptableObject
         }
     }
 
-    public void AddSymptom(Symptom symptom)
-    {
-        symptomList.Add(new SymptomStruct { symptom = symptom, isTreatable = true, isCritical = false});
-    }
+    
     public bool RemoveSymptom(Symptom symptom)
     {
         
@@ -45,12 +43,6 @@ public class SicknessScriptableObject : ScriptableObject
                             return false;
                         }
                     }
-                }
-
-                if(item.isTreatable)
-                {
-                    symptomList.Remove(item);
-                    return true;
                 }
             }
         }
@@ -70,10 +62,7 @@ public class SicknessScriptableObject : ScriptableObject
         Debug.Log("Symptom not found");
         return false;
     }
-    public bool CheckIfCured()
-    {
-        return symptomList.Count == 0;
-    }
+    
     public void ListSymptoms()
     {
 

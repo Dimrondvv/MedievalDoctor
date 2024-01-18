@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5829057166216073224}
   - component: {fileID: 5263296848044763810}
   - component: {fileID: 2950757146899064251}
-  - component: {fileID: 6462084872254177113}
   m_Layer: 0
   m_Name: Cast
   m_TagString: Untagged
@@ -106,28 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6462084872254177113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5305930737236678767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
-  itemIcon: {fileID: 0}
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}

@@ -66,6 +66,7 @@ public class Patient : MonoBehaviour
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
+            PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
         }
     }
     private void OnDisable()
@@ -110,7 +111,7 @@ public class Patient : MonoBehaviour
 
         foreach(var symptom in sickness.symptomList)
         {
-            if (!symptom.isCritical)
+            if (!symptom.isHidden)
                 DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());
             else
                 DiscoveredSymptoms.Add(symptom.symptom, "?");
@@ -122,7 +123,25 @@ public class Patient : MonoBehaviour
             return;
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
+    private void CheckIfCured(Symptom symptom, Patient patient)
+    {
+        if (patient != this)
+            return;
 
+        bool noAdditionalSymptoms = additionalSymptoms.Count == 0;
+        bool solutionMet = true;
+        foreach(Symptom symptomCheck in sickness.solution)
+        {
+            foreach(SicknessScriptableObject.SymptomStruct symptomStruct in sickness.symptomList)
+            {
+                if (symptomStruct.symptom == symptomCheck)
+                    solutionMet = false;
+            }
+        }
+        bool isCured = noAdditionalSymptoms && solutionMet;
+        if (isCured)
+            PatientEventManager.Instance.OnCureDisease.Invoke(this);
+    }
     
     
 }

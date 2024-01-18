@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1776295105101967039}
   - component: {fileID: 2740899947582956783}
   - component: {fileID: 5858339564366882699}
-  - component: {fileID: 7555070359265769310}
   m_Layer: 0
   m_Name: Bone manipulator
   m_TagString: Untagged
@@ -106,28 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7555070359265769310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4576028313648356371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
-  itemIcon: {fileID: 0}
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}

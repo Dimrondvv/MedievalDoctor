@@ -118,15 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
+  symptomAdded: {fileID: 0}
+  symptomRemoved: {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
+  symptomChecked: {fileID: 0}
   itemIcon: {fileID: 0}
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}

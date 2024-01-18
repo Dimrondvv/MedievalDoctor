@@ -119,14 +119,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
+  - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+  - {fileID: 0}
   symptomRemoved:
-    isValid: 0
-    symptom: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
+  - {fileID: 0}
   itemIcon: {fileID: 0}
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
