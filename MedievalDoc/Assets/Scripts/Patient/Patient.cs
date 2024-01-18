@@ -77,7 +77,6 @@ public class Patient : MonoBehaviour
     {
         if (interactedObject != this.gameObject)
             return;
-
         if(controller.PickedItem == null)
         {
             PatientEventManager.Instance.OnHandInteract.Invoke(this);
@@ -140,7 +139,10 @@ public class Patient : MonoBehaviour
         }
         bool isCured = noAdditionalSymptoms && solutionMet;
         if (isCured)
+        {
+            Debug.Log("Cured");
             PatientEventManager.Instance.OnCureDisease.Invoke(this);
+        }
     }
     
     

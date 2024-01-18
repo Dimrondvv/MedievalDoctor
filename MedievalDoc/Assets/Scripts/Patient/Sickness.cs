@@ -44,6 +44,7 @@ public class SicknessScriptableObject : ScriptableObject
                         }
                     }
                 }
+                symptomList.Remove(item);
             }
         }
         Debug.Log("Symptom not found");

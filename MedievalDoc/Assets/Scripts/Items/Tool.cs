@@ -32,10 +32,10 @@ public class Tool : MonoBehaviour
     }
     private void RemoveSymptom(GameObject tool, Patient patient)
     {
-        if (tool != this.gameObject || symptomsChecked.Count == 0)
+        if (tool != this.gameObject || symptomsRemoved.Count == 0)
             return;
 
-        foreach (Symptom symptom in symptomsChecked)
+        foreach (Symptom symptom in symptomsRemoved)
         {
             bool isRemoved = patient.sickness.RemoveSymptom(symptom);
 
