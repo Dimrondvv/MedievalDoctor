@@ -9,7 +9,6 @@ public class Patient : MonoBehaviour
 
     [SerializeField] public SicknessScriptableObject sickness;
 
-    List<GameObject> usedItems;
 
     public int spawnerID;
     [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
@@ -125,22 +124,5 @@ public class Patient : MonoBehaviour
     }
 
     
-    private void Awake()
-    {
-        usedItems = new List<GameObject>();
-        
-    }
-    private int CompareItems() //Compares items used on a patient to the items needed to cure, returns 0 if wrong item is used, 1 if
-    {                          //the items so far are correct, and 3 if all the items are correct and requirements for curement are met
-        for (int i = 0; i < usedItems.Count; i++)
-        {
-            if (usedItems[i].name != sickness.toolsRequired[i].name)
-                return 0;
-            else if(i == sickness.toolsRequired.Count - 1 && usedItems[i].name == sickness.toolsRequired[i].name)
-            {
-                return 2;
-            }
-        }
-        return 1;
-    }
+    
 }
