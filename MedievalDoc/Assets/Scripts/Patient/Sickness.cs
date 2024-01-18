@@ -17,6 +17,8 @@ public class SicknessScriptableObject : ScriptableObject
         public bool isTreatable;
         public bool isCritical;
 
+        public List<Symptom> symptomsRequiredToCure;
+
         public string GetSymptomName()
         {
             return symptom.symptomName;
@@ -27,25 +29,34 @@ public class SicknessScriptableObject : ScriptableObject
     {
         symptomList.Add(new SymptomStruct { symptom = symptom, isTreatable = true, isCritical = false});
     }
-    public void RemoveSymptom(Symptom symptom)
+    public bool RemoveSymptom(Symptom symptom)
     {
+        
         foreach(var item in symptomList)
         {
             if (item.symptom == symptom)
             {
-                if (item.isCritical && item.isTreatable)
+                foreach(var sympt in item.symptomsRequiredToCure) //Check if symptom has required symptoms cured
                 {
-                    symptomList.Clear();
-                    return;
+                    foreach (var smpt in symptomList) 
+                    {
+                        if (smpt.symptom == sympt)
+                        {
+                            Debug.Log("Cant be cured");
+                            return false;
+                        }
+                    }
                 }
-                else if (item.isTreatable)
+
+                if(item.isTreatable)
                 {
                     symptomList.Remove(item);
-                    return;
+                    return true;
                 }
             }
         }
         Debug.Log("Symptom not found");
+        return false;
     }
     public bool CheckSymptom(Symptom symptom)
     {

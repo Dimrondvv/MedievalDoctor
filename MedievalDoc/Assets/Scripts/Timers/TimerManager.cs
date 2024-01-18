@@ -36,7 +36,6 @@ public class TimerManager : MonoBehaviour
         elapsedTime+=1;
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timerChild.GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void PauseGame()

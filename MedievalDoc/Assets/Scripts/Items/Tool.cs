@@ -15,7 +15,10 @@ public class Tool : MonoBehaviour
     [SerializeField] Transform toolPickupPoint;
     [SerializeField] private PlayerController playerController;
     private PlayerInputActions playerInputActions;
-    
+    public Sprite ItemIcon
+    {
+        get { return itemIcon; }
+    }
 
     private void AddSymptom(GameObject tool, Patient patient)
     {
@@ -30,11 +33,11 @@ public class Tool : MonoBehaviour
         if (tool != this.gameObject || !symptomRemoved.isValid)
             return;
 
-        patient.sickness.RemoveSymptom(symptomRemoved.symptom);
+        bool isRemoved = patient.sickness.RemoveSymptom(symptomRemoved.symptom);
 
         if(patient.sickness.CheckIfCured())
             PatientEventManager.Instance.OnCureDisease.Invoke(patient);
-        else
+        else if(isRemoved)
             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptomRemoved.symptom, patient);
 
     }
