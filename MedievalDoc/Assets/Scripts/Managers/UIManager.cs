@@ -5,11 +5,15 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
+    [SerializeField] GameObject pauseMenu;
     [SerializeField] private GameObject uiPrefab;
+   
+    private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
 
     private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;
+    private bool isPauseEnabled = false;
     public bool IsNotebookEnabled
     {
         get
@@ -55,6 +59,31 @@ public class UIManager : MonoBehaviour
             EnableNotebook(patient);
 
     }
+    private void Pause()
+    {
+        isPauseEnabled = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    private void Resume()
+    {
+        isPauseEnabled = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    private void PauseMenu(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    {
+        if (!isPauseEnabled)
+        {
+            Pause();
+        }
+        else
+        {
+            Resume();
+        }
+    }
 
     private void Awake()
     {
@@ -64,5 +93,8 @@ public class UIManager : MonoBehaviour
     {
         PatientEventManager.Instance.OnHandInteract.AddListener(ChangeNotebookState);
         uiPrefab.SetActive(true);
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Pause.performed += PauseMenu;
     }
 }
