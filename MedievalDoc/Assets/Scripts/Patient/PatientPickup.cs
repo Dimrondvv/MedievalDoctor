@@ -22,7 +22,6 @@ public class PatientPickup : MonoBehaviour
             }
             
             playerController.SetPickedItem(pickedPatient);
-            Debug.Log("Podnieœ");
             pickedPatient.GetComponent<Collider>().enabled = false;
             pickedPatient.transform.position = toolPickupPoint.position;
             pickedPatient.transform.SetParent(player.transform);

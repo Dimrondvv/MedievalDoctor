@@ -52,6 +52,5 @@ public class PickUpItem : MonoBehaviour
 
     private void Update() {
         VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + new Vector3(0, 1f, 0), new Vector3(0.25f, 1f, 0.25f), transform.rotation);
-        Debug.Log(transform.rotation * Vector3.forward + transform.position);
     }
 }
