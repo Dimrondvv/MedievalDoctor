@@ -55,7 +55,7 @@ MonoBehaviour:
   symptomChecked:
     isValid: 0
     symptom: {fileID: 0}
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 5b6f66a0d52f17d4792bb6ec76b63bf4, type: 3}
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
   playerController: {fileID: 0}
