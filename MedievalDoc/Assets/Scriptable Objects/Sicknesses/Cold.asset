@@ -16,12 +16,12 @@ MonoBehaviour:
   symptomList:
   - symptom: {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
     isHidden: 0
-    symptomsRequiredToCure: []
+    symptomsRequiredToCure:
+    - {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
   - symptom: {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
     isHidden: 0
-    symptomsRequiredToCure: []
+    symptomsRequiredToCure:
+    - {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
   stories:
   - 'Damn i''m coughing and i have runny nose '
-  solution:
-  - {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
-  - {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
+  solutionList: []

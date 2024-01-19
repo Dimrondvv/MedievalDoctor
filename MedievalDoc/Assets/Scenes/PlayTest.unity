@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1224,6 +1224,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4622855080629322249, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
   m_PrefabInstance: {fileID: 1338453720}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &557759160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4576028313648356371, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
+  m_PrefabInstance: {fileID: 390729434944948929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &558231612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
@@ -1309,7 +1314,10 @@ PrefabInstance:
     - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4622855080629322249, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1434255424}
   m_SourcePrefab: {fileID: 100100000, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
 --- !u!4 &609178786 stripped
 Transform:
@@ -3178,17 +3186,7 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   symptomsAdded: []
   symptomsRemoved:
-  - {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
   - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-  - {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
-  - {fileID: 11400000, guid: 0b36187d10eb23546aca71c0c8c07bdd, type: 2}
-  - {fileID: 11400000, guid: c5e6adf1ec6a6384bbb9f18c78dba87f, type: 2}
-  - {fileID: 11400000, guid: 62a4bd26cb5381748a26469541ed584e, type: 2}
-  - {fileID: 11400000, guid: 9a607e11757ae1c48b7095cd3bb2d73b, type: 2}
-  - {fileID: 11400000, guid: 3488f744b0bf1b24491cd6cdfa6e8a10, type: 2}
-  - {fileID: 11400000, guid: d43bafb74962721479654c989012e6f6, type: 2}
-  - {fileID: 11400000, guid: c42c8ee49b8a20345a18c28f2163664d, type: 2}
-  - {fileID: 11400000, guid: c451170317ccc3f42b91e8c69663134a, type: 2}
   symptomsChecked: []
   player: {fileID: 1251825721}
   toolPickupPoint: {fileID: 1251825723}
@@ -3330,6 +3328,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426191829}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1434255422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4622855080629322249, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+  m_PrefabInstance: {fileID: 609178785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1434255424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434255422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  symptomsAdded:
+  - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+  - {fileID: 11400000, guid: b7d3b0ed67ccb0c47af81d3ecaac1f9f, type: 2}
+  symptomsRemoved:
+  - {fileID: 11400000, guid: 57e4f49b3a888434382308a0eabf21a3, type: 2}
+  symptomsChecked: []
+  player: {fileID: 1251825721}
+  toolPickupPoint: {fileID: 1251825723}
+  playerController: {fileID: 1251825724}
 --- !u!1001 &1447404742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4409,6 +4434,18 @@ PrefabInstance:
       propertyPath: playerItem
       value: 
       objectReference: {fileID: 1251825722}
+    - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1251825721}
+    - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: toolPickupPoint
+      value: 
+      objectReference: {fileID: 1251825723}
+    - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1251825724}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_Name
       value: SickCharacter
@@ -5458,13 +5495,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4576028313648356371, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 390729434944948934}
   m_SourcePrefab: {fileID: 100100000, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
 --- !u!4 &390729434944948930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7988666620461382551, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
   m_PrefabInstance: {fileID: 390729434944948929}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &390729434944948934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557759160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  symptomsAdded: []
+  symptomsRemoved:
+  - {fileID: 11400000, guid: b7d3b0ed67ccb0c47af81d3ecaac1f9f, type: 2}
+  symptomsChecked: []
+  player: {fileID: 1251825721}
+  toolPickupPoint: {fileID: 1251825723}
+  playerController: {fileID: 1251825724}
 --- !u!1001 &1055125496576520828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5931,9 +5991,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: Sicknesses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.size
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: Sicknesses.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e9b92b20d2f1db745b118969b39de132, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: Sicknesses.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.data[0]
       value: 
