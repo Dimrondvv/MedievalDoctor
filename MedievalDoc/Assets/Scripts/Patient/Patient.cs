@@ -97,7 +97,7 @@ public class Patient : MonoBehaviour
         {
             foreach(var item in patient.sickness.solutionList)
             {
-                if (item.solution == symptom)
+                if (item.symptom == symptom)
                 {
                     foreach (var sympt in item.symptomsRequiredToCure)
                     {
@@ -156,7 +156,7 @@ public class Patient : MonoBehaviour
         {
             foreach(SicknessScriptableObject.SymptomStruct symptomStruct in sickness.symptomList)
             {
-                if (symptomStruct.symptom == symptomCheck.solution)
+                if (symptomStruct.symptom == symptomCheck.symptom)
                 {
                     solutionMet = false;
                     Debug.Log($"Symp checked for: {symptomCheck} Symp found: {symptomStruct.symptom}");

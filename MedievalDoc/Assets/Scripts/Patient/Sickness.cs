@@ -28,7 +28,7 @@ public class SicknessScriptableObject : ScriptableObject
     [System.Serializable]
     public struct SolutionStruct
     {
-        public Symptom solution;
+        public Symptom symptom;
         public List<Symptom> symptomsRequiredToCure;
     }
     
