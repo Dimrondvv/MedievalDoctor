@@ -20,14 +20,16 @@ public class SnapBlueprint : MonoBehaviour
     public void CreateBlueprint(GameObject pickedObject)
     {
         blueprint = Instantiate(pickedObject, pickedObject.transform.rotation * Vector3.forward + pickedObject.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
-        blueprint.GetComponent<Collider>().isTrigger = true;
-        blueprint.GetComponent<Collider>().enabled = true;
-        blueprint.AddComponent<Rigidbody>();
-        blueprint.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition; // Freeze rigid body position
-        blueprint.AddComponent<BlueprintTrigger>();
-        blueprint.GetComponent<BlueprintTrigger>().blueprintBlue = blueprintBlue;
-        blueprint.GetComponent<BlueprintTrigger>().blueprintRed = blueprintRed;
-        blueprint.GetComponent<BlueprintTrigger>().ChangeBlueprintToBlue(blueprint);
+        Collider collider = blueprint.GetComponent<Collider>();
+        collider.isTrigger = true;
+        collider.enabled = true;
+
+        Rigidbody rb = blueprint.AddComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezePosition; // Freeze rigid body position
+        BlueprintTrigger bpTrigger = blueprint.AddComponent<BlueprintTrigger>();
+        bpTrigger.blueprintBlue = blueprintBlue;
+        bpTrigger.blueprintRed = blueprintRed;
+        bpTrigger.ChangeBlueprintToBlue(blueprint);
     }
 
     public void DestroyBlueprint()

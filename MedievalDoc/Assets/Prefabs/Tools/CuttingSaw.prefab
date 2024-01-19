@@ -46,16 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-  symptomRemoved:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
-  itemIcon: {fileID: 21300000, guid: 8b1ebcb3fa85bbc48b0906fef3d5e4bc, type: 3}
+  symptomAdded: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+  symptomRemoved: {fileID: 0}
+  symptomChecked: {fileID: 0}
+  itemIcon: {fileID: 0}
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
   playerController: {fileID: 0}
@@ -144,10 +138,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e59b6df3fcfb396428eb56e116076c26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5468742773611710801}
   m_SourcePrefab: {fileID: 100100000, guid: e59b6df3fcfb396428eb56e116076c26, type: 3}
 --- !u!4 &3512652725831543710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e59b6df3fcfb396428eb56e116076c26, type: 3}
   m_PrefabInstance: {fileID: 3978308455764216949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4320257882572419364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e59b6df3fcfb396428eb56e116076c26, type: 3}
+  m_PrefabInstance: {fileID: 3978308455764216949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5468742773611710801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4320257882572419364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  symptomAdded: {fileID: 0}
+  symptomRemoved: {fileID: 0}
+  symptomChecked: {fileID: 0}
+  itemIcon: {fileID: 0}
+  player: {fileID: 0}
+  toolPickupPoint: {fileID: 0}
+  playerController: {fileID: 0}
