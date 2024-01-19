@@ -134,7 +134,10 @@ public class Patient : MonoBehaviour
             foreach(SicknessScriptableObject.SymptomStruct symptomStruct in sickness.symptomList)
             {
                 if (symptomStruct.symptom == symptomCheck)
+                {
                     solutionMet = false;
+                    Debug.Log($"Symp checked for: {symptomCheck} Symp found: {symptomStruct.symptom}");
+                }
             }
         }
         bool isCured = noAdditionalSymptoms && solutionMet;

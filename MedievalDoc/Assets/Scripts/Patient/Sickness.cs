@@ -28,8 +28,10 @@ public class SicknessScriptableObject : ScriptableObject
     
     public bool RemoveSymptom(Symptom symptom)
     {
-        
-        foreach(var item in symptomList)
+        List<SymptomStruct> symptomCopy = symptomList;
+
+
+        foreach(var item in symptomCopy)
         {
             if (item.symptom == symptom)
             {
@@ -45,6 +47,7 @@ public class SicknessScriptableObject : ScriptableObject
                     }
                 }
                 symptomList.Remove(item);
+                return true;
             }
         }
         Debug.Log("Symptom not found");
