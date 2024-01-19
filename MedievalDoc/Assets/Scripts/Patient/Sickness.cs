@@ -28,10 +28,9 @@ public class SicknessScriptableObject : ScriptableObject
     
     public bool RemoveSymptom(Symptom symptom)
     {
-        List<SymptomStruct> symptomCopy = symptomList;
 
 
-        foreach(var item in symptomCopy)
+        foreach(var item in symptomList)
         {
             if (item.symptom == symptom)
             {
