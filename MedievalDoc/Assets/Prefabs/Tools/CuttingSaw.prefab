@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptomAdded: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-  symptomRemoved: {fileID: 0}
-  symptomChecked: {fileID: 0}
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 8b1ebcb3fa85bbc48b0906fef3d5e4bc, type: 3}
+  symptomsAdded: []
+  symptomsRemoved: []
+  symptomsChecked: []
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
   playerController: {fileID: 0}
@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symptomAdded: {fileID: 0}
-  symptomRemoved: {fileID: 0}
-  symptomChecked: {fileID: 0}
   itemIcon: {fileID: 0}
+  symptomsAdded: []
+  symptomsRemoved: []
+  symptomsChecked: []
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}
   playerController: {fileID: 0}
