@@ -8,7 +8,7 @@ public class SicknessScriptableObject : ScriptableObject
     public string sicknessName;
     public List<SymptomStruct> symptomList;
     public List<string> stories;
-    public List<Symptom> solution;
+    public List<SolutionStruct> solutionList;
 
 
     [System.Serializable]
@@ -25,11 +25,15 @@ public class SicknessScriptableObject : ScriptableObject
         }
     }
 
+    [System.Serializable]
+    public struct SolutionStruct
+    {
+        public Symptom solution;
+        public List<Symptom> symptomsRequiredToCure;
+    }
     
     public bool RemoveSymptom(Symptom symptom)
     {
-
-
         foreach(var item in symptomList)
         {
             if (item.symptom == symptom)
@@ -49,7 +53,6 @@ public class SicknessScriptableObject : ScriptableObject
                 return true;
             }
         }
-        Debug.Log("Symptom not found");
         return false;
     }
     public bool CheckSymptom(Symptom symptom)

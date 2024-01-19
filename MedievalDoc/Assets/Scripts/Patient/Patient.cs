@@ -64,8 +64,8 @@ public class Patient : MonoBehaviour
         if (PatientEventManager.Instance != null)
         {
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
-            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
+            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
         }
     }
@@ -91,6 +91,29 @@ public class Patient : MonoBehaviour
     {
         if (patient != this)
             return;
+        bool isRemoved = patient.sickness.RemoveSymptom(symptom);
+        bool canBeRemoved = true;
+        if (!isRemoved) //If the symptom is not removed from sickness try removing it from additional symptoms
+        {
+            foreach(var item in patient.sickness.solutionList)
+            {
+                if (item.solution == symptom)
+                {
+                    foreach (var sympt in item.symptomsRequiredToCure)
+                    {
+                        bool isPresent = patient.sickness.CheckSymptom(sympt);
+                        if (isPresent || additionalSymptoms.Contains(sympt))
+                        {
+                            Debug.Log($"Cant be cured: {symptom} because found {sympt}");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            patient.additionalSymptoms.Remove(symptom);
+        }
+
         patient.DiscoveredSymptoms.Remove(symptom);
     }
 
@@ -129,11 +152,11 @@ public class Patient : MonoBehaviour
 
         bool noAdditionalSymptoms = additionalSymptoms.Count == 0;
         bool solutionMet = true;
-        foreach(Symptom symptomCheck in sickness.solution)
+        foreach(SicknessScriptableObject.SolutionStruct symptomCheck in sickness.solutionList)
         {
             foreach(SicknessScriptableObject.SymptomStruct symptomStruct in sickness.symptomList)
             {
-                if (symptomStruct.symptom == symptomCheck)
+                if (symptomStruct.symptom == symptomCheck.solution)
                 {
                     solutionMet = false;
                     Debug.Log($"Symp checked for: {symptomCheck} Symp found: {symptomStruct.symptom}");

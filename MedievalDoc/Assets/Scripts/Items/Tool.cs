@@ -26,6 +26,7 @@ public class Tool : MonoBehaviour
     {
         if (tool != this.gameObject || symptomsAdded.Count == 0)
             return;
+        Debug.Log("Add symptom");
         foreach(var symptom in symptomsAdded)
             PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient);
 
@@ -36,12 +37,7 @@ public class Tool : MonoBehaviour
             return;
 
         foreach (Symptom symptom in symptomsRemoved)
-        {
-            bool isRemoved = patient.sickness.RemoveSymptom(symptom);
-
-            if (isRemoved)
-                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient);
-        }
+             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient);
     }
     private void CheckSymptom(GameObject tool, Patient patient)
     {
@@ -59,9 +55,9 @@ public class Tool : MonoBehaviour
 
     private void Start()
     {
-        PatientEventManager.Instance.OnToolInteract.AddListener(CheckSymptom);
-        PatientEventManager.Instance.OnToolInteract.AddListener(RemoveSymptom);
         PatientEventManager.Instance.OnToolInteract.AddListener(AddSymptom);
+        PatientEventManager.Instance.OnToolInteract.AddListener(RemoveSymptom);
+        PatientEventManager.Instance.OnToolInteract.AddListener(CheckSymptom);
 
         // Pickup tool event Listener
         PlayerController.OnPickup.AddListener(PickupTool);
