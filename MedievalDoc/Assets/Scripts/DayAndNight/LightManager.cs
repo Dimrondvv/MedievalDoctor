@@ -18,9 +18,10 @@ public class LightManager : MonoBehaviour
         {
             TimeOfDay += Time.deltaTime * 0.5f;
             TimeOfDay %= 24; // Clamp between 0-24
+
             UpdateLighting(TimeOfDay / 24f);
-        } else
-        {
+
+        } else {
             UpdateLighting(TimeOfDay / 24f);
         }
     }
