@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Quaternion rotation;
     private Vector3 moveDirection;
     private GameObject pickedItem;
+    private bool isMoving;
 
     public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
     public static UnityEvent<GameObject, Transform> OnPickup = new UnityEvent<GameObject, Transform>();
@@ -54,7 +55,6 @@ public class PlayerController : MonoBehaviour
         bool canMove = !Physics.CapsuleCast(transform.position,transform.position+Vector3.up *playerHeight, playerRadius, moveDirection, moveDistance);
 
         if (!canMove){
-
             Vector3 moveDirectionX = new Vector3(moveDirection.x,0,0).normalized;
             canMove = !Physics.CapsuleCast(transform.position,transform.position+Vector3.up *playerHeight, playerRadius, moveDirectionX, moveDistance);
 
