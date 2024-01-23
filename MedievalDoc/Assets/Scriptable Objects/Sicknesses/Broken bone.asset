@@ -12,20 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
   m_Name: Broken bone
   m_EditorClassIdentifier: 
-  toolsRequired: []
   sicknessName: Broken bone
   symptomList:
   - symptom: {fileID: 11400000, guid: 9a607e11757ae1c48b7095cd3bb2d73b, type: 2}
     isTreatable: 0
     isCritical: 0
+    symptomsRequiredToCure: []
   - symptom: {fileID: 11400000, guid: c42c8ee49b8a20345a18c28f2163664d, type: 2}
     isTreatable: 0
     isCritical: 0
+    symptomsRequiredToCure: []
   - symptom: {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
     isTreatable: 1
     isCritical: 1
+    symptomsRequiredToCure: []
   - symptom: {fileID: 11400000, guid: c5e6adf1ec6a6384bbb9f18c78dba87f, type: 2}
     isTreatable: 1
     isCritical: 1
+    symptomsRequiredToCure:
+    - {fileID: 11400000, guid: 07e07305726a1de4fb5881c98c287996, type: 2}
   stories:
   - I fell down the stairs

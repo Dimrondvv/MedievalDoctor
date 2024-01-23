@@ -5,10 +5,12 @@ using UnityEngine;
 public class Tool : MonoBehaviour
 {
     //Key - bool which defines if symptom action is valid
-    [SerializeField] private SymptomOptions symptomAdded;
-    [SerializeField] private SymptomOptions symptomRemoved;
-    [SerializeField] private SymptomOptions symptomChecked;
     [SerializeField] private Sprite itemIcon;
+
+    [SerializeField] private List<Symptom> symptomsAdded;
+    [SerializeField] private List<Symptom> symptomsRemoved;
+    [SerializeField] private List<Symptom> symptomsChecked;
+
 
     //PickupTool - Later add to antoher script
     [SerializeField] GameObject player;
@@ -22,43 +24,40 @@ public class Tool : MonoBehaviour
 
     private void AddSymptom(GameObject tool, Patient patient)
     {
-        if (tool != this.gameObject || !symptomAdded.isValid)
+        if (tool != this.gameObject || symptomsAdded.Count == 0)
             return;
-
-        PatientEventManager.Instance.OnAddSymptom.Invoke(symptomAdded.symptom, patient);
+        Debug.Log("Add symptom");
+        foreach(var symptom in symptomsAdded)
+            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient);
 
     }
     private void RemoveSymptom(GameObject tool, Patient patient)
     {
-        if (tool != this.gameObject || !symptomRemoved.isValid)
+        if (tool != this.gameObject || symptomsRemoved.Count == 0)
             return;
 
-        bool isRemoved = patient.sickness.RemoveSymptom(symptomRemoved.symptom);
-
-        if(patient.sickness.CheckIfCured())
-            PatientEventManager.Instance.OnCureDisease.Invoke(patient);
-        else if(isRemoved)
-            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptomRemoved.symptom, patient);
-
+        foreach (Symptom symptom in symptomsRemoved)
+             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient);
     }
     private void CheckSymptom(GameObject tool, Patient patient)
     {
-        if (tool != this.gameObject || !symptomChecked.isValid)
+        if (tool != this.gameObject || symptomsChecked.Count == 0)
             return;
-
-        bool isPresent = patient.sickness.CheckSymptom(symptomChecked.symptom);
-        if (isPresent)
+        foreach (Symptom symptom in symptomsChecked)
         {
-            PatientEventManager.Instance.OnCheckSymptom.Invoke(symptomChecked.symptom, patient);
+            bool isPresent = patient.sickness.CheckSymptom(symptom);
+            if (isPresent)
+            {
+                PatientEventManager.Instance.OnCheckSymptom.Invoke(symptom, patient);
+            }
         }
-
     }
 
     private void Start()
     {
-        PatientEventManager.Instance.OnToolInteract.AddListener(CheckSymptom);
-        PatientEventManager.Instance.OnToolInteract.AddListener(RemoveSymptom);
         PatientEventManager.Instance.OnToolInteract.AddListener(AddSymptom);
+        PatientEventManager.Instance.OnToolInteract.AddListener(RemoveSymptom);
+        PatientEventManager.Instance.OnToolInteract.AddListener(CheckSymptom);
 
         // Pickup tool event Listener
         PlayerController.OnPickup.AddListener(PickupTool);
@@ -99,10 +98,4 @@ public class Tool : MonoBehaviour
         }
     }
 
-    [System.Serializable]
-    struct SymptomOptions
-    {
-        public bool isValid;
-        public Symptom symptom;
-    }
 }
