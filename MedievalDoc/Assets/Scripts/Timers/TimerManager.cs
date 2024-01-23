@@ -58,7 +58,7 @@ public class TimerManager : MonoBehaviour
 
     void PauseCheck()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(gamePaused)
             {
