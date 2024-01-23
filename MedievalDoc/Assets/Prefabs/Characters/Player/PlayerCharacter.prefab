@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 4470098012275991662}
   - component: {fileID: 5285953387689067569}
   - component: {fileID: 2802415554505426055}
+  - component: {fileID: 8206842266131647170}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -885,6 +886,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupRange: 1
   playerController: {fileID: 4470098012275991662}
+--- !u!95 &8206842266131647170
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315980341070210326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 30e39daf3e6ce5241b969d9b0ce3a5a4, type: 3}
+  m_Controller: {fileID: 9100000, guid: 833243a7f3930e843b019a0c34badfc0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'PlayerCharacter_Hips'\n\tTransform 'PlayerCharacter_Spine2'\n\tTransform
+    'PlayerCharacter_LeftArm'\n\tTransform 'PlayerCharacter_LeftHandRing1'\n\tTransform
+    'PlayerCharacter_LeftHandPinky1'\n\tTransform 'PlayerCharacter_RightHandRing2'\n\tTransform
+    'PlayerCharacter_LeftForeArm'\n\tTransform 'PlayerCharacter_LeftShoulder'\n\tTransform
+    'PlayerCharacter_RightHandPinky2'\n\tTransform 'PlayerCharacter_RightForeArm'\n\tand
+    more ...\n\tFrom animation clip 'Idle'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2361551024362224686
 GameObject:
   m_ObjectHideFlags: 0
