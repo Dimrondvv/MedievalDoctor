@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -239,7 +239,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
-  player: {fileID: 1251825724}
+  player: {fileID: 0}
 --- !u!1001 &278226941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,7 +750,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -803,7 +803,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 1626271130}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -947,7 +947,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -1000,7 +1000,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 9192380331784290501}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -1114,6 +1114,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442227801}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &497584498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8399770146452407381, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+  m_PrefabInstance: {fileID: 1251825720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &518000703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,11 +1249,11 @@ PrefabInstance:
     - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1300,11 +1305,11 @@ PrefabInstance:
     - target: {fileID: 5468742773611710801, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 5468742773611710801, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
     m_RemovedGameObjects: []
@@ -1442,6 +1447,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arm
       objectReference: {fileID: 0}
+    - target: {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1251825721}
+    - target: {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
+      propertyPath: toolPickupPoint
+      value: 
+      objectReference: {fileID: 497584498}
+    - target: {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1251825730}
     - target: {fileID: 7988666620461382551, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1804,7 +1821,7 @@ PrefabInstance:
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -1816,11 +1833,11 @@ PrefabInstance:
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: furniturePickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2061,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -2114,7 +2131,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 609178786}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -2345,7 +2362,7 @@ PrefabInstance:
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -2357,11 +2374,11 @@ PrefabInstance:
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: furniturePickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2532,7 +2549,7 @@ PrefabInstance:
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -2544,11 +2561,11 @@ PrefabInstance:
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: furniturePickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2801,12 +2818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f068dc88f79d54ba6b41570c30f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1251825723 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8399770146452407381, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
-  m_PrefabInstance: {fileID: 1251825720}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1251825724 stripped
+--- !u!114 &1251825730 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4470098012275991662, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
   m_PrefabInstance: {fileID: 1251825720}
@@ -3100,7 +3112,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -3153,7 +3165,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 1338453721}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -3246,8 +3258,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
   symptomsChecked: []
   player: {fileID: 1251825721}
-  toolPickupPoint: {fileID: 1251825723}
-  playerController: {fileID: 1251825724}
+  toolPickupPoint: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!1 &1401758648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 8b1ebcb3fa85bbc48b0906fef3d5e4bc, type: 3}
   symptomsAdded:
   - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
   - {fileID: 11400000, guid: b7d3b0ed67ccb0c47af81d3ecaac1f9f, type: 2}
@@ -3410,8 +3422,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57e4f49b3a888434382308a0eabf21a3, type: 2}
   symptomsChecked: []
   player: {fileID: 1251825721}
-  toolPickupPoint: {fileID: 1251825723}
-  playerController: {fileID: 1251825724}
+  toolPickupPoint: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!1001 &1447404742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3490,7 +3502,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -3543,7 +3555,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 4553421071883986362}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -3682,11 +3694,11 @@ PrefabInstance:
     - target: {fileID: 3434734592631689083, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 3434734592631689083, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3738,11 +3750,11 @@ PrefabInstance:
     - target: {fileID: 8328407067703756327, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 8328407067703756327, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 1251825730}
     - target: {fileID: 8328407067703756327, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
       propertyPath: symptomRemoved.isValid
       value: 0
@@ -4106,7 +4118,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -4159,7 +4171,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 8323236263904364280}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -4486,7 +4498,7 @@ PrefabInstance:
     - target: {fileID: 3238783951277862441, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3238783951277862441, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: playerItem
       value: 
@@ -4498,11 +4510,11 @@ PrefabInstance:
     - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_Name
       value: SickCharacter
@@ -4580,7 +4592,7 @@ PrefabInstance:
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -4592,11 +4604,11 @@ PrefabInstance:
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: furniturePickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4834,7 +4846,7 @@ PrefabInstance:
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -4846,11 +4858,11 @@ PrefabInstance:
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: furniturePickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5026,7 +5038,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -5079,7 +5091,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 1055125496576520829}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -5228,7 +5240,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -5281,7 +5293,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 3990789082077645695}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -5345,7 +5357,7 @@ PrefabInstance:
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 5433737236969319706, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerItem
       value: 
@@ -5357,11 +5369,11 @@ PrefabInstance:
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 7077554657266055620, guid: 42d55a2c12a476d43b5e2c0290e75cd7, type: 3}
       propertyPath: furniturePickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5566,11 +5578,11 @@ PrefabInstance:
     - target: {fileID: 7695447329451422416, guid: 50698cd0673fbe84199975f1e7848705, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 7695447329451422416, guid: 50698cd0673fbe84199975f1e7848705, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 1251825730}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5737,11 +5749,11 @@ PrefabInstance:
     - target: {fileID: 8286880015189026379, guid: 48e0bddb2a0914b4fa3c3a3a6b98d5e2, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 8286880015189026379, guid: 48e0bddb2a0914b4fa3c3a3a6b98d5e2, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 1251825730}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5811,11 +5823,11 @@ PrefabInstance:
     - target: {fileID: 6365509331743377220, guid: 60cc704e0318bba4bb9f44a28e0f1d5f, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 6365509331743377220, guid: 60cc704e0318bba4bb9f44a28e0f1d5f, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 1251825730}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6178,7 +6190,7 @@ PrefabInstance:
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 0}
     - target: {fileID: 3400406162959607992, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
       propertyPath: playerItem
       value: 
@@ -6231,7 +6243,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3666776307591895051, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 696187962}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
@@ -6255,11 +6267,11 @@ PrefabInstance:
     - target: {fileID: 3550796604154461988, guid: 1968a4d7572859c4a9c724cedd2171d6, type: 3}
       propertyPath: toolPickupPoint
       value: 
-      objectReference: {fileID: 1251825723}
+      objectReference: {fileID: 0}
     - target: {fileID: 3550796604154461988, guid: 1968a4d7572859c4a9c724cedd2171d6, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1251825724}
+      objectReference: {fileID: 1251825730}
     - target: {fileID: 5060471074954514409, guid: 1968a4d7572859c4a9c724cedd2171d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

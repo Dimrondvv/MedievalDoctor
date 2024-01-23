@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -67,6 +67,7 @@ public class Patient : MonoBehaviour
             PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
+
         }
     }
     private void OnDisable()
@@ -92,19 +93,30 @@ public class Patient : MonoBehaviour
         if (patient != this)
             return;
         bool isRemoved = patient.sickness.RemoveSymptom(symptom);
-        bool canBeRemoved = true;
         if (!isRemoved) //If the symptom is not removed from sickness try removing it from additional symptoms
         {
             foreach(var item in patient.sickness.solutionList)
             {
                 if (item.symptom == symptom)
                 {
-                    foreach (var sympt in item.symptomsRequiredToCure)
+                    foreach (var sympt in item.symptomsNotPresentToCure)
                     {
                         bool isPresent = patient.sickness.CheckSymptom(sympt);
                         if (isPresent || additionalSymptoms.Contains(sympt))
                         {
                             Debug.Log($"Cant be cured: {symptom} because found {sympt}");
+                            Tool.isToolEffective = false;
+                            return;
+                        }
+                    }
+                    foreach (var sympt in item.symptomsPresentToCure)
+                    {
+                        bool isPresent = patient.sickness.CheckSymptom(sympt);
+                        Debug.Log($"Enter {sympt}: {!isPresent || !additionalSymptoms.Contains(sympt)}");
+                        if (!isPresent || !additionalSymptoms.Contains(sympt))
+                        {
+                            Debug.Log($"Cant be cured: {symptom} because not found {sympt}");
+                            Tool.isToolEffective = false;
                             return;
                         }
                     }
@@ -170,6 +182,5 @@ public class Patient : MonoBehaviour
             PatientEventManager.Instance.OnCureDisease.Invoke(this);
         }
     }
-    
-    
+
 }
