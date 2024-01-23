@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3666776307591895051}
-  - component: {fileID: 8560332493809285954}
   - component: {fileID: 654025317762458701}
+  - component: {fileID: -8713386820704438159}
   m_Layer: 0
   m_Name: Bandage
   m_TagString: Untagged
@@ -34,31 +34,6 @@ Transform:
   - {fileID: 3347471848283393859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8560332493809285954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622855080629322249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  symptomAdded:
-    isValid: 0
-    symptom: {fileID: 0}
-  symptomRemoved:
-    isValid: 1
-    symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-  symptomChecked:
-    isValid: 0
-    symptom: {fileID: 0}
-  itemIcon: {fileID: 21300000, guid: 6052723c28e8a4a48a44d8ef286ff336, type: 3}
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!64 &654025317762458701
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81,6 +56,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2842683310417224088, guid: c1d5ccc497b501646ac77cf29216b508, type: 3}
+--- !u!114 &-8713386820704438159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  symptomsAdded: []
+  symptomsRemoved: []
+  symptomsChecked: []
+  player: {fileID: 0}
+  toolPickupPoint: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!1001 &3025894020605814952
 PrefabInstance:
   m_ObjectHideFlags: 0

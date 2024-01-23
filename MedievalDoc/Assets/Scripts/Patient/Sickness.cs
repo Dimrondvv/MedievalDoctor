@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SicknessScriptable", menuName = "ScriptableObjects/Sickness", order = 1)]
 public class SicknessScriptableObject : ScriptableObject
 {
-    public List<GameObject> toolsRequired;
     public string sicknessName;
     public List<SymptomStruct> symptomList;
     public List<string> stories;
+    public List<SolutionStruct> solutionList;
+
 
     [System.Serializable]
     public struct SymptomStruct
     {
         public Symptom symptom;
-        public bool isTreatable;
-        public bool isCritical;
+        public bool isHidden;
 
         public List<Symptom> symptomsRequiredToCure;
 
@@ -25,13 +25,15 @@ public class SicknessScriptableObject : ScriptableObject
         }
     }
 
-    public void AddSymptom(Symptom symptom)
+    [System.Serializable]
+    public struct SolutionStruct
     {
-        symptomList.Add(new SymptomStruct { symptom = symptom, isTreatable = true, isCritical = false});
+        public Symptom symptom;
+        public List<Symptom> symptomsRequiredToCure;
     }
+    
     public bool RemoveSymptom(Symptom symptom)
     {
-        
         foreach(var item in symptomList)
         {
             if (item.symptom == symptom)
@@ -47,15 +49,10 @@ public class SicknessScriptableObject : ScriptableObject
                         }
                     }
                 }
-
-                if(item.isTreatable)
-                {
-                    symptomList.Remove(item);
-                    return true;
-                }
+                symptomList.Remove(item);
+                return true;
             }
         }
-        Debug.Log("Symptom not found");
         return false;
     }
     public bool CheckSymptom(Symptom symptom)
@@ -71,10 +68,7 @@ public class SicknessScriptableObject : ScriptableObject
         Debug.Log("Symptom not found");
         return false;
     }
-    public bool CheckIfCured()
-    {
-        return symptomList.Count == 0;
-    }
+    
     public void ListSymptoms()
     {
 

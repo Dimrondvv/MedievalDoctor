@@ -9,7 +9,6 @@ public class Patient : MonoBehaviour
 
     [SerializeField] public SicknessScriptableObject sickness;
 
-    List<GameObject> usedItems;
 
     public int spawnerID;
     [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
@@ -65,8 +64,9 @@ public class Patient : MonoBehaviour
         if (PatientEventManager.Instance != null)
         {
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
-            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
+            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
+            PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
         }
     }
     private void OnDisable()
@@ -77,7 +77,6 @@ public class Patient : MonoBehaviour
     {
         if (interactedObject != this.gameObject)
             return;
-
         if(controller.PickedItem == null)
         {
             PatientEventManager.Instance.OnHandInteract.Invoke(this);
@@ -92,6 +91,29 @@ public class Patient : MonoBehaviour
     {
         if (patient != this)
             return;
+        bool isRemoved = patient.sickness.RemoveSymptom(symptom);
+        bool canBeRemoved = true;
+        if (!isRemoved) //If the symptom is not removed from sickness try removing it from additional symptoms
+        {
+            foreach(var item in patient.sickness.solutionList)
+            {
+                if (item.symptom == symptom)
+                {
+                    foreach (var sympt in item.symptomsRequiredToCure)
+                    {
+                        bool isPresent = patient.sickness.CheckSymptom(sympt);
+                        if (isPresent || additionalSymptoms.Contains(sympt))
+                        {
+                            Debug.Log($"Cant be cured: {symptom} because found {sympt}");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            patient.additionalSymptoms.Remove(symptom);
+        }
+
         patient.DiscoveredSymptoms.Remove(symptom);
     }
 
@@ -111,7 +133,7 @@ public class Patient : MonoBehaviour
 
         foreach(var symptom in sickness.symptomList)
         {
-            if (!symptom.isCritical)
+            if (!symptom.isHidden)
                 DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());
             else
                 DiscoveredSymptoms.Add(symptom.symptom, "?");
@@ -123,24 +145,31 @@ public class Patient : MonoBehaviour
             return;
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
-
-    
-    private void Awake()
+    private void CheckIfCured(Symptom symptom, Patient patient)
     {
-        usedItems = new List<GameObject>();
-        
-    }
-    private int CompareItems() //Compares items used on a patient to the items needed to cure, returns 0 if wrong item is used, 1 if
-    {                          //the items so far are correct, and 3 if all the items are correct and requirements for curement are met
-        for (int i = 0; i < usedItems.Count; i++)
+        if (patient != this)
+            return;
+
+        bool noAdditionalSymptoms = additionalSymptoms.Count == 0;
+        bool solutionMet = true;
+        foreach(SicknessScriptableObject.SolutionStruct symptomCheck in sickness.solutionList)
         {
-            if (usedItems[i].name != sickness.toolsRequired[i].name)
-                return 0;
-            else if(i == sickness.toolsRequired.Count - 1 && usedItems[i].name == sickness.toolsRequired[i].name)
+            foreach(SicknessScriptableObject.SymptomStruct symptomStruct in sickness.symptomList)
             {
-                return 2;
+                if (symptomStruct.symptom == symptomCheck.symptom)
+                {
+                    solutionMet = false;
+                    Debug.Log($"Symp checked for: {symptomCheck} Symp found: {symptomStruct.symptom}");
+                }
             }
         }
-        return 1;
+        bool isCured = noAdditionalSymptoms && solutionMet;
+        if (isCured)
+        {
+            Debug.Log("Cured");
+            PatientEventManager.Instance.OnCureDisease.Invoke(this);
+        }
     }
+    
+    
 }
