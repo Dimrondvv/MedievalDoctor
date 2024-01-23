@@ -38,6 +38,9 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private float maxMoonLightIntensity;
 
+    [SerializeField]
+    private int dayCounter;
+
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
@@ -60,6 +63,7 @@ public class DayAndNightController : MonoBehaviour
 
     private void UpdateTimeOfDay() {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
+        dayCounter = currentTime.Day - DateTime.Now.Day + 1;
     }
 
     private void RotateSun() {
