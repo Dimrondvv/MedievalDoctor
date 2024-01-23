@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DayAndNightController : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class DayAndNightController : MonoBehaviour
 
     [SerializeField]
     private int dayCounter;
+
+    [SerializeField]
+    private Image clock;
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -85,6 +89,7 @@ public class DayAndNightController : MonoBehaviour
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
         }
 
+        clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.back);
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
     }
 
