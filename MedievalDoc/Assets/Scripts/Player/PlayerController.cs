@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         if (!canMove){
             Vector3 moveDirectionX = new Vector3(moveDirection.x,0,0).normalized;
             canMove = !Physics.CapsuleCast(transform.position,transform.position+Vector3.up *playerHeight, playerRadius, moveDirectionX, moveDistance);
-
             if(canMove){
                 moveDirection = moveDirectionX;
             }

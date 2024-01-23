@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2020,7 +2020,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2315980341070210326, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1251825729}
   m_SourcePrefab: {fileID: 100100000, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
 --- !u!1 &1251825721 stripped
 GameObject:
@@ -2049,6 +2052,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55fb03a4a7fd684d8fd7efaf253406b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1251825729
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251825721}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 30e39daf3e6ce5241b969d9b0ce3a5a4, type: 3}
+  m_Controller: {fileID: 9100000, guid: 833243a7f3930e843b019a0c34badfc0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'PlayerCharacter_Hips'\n\tTransform 'PlayerCharacter_Spine2'\n\tTransform
+    'PlayerCharacter_LeftArm'\n\tTransform 'PlayerCharacter_LeftHandRing1'\n\tTransform
+    'PlayerCharacter_LeftHandPinky1'\n\tTransform 'PlayerCharacter_LeftHandPinky3'\n\tTransform
+    'PlayerCharacter_RightHandRing2'\n\tTransform 'PlayerCharacter_RightHandMiddle3'\n\tTransform
+    'PlayerCharacter_LeftForeArm'\n\tTransform 'PlayerCharacter_LeftShoulder'\n\tand
+    more ...\n\tFrom animation clip 'Idle'\n\tFrom animation clip 'Walk'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1273860968
 GameObject:
   m_ObjectHideFlags: 0
