@@ -38,36 +38,36 @@ public class TimerManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
     }
 
-    void PauseGame()
-    {
-        Debug.Log("Pause game");
-        Time.timeScale = 0f;
-        gamePaused = true;
-    }
+    //void PauseGame()
+    //{
+    //    Debug.Log("Pause game");
+    //    Time.timeScale = 0f;
+    //    gamePaused = true;
+    //}
 
-    void ResumeGame()
-    {
-        Debug.Log("Resume Game");
-        Time.timeScale = 1f;
-        gamePaused = false;
-    }
+    //void ResumeGame()
+    //{
+    //    Debug.Log("Resume Game");
+    //    Time.timeScale = 1f;
+    //    gamePaused = false;
+    //}
 
-    void Update(){
-        PauseCheck();
-    }
+    //void Update(){
+    //    PauseCheck();
+    //}
 
-    void PauseCheck()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(gamePaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-    }
+    //void PauseCheck()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        if(gamePaused)
+    //        {
+    //            ResumeGame();
+    //        }
+    //        else
+    //        {
+    //            PauseGame();
+    //        }
+    //    }
+    //}
 }

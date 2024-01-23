@@ -59,31 +59,6 @@ public class UIManager : MonoBehaviour
             EnableNotebook(patient);
 
     }
-    private void Pause()
-    {
-        isPauseEnabled = true;
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    private void Resume()
-    {
-        isPauseEnabled = false;
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-    }
-
-    private void PauseMenu(UnityEngine.InputSystem.InputAction.CallbackContext callback)
-    {
-        if (!isPauseEnabled)
-        {
-            Pause();
-        }
-        else
-        {
-            Resume();
-        }
-    }
 
     private void Awake()
     {
@@ -95,6 +70,5 @@ public class UIManager : MonoBehaviour
         uiPrefab.SetActive(true);
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        playerInputActions.Player.Pause.performed += PauseMenu;
     }
 }
