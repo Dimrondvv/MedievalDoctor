@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7988666620461382551}
   - component: {fileID: 7555070359265769310}
   - component: {fileID: 8520372959493395261}
+  - component: {fileID: 2265174194812447463}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -50,9 +51,6 @@ MonoBehaviour:
   symptomsAdded: []
   symptomsRemoved: []
   symptomsChecked: []
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!64 &8520372959493395261
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75,6 +73,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 816343263715038232, guid: 723ba6fa21dc787499445d74b5ec8290, type: 3}
+--- !u!114 &2265174194812447463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576028313648356371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2468573217056191403
 PrefabInstance:
   m_ObjectHideFlags: 0

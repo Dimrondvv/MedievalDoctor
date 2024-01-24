@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5060471074954514409}
   - component: {fileID: 3550796604154461988}
   - component: {fileID: 2284068821810129801}
+  - component: {fileID: 8780955930566993679}
   m_Layer: 0
   m_Name: Organ
   m_TagString: Untagged
@@ -50,9 +51,6 @@ MonoBehaviour:
   symptomsAdded: []
   symptomsRemoved: []
   symptomsChecked: []
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!64 &2284068821810129801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75,6 +73,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -393458040339746742, guid: 67713c8a5b2290b4c9140f90dc804902, type: 3}
+--- !u!114 &8780955930566993679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586565331621046186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6418616834750200345
 PrefabInstance:
   m_ObjectHideFlags: 0

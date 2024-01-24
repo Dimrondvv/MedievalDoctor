@@ -8,6 +8,10 @@ public class PlayerManager : MonoBehaviour
     private static PlayerManager instance;
     public static PlayerManager Instance { get { return instance; } }
 
+    [SerializeField]
+    private PlayerController playerController;
+    public PlayerController PlayerController { get { return playerController; } }
+
     private int score; // player score
     public int Score { get { return score; } set { score = value; } }
 
@@ -40,4 +44,5 @@ public class PlayerManager : MonoBehaviour
         score++;
         Destroy(patient.gameObject);
     }
+
 }
