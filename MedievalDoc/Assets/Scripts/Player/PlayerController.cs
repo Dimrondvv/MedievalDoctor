@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Quaternion rotation;
     private Vector3 moveDirection;
     private GameObject pickedItem;
+    [SerializeField] private Animator animator;
+    private int moveValue;
 
     public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
     public static UnityEvent<GameObject, Transform> OnPickup = new UnityEvent<GameObject, Transform>();
@@ -42,7 +44,27 @@ public class PlayerController : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
   
         inputVector = inputVector.normalized;
-       
+
+
+        //Debug.Log(playerInputActions.Player.Move.ReadValue<Vector2>());
+
+        if (inputVector.x != 0 || inputVector.y != 0)
+        {
+            moveValue = 1;
+        }
+        else
+        {
+            moveValue = 0;
+        }
+        animator.SetInteger("moving", moveValue);
+        //Debug.Log(inputVector.x+inputVector.y);
+        //moveValue = inputVector.x + inputVector.y;
+        //if (moveValue < 0) {
+        //    moveValue = 1;
+        //}
+        //animator.SetFloat("moveValue", moveValue);
+        //Debug.Log(animator.GetFloat("moveValue"));
+
         moveDirection = new Vector3(inputVector.x,0f,inputVector.y);
 
 
@@ -54,10 +76,8 @@ public class PlayerController : MonoBehaviour
         bool canMove = !Physics.CapsuleCast(transform.position,transform.position+Vector3.up *playerHeight, playerRadius, moveDirection, moveDistance);
 
         if (!canMove){
-
             Vector3 moveDirectionX = new Vector3(moveDirection.x,0,0).normalized;
             canMove = !Physics.CapsuleCast(transform.position,transform.position+Vector3.up *playerHeight, playerRadius, moveDirectionX, moveDistance);
-
             if(canMove){
                 moveDirection = moveDirectionX;
             }
