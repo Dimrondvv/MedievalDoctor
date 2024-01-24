@@ -90,7 +90,6 @@ public class Patient : MonoBehaviour
 
     private bool CanSymptomBeCured(Symptom symptom)
     {
-        bool canBeCured = true;
         foreach (var item in sickness.solutionList)
         {
             if (item.symptom == symptom)
@@ -100,17 +99,14 @@ public class Patient : MonoBehaviour
                     bool isPresent = sickness.CheckSymptom(sympt);
                     if (isPresent || additionalSymptoms.Contains(sympt))
                     {
-                        Debug.Log($"Cant be cured: {symptom} because found {sympt}");
                         return false;
                     }
                 }
                 foreach (var sympt in item.symptomsPresentToCure)
                 {
                     bool isPresent = sickness.CheckSymptom(sympt);
-                    Debug.Log($"Enter {sympt}: isPresent: {isPresent}  additional: {additionalSymptoms.Contains(sympt)}");
                     if (!isPresent && !additionalSymptoms.Contains(sympt))
                     {
-                        Debug.Log($"Cant be cured: {symptom} because not found {sympt}");
                         return false;
                     }
                 }
