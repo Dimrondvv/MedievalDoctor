@@ -14,5 +14,9 @@ public class PatientHealthBar : MonoBehaviour
     {
         healthNormalized = (float)patient.Health / patient.HealthMax;
         barImage.fillAmount = healthNormalized;
-    } 
+    }
+    private void Update()
+    {
+        transform.eulerAngles = Vector3.zero;
+    }
 }
