@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3666776307591895051}
   - component: {fileID: 654025317762458701}
-  - component: {fileID: -8713386820704438159}
+  - component: {fileID: 7791890558532422825}
   m_Layer: 0
   m_Name: Bandage
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2842683310417224088, guid: c1d5ccc497b501646ac77cf29216b508, type: 3}
---- !u!114 &-8713386820704438159
+--- !u!114 &7791890558532422825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,9 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  itemIcon: {fileID: 0}
   symptomsAdded: []
-  symptomsRemoved: []
+  symptomsRemoved:
+  - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
   symptomsChecked: []
   player: {fileID: 0}
   toolPickupPoint: {fileID: 0}

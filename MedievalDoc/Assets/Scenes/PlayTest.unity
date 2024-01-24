@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1224,11 +1224,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518000703}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &525721548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4622855080629322249, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-  m_PrefabInstance: {fileID: 1338453720}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &558231612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
@@ -3226,40 +3221,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandage
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -8713386820704438159, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
+    - target: {fileID: 7791890558532422825, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1251825721}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4622855080629322249, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1338453723}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
 --- !u!4 &1338453721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3666776307591895051, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
   m_PrefabInstance: {fileID: 1338453720}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1338453723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525721548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  symptomsAdded: []
-  symptomsRemoved:
-  - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-  symptomsChecked: []
-  player: {fileID: 1251825721}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!1 &1401758648
 GameObject:
   m_ObjectHideFlags: 0

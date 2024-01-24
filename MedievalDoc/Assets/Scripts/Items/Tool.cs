@@ -11,13 +11,15 @@ public class Tool : MonoBehaviour
     [SerializeField] private List<Symptom> symptomsRemoved;
     [SerializeField] private List<Symptom> symptomsChecked;
 
+    public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
+    public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
+    public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
 
     //PickupTool - Later add to antoher script
     [SerializeField] GameObject player;
     [SerializeField] Transform toolPickupPoint;
     [SerializeField] private PlayerController playerController;
     private PlayerInputActions playerInputActions;
-    public static bool isToolEffective = true; 
     public Sprite ItemIcon
     {
         get { return itemIcon; }
@@ -25,19 +27,18 @@ public class Tool : MonoBehaviour
 
     private void AddSymptom(GameObject tool, Patient patient)
     {
-        if (tool != this.gameObject || symptomsAdded.Count == 0 || Tool.isToolEffective == false)
+        if (tool != this.gameObject || symptomsAdded.Count == 0)
             return;
         foreach(var symptom in symptomsAdded)
-            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient);
+            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, this);
 
     }
     private void RemoveSymptom(GameObject tool, Patient patient)
     {
-        Tool.isToolEffective = true;
         if (tool != this.gameObject || symptomsRemoved.Count == 0)
             return;
         foreach (Symptom symptom in symptomsRemoved)
-             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient);
+             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, this);
     }
     private void CheckSymptom(GameObject tool, Patient patient)
     {
