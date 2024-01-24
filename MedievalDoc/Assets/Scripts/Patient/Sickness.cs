@@ -17,7 +17,6 @@ public class SicknessScriptableObject : ScriptableObject
         public Symptom symptom;
         public bool isHidden;
 
-        public List<Symptom> symptomsRequiredToCure;
 
         public string GetSymptomName()
         {
@@ -29,28 +28,59 @@ public class SicknessScriptableObject : ScriptableObject
     public struct SolutionStruct
     {
         public Symptom symptom;
-        public List<Symptom> symptomsRequiredToCure;
+        public List<Symptom> symptomsNotPresentToCure;
+        public List<Symptom> symptomsPresentToCure;
     }
-    
-    public bool RemoveSymptom(Symptom symptom)
+
+    private void RemSymptom(Symptom symptom)
     {
         foreach(var item in symptomList)
         {
+            if(item.symptom == symptom)
+            {
+                symptomList.Remove(item);
+                return;
+            }
+        }
+    }
+
+    public bool RemoveSymptom(Symptom symptom)
+    {
+        foreach(var item in solutionList)
+        {
             if (item.symptom == symptom)
             {
-                foreach(var sympt in item.symptomsRequiredToCure) //Check if symptom has required symptoms cured
+                bool canBeCured = true;
+                foreach(var sympt in item.symptomsNotPresentToCure) //Check if symptom has required symptoms cured
                 {
                     foreach (var smpt in symptomList) 
                     {
                         if (smpt.symptom == sympt)
                         {
-                            Debug.Log("Cant be cured");
                             return false;
                         }
                     }
                 }
-                symptomList.Remove(item);
-                return true;
+                
+                foreach(var sympt in item.symptomsPresentToCure) //Check if symptom has required symptoms cured
+                {
+                    bool isPresent = false;
+
+                    foreach (var smpt in symptomList) 
+                    {
+                        if (smpt.symptom == sympt)
+                        {
+                            isPresent = true;
+                        }
+                    }
+                    if (!isPresent)
+                        return false;
+                }
+                if (canBeCured)
+                {
+                    RemSymptom(item.symptom);
+                    return true;
+                }
             }
         }
         return false;
