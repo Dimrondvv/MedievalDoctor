@@ -43,10 +43,10 @@ public class PickUpItem : MonoBehaviour
         if (playerController.PickedItem == null) {
             if (highestCollider.GetComponent<PlayerController>() == null)
             {
-                PlayerController.OnPickup.Invoke(highestCollider.gameObject, itemPoint);
+                PlayerController.OnPickup?.Invoke(highestCollider.gameObject, itemPoint);
             }
         } else {
-                PlayerController.OnPutdown.Invoke(playerController, itemPoint);
+                PlayerController.OnPutdown?.Invoke(playerController, itemPoint);
         }
     }
 

@@ -16,14 +16,17 @@ MonoBehaviour:
   symptomList:
   - symptom: {fileID: 11400000, guid: 57e4f49b3a888434382308a0eabf21a3, type: 2}
     isHidden: 0
-    symptomsRequiredToCure: []
+    symptomsNotPresentToCure: []
   stories:
   - My arm is rotting
   solutionList:
   - symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-    symptomsRequiredToCure: []
+    symptomsNotPresentToCure: []
+    symptomsPresentToCure: []
   - symptom: {fileID: 11400000, guid: b7d3b0ed67ccb0c47af81d3ecaac1f9f, type: 2}
-    symptomsRequiredToCure:
-    - {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
+    symptomsNotPresentToCure: []
+    symptomsPresentToCure: []
   - symptom: {fileID: 11400000, guid: 57e4f49b3a888434382308a0eabf21a3, type: 2}
-    symptomsRequiredToCure: []
+    symptomsNotPresentToCure: []
+    symptomsPresentToCure:
+    - {fileID: 11400000, guid: 62a4bd26cb5381748a26469541ed584e, type: 2}

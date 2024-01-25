@@ -269,6 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8399770146452407381}
+  - component: {fileID: 4658422734573806635}
   m_Layer: 0
   m_Name: FurnancePickupPoint
   m_TagString: Untagged
@@ -291,6 +292,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2734638569587361428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4658422734573806635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057027327184217019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b5a262daf8b9a439e7b4ea8cd23b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1110985703061969866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +1996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8061414350574944138}
+  - component: {fileID: 5760398397290194251}
   m_Layer: 0
   m_Name: ToolPickupPoint
   m_TagString: Untagged
@@ -2005,6 +2019,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2734638569587361428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5760398397290194251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014472689072376125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89918928b45bf0c43a78e0488f0c0cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7030140665854490613
 GameObject:
   m_ObjectHideFlags: 0

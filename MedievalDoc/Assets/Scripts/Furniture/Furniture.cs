@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Furniture : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] Transform furniturePickupPoint;
+    private GameObject player;
+    private Transform furniturePickupPoint;
+    private PlayerController playerController;
+
     private PlayerInputActions playerInputActions;
-    [SerializeField] private PlayerController playerController; // na testa
 
     public bool picked = false;
 
@@ -15,9 +16,13 @@ public class Furniture : MonoBehaviour
 
     Transform objTransform;
 
-    private void Awake() {
+    private void Start() {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+
+        furniturePickupPoint = PlayerManager.Instance.PlayerController.GetFurniturePickupPoint();
+        player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
+        playerController = PlayerManager.Instance.PlayerController.GetPlayerController();
     }
 
 

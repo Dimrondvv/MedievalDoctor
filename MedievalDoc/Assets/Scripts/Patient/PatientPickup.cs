@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PatientPickup : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] GameObject player;
-    [SerializeField] Transform toolPickupPoint;
+    private PlayerController playerController;
+    GameObject player;
+    Transform toolPickupPoint;
+
     private void Start()
     {
         PlayerController.OnPickup.AddListener(PickupPatient);
         PlayerController.OnPutdown.AddListener(PutdownPatient);
+
+        toolPickupPoint = PlayerManager.Instance.PlayerController.GetToolPickupPoint();
+        player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
+        playerController = PlayerManager.Instance.PlayerController.GetPlayerController();
     }
 
     private void PickupPatient(GameObject pickedPatient, Transform objectPoint)

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -67,6 +67,7 @@ public class Patient : MonoBehaviour
             PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
+
         }
     }
     private void OnDisable()
@@ -87,29 +88,41 @@ public class Patient : MonoBehaviour
         }
     }
 
-    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient)
+    private bool CanSymptomBeCured(Symptom symptom)
+    {
+        foreach (var item in sickness.solutionList)
+        {
+            if (item.symptom == symptom)
+            {
+                foreach (var sympt in item.symptomsNotPresentToCure)
+                {
+                    bool isPresent = sickness.CheckSymptom(sympt);
+                    if (isPresent || additionalSymptoms.Contains(sympt))
+                    {
+                        return false;
+                    }
+                }
+                foreach (var sympt in item.symptomsPresentToCure)
+                {
+                    bool isPresent = sickness.CheckSymptom(sympt);
+                    if (!isPresent && !additionalSymptoms.Contains(sympt))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (patient != this)
             return;
         bool isRemoved = patient.sickness.RemoveSymptom(symptom);
-        bool canBeRemoved = true;
         if (!isRemoved) //If the symptom is not removed from sickness try removing it from additional symptoms
         {
-            foreach(var item in patient.sickness.solutionList)
-            {
-                if (item.symptom == symptom)
-                {
-                    foreach (var sympt in item.symptomsRequiredToCure)
-                    {
-                        bool isPresent = patient.sickness.CheckSymptom(sympt);
-                        if (isPresent || additionalSymptoms.Contains(sympt))
-                        {
-                            Debug.Log($"Cant be cured: {symptom} because found {sympt}");
-                            return;
-                        }
-                    }
-                }
-            }
+            if (CanSymptomBeCured(symptom) == false)
+                return;
 
             patient.additionalSymptoms.Remove(symptom);
         }
@@ -117,10 +130,17 @@ public class Patient : MonoBehaviour
         patient.DiscoveredSymptoms.Remove(symptom);
     }
 
-    private void AddAdditionalSymptom(Symptom symptom, Patient patient)
+    private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (patient != this)
             return;
+
+        foreach(var item in tool.SymptomsRemoved)
+        {
+            if (CanSymptomBeCured(item) == false)
+                return;
+        }
+
 
         patient.additionalSymptoms.Add(symptom);
         patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
@@ -145,9 +165,9 @@ public class Patient : MonoBehaviour
             return;
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
-    private void CheckIfCured(Symptom symptom, Patient patient)
+    private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this)
+        if (patient != this || tool.SymptomsAdded.Count > 0)
             return;
 
         bool noAdditionalSymptoms = additionalSymptoms.Count == 0;
@@ -170,6 +190,5 @@ public class Patient : MonoBehaviour
             PatientEventManager.Instance.OnCureDisease.Invoke(this);
         }
     }
-    
-    
+
 }

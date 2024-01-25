@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     //}
 
     private void FixedUpdate(){
-        
+
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
   
         inputVector = inputVector.normalized;
@@ -119,6 +119,22 @@ public class PlayerController : MonoBehaviour
     public void SetPickedItem(GameObject pickedObject) {
         pickedItem = pickedObject;
         
+    }
+
+    public Transform GetToolPickupPoint() {
+        return this.GetComponentInChildren<FindToolPickupPoint>().transform;
+    }
+
+    public Transform GetFurniturePickupPoint() {
+        return this.GetComponentInChildren<FindFurniturePickupPoint>().transform;
+    }
+
+    public GameObject GetPlayerGameObject() {
+        return this.gameObject;
+    }
+
+    public PlayerController GetPlayerController() {
+        return this;
     }
 
     private void RotateBlueprint_performed(UnityEngine.InputSystem.InputAction.CallbackContext callback) { // Rotate Blueprint

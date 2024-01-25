@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3666776307591895051}
   - component: {fileID: 654025317762458701}
   - component: {fileID: -8713386820704438159}
+  - component: {fileID: 2442407561553157895}
   m_Layer: 0
   m_Name: Bandage
   m_TagString: Untagged
@@ -72,9 +73,18 @@ MonoBehaviour:
   symptomsAdded: []
   symptomsRemoved: []
   symptomsChecked: []
-  player: {fileID: 0}
-  toolPickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
+--- !u!114 &2442407561553157895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3025894020605814952
 PrefabInstance:
   m_ObjectHideFlags: 0
