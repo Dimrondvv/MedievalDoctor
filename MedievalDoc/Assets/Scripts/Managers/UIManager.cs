@@ -56,10 +56,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void EnableNotebook(Patient patient)
+    public void EnableNotebook()
     {
         instantiatedNotebook = Instantiate(notebookCanvas);
-        instantiatedNotebook.GetComponent<PatientNotebook>().Patient = patient;
         instantiatedNotebook.SetActive(true);
         isNotebookEnabled = true;  
     }
@@ -69,12 +68,12 @@ public class UIManager : MonoBehaviour
         Destroy(instantiatedNotebook);
     }
 
-    private void ChangeNotebookState(Patient patient)
+    private void ChangeNotebookState(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         if (isNotebookEnabled)
             DisableNoteBook();
         else 
-            EnableNotebook(patient);
+            EnableNotebook();
 
     }
 
@@ -84,10 +83,10 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        PatientEventManager.Instance.OnHandInteract.AddListener(ChangeNotebookState);
         uiPrefab.SetActive(true);
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
+        playerInputActions.Player.Journal.performed += ChangeNotebookState;
     }
 }

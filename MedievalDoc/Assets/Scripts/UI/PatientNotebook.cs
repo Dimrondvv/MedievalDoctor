@@ -19,6 +19,8 @@ public class PatientNotebook : MonoBehaviour
     }
     public void SetNotebookSymptoms(Patient patient)
     {
+        if (patient == null)
+            return;
         symptomsText.text = "";
         foreach (var symptom in patient.DiscoveredSymptoms.Values)
         {
@@ -31,20 +33,30 @@ public class PatientNotebook : MonoBehaviour
     }
     public void SetNotebookHistory(Patient patient)
     {
+        if (patient == null)
+            return;
         historyText.text = patient.patientStory;
         //TODO: SET HISTORIA
     }
     public void SetPatientColor(Patient patient)
     {
+        if (patient == null)
+            return;
         patientColorField.color = patient.GetComponentInChildren<Renderer>().material.color;
     }
     public void SetPatientName(Patient patient)
     {
+        if (patient == null)
+        {
+            patientName.text = "No patients";
+            return;
+        }
         patientName.text = patient.PatientName;
     }
 
     public void ChangePatient(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
+        Debug.Log("AAAAAAAAA");
         currentPatientIndex += (int)playerInputActions.Player.RotateBlueprint.ReadValue<float>();
         if (currentPatientIndex >= PatientManager.Instance.patients.Count)
         {
@@ -62,10 +74,20 @@ public class PatientNotebook : MonoBehaviour
 
     void Start()
     {
-
-        SetNotebookSymptoms(PatientManager.Instance.patients[0]);
-        SetNotebookHistory(PatientManager.Instance.patients[0]);
-        SetPatientColor(PatientManager.Instance.patients[0]);
+        if (PatientManager.Instance.patients.Count > 0)
+        {
+            SetNotebookSymptoms(PatientManager.Instance.patients[0]);
+            SetNotebookHistory(PatientManager.Instance.patients[0]);
+            SetPatientColor(PatientManager.Instance.patients[0]);
+            SetPatientName(PatientManager.Instance.patients[0]);
+        }
+        else
+        {
+            SetNotebookSymptoms(null);
+            SetNotebookHistory(null);
+            SetPatientColor(null);
+            SetPatientName(null);
+        }
     }
 
     private void Awake()

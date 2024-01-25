@@ -902,7 +902,7 @@ MonoBehaviour:
   symptomsText: {fileID: 7430747740795456587}
   historyText: {fileID: 1222643312366437849}
   patientColorField: {fileID: 0}
-  patientName: {fileID: 0}
+  patientName: {fileID: 4860493572118906972}
 --- !u!1 &6429311441645746831
 GameObject:
   m_ObjectHideFlags: 0
