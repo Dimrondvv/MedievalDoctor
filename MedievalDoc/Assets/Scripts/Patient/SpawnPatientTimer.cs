@@ -10,7 +10,6 @@ public class SpawnPatientTimer : MonoBehaviour
     public GameObject SpawnedPatient;
     [SerializeField] public List<SicknessScriptableObject> Sicknesses;
     [SerializeField] public List<GameObject> SpawnPoints;
-    [SerializeField] public List<string> patientNames;
     public int spawnerID;
     RandomizeSickness randomizeSickness;
     [SerializeField] int maxPatientCounter;
@@ -52,7 +51,6 @@ public class SpawnPatientTimer : MonoBehaviour
         {
             Patient.GetComponent<Patient>().spawnerID = spawnerID;
             SpawnedPatient = Instantiate(Patient, SpawnPoints[spawnerID].transform.position, Quaternion.identity);
-            PatientManager.Instance.patients.Add(SpawnedPatient.GetComponent<Patient>());   
             SpawnedPatient.SetActive(true);
             SpawnedPatient.GetComponent<PatientDamage>().enabled = true;
             SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = true;

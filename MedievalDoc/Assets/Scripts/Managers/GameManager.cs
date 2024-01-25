@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] int maxDeaths;
-    [SerializeField] public int bedHealingValue;
     public int deathCounter;
     private void Awake() 
     { 
