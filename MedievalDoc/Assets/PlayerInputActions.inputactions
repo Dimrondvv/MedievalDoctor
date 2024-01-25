@@ -29,7 +29,7 @@
                     "id": "28ca830f-0fb1-4e43-afa5-5a32a6951ba4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=1.5)",
                     "initialStateCheck": false
                 },
                 {
@@ -44,7 +44,16 @@
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "c9b3dc6e-0e0d-4cb7-8d0a-9699069a735e",
+                    "id": "fa2e2251-7f23-4063-b0d7-77ab5aeba109",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Journal",
+                    "type": "Button",
+                    "id": "ee7d75c2-44c6-46cb-922d-15ed8d3c600b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -263,12 +272,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2336bbc6-b2eb-4508-b985-3feb67d2a56c",
+                    "id": "757abdeb-9112-4494-b0c9-0169651d5513",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39a3eed1-2601-4f8e-a5e9-ea3dc80b01f1",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Journal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
