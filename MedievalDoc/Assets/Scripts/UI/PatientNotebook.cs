@@ -50,7 +50,10 @@ public class PatientNotebook : MonoBehaviour
         {
             currentPatientIndex = 0;
         }
-
+        else if(currentPatientIndex < 0)
+        {
+            currentPatientIndex = PatientManager.Instance.patients.Count - 1;
+        }
         SetNotebookSymptoms(PatientManager.Instance.patients[currentPatientIndex]);
         SetNotebookHistory(PatientManager.Instance.patients[currentPatientIndex]);
         SetPatientColor(PatientManager.Instance.patients[currentPatientIndex]);

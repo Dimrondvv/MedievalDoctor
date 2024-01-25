@@ -32,6 +32,7 @@ public class Patient : MonoBehaviour
     public string PatientName
     {
         get { return patientName; }
+        set { patientName = value; }
     }
     public bool Immune { get { return immune; } set { immune = value; } }
 

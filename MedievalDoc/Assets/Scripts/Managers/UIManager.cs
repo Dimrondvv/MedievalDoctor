@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     }
 
     private static UIManager instance;
+    private PlayerInputActions playerInputActions;
+
     public static UIManager Instance
     {
         get
@@ -32,10 +34,9 @@ public class UIManager : MonoBehaviour
 
 
     
-    private void EnableNotebook(Patient patient)
+    private void EnableNotebook()
     {
         instantiatedNotebook = Instantiate(notebookCanvas);
-        instantiatedNotebook.GetComponent<PatientNotebook>().Patient = patient;
         instantiatedNotebook.SetActive(true);
         isNotebookEnabled = true;
         
@@ -47,21 +48,24 @@ public class UIManager : MonoBehaviour
         Destroy(instantiatedNotebook);
     }
 
-    public void ChangeNotebookState(Patient patient)
+    public void ChangeNotebookState(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         if (isNotebookEnabled)
             DisableNoteBook();
         else 
-            EnableNotebook(patient);
+            EnableNotebook();
     }
 
     private void Awake()
     {
         instance = this;
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Journal.performed += ChangeNotebookState;
     }
     private void Start()
     {
-        PatientEventManager.Instance.OnHandInteract.AddListener(ChangeNotebookState);
         uiPrefab.SetActive(true);
     }
 }
