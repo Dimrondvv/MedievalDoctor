@@ -6,6 +6,7 @@ using UnityEngine;
 public class Symptom : ScriptableObject
 {
     public string symptomName;
+    public Sprite symptomIcon;
     //todo: animacja
     public int damage; //how much hp does symptom take per tick
 }
