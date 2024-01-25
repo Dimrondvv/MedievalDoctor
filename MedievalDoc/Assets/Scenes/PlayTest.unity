@@ -1222,17 +1222,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
   m_PrefabInstance: {fileID: 286788165}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &559982300 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2595282778219109782, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
-  m_PrefabInstance: {fileID: 286788165}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &609178785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4640,7 +4629,7 @@ MonoBehaviour:
   maxSunLightIntensity: 1
   maxMoonLightIntensity: 0.5
   dayCounter: 0
-  clock: {fileID: 559982300}
+  clock: {fileID: 0}
 --- !u!1001 &1873715330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5951,7 +5940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6659,14 +6648,14 @@ SceneRoots:
   - {fileID: 206349492}
   - {fileID: 894245091}
   - {fileID: 1327659875}
-  - {fileID: 1163429267}
-  - {fileID: 1245927511457461819}
   - {fileID: 2147340969}
   - {fileID: 7204720577724057583}
   - {fileID: 1118875296}
-  - {fileID: 286788165}
   - {fileID: 1220238163}
   - {fileID: 172265124}
   - {fileID: 1970251864}
   - {fileID: 1873233451}
   - {fileID: 677138853}
+  - {fileID: 1163429267}
+  - {fileID: 1245927511457461819}
+  - {fileID: 286788165}
