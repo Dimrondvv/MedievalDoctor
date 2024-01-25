@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     }
 
 
+
     void PlayerInteract(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         
@@ -29,10 +30,15 @@ public class PlayerInteraction : MonoBehaviour
             if(collider.transform.position.y > highestCollider.transform.position.y)
                 highestCollider = collider;
         }
-        if (highestCollider.GetComponent<PlayerController>() == null)
+        if (UIManager.Instance.IsNotebookEnabled)
+        {
+            UIManager.Instance.ChangeNotebookState(null);
+        }
+        else if (highestCollider.GetComponent<PlayerController>() == null)
         {
             PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
         }
+        
     }
 
 }

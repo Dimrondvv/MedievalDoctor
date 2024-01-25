@@ -28,6 +28,11 @@ public class Patient : MonoBehaviour
     public bool isAlive;
 
     [SerializeField] private bool immune; // immunity for tests
+    private string patientName;
+    public string PatientName
+    {
+        get { return patientName; }
+    }
     public bool Immune { get { return immune; } set { immune = value; } }
 
 
@@ -86,6 +91,7 @@ public class Patient : MonoBehaviour
         {
             PatientEventManager.Instance.OnToolInteract.Invoke(controller.PickedItem, this);
         }
+        
     }
 
     private bool CanSymptomBeCured(Symptom symptom)
