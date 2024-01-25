@@ -30,11 +30,7 @@ public class PlayerInteraction : MonoBehaviour
             if(collider.transform.position.y > highestCollider.transform.position.y)
                 highestCollider = collider;
         }
-        if (UIManager.Instance.IsNotebookEnabled)
-        {
-            UIManager.Instance.ChangeNotebookState(null);
-        }
-        else if (highestCollider.GetComponent<PlayerController>() == null)
+        if (highestCollider.GetComponent<PlayerController>() == null)
         {
             PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
         }
