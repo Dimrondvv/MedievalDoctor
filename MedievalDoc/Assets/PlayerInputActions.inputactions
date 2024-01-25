@@ -42,9 +42,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Journal",
                     "type": "Button",
-                    "id": "c9b3dc6e-0e0d-4cb7-8d0a-9699069a735e",
+                    "id": "9cb79d5c-1698-48de-82b8-f31b7d435fab",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -263,12 +263,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2336bbc6-b2eb-4508-b985-3feb67d2a56c",
-                    "path": "<Keyboard>/escape",
+                    "id": "8f0f74f4-b29b-45f7-9669-cd1f2ddcab08",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Journal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

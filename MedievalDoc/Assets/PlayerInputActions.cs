@@ -64,9 +64,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Journal"",
                     ""type"": ""Button"",
-                    ""id"": ""c9b3dc6e-0e0d-4cb7-8d0a-9699069a735e"",
+                    ""id"": ""9cb79d5c-1698-48de-82b8-f31b7d435fab"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -285,12 +285,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2336bbc6-b2eb-4508-b985-3feb67d2a56c"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""8f0f74f4-b29b-45f7-9669-cd1f2ddcab08"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""Journal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -305,7 +305,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_RotateBlueprint = m_Player.FindAction("RotateBlueprint", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
-        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Journal = m_Player.FindAction("Journal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -371,7 +371,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotateBlueprint;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pickup;
-    private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Journal;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -380,7 +380,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @RotateBlueprint => m_Wrapper.m_Player_RotateBlueprint;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
-        public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Journal => m_Wrapper.m_Player_Journal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,9 +402,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pickup.started += instance.OnPickup;
             @Pickup.performed += instance.OnPickup;
             @Pickup.canceled += instance.OnPickup;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
+            @Journal.started += instance.OnJournal;
+            @Journal.performed += instance.OnJournal;
+            @Journal.canceled += instance.OnJournal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -421,9 +421,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pickup.started -= instance.OnPickup;
             @Pickup.performed -= instance.OnPickup;
             @Pickup.canceled -= instance.OnPickup;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
+            @Journal.started -= instance.OnJournal;
+            @Journal.performed -= instance.OnJournal;
+            @Journal.canceled -= instance.OnJournal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -447,6 +447,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnRotateBlueprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
+        void OnJournal(InputAction.CallbackContext context);
     }
 }
