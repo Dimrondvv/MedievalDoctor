@@ -11,11 +11,6 @@ public class TimerManager : MonoBehaviour
     private int elapsedTime;
     public int ElapsedTime { get { return elapsedTime; } }
 
-    
-    //[SerializeField] TextMeshProUGUI timerText;
-
-    bool gamePaused = false;
-
     private GameObject timerText;
     private GameObject timerChild;
 
@@ -37,37 +32,4 @@ public class TimerManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
     }
-
-    //void PauseGame()
-    //{
-    //    Debug.Log("Pause game");
-    //    Time.timeScale = 0f;
-    //    gamePaused = true;
-    //}
-
-    //void ResumeGame()
-    //{
-    //    Debug.Log("Resume Game");
-    //    Time.timeScale = 1f;
-    //    gamePaused = false;
-    //}
-
-    //void Update(){
-    //    PauseCheck();
-    //}
-
-    //void PauseCheck()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.Escape))
-    //    {
-    //        if(gamePaused)
-    //        {
-    //            ResumeGame();
-    //        }
-    //        else
-    //        {
-    //            PauseGame();
-    //        }
-    //    }
-    //}
 }
