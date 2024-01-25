@@ -129,6 +129,10 @@ public class PlayerController : MonoBehaviour
         return this.GetComponentInChildren<FindFurniturePickupPoint>().transform;
     }
 
+    public GameObject GetFingerObject(){
+        return this.GetComponentInChildren<FindToolPickupPoint>().gameObject;
+    }
+
     public GameObject GetPlayerGameObject() {
         return this.gameObject;
     }
