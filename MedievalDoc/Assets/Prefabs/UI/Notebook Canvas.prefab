@@ -901,7 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symptomsText: {fileID: 7430747740795456587}
   historyText: {fileID: 1222643312366437849}
-  patientColorField: {fileID: 0}
+  patientColorField: {fileID: 7209671954227597817}
   patientName: {fileID: 4860493572118906972}
 --- !u!1 &6429311441645746831
 GameObject:

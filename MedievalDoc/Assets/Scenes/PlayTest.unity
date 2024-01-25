@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6331,30 +6331,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1907035001}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: SpawnTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: Sicknesses.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: SpawnPoints.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: Sicknesses.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: e9b92b20d2f1db745b118969b39de132, type: 2}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: Sicknesses.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 285061578}
@@ -6418,46 +6394,6 @@ PrefabInstance:
       propertyPath: SpawnPoints.Array.data[15]
       value: 
       objectReference: {fileID: 1447404744}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[0]
-      value: Jared
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[1]
-      value: Karen
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[2]
-      value: Brian
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[3]
-      value: Kyle
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[4]
-      value: Megan
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[5]
-      value: Joe Biden
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[6]
-      value: Walter
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[7]
-      value: Jesse
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[8]
-      value: Skylar
-      objectReference: {fileID: 0}
-    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
-      propertyPath: patientNames.Array.data[9]
-      value: Gabu gabu
-      objectReference: {fileID: 0}
     - target: {fileID: 2138131498301780534, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: m_Name
       value: PatientSpawner
