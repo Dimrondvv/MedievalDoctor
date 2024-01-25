@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 8326568495575098285}
   - component: {fileID: 5433737236969319706}
   - component: {fileID: 7077554657266055620}
+  - component: {fileID: 2716473883976261723}
   m_Layer: 6
   m_Name: Bed
   m_TagString: Untagged
@@ -128,10 +129,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8781600bd1f5ac41a67c97510e4da2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  furniturePickupPoint: {fileID: 0}
-  playerController: {fileID: 0}
   picked: 0
+--- !u!114 &2716473883976261723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e538a099340ced349a38f194939b41eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6410083005953355421
 PrefabInstance:
   m_ObjectHideFlags: 0
