@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
 
 
     
-    public void EnableNotebook(Patient patient)
+    private void EnableNotebook(Patient patient)
     {
         instantiatedNotebook = Instantiate(notebookCanvas);
         instantiatedNotebook.GetComponent<PatientNotebook>().Patient = patient;
@@ -41,19 +41,18 @@ public class UIManager : MonoBehaviour
         
         
     }
-    public void DisableNoteBook()
+    private void DisableNoteBook()
     {
         isNotebookEnabled = false;
         Destroy(instantiatedNotebook);
     }
 
-    private void ChangeNotebookState(Patient patient)
+    public void ChangeNotebookState(Patient patient)
     {
         if (isNotebookEnabled)
             DisableNoteBook();
         else 
             EnableNotebook(patient);
-
     }
 
     private void Awake()
