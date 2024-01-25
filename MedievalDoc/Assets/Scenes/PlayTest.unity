@@ -2893,6 +2893,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5285953387689067569, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1251825725}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2930,6 +2934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55fb03a4a7fd684d8fd7efaf253406b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1251825725 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8206842266131647170, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
+  m_PrefabInstance: {fileID: 1251825720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1273860968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4748,22 +4757,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3238783951277862441, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: player
-      value: 
-      objectReference: {fileID: 1251825724}
-    - target: {fileID: 3238783951277862441, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: playerItem
-      value: 
-      objectReference: {fileID: 1251825722}
-    - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1251825721}
-    - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: toolPickupPoint
-      value: 
-      objectReference: {fileID: 1251825723}
-    - target: {fileID: 5717076916740530043, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
-      propertyPath: playerController
       value: 
       objectReference: {fileID: 1251825724}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}

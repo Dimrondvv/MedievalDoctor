@@ -19,7 +19,9 @@ public class RandomizeSickness : MonoBehaviour
         spawnedPatient.sickness = sicknessCopy;
         spawnedPatient.patientStory = sicknessCopy.stories[storyID];
         spawnedPatient.PatientName = spawnPatientTimer.patientNames[Random.Range(0, spawnPatientTimer.patientNames.Count)];
-        spawnPatientTimer.SpawnedPatient.GetComponentInChildren<Renderer>().material.color = Random.ColorHSV();
+        spawnedPatient.GetComponentInChildren<Renderer>().material.color = Random.ColorHSV();
+        Debug.Log(spawnedPatient.GetComponentInChildren<Renderer>().material.color);
+
 
     }
 
