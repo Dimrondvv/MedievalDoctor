@@ -37,7 +37,7 @@ public class ToolPickup : MonoBehaviour
             pickedToolObject = pickedTool;
 
             playerController.SetPickedItem(pickedTool);
-            pickedTool.GetComponent<Collider>().enabled = false;
+            //pickedTool.GetComponent<Collider>().enabled = false;
             pickedTool.transform.position = toolPickupPoint.position;
             pickedTool.transform.SetParent(finger.transform);
 
@@ -51,7 +51,9 @@ public class ToolPickup : MonoBehaviour
         if (pickedTool.PickedItem != null && playerController.PickedItem.GetComponent<Tool>() != null && pickupPoint && pickupPoint.GetComponentInChildren<ItemLayDownPoint>() && !pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied) {
             GameObject putDownTool = pickedTool.PickedItem;
             pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = true;
-            putDownTool.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position;
+            var offset = putDownTool.GetComponent<MeshCollider>().bounds.size;
+            Debug.Log(offset);
+            putDownTool.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position + new Vector3(0, offset.y/2, 0);
             putDownTool.transform.rotation = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.rotation;
             putDownTool.transform.SetParent(pickupPoint);
             putDownTool.GetComponent<Collider>().enabled = true;
