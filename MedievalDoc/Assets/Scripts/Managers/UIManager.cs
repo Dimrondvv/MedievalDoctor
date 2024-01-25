@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
 
     private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;
-    private bool isPauseEnabled = false;
     public bool IsNotebookEnabled
     {
         get
