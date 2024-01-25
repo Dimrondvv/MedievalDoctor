@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     }
 
 
+
     void PlayerInteract(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         
@@ -33,6 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
         }
+        
     }
 
 }

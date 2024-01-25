@@ -15,8 +15,12 @@ public class RandomizeSickness : MonoBehaviour
 
 
         SicknessScriptableObject sicknessCopy = Instantiate(spawnPatientTimer.Sicknesses[sicknessID]);
-        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().sickness = sicknessCopy;
-        spawnPatientTimer.SpawnedPatient.GetComponent<Patient>().patientStory = sicknessCopy.stories[storyID];
+        Patient spawnedPatient = spawnPatientTimer.SpawnedPatient.GetComponent<Patient>();
+        spawnedPatient.sickness = sicknessCopy;
+        spawnedPatient.patientStory = sicknessCopy.stories[storyID];
+        spawnedPatient.PatientName = spawnPatientTimer.patientNames[Random.Range(0, spawnPatientTimer.patientNames.Count)];
+        spawnPatientTimer.SpawnedPatient.GetComponentInChildren<Renderer>().material.color = Random.ColorHSV();
+
     }
 
     private void Awake()
