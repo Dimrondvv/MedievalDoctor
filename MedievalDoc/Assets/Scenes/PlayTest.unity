@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1298,7 +1298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &567895297
 Transform:
   m_ObjectHideFlags: 0
@@ -2551,7 +2551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1128716490
 Transform:
   m_ObjectHideFlags: 0
@@ -2832,7 +2832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1155574810
 Transform:
   m_ObjectHideFlags: 0
@@ -3167,10 +3167,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5285953387689067569, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1251825725}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3208,11 +3204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55fb03a4a7fd684d8fd7efaf253406b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1251825725 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8206842266131647170, guid: befddc0558c0c654298e04b9fe2ce4f1, type: 3}
-  m_PrefabInstance: {fileID: 1251825720}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1273860968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,7 +3693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1364582974
 Light:
   m_ObjectHideFlags: 0
@@ -4519,7 +4510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1651966594
 Transform:
   m_ObjectHideFlags: 0
@@ -4670,7 +4661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1750666058
 Transform:
   m_ObjectHideFlags: 0
@@ -6280,7 +6271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2132752050
 Transform:
   m_ObjectHideFlags: 0

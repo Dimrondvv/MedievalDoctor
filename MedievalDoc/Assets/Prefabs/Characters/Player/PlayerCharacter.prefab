@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  runSpeed: 10
+  runSpeed: 5
   walkSpeed: 3
   turnSpeed: 10
   animator: {fileID: 8206842266131647170}
