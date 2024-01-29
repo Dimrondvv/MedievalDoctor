@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
     private void Running(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        Debug.Log("Running");
         speed = runSpeed;
         animator.SetInteger("moving", 2);
     }
