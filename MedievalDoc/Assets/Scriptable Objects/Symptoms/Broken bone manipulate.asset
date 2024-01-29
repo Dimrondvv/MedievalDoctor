@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Broken bone manipulate
   m_EditorClassIdentifier: 
   symptomName: Broken bone manipulate
-  toolsRequired: []
+  symptomIcon: {fileID: 21300000, guid: 49b8a293f4e46a440864cea5bf7fa057, type: 3}
   damage: 0

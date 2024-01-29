@@ -75,21 +75,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e9b92b20d2f1db745b118969b39de132, type: 2}
   SpawnPoints:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   patientNames:
   - Jared
   - Karen
