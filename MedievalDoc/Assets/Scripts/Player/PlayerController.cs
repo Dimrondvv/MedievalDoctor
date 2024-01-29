@@ -34,19 +34,12 @@ public class PlayerController : MonoBehaviour
         playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
     }
 
-    //public GameObject GetPickedItem()
-    //{
-    //    return GetComponent<PickUpItem>().PickedItem;
-    //}
-
     private void FixedUpdate(){
 
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
   
         inputVector = inputVector.normalized;
 
-
-        //Debug.Log(playerInputActions.Player.Move.ReadValue<Vector2>());
 
         if (inputVector.x != 0 || inputVector.y != 0)
         {
@@ -57,13 +50,6 @@ public class PlayerController : MonoBehaviour
             moveValue = 0;
         }
         animator.SetInteger("moving", moveValue);
-        //Debug.Log(inputVector.x+inputVector.y);
-        //moveValue = inputVector.x + inputVector.y;
-        //if (moveValue < 0) {
-        //    moveValue = 1;
-        //}
-        //animator.SetFloat("moveValue", moveValue);
-        //Debug.Log(animator.GetFloat("moveValue"));
 
         moveDirection = new Vector3(inputVector.x,0f,inputVector.y);
 

@@ -51,6 +51,7 @@ MonoBehaviour:
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 575417472191014539}
   health: 0
+  maxHealth: 0
   patientStory: 
   isAlive: 0
   immune: 0
@@ -68,20 +69,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   Patient: {fileID: 0}
-  SpawnTime: 5
+  SpawnTime: 1
   SpawnedPatient: {fileID: 0}
   Sicknesses:
-  - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
-  - {fileID: 11400000, guid: 610df8d9255c99147b13c6e5e009a5d2, type: 2}
-  - {fileID: 11400000, guid: baed92839a4645145a34f95291badb2f, type: 2}
-  - {fileID: 11400000, guid: 7de6cdf1861a7684abe8d352426fd122, type: 2}
-  - {fileID: 11400000, guid: 7ee3c5662f197df4aa49a06762fa741e, type: 2}
-  - {fileID: 11400000, guid: f859620e3c3bccb41a0c1a25ff1238eb, type: 2}
+  - {fileID: 11400000, guid: e9b92b20d2f1db745b118969b39de132, type: 2}
   SpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patientNames:
+  - Jared
+  - Karen
+  - Brian
+  - Kyle
+  - Megan
+  - Joe Biden
+  - Walter
+  - Jesse
+  - Skylar
+  - Gabu gabu
   spawnerID: 0
   maxPatientCounter: 400
 --- !u!114 &5038663620408251477

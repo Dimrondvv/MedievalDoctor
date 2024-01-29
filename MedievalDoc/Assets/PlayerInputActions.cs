@@ -51,13 +51,31 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""28ca830f-0fb1-4e43-afa5-5a32a6951ba4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=1.5)"",
                     ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Pickup"",
                     ""type"": ""Button"",
                     ""id"": ""6d2ea798-0809-4e24-b119-6a04fecbf425"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa2e2251-7f23-4063-b0d7-77ab5aeba109"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Journal"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee7d75c2-44c6-46cb-922d-15ed8d3c600b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -273,6 +291,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Pickup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""757abdeb-9112-4494-b0c9-0169651d5513"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39a3eed1-2601-4f8e-a5e9-ea3dc80b01f1"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Journal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -285,6 +325,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_RotateBlueprint = m_Player.FindAction("RotateBlueprint", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Journal = m_Player.FindAction("Journal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +392,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotateBlueprint;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pickup;
+    private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Journal;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -358,6 +402,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @RotateBlueprint => m_Wrapper.m_Player_RotateBlueprint;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Journal => m_Wrapper.m_Player_Journal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -379,6 +425,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pickup.started += instance.OnPickup;
             @Pickup.performed += instance.OnPickup;
             @Pickup.canceled += instance.OnPickup;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Journal.started += instance.OnJournal;
+            @Journal.performed += instance.OnJournal;
+            @Journal.canceled += instance.OnJournal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -395,6 +447,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pickup.started -= instance.OnPickup;
             @Pickup.performed -= instance.OnPickup;
             @Pickup.canceled -= instance.OnPickup;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Journal.started -= instance.OnJournal;
+            @Journal.performed -= instance.OnJournal;
+            @Journal.canceled -= instance.OnJournal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -418,5 +476,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnRotateBlueprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnJournal(InputAction.CallbackContext context);
     }
 }
