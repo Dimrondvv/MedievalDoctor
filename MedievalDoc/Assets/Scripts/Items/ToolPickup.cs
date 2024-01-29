@@ -39,8 +39,9 @@ public class ToolPickup : MonoBehaviour
             playerController.SetPickedItem(pickedTool);
             //pickedTool.GetComponent<Collider>().enabled = false;
             pickedTool.transform.position = toolPickupPoint.position;
+            
             pickedTool.transform.SetParent(finger.transform);
-
+            //pickedTool.transform.eulerAngles = finger.transform.eulerAngles + new Vector3(0f, 90f, 0f);
             //  var lastChild = player.transform.childCount - 1;
 
             //player.transform.GetChild(lastChild).localEulerAngles = new Vector3(0, 0, 0);
