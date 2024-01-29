@@ -20,16 +20,16 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TestStart(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        animator.SetBool("performingAction", true);
-        Debug.Log("started");
+        //animator.SetBool("performingAction", true);
+        Debug.Log("Started");
+
     }
 
     private void TestCancel(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        animator.SetBool("performingAction", false);
-        Debug.Log("canceled");
+        //animator.SetBool("performingAction", false);
+        Debug.Log("Canceled");
     }
-
 
 
     void PlayerInteract(UnityEngine.InputSystem.InputAction.CallbackContext callback)

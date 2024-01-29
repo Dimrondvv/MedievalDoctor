@@ -8,6 +8,7 @@ public class Patient : MonoBehaviour
     GameObject player;
 
     [SerializeField] public SicknessScriptableObject sickness;
+    [SerializeField] private Animator animator;
 
 
     public int spawnerID;
@@ -169,6 +170,7 @@ public class Patient : MonoBehaviour
     }
     private void DiscoverSymptom(Symptom symptom, Patient patient)
     {
+        Debug.Log("started");
         if (patient != this)
             return;
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;

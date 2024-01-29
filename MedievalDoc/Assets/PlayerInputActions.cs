@@ -87,8 +87,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""62616e63-a40e-4646-9989-a107b61e54c6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Press(pressPoint=0.1,behavior=2)"",
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Run"",
@@ -336,7 +336,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""7b05002a-3ed9-443e-a634-025532b892d4"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Press(pressPoint=0.5,behavior=2)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""InteractAnimation"",
