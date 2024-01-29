@@ -17,11 +17,9 @@ public class PatientLayDownPoint : MonoBehaviour
 
     private void ReleaseBed(Patient patient)
     {
-        if(GetComponentInChildren<Patient>() != patient)
+        if (!GetComponentInChildren<Patient>() && isOccupied == true)
         {
-            return;
+            isOccupied = false;
         }
-
-        isOccupied = false;
     }
 }
