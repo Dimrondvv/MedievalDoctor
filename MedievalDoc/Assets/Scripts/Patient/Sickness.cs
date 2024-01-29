@@ -48,7 +48,7 @@ public class SicknessScriptableObject : ScriptableObject
     {
         foreach(var item in solutionList)
         {
-            if (item.symptom == symptom)
+            if (item.symptom == symptom && CheckSymptom(symptom))
             {
                 bool canBeCured = true;
                 foreach(var sympt in item.symptomsNotPresentToCure) //Check if symptom has required symptoms cured

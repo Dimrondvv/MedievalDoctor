@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7988666620461382551}
   - component: {fileID: 7555070359265769310}
   - component: {fileID: 8520372959493395261}
-  - component: {fileID: 2265174194812447463}
+  - component: {fileID: 5898930819238144892}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -49,7 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}
   symptomsAdded: []
-  symptomsRemoved: []
+  symptomsRemoved:
+  - {fileID: 11400000, guid: b7d3b0ed67ccb0c47af81d3ecaac1f9f, type: 2}
   symptomsChecked: []
 --- !u!64 &8520372959493395261
 MeshCollider:
@@ -73,7 +74,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 816343263715038232, guid: 723ba6fa21dc787499445d74b5ec8290, type: 3}
---- !u!114 &2265174194812447463
+--- !u!114 &5898930819238144892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

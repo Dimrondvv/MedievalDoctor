@@ -56,7 +56,6 @@ public class PatientNotebook : MonoBehaviour
 
     public void ChangePatient(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        Debug.Log("AAAAAAAAA");
         currentPatientIndex += (int)playerInputActions.Player.RotateBlueprint.ReadValue<float>();
         if (currentPatientIndex >= PatientManager.Instance.patients.Count)
         {
