@@ -5,12 +5,13 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-
     [SerializeField] private float speed;
+
+    [SerializeField] private float runSpeed;
+    [SerializeField] private float walkSpeed;
+
     [SerializeField] private float turnSpeed;
     Vector3 velocity;
-
-    //CharacterController characterController;
 
     private PlayerInputActions playerInputActions;
     private Quaternion rotation;
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private int moveValue;
 
     public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
+
+    public static UnityEvent<GameObject, PlayerController> OnInteractEnter = new UnityEvent<GameObject, PlayerController>();
+
     public static UnityEvent<GameObject, Transform> OnPickup = new UnityEvent<GameObject, Transform>();
     public static UnityEvent<PlayerController, Transform> OnPutdown = new UnityEvent<PlayerController, Transform>();
     public GameObject PickedItem { 
@@ -32,6 +36,20 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
+        playerInputActions.Player.Run.performed += Running;
+        playerInputActions.Player.Run.canceled += Walking;
+    }
+
+    private void Running(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    {
+        Debug.Log("Running");
+        speed = runSpeed;
+        animator.SetInteger("moving", 2);
+    }
+
+    private void Walking(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    {
+        speed = walkSpeed;
     }
 
     private void FixedUpdate(){
