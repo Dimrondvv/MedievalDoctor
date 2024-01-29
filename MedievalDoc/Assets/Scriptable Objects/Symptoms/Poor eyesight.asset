@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Poor eyesight
   m_EditorClassIdentifier: 
   symptomName: Poor eyesight
-  toolsRequired: []
+  symptomIcon: {fileID: 21300000, guid: cd0383a8e888b234099a19948a4528d9, type: 3}
   damage: 0

@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
   m_Name: BleedingSickness
   m_EditorClassIdentifier: 
-  toolsRequired: []
   sicknessName: Bleeding
   symptomList:
   - symptom: {fileID: 11400000, guid: 54225c9aa9cad9b4b87bb6a53f0a8875, type: 2}
-    isTreatable: 1
-    isCritical: 0
-  - symptom: {fileID: 11400000, guid: 9a607e11757ae1c48b7095cd3bb2d73b, type: 2}
-    isTreatable: 1
-    isCritical: 0
+    isHidden: 0
   stories:
   - I cut my finger :(
   - I cut my foot
+  solutionList: []
