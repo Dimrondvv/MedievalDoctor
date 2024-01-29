@@ -13,16 +13,27 @@ public class DayAndNightController : MonoBehaviour
     private float startHour; // On what hour day should start
 
     [SerializeField]
-    private Light sunLight;
+    private float maxSunLightIntensity;
 
     [SerializeField]
-    private Light moonLight;
+    private float maxMoonLightIntensity;
 
+    [SerializeField]
+    private float sunRotationY;
     [SerializeField]
     private float sunriseHour;
 
     [SerializeField]
     private float sunsetHour;
+
+    [SerializeField]
+    private int dayCounter;
+
+    [SerializeField]
+    private Light sunLight;
+
+    [SerializeField]
+    private Light moonLight;
 
     [SerializeField]
     private Color dayAmbinetLight;
@@ -34,16 +45,12 @@ public class DayAndNightController : MonoBehaviour
     private AnimationCurve lightChangeCurve;
 
     [SerializeField]
-    private float maxSunLightIntensity;
-
-    [SerializeField]
-    private float maxMoonLightIntensity;
-
-    [SerializeField]
-    private int dayCounter;
-
-    [SerializeField]
     private Image clock;
+
+    [SerializeField]
+    private GameObject LightsToTurnOn;
+
+
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -63,6 +70,7 @@ public class DayAndNightController : MonoBehaviour
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
+        TurnOnLights();
     }
 
     private void UpdateTimeOfDay() {
@@ -90,7 +98,10 @@ public class DayAndNightController : MonoBehaviour
         }
 
         clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.back);
-        sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
+        //Debug.Log(sunLightRotation);
+        //sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
+        sunLight.transform.eulerAngles = new Vector3(sunLightRotation, sunRotationY, 0);
+
     }
 
     private void UpdateLightSettings() {
@@ -108,5 +119,14 @@ public class DayAndNightController : MonoBehaviour
         }
 
         return difference;
+    }
+
+    private void TurnOnLights()
+    {
+        Debug.Log(currentTime.Hour >= sunsetHour || currentTime.Hour <= sunriseHour);
+        if (currentTime.Hour >= sunsetHour && currentTime.Hour <= sunriseHour)
+        {
+            LightsToTurnOn.SetActive(true);
+        } 
     }
 }
