@@ -96,7 +96,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""9032c8f1-fdae-4894-a6c7-4dee589efd13"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=1),Press(behavior=1)"",
+                    ""interactions"": ""Hold(duration=0.5),Press(behavior=1)"",
                     ""initialStateCheck"": true
                 }
             ],
