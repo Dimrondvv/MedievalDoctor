@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Patient : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    GameObject player;
 
     [SerializeField] public SicknessScriptableObject sickness;
 
@@ -44,6 +44,7 @@ public class Patient : MonoBehaviour
 
 
     private void Start(){
+        player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
         health = 100;
         maxHealth = 100;
         if (sickness)
