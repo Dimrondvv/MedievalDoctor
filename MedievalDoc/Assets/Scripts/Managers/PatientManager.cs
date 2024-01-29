@@ -20,4 +20,13 @@ public class PatientManager : MonoBehaviour
         if(instance == null)
             instance = this;
     }
+    private void Start()
+    {
+        PatientEventManager.Instance.OnCureDisease.AddListener(RemovePatientFromList);
+    }
+
+    private void RemovePatientFromList(Patient patient)
+    {
+        patients.Remove(patient);
+    }
 }
