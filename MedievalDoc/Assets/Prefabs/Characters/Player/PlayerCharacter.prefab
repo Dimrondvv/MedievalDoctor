@@ -871,6 +871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  runSpeed: 5
+  walkSpeed: 3
   turnSpeed: 10
   animator: {fileID: 8206842266131647170}
 --- !u!114 &5285953387689067569
@@ -886,6 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 1
+  animator: {fileID: 8206842266131647170}
 --- !u!114 &2802415554505426055
 MonoBehaviour:
   m_ObjectHideFlags: 0
