@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2825,7 +2825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1663495428
 Transform:
   m_ObjectHideFlags: 0
@@ -3131,7 +3131,7 @@ GameObject:
   - component: {fileID: 1873233451}
   - component: {fileID: 1873233452}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: DayAndNightManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3166,10 +3166,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeMultiplier: 100
   startHour: 12
-  sunLight: {fileID: 705507994}
-  moonLight: {fileID: 677138852}
+  maxSunLightIntensity: 1
+  maxMoonLightIntensity: 0.5
+  sunRotationY: -30
   sunriseHour: 7
   sunsetHour: 20.5
+  dayCounter: 0
+  sunLight: {fileID: 705507994}
+  moonLight: {fileID: 677138852}
   dayAmbinetLight: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   nightAmbientLight: {r: 0.14293341, g: 0.2739649, b: 0.41509432, a: 0}
   lightChangeCurve:
@@ -3205,10 +3209,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxSunLightIntensity: 1
-  maxMoonLightIntensity: 0.5
-  dayCounter: 0
   clock: {fileID: 1899718553}
+  LightsToTurnOn: {fileID: 745655879}
 --- !u!114 &1899718553 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2595282778219109782, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
