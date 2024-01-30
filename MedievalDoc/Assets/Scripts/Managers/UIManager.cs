@@ -11,6 +11,15 @@ public class UIManager : MonoBehaviour
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
     public GameObject PauseMenu { get { return pauseMenu; } }
+    private bool isPauseEnabled = false;
+    public bool IsPauseEnabled
+    {
+        get
+        {
+            return isPauseEnabled;
+        }
+    }
+
 
     private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;
@@ -36,20 +45,24 @@ public class UIManager : MonoBehaviour
 
     public void PauseMenuFunction(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        //GetComponent<Pause>().isPaused
-        if (!pauseMenu.GetComponent<Pause>().isPaused)
-        {
-            Debug.Log("Pause");
-            pauseMenu.GetComponent<Pause>().PauseFunction();
 
+        if(isNotebookEnabled){  // disable notebook instead of pausing the game
+            isNotebookEnabled = false;
+            Destroy(instantiatedNotebook);
+        }
+
+        //GetComponent<Pause>().isPaused
+        else if (!pauseMenu.GetComponent<Pause>().isPaused)
+        {
+            pauseMenu.GetComponent<Pause>().PauseFunction();
+            isPauseEnabled = true;
             // turn on canvas
             pauseMenu.SetActive(true);
         }
         else
         {
-            Debug.Log("Unpause");
             pauseMenu.GetComponent<Pause>().ResumeFunction();
-
+            isPauseEnabled = false;
             // turn off canvas
             pauseMenu.SetActive(false);
         }
@@ -57,9 +70,15 @@ public class UIManager : MonoBehaviour
 
     public void EnableNotebook()
     {
+
+        if(isPauseEnabled){
+            return;
+        }
+        else{
         instantiatedNotebook = Instantiate(notebookCanvas);
         instantiatedNotebook.SetActive(true);
-        isNotebookEnabled = true;  
+        isNotebookEnabled = true; 
+        } 
     }
     public void DisableNoteBook()
     {
