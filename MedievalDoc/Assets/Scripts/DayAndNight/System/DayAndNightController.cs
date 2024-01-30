@@ -123,10 +123,11 @@ public class DayAndNightController : MonoBehaviour
 
     private void TurnOnLights()
     {
-        Debug.Log(currentTime.Hour >= sunsetHour || currentTime.Hour <= sunriseHour);
-        if (currentTime.Hour >= sunsetHour && currentTime.Hour <= sunriseHour)
+        if (currentTime.Hour >= sunsetHour || currentTime.Hour <= sunriseHour)
         {
             LightsToTurnOn.SetActive(true);
-        } 
+        } else {
+            LightsToTurnOn.SetActive(false);
+        }
     }
 }
