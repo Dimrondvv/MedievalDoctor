@@ -10,14 +10,16 @@ public class PatientLayDownPoint : MonoBehaviour
         set { isOccupied = value; }
     }
 
+    private void Start()
+    {
+        PatientEventManager.Instance.OnCureDisease.AddListener(ReleaseBed);
+    }
 
     private void ReleaseBed(Patient patient)
     {
-        if(GetComponentInChildren<Patient>() != patient)
+        if (!GetComponentInChildren<Patient>() && isOccupied == true)
         {
-            return;
+            isOccupied = false;
         }
-
-        isOccupied = false;
     }
 }

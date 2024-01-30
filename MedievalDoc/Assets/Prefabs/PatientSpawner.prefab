@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5d0aa613ef2494db1ac875f9c81dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
   spawnerID: 0
   SpawnPatientSpawner: {fileID: 575417472191014539}
@@ -74,6 +73,17 @@ MonoBehaviour:
   Sicknesses:
   - {fileID: 11400000, guid: e9b92b20d2f1db745b118969b39de132, type: 2}
   SpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   patientNames:
   - Jared
