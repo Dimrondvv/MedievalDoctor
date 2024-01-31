@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
-  m_Name: Coughing
+  m_Name: Krwawienie
   m_EditorClassIdentifier: 
-  symptomName: Coughing
-  symptomIcon: {fileID: 21300000, guid: 18441d5cc129f7749b80c9d007d723bb, type: 3}
+  symptomName: Arrow in body
+  toolsRequired: []
   damage: 0
