@@ -72,7 +72,7 @@ public class Patient : MonoBehaviour
         {
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
             PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
-            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
+            PatientEventManager.Instance.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
 
         }
@@ -135,14 +135,22 @@ public class Patient : MonoBehaviour
             if (sickness.CheckSymptom(symptom) == true)
             {
                 sickness.RemSymptom(symptom);
+                patient.DiscoveredSymptoms.Remove(symptom);
+                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
             else
             {
                 patient.additionalSymptoms.Remove(symptom);
+                patient.DiscoveredSymptoms.Remove(symptom);
+                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
         }
+        else
+        {
+            patient.DiscoveredSymptoms.Remove(symptom);
+            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
+        }
 
-        patient.DiscoveredSymptoms.Remove(symptom);
     }
 
     private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)

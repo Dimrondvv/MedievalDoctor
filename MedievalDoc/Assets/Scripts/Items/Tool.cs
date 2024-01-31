@@ -35,7 +35,7 @@ public class Tool : MonoBehaviour
             return;
 
         foreach (Symptom symptom in symptomsRemoved)
-             PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, this);
+             PatientEventManager.Instance.OnTryRemoveSymptom.Invoke(symptom, patient, this);
     }
     private void CheckSymptom(GameObject tool, Patient patient)
     {
