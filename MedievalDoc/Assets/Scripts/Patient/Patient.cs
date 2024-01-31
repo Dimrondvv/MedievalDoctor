@@ -20,7 +20,7 @@ public class Patient : MonoBehaviour
     [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
     public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
 
-    private List<Symptom> additionalSymptoms = new List<Symptom>();
+    public List<Symptom> additionalSymptoms = new List<Symptom>();
 
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
@@ -132,7 +132,14 @@ public class Patient : MonoBehaviour
             if (CanSymptomBeCured(symptom) == false)
                 return;
 
-            patient.additionalSymptoms.Remove(symptom);
+            if (sickness.CheckSymptom(symptom) == true)
+            {
+                sickness.RemSymptom(symptom);
+            }
+            else
+            {
+                patient.additionalSymptoms.Remove(symptom);
+            }
         }
 
         patient.DiscoveredSymptoms.Remove(symptom);

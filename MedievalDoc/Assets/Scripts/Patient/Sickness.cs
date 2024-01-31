@@ -32,7 +32,7 @@ public class SicknessScriptableObject : ScriptableObject
         public List<Symptom> symptomsPresentToCure;
     }
 
-    private void RemSymptom(Symptom symptom)
+    public void RemSymptom(Symptom symptom)
     {
         foreach(var item in symptomList)
         {
