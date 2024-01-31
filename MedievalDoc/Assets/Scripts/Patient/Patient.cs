@@ -47,6 +47,7 @@ public class Patient : MonoBehaviour
         player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
         health = 100;
         maxHealth = 100;
+        isAlive = true;
         if (sickness)
             DiscoverNonCriticalSymptoms(this);
         else
