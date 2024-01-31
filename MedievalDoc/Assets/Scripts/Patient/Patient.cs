@@ -71,7 +71,7 @@ public class Patient : MonoBehaviour
         if (PatientEventManager.Instance != null)
         {
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
-            PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
+            PatientEventManager.Instance.OnTryAddSymptom.AddListener(AddAdditionalSymptom);
             PatientEventManager.Instance.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
 
@@ -155,7 +155,7 @@ public class Patient : MonoBehaviour
 
     private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this)
+        if (patient != this || sickness.CheckSymptom(symptom))
             return;
 
         foreach(var item in tool.SymptomsRemoved)
@@ -164,9 +164,12 @@ public class Patient : MonoBehaviour
                 return;
         }
 
-
-        patient.additionalSymptoms.Add(symptom);
-        patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
+        if (!patient.additionalSymptoms.Contains(symptom)) //prevent duplicate symptoms
+        {
+            patient.additionalSymptoms.Add(symptom);
+            patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
+            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, tool);
+        }
     }
 
     private void DiscoverNonCriticalSymptoms(Patient patient)

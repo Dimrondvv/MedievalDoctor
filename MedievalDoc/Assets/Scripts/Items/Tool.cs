@@ -26,7 +26,7 @@ public class Tool : MonoBehaviour
             return;
         Debug.Log("Add symptom");
         foreach(var symptom in symptomsAdded)
-            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, this);
+            PatientEventManager.Instance.OnTryAddSymptom.Invoke(symptom, patient, this);
 
     }
     private void RemoveSymptom(GameObject tool, Patient patient)
