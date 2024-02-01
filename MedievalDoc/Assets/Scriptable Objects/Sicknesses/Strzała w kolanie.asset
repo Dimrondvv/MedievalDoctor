@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
   m_Name: "Strza\u0142a w kolanie"
   m_EditorClassIdentifier: 
-  sicknessName: "Strza\u0142a w kolanie"
+  sicknessName: "Zatruta Strza\u0142a w kolanie"
   symptomList:
   - symptom: {fileID: 11400000, guid: 39f05df63f21b494b9c0719c8a387c81, type: 2}
     isHidden: 0
@@ -47,7 +47,8 @@ MonoBehaviour:
     symptomsNotPresentToCure: []
     symptomsPresentToCure: []
   - symptom: {fileID: 11400000, guid: a541a7c7374d44c4e8e0621f8d9a9812, type: 2}
-    symptomsNotPresentToCure: []
+    symptomsNotPresentToCure:
+    - {fileID: 11400000, guid: 39f05df63f21b494b9c0719c8a387c81, type: 2}
     symptomsPresentToCure: []
   - symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
     symptomsNotPresentToCure:
@@ -68,3 +69,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
     symptomsPresentToCure:
     - {fileID: 11400000, guid: 347adea9f863f634695dff011f1f66e1, type: 2}
+  - symptom: {fileID: 11400000, guid: 43c42d771bbde0f44a012fd28088dcda, type: 2}
+    symptomsNotPresentToCure: []
+    symptomsPresentToCure: []
+  - symptom: {fileID: 11400000, guid: 39f05df63f21b494b9c0719c8a387c81, type: 2}
+    symptomsNotPresentToCure: []
+    symptomsPresentToCure: []

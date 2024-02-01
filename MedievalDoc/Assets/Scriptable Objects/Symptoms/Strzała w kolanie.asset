@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
   m_Name: "Strza\u0142a w kolanie"
   m_EditorClassIdentifier: 
-  symptomName: "Strza\u0142a w kolanie"
+  symptomName: "Zatruta Strza\u0142a w kolanie"
   symptomIcon: {fileID: 21300000, guid: dbc3c69b802e703409cb7cca38e5b55b, type: 3}
   damage: 10
