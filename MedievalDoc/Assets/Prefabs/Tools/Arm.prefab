@@ -50,7 +50,8 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}
   symptomsAdded: []
   symptomsRemoved:
-  - {fileID: 11400000, guid: b7d3b0ed67ccb0c47af81d3ecaac1f9f, type: 2}
+  - {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
+  - {fileID: 11400000, guid: c9009aaf069a2ab4aaf8ebcce9e59298, type: 2}
   symptomsChecked: []
 --- !u!64 &8520372959493395261
 MeshCollider:
