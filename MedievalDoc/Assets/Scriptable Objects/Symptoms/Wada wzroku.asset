@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
   m_Name: Wada wzroku
   m_EditorClassIdentifier: 
-  symptomName: Zatrucie
+  symptomName: Wada Wzroku
   symptomIcon: {fileID: 21300000, guid: 18441d5cc129f7749b80c9d007d723bb, type: 3}
-  damage: 0
+  damage: 3

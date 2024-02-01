@@ -38,8 +38,6 @@ public class Patient : MonoBehaviour
 
     private void Start(){
         player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
-        health = 100;
-        maxHealth = 100;
         isAlive = true;
         if (sickness)
             DiscoverNonCriticalSymptoms(this);

@@ -1032,12 +1032,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5d0aa613ef2494db1ac875f9c81dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   sickness: {fileID: 0}
   spawnerID: 0
-  SpawnPatientSpawner: {fileID: 0}
-  health: 100
-  maxHealth: 100
+  health: 500
+  maxHealth: 500
+  additionalSymptoms: []
   patientStory: 
   isAlive: 0
   immune: 0
