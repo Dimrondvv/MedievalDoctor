@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: "Odmro\u017Cenie"
   m_EditorClassIdentifier: 
   symptomName: "Odrmo\u017Cenie"
-  symptomIcon: {fileID: 21300000, guid: 49b8a293f4e46a440864cea5bf7fa057, type: 3}
+  symptomIcon: {fileID: 21300000, guid: 29072820b8e22fd419d22ab24300d160, type: 3}
   damage: 15

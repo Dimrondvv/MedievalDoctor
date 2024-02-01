@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
   m_Name: Wadliwe Serce
   m_EditorClassIdentifier: 
-  symptomName: Krwawienie
-  symptomIcon: {fileID: 21300000, guid: 07d308587a50b684b8f7d8d4c119bce5, type: 3}
+  symptomName: Wadliwe Serce
+  symptomIcon: {fileID: 21300000, guid: 68e06176d0e68154d84e46d0b221fdb9, type: 3}
   damage: 20

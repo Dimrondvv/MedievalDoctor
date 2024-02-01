@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Zatrucie
   m_EditorClassIdentifier: 
   symptomName: Zatrucie
-  symptomIcon: {fileID: 21300000, guid: 18441d5cc129f7749b80c9d007d723bb, type: 3}
+  symptomIcon: {fileID: 21300000, guid: aa217f06e0c4e5d439ef1127c1d10f92, type: 3}
   damage: 10

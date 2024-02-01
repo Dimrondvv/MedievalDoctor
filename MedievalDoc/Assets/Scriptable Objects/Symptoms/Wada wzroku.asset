@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wada wzroku
   m_EditorClassIdentifier: 
   symptomName: Wada Wzroku
-  symptomIcon: {fileID: 21300000, guid: 18441d5cc129f7749b80c9d007d723bb, type: 3}
+  symptomIcon: {fileID: 21300000, guid: cd0383a8e888b234099a19948a4528d9, type: 3}
   damage: 3
