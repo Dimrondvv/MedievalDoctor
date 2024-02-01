@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionRange;
     private PlayerInputActions playerInputActions;
     private PlayerController controller;
-    [SerializeField] private Animator animator;
+    
     private void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -20,13 +20,13 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TestStart(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        animator.SetBool("performingAction", true);
+        PlayerManager.Instance.GetAnimator.SetBool("performingAction", true);
         Debug.Log("started");
     }
 
     private void TestCancel(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        animator.SetBool("performingAction", false);
+        PlayerManager.Instance.GetAnimator.SetBool("performingAction", false);
         Debug.Log("canceled");
     }
 

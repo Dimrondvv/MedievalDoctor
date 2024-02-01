@@ -19,7 +19,7 @@ public class TimerManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("OneSecondTimer", 2, 1);
+        InvokeRepeating("OneSecondTimer", 0, 1);
         timerText = UIManager.Instance.UiPrefab;
         timerChild = timerText.transform.GetChild(1).gameObject;
     }

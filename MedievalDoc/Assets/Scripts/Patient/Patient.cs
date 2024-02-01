@@ -8,12 +8,8 @@ public class Patient : MonoBehaviour
     GameObject player;
 
     [SerializeField] public SicknessScriptableObject sickness;
-
-
     public int spawnerID;
-    [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
-    //public int health;
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     public int Health { get { return health; } set { health = value; } }
 
@@ -40,13 +36,11 @@ public class Patient : MonoBehaviour
 
     public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
 
-
-
-
     private void Start(){
         player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
         health = 100;
         maxHealth = 100;
+        isAlive = true;
         if (sickness)
             DiscoverNonCriticalSymptoms(this);
         else
@@ -56,11 +50,10 @@ public class Patient : MonoBehaviour
 
     public void Death()
     {
-        SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
+        SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false; // Death on chair = release the chair
+        PatientEventManager.Instance.OnPatientDeath.Invoke(this); // Release the bed on death
         GameManager.Instance.deathCounter+=1;
-        Debug.Log(GameManager.Instance.deathCounter);
         PlayerManager.Instance.PlayerHealth -= 10;
-        //Debug.Log(PlayerManager.Instance.PlayerHealth);
         Destroy(this.gameObject); // if dead = destroy object
     }
 

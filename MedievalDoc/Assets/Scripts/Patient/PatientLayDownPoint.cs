@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatientLayDownPoint : MonoBehaviour
 {
-    private bool isOccupied;
+    [SerializeField] private bool isOccupied;
     public bool IfOccupied {
         get { return isOccupied; }
         set { isOccupied = value; }
@@ -13,6 +13,7 @@ public class PatientLayDownPoint : MonoBehaviour
     private void Start()
     {
         PatientEventManager.Instance.OnCureDisease.AddListener(ReleaseBed);
+        PatientEventManager.Instance.OnPatientDeath.AddListener(ReleaseBed);
     }
 
     private void ReleaseBed(Patient patient)

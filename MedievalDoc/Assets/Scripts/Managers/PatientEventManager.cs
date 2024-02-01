@@ -16,6 +16,8 @@ public class PatientEventManager : MonoBehaviour
     public UnityEvent<GameObject, Patient> OnToolInteract = new UnityEvent<GameObject, Patient>(); //Invoked when interacted with a tool
     public UnityEvent<Patient> OnHandInteract = new UnityEvent<Patient>(); //Invoked when interacted with hand
 
+    public UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
+
     public UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
     public UnityEvent<Symptom, Patient, Tool> OnAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
     public UnityEvent<Symptom, Patient, Tool> OnTryAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
