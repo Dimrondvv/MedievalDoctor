@@ -56,7 +56,7 @@ public class Patient : MonoBehaviour
 
         PatientEventManager.Instance.OnPatientDeath.Invoke(this); // Release the bed on death
         GameManager.Instance.deathCounter+=1;
-        PlayerManager.Instance.PlayerHealth -= 10;
+        PlayerManager.Instance.PlayerHealth -= 25;
         Destroy(this.gameObject); // if dead = destroy object
     }
 
