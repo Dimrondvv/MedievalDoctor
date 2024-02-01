@@ -97,7 +97,7 @@ public class DayAndNightController : MonoBehaviour
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
         }
 
-        clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.back);
+        clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation - 68, Vector3.back);
         //Debug.Log(sunLightRotation);
         //sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
         sunLight.transform.eulerAngles = new Vector3(sunLightRotation, sunRotationY, 0);

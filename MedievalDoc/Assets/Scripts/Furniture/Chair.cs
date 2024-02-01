@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Chair : MonoBehaviour
 {
-    public bool isOccupied;
-
+    [SerializeField] private bool isOccupied;
+    public bool IsOccupied {
+        get { return isOccupied; }
+        set { isOccupied = value; }
+    }
 
 }

@@ -1263,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: SpawnPatientSpawner
+      value: 
+      objectReference: {fileID: 1817847572}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1613,7 +1617,13 @@ MonoBehaviour:
   OnAddSymptom:
     m_PersistentCalls:
       m_Calls: []
+  OnTryAddSymptom:
+    m_PersistentCalls:
+      m_Calls: []
   OnRemoveSymptom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTryRemoveSymptom:
     m_PersistentCalls:
       m_Calls: []
   OnCureDisease:
@@ -3047,6 +3057,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+--- !u!114 &1817847572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+  m_PrefabInstance: {fileID: 1817847571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43499905c9e69a843951b470bbe8cbb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1841078115
 PrefabInstance:
   m_ObjectHideFlags: 0

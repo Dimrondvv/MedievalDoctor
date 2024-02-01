@@ -20,7 +20,7 @@ public class Patient : MonoBehaviour
     [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
     public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
 
-    private List<Symptom> additionalSymptoms = new List<Symptom>();
+    public List<Symptom> additionalSymptoms = new List<Symptom>();
 
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
@@ -40,13 +40,11 @@ public class Patient : MonoBehaviour
 
     public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
 
-
-
-
     private void Start(){
         player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
         health = 100;
         maxHealth = 100;
+        isAlive = true;
         if (sickness)
             DiscoverNonCriticalSymptoms(this);
         else
@@ -56,11 +54,11 @@ public class Patient : MonoBehaviour
 
     public void Death()
     {
-        SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().isOccupied = false;
+        SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false; // Death on chair = release the chair
+        PatientEventManager.Instance.OnPatientDeath.Invoke(this); // Release the bed on death
         GameManager.Instance.deathCounter+=1;
         Debug.Log(GameManager.Instance.deathCounter);
         PlayerManager.Instance.PlayerHealth -= 10;
-        //Debug.Log(PlayerManager.Instance.PlayerHealth);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
@@ -71,8 +69,8 @@ public class Patient : MonoBehaviour
         if (PatientEventManager.Instance != null)
         {
             PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
-            PatientEventManager.Instance.OnAddSymptom.AddListener(AddAdditionalSymptom);
-            PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
+            PatientEventManager.Instance.OnTryAddSymptom.AddListener(AddAdditionalSymptom);
+            PatientEventManager.Instance.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
             PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
 
         }
@@ -132,15 +130,30 @@ public class Patient : MonoBehaviour
             if (CanSymptomBeCured(symptom) == false)
                 return;
 
-            patient.additionalSymptoms.Remove(symptom);
+            if (sickness.CheckSymptom(symptom) == true)
+            {
+                sickness.RemSymptom(symptom);
+                patient.DiscoveredSymptoms.Remove(symptom);
+                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
+            }
+            else
+            {
+                patient.additionalSymptoms.Remove(symptom);
+                patient.DiscoveredSymptoms.Remove(symptom);
+                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
+            }
+        }
+        else
+        {
+            patient.DiscoveredSymptoms.Remove(symptom);
+            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
         }
 
-        patient.DiscoveredSymptoms.Remove(symptom);
     }
 
     private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this)
+        if (patient != this || sickness.CheckSymptom(symptom))
             return;
 
         foreach(var item in tool.SymptomsRemoved)
@@ -149,9 +162,12 @@ public class Patient : MonoBehaviour
                 return;
         }
 
-
-        patient.additionalSymptoms.Add(symptom);
-        patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
+        if (!patient.additionalSymptoms.Contains(symptom)) //prevent duplicate symptoms
+        {
+            patient.additionalSymptoms.Add(symptom);
+            patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
+            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, tool);
+        }
     }
 
     private void DiscoverNonCriticalSymptoms(Patient patient)
