@@ -21,7 +21,7 @@ public class AccelerateSpawnTime : MonoBehaviour
 
     private void Update()
     {
-        if (spawnPatientTimer.spawnTime < 5)
+        if (spawnPatientTimer.spawnTime < accelerationSpeed)
         {
             spawnPatientTimer.spawnTime = accelerationSpeed;
         }
@@ -29,13 +29,7 @@ public class AccelerateSpawnTime : MonoBehaviour
 
     private void AccelerateSpawn()
     {
-        if (spawnPatientTimer.spawnTime < 5)
-        {
-            spawnPatientTimer.spawnTime = accelerationSpeed;
-        } else {
-            spawnPatientTimer.spawnTime -= accelerationSpeed;
-        }
-        
+        spawnPatientTimer.spawnTime -= accelerationSpeed;
     }
     
 }
