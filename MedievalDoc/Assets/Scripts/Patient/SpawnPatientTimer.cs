@@ -7,6 +7,7 @@ public class SpawnPatientTimer : MonoBehaviour
     public float elapsedTime;
     [SerializeField] GameObject Patient;
     [SerializeField] int SpawnTime; // Timer for patient spawning
+    public int spawnTime { get { return SpawnTime; } set { SpawnTime = value; } }
     public GameObject SpawnedPatient;
     [SerializeField] public List<SicknessScriptableObject> Sicknesses;
     [SerializeField] public List<GameObject> SpawnPoints;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6661804075920910968}
   - component: {fileID: 575417472191014539}
   - component: {fileID: 5038663620408251477}
+  - component: {fileID: 1919095589453866530}
   m_Layer: 0
   m_Name: PatientSpawner
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   SpawnPatientSpawner: {fileID: 575417472191014539}
   health: 0
   maxHealth: 0
+  additionalSymptoms: []
   patientStory: 
   isAlive: 0
   immune: 0
@@ -110,3 +112,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35814f3248746e42b6bc92f57790584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1919095589453866530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138131498301780534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e68e465607bb36489f98b08d277d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPatientTimer: {fileID: 575417472191014539}
+  accelerationSpeed: 0
