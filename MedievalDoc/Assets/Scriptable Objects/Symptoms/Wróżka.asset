@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symptomName: "Wr\xF3\u017Cka"
   symptomIcon: {fileID: 21300000, guid: 9571c384264c99844b27f28e12eb6ad6, type: 3}
-  damage: 20
+  damage: 10

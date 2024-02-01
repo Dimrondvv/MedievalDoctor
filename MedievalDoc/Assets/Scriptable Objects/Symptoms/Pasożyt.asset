@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symptomName: "Paso\u017Cyt"
   symptomIcon: {fileID: 21300000, guid: 2f1912cd72b14cb41b883dd7590ae949, type: 3}
-  damage: 15
+  damage: 10

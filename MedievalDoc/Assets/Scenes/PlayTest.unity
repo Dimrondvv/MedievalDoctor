@@ -1205,9 +1205,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4797192241872485251, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
       propertyPath: m_Name
       value: SickCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: maxHealth
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3000,6 +3012,14 @@ PrefabInstance:
       propertyPath: SpawnPointsCopy.Array.data[11]
       value: 
       objectReference: {fileID: 6642089469504080446}
+    - target: {fileID: 1919095589453866530, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: invokeTime
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919095589453866530, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: accelerationSpeed
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 2138131498301780534, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: m_Name
       value: PatientSpawner
@@ -3579,10 +3599,6 @@ PrefabInstance:
     - target: {fileID: 495865580938467515, guid: 31c0d7dc3c249a74db62298029e32397, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2934615985081736913, guid: 31c0d7dc3c249a74db62298029e32397, type: 3}
-      propertyPath: maxDeaths
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6958139224475420091, guid: 31c0d7dc3c249a74db62298029e32397, type: 3}
       propertyPath: m_LocalPosition.x
