@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
         {
             return isPauseEnabled;
         }
+        set{
+            isPauseEnabled = value;
+        }
     }
 
 
@@ -28,6 +31,9 @@ public class UIManager : MonoBehaviour
         get
         {
             return isNotebookEnabled;
+        }
+        set{
+            isNotebookEnabled = value;
         }
     }
 
