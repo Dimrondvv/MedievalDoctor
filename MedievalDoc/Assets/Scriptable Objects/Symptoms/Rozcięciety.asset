@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: "Rozci\u0119ciety"
   m_EditorClassIdentifier: 
   symptomName: "Rozci\u0119ty"
-  symptomIcon: {fileID: 21300000, guid: 07d308587a50b684b8f7d8d4c119bce5, type: 3}
+  symptomIcon: {fileID: 21300000, guid: 751c6dbc92bbb634f8c7af5c84566b8f, type: 3}
   damage: 5

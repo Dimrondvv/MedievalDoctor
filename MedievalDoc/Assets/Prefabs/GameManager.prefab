@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe59e31caca60e4c95c2481b482de8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDeaths: 10
+  maxDeaths: 4
   bedHealingValue: 5
   deathCounter: 0

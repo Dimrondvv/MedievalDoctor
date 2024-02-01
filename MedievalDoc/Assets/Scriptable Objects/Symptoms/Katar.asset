@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Katar
   m_EditorClassIdentifier: 
   symptomName: Katar
-  symptomIcon: {fileID: 21300000, guid: 18441d5cc129f7749b80c9d007d723bb, type: 3}
+  symptomIcon: {fileID: 21300000, guid: d04439aa787f8a04ba7adb7a0a5ff8cd, type: 3}
   damage: 2
