@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
-  m_Name: Drzazga
+  m_Name: "Paso\u017Cyt"
   m_EditorClassIdentifier: 
-  sicknessName: Drzazga
+  sicknessName: "Paso\u017Cyt"
   symptomList:
-  - symptom: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
+  - symptom: {fileID: 11400000, guid: baabad1d35bcbf84f9d788930adb37d4, type: 2}
     isHidden: 0
   stories:
-  - "Drzazga w palcu wyjmij mi j\u0105"
+  - "Zjad\u0142em paso\u017Cyta le troll"
   solutionList:
   - symptom: {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
     symptomsNotPresentToCure: []
