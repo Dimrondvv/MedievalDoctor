@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: "Brak ko\u0144czyny"
   m_EditorClassIdentifier: 
   symptomName: "Brak ko\u0144czyny"
-  symptomIcon: {fileID: 21300000, guid: 49b8a293f4e46a440864cea5bf7fa057, type: 3}
+  symptomIcon: {fileID: 21300000, guid: 2929bea84d9dee04eb10c53b8ce0795c, type: 3}
   damage: 10
