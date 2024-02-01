@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     private static PlayerManager instance;
     public static PlayerManager Instance { get { return instance; } }
-
+    [SerializeField] private Animator animator;
     [SerializeField]
     private PlayerController playerController;
     public PlayerController PlayerController { get { return playerController; } }
@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     private int money; // money
     public int Money { get { return money; } set { money = value; } }
 
+    public Animator GetAnimator { get { return animator; } set { animator = value; } } 
     private GameObject uiText;
     private GameObject uiTextChild;
 
@@ -38,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         uiTextChild = uiText.transform.GetChild(0).gameObject;
     }
     
-
+    
     private void IncrementScore(Patient patient)
     {
         score++;

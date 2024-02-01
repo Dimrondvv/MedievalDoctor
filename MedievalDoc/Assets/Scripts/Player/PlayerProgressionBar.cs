@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,32 +9,34 @@ public class PlayerProgressionBar : MonoBehaviour
     private float progress;
     public void progressBar()
     {
-        progress += 1f;
+        progress += 0.3f;
         barImage.fillAmount = (float)progress / (float)100;
     }
-
     void Start()
     {
         progress = 0f;
         barImage.fillAmount = 0f;
     }
-
     void Update()
     {
-        // mo¿na se spacje wcisn¹æ i ez 
         transform.eulerAngles = Vector3.zero;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (PlayerManager.Instance.GetAnimator.GetBool("performingAction"))
         {
-            gameObject.SetActive(true);
-            progressBar();
-        }
-        /*if (progress==1/*tutaj czy interakcja siê dzieje* )
-        {
-            gameObject.SetActive(true);
+            if (barImage.fillAmount != 1)
+            {
+                gameObject.GetComponent<Canvas>().enabled = true;
+            }
+            else
+            {
+                gameObject.GetComponent<Canvas>().enabled = false;
+            }
+            
             progressBar();
         } else
         {
-            gameObject.SetActive(false);
-        }*/
+            gameObject.GetComponent<Canvas>().enabled = false;
+            progress = 0;
+            progressBar();
+        }
     }
 }

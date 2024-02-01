@@ -1055,7 +1055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 1
-  animator: {fileID: 8206842266131647170}
 --- !u!114 &2802415554505426055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,7 +2092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4603343363671246148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2191,6 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 94209403482545322}
+  animator: {fileID: 8206842266131647170}
 --- !u!1 &6431948605577891908
 GameObject:
   m_ObjectHideFlags: 0
