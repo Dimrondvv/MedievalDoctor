@@ -10,4 +10,14 @@ public class Chair : MonoBehaviour
         set { isOccupied = value; }
     }
 
+    
+
+    private void ReleaseChair(Patient patient)
+    {
+        if (!GetComponentInChildren<Patient>() && isOccupied == true)
+        {
+            isOccupied = false;
+        }
+    }
+
 }
