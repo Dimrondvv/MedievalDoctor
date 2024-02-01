@@ -6,13 +6,13 @@ public class PatientPickup : MonoBehaviour
 {
     private PlayerController playerController;
     GameObject player;
+    Patient patient;
     Transform toolPickupPoint;
 
     private void Start()
     {
         PlayerController.OnPickup.AddListener(PickupPatient);
         PlayerController.OnPutdown.AddListener(PutdownPatient);
-
         toolPickupPoint = PlayerManager.Instance.PlayerController.GetToolPickupPoint();
         player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
         playerController = PlayerManager.Instance.PlayerController.GetPlayerController();
@@ -31,8 +31,16 @@ public class PatientPickup : MonoBehaviour
             pickedPatient.transform.position = toolPickupPoint.position;
             pickedPatient.transform.SetParent(player.transform);
             var lastChild = player.transform.childCount - 1;
-
             player.transform.GetChild(lastChild).localEulerAngles = Vector3.zero;
+        }
+
+        // Release chair (fix)
+        if (pickedPatient.GetComponent<Patient>().spawnerID >= 0)
+        {
+            SpawnPatientTimer.SpawnPoints[pickedPatient.GetComponent<Patient>().spawnerID].GetComponent<Chair>().IsOccupied = false;
+
+            GetComponent<Patient>().spawnerID = -69;
+            Debug.Log("test");
         }
     }
 

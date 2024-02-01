@@ -9,7 +9,10 @@ public class SpawnPatientTimer : MonoBehaviour
     [SerializeField] int SpawnTime; // Timer for patient spawning
     public GameObject SpawnedPatient;
     [SerializeField] public List<SicknessScriptableObject> Sicknesses;
-    [SerializeField] public List<GameObject> SpawnPoints;
+
+    [SerializeField] public List<GameObject> SpawnPointsCopy;
+    public static List<GameObject> SpawnPoints;
+
     [SerializeField] public List<string> patientNames;
     public int spawnerID;
     RandomizeSickness randomizeSickness;
@@ -21,6 +24,11 @@ public class SpawnPatientTimer : MonoBehaviour
     {
         InvokeRepeating("TimeCheck", 2, 1);
         randomizeSickness = GetComponent<RandomizeSickness>();
+    }
+
+    private void Awake()
+    {
+        SpawnPoints = SpawnPointsCopy;
     }
 
     void Spawning()
@@ -58,8 +66,6 @@ public class SpawnPatientTimer : MonoBehaviour
             SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
             SpawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
 
-            Debug.Log(SpawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied);
-
             //.transform.SetParent(pickupPoint);
             
             randomizeSickness.RandomizeSicknessFunction();
@@ -75,12 +81,6 @@ public class SpawnPatientTimer : MonoBehaviour
                 availableSpawners += 1;
             }
     }
-
-    void FreeUpChair(Patient patient)
-    {
-        SpawnPoints[patient.spawnerID].GetComponent<Chair>().IsOccupied = false;
-    }
-
     void TimeCheck()
     {
         if (TimerManager.Instance.ElapsedTime > 1)

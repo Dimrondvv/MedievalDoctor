@@ -8,12 +8,8 @@ public class Patient : MonoBehaviour
     GameObject player;
 
     [SerializeField] public SicknessScriptableObject sickness;
-
-
     public int spawnerID;
-    [SerializeField] SpawnPatientTimer SpawnPatientSpawner;
 
-    //public int health;
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     public int Health { get { return health; } set { health = value; } }
 
@@ -54,7 +50,7 @@ public class Patient : MonoBehaviour
 
     public void Death()
     {
-        SpawnPatientSpawner.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false; // Death on chair = release the chair
+        SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false; // Death on chair = release the chair
         PatientEventManager.Instance.OnPatientDeath.Invoke(this); // Release the bed on death
         GameManager.Instance.deathCounter+=1;
         PlayerManager.Instance.PlayerHealth -= 10;
