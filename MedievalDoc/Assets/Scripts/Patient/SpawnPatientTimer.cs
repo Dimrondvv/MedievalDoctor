@@ -56,6 +56,12 @@ public class SpawnPatientTimer : MonoBehaviour
             SpawnedPatient.SetActive(true);
             SpawnedPatient.GetComponent<PatientDamage>().enabled = true;
             SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
+            SpawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
+
+            Debug.Log(SpawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied);
+
+            //.transform.SetParent(pickupPoint);
+            
             randomizeSickness.RandomizeSicknessFunction();
             currentSpawnedPatients += 1;
         }
