@@ -28,5 +28,6 @@ public class RandomizeSickness : MonoBehaviour
     private void Awake()
     {
         spawnPatientTimer = GetComponent<SpawnPatientTimer>();
+        sicknessCount = 0;
     }
 }
