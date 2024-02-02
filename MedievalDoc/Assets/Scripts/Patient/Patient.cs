@@ -209,6 +209,8 @@ public class Patient : MonoBehaviour
         if (isCured)
         {
             Debug.Log("Cured");
+            // Add gold on cure
+            PlayerManager.Instance.Money += 100;
             PatientEventManager.Instance.OnCureDisease.Invoke(this);
         }
     }

@@ -43,6 +43,7 @@ public class PlayerManager : MonoBehaviour
     private void IncrementScore(Patient patient)
     {
         score++;
+        money += 100;
         Destroy(patient.gameObject);
     }
 

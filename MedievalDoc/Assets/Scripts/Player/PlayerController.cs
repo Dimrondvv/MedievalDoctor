@@ -36,20 +36,22 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.RotateBlueprint.performed += RotateBlueprint_performed;
-        playerInputActions.Player.Run.performed += Running;
-        playerInputActions.Player.Run.canceled += Walking;
+
+        // Running turned off
+        //playerInputActions.Player.Run.performed += Running;
+        //playerInputActions.Player.Run.canceled += Walking;
     }
 
-    private void Running(UnityEngine.InputSystem.InputAction.CallbackContext callback)
-    {
-        speed = runSpeed;
-        animator.SetInteger("moving", 2);
-    }
+    // private void Running(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    // {
+    //     speed = runSpeed;
+    //     animator.SetInteger("moving", 2);
+    // }
 
-    private void Walking(UnityEngine.InputSystem.InputAction.CallbackContext callback)
-    {
-        speed = walkSpeed;
-    }
+    // private void Walking(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    // {
+    //     speed = walkSpeed;
+    // }
 
     private void FixedUpdate(){
 
@@ -57,15 +59,22 @@ public class PlayerController : MonoBehaviour
   
         inputVector = inputVector.normalized;
 
+        //Debug.Log(inputVector);
 
         if (inputVector.x != 0 || inputVector.y != 0)
         {
+            //Debug.Log("walking");
+            //animator.SetInteger("moving", 1);
             moveValue = 1;
+            //animator.SetInteger("moving",1);
         }
         else
         {
+            //Debug.Log("idling");
             moveValue = 0;
+            //animator.SetInteger("moving",0);
         }
+        //Debug.Log(moveValue);
         animator.SetInteger("moving", moveValue);
 
         moveDirection = new Vector3(inputVector.x,0f,inputVector.y);
