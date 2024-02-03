@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sickness: {fileID: 11400000, guid: 7c7c7ed145940644d8f8bf817d1b7f86, type: 2}
   spawnerID: 0
-  health: 500
-  maxHealth: 500
+  health: 800
+  maxHealth: 800
   additionalSymptoms: []
   patientStory: 
   isAlive: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   Patient: {fileID: 0}
-  SpawnTime: 25
+  SpawnTime: 35
   SpawnedPatient: {fileID: 0}
   Sicknesses:
   - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
