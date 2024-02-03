@@ -43,6 +43,7 @@ public class PatientDamage : MonoBehaviour
         else{
             for (int i = 0; i < patient.sickness.symptomList.Count; i++)
             {
+
                 patient.Health -= patient.sickness.symptomList[i].symptom.damage;
                 patientHealthBar.healthBar();
                 CheckAlive();
