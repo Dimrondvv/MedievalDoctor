@@ -25,6 +25,8 @@ public class SpawnPatientTimer : MonoBehaviour
     {
         InvokeRepeating("TimeCheck", 2, 1);
         randomizeSickness = GetComponent<RandomizeSickness>();
+
+        Spawning();
     }
 
     private void Awake()
