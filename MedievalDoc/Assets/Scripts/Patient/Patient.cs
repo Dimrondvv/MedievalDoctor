@@ -211,7 +211,16 @@ public class Patient : MonoBehaviour
             Debug.Log("Cured");
             // Add gold on cure
             PlayerManager.Instance.Money += 100;
+
             PatientEventManager.Instance.OnCureDisease.Invoke(this);
+
+            // Release the Chair if patients is healed on chair
+            if (spawnerID >= 0)
+            {
+            SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
+            }
+
+
         }
     }
 
