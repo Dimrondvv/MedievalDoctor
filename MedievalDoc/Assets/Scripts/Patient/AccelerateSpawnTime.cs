@@ -21,15 +21,15 @@ public class AccelerateSpawnTime : MonoBehaviour
 
     private void Update()
     {
-        if (spawnPatientTimer.spawnTime < accelerationSpeed)
+        if (spawnPatientTimer.SpawnTime < accelerationSpeed)
         {
-            spawnPatientTimer.spawnTime = accelerationSpeed;
+            spawnPatientTimer.SpawnTime = accelerationSpeed;
         }
     }
 
     private void AccelerateSpawn()
     {
-        spawnPatientTimer.spawnTime -= accelerationSpeed;
+        spawnPatientTimer.SpawnTime -= accelerationSpeed;
     }
     
 }
