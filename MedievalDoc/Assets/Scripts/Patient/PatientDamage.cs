@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class PatientDamage : MonoBehaviour
 {
-    public int damage;
     Patient patient;
-    private int tempelapsedTime;
     [SerializeField] PatientHealthBar patientHealthBar;
 
     private void Start()
     {
         patient = GetComponent<Patient>();
-        tempelapsedTime = TimerManager.Instance.ElapsedTime;
-        //patientHealthBar = GetComponent<PatientHealthBar>();
+        InvokeRepeating("TakeDamage", 0, 1);
     }
 
     private void CheckAlive()
@@ -25,20 +22,10 @@ public class PatientDamage : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-        if(tempelapsedTime < TimerManager.Instance.ElapsedTime)
-        {
-            TakeDamage();
-            tempelapsedTime = TimerManager.Instance.ElapsedTime;
-        }
-    }
-
     private void TakeDamage()
     {
         if(patient.Immune){
-
+            // Do Nothing
         }
         else{
             for (int i = 0; i < patient.sickness.symptomList.Count; i++)
@@ -46,8 +33,7 @@ public class PatientDamage : MonoBehaviour
 
                 patient.Health -= patient.sickness.symptomList[i].symptom.damage;
                 patientHealthBar.healthBar();
-                CheckAlive();
-                
+                CheckAlive();    
             }
         }      
     }
