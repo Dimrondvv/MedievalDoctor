@@ -12,8 +12,8 @@ public class PatientLayDownPoint : MonoBehaviour
 
     private void Start()
     {
-        PatientEventManager.Instance.OnCureDisease.AddListener(ReleaseBed);
-        PatientEventManager.Instance.OnPatientDeath.AddListener(ReleaseBed);
+        Patient.OnCureDisease.AddListener(ReleaseBed);
+        Patient.OnPatientDeath.AddListener(ReleaseBed);
     }
 
     private void ReleaseBed(Patient patient)

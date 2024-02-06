@@ -17,20 +17,17 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (PatientEventManager.Instance != null)
-        {
-            PatientEventManager.Instance.OnTryAddSymptom.AddListener(AddAdditionalSymptom);
-            PatientEventManager.Instance.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
-            PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
-            PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
-        }
+        Patient.OnTryAddSymptom.AddListener(AddAdditionalSymptom);
+        Patient.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
+        Patient.OnRemoveSymptom.AddListener(CheckIfCured);
+        Patient.OnCheckSymptom.AddListener(DiscoverSymptom);
     }
     private void OnDestroy()
     {
-        PatientEventManager.Instance.OnTryAddSymptom.RemoveListener(AddAdditionalSymptom);
-        PatientEventManager.Instance.OnTryRemoveSymptom.RemoveListener(RemoveDiscoveredSymptom);
-        PatientEventManager.Instance.OnRemoveSymptom.RemoveListener(CheckIfCured);
-        PatientEventManager.Instance.OnCheckSymptom.RemoveListener(DiscoverSymptom);
+        Patient.OnTryAddSymptom.RemoveListener(AddAdditionalSymptom);
+        Patient.OnTryRemoveSymptom.RemoveListener(RemoveDiscoveredSymptom);
+        Patient.OnRemoveSymptom.RemoveListener(CheckIfCured);
+        Patient.OnCheckSymptom.RemoveListener(DiscoverSymptom);
     }
     private bool CanSymptomBeCured(Symptom symptom)
     {
@@ -72,19 +69,19 @@ public class PatientSymptomHandler : MonoBehaviour
             {
                 patient.sickness.RemSymptom(symptom);
                 patient.DiscoveredSymptoms.Remove(symptom);
-                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
+                Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
             else
             {
                 patient.AdditionalSymptoms.Remove(symptom);
                 patient.DiscoveredSymptoms.Remove(symptom);
-                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
+                Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
         }
         else
         {
             patient.DiscoveredSymptoms.Remove(symptom);
-            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
+            Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
         }
 
     }
@@ -103,7 +100,7 @@ public class PatientSymptomHandler : MonoBehaviour
         {
             patient.AdditionalSymptoms.Add(symptom);
             patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
-            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, tool);
+            Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
     private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
@@ -130,7 +127,7 @@ public class PatientSymptomHandler : MonoBehaviour
             Debug.Log("Cured");
             // Add gold on cure
             PlayerManager.Instance.Money += 100;
-            PatientEventManager.Instance.OnCureDisease.Invoke(patient);
+            Patient.OnCureDisease.Invoke(patient);
         }
     }
     private void DiscoverNonCriticalSymptoms(Patient patient)

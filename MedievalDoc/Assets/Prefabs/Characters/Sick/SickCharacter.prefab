@@ -996,6 +996,7 @@ GameObject:
   - component: {fileID: 3238783951277862441}
   - component: {fileID: 5812179973506052653}
   - component: {fileID: 5717076916740530043}
+  - component: {fileID: 6231083064348575428}
   m_Layer: 6
   m_Name: SickCharacter
   m_TagString: Untagged
@@ -1036,7 +1037,6 @@ MonoBehaviour:
   spawnerID: 0
   health: 800
   maxHealth: 800
-  additionalSymptoms: []
   patientStory: 
   isAlive: 0
   immune: 0
@@ -1100,6 +1100,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d60367d43f9341a4e85dfe36a93e6fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6231083064348575428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227786057089029331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0ef5000ad7808409e8525e790a6494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6265525569222478492

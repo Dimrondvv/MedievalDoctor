@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Tool : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Tool : MonoBehaviour
     [SerializeField] private List<Symptom> symptomsAdded;
     [SerializeField] private List<Symptom> symptomsRemoved;
     [SerializeField] private List<Symptom> symptomsChecked;
+    public static UnityEvent<GameObject, Patient> OnToolInteract = new UnityEvent<GameObject, Patient>(); //Invoked when interacted with a tool
 
     public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
     public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
@@ -26,7 +28,7 @@ public class Tool : MonoBehaviour
             return;
         Debug.Log("Add symptom");
         foreach(var symptom in symptomsAdded)
-            PatientEventManager.Instance.OnTryAddSymptom.Invoke(symptom, patient, this);
+            Patient.OnTryAddSymptom.Invoke(symptom, patient, this);
 
     }
     private void RemoveSymptom(GameObject tool, Patient patient)
@@ -35,7 +37,7 @@ public class Tool : MonoBehaviour
             return;
 
         foreach (Symptom symptom in symptomsRemoved)
-             PatientEventManager.Instance.OnTryRemoveSymptom.Invoke(symptom, patient, this);
+             Patient.OnTryRemoveSymptom.Invoke(symptom, patient, this);
     }
     private void CheckSymptom(GameObject tool, Patient patient)
     {
@@ -46,15 +48,15 @@ public class Tool : MonoBehaviour
             bool isPresent = patient.sickness.CheckSymptom(symptom);
             if (isPresent)
             {
-                PatientEventManager.Instance.OnCheckSymptom.Invoke(symptom, patient);
+                Patient.OnCheckSymptom.Invoke(symptom, patient);
             }
         }
     }
 
     private void Start()
     {
-        PatientEventManager.Instance.OnToolInteract.AddListener(AddSymptom);
-        PatientEventManager.Instance.OnToolInteract.AddListener(RemoveSymptom);
-        PatientEventManager.Instance.OnToolInteract.AddListener(CheckSymptom);
+        OnToolInteract.AddListener(AddSymptom);
+        OnToolInteract.AddListener(RemoveSymptom);
+        OnToolInteract.AddListener(CheckSymptom);
     }
 }
