@@ -41,7 +41,7 @@ public class PatientSymptomHandler : MonoBehaviour
                 foreach (var sympt in item.symptomsNotPresentToCure)
                 {
                     bool isPresent = patient.sickness.CheckSymptom(sympt);
-                    if (isPresent || patient.additionalSymptoms.Contains(sympt))
+                    if (isPresent || patient.AdditionalSymptoms.Contains(sympt))
                     {
                         return false;
                     }
@@ -49,7 +49,7 @@ public class PatientSymptomHandler : MonoBehaviour
                 foreach (var sympt in item.symptomsPresentToCure)
                 {
                     bool isPresent = patient.sickness.CheckSymptom(sympt);
-                    if (!isPresent && !patient.additionalSymptoms.Contains(sympt))
+                    if (!isPresent && !patient.AdditionalSymptoms.Contains(sympt))
                     {
                         return false;
                     }
@@ -76,7 +76,7 @@ public class PatientSymptomHandler : MonoBehaviour
             }
             else
             {
-                patient.additionalSymptoms.Remove(symptom);
+                patient.AdditionalSymptoms.Remove(symptom);
                 patient.DiscoveredSymptoms.Remove(symptom);
                 PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
@@ -99,9 +99,9 @@ public class PatientSymptomHandler : MonoBehaviour
                 return;
         }
 
-        if (!patient.additionalSymptoms.Contains(symptom)) //prevent duplicate symptoms
+        if (!patient.AdditionalSymptoms.Contains(symptom)) //prevent duplicate symptoms
         {
-            patient.additionalSymptoms.Add(symptom);
+            patient.AdditionalSymptoms.Add(symptom);
             patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
             PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, tool);
         }
@@ -111,7 +111,7 @@ public class PatientSymptomHandler : MonoBehaviour
         if (patient != this || tool.SymptomsAdded.Count > 0)
             return;
 
-        bool noAdditionalSymptoms = patient.additionalSymptoms.Count == 0;
+        bool noAdditionalSymptoms = patient.AdditionalSymptoms.Count == 0;
         bool solutionMet = true;
         foreach (SicknessScriptableObject.SolutionStruct symptomCheck in patient.sickness.solutionList)
         {
