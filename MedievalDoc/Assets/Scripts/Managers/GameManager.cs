@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
             Instance = this; 
         } 
     }
-    void Update()
+
+    public void CheckDeathCounter()
     {
         if(deathCounter >= maxDeaths){
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);

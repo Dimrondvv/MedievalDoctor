@@ -54,7 +54,8 @@ public class Patient : MonoBehaviour
             SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
         }
 
-        PatientEventManager.Instance.OnPatientDeath.Invoke(this); // Release the bed on death
+        PatientEventManager.Instance.OnPatientDeath.Invoke(this);// Release the bed on death
+        GameManager.Instance.CheckDeathCounter();
         GameManager.Instance.deathCounter+=1;
         PlayerManager.Instance.PlayerHealth -= 25;
         Destroy(this.gameObject); // if dead = destroy object
