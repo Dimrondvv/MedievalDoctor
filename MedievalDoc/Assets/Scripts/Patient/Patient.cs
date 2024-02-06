@@ -17,7 +17,7 @@ public class Patient : MonoBehaviour
     public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
 
     private List<Symptom> additionalSymptoms = new List<Symptom>();
-    public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms} set { additionalSymptoms = value; } }
+    public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms; } set { additionalSymptoms = value; } }
 
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
