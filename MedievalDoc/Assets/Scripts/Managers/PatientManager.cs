@@ -22,8 +22,8 @@ public class PatientManager : MonoBehaviour
     }
     private void Start()
     {
-        PatientEventManager.Instance.OnCureDisease.AddListener(RemovePatientFromList);
-        PatientEventManager.Instance.OnPatientDeath.AddListener(RemovePatientFromList);
+        Patient.OnCureDisease.AddListener(RemovePatientFromList);
+        Patient.OnPatientDeath.AddListener(RemovePatientFromList);
     }
 
     

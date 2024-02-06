@@ -32,7 +32,14 @@ public class Patient : MonoBehaviour
         set { patientName = value; }
     }
     public bool Immune { get { return immune; } set { immune = value; } }
+    public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
 
+    public static UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
+    public static UnityEvent<Symptom, Patient, Tool> OnAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
+    public static UnityEvent<Symptom, Patient, Tool> OnTryAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
+    public static UnityEvent<Symptom, Patient, Tool> OnRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
+    public static UnityEvent<Symptom, Patient, Tool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
+    public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
 
 
     public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
@@ -52,7 +59,7 @@ public class Patient : MonoBehaviour
             SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
         }
 
-        PatientEventManager.Instance.OnPatientDeath.Invoke(this);// Release the bed on death
+        OnPatientDeath.Invoke(this);// Release the bed on death
         GameManager.Instance.CheckDeathCounter();
         GameManager.Instance.deathCounter+=1;
         PlayerManager.Instance.PlayerHealth -= 25;
@@ -71,13 +78,9 @@ public class Patient : MonoBehaviour
     {
         if (interactedObject != this.gameObject)
             return;
-        if(controller.PickedItem == null)
+        if(controller.PickedItem.GetComponent<Tool>() != null)
         {
-            PatientEventManager.Instance.OnHandInteract.Invoke(this);
-        }
-        else if(controller.PickedItem.GetComponent<Tool>() != null)
-        {
-            PatientEventManager.Instance.OnToolInteract.Invoke(controller.PickedItem, this);
+            Tool.OnToolInteract.Invoke(controller.PickedItem, this);
         }
         
     }

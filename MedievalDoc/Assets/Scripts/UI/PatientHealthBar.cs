@@ -63,7 +63,7 @@ public class PatientHealthBar : MonoBehaviour
         {
             AddSymptomIcon(item.symptom, thisPatient ,null);
         }
-        PatientEventManager.Instance.OnAddSymptom.AddListener(AddSymptomIcon);
-        PatientEventManager.Instance.OnRemoveSymptom.AddListener(RemoveSymptomIcon);
+        Patient.OnAddSymptom.AddListener(AddSymptomIcon);
+        Patient.OnRemoveSymptom.AddListener(RemoveSymptomIcon);
     }
 }
