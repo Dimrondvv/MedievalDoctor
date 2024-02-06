@@ -16,7 +16,8 @@ public class Patient : MonoBehaviour
     [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
     public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
 
-    public List<Symptom> additionalSymptoms = new List<Symptom>();
+    private List<Symptom> additionalSymptoms = new List<Symptom>();
+    public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms} set { additionalSymptoms = value; } }
 
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
@@ -36,13 +37,10 @@ public class Patient : MonoBehaviour
 
     public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
 
-    private void Start(){
+    private void Start()
+    {
         player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
         isAlive = true;
-        if (sickness)
-            DiscoverNonCriticalSymptoms(this);
-        else
-            Debug.LogError("No sickness");
     }
 
 
@@ -63,16 +61,7 @@ public class Patient : MonoBehaviour
 
     private void OnEnable()
     {
-
         PlayerController.OnInteract.AddListener(InteractWithPatient);
-        if (PatientEventManager.Instance != null)
-        {
-            PatientEventManager.Instance.OnCheckSymptom.AddListener(DiscoverSymptom);
-            PatientEventManager.Instance.OnTryAddSymptom.AddListener(AddAdditionalSymptom);
-            PatientEventManager.Instance.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
-            PatientEventManager.Instance.OnRemoveSymptom.AddListener(CheckIfCured);
-
-        }
     }
     private void OnDisable()
     {
@@ -91,138 +80,6 @@ public class Patient : MonoBehaviour
             PatientEventManager.Instance.OnToolInteract.Invoke(controller.PickedItem, this);
         }
         
-    }
-
-    private bool CanSymptomBeCured(Symptom symptom)
-    {
-        foreach (var item in sickness.solutionList)
-        {
-            if (item.symptom == symptom)
-            {
-                foreach (var sympt in item.symptomsNotPresentToCure)
-                {
-                    bool isPresent = sickness.CheckSymptom(sympt);
-                    if (isPresent || additionalSymptoms.Contains(sympt))
-                    {
-                        return false;
-                    }
-                }
-                foreach (var sympt in item.symptomsPresentToCure)
-                {
-                    bool isPresent = sickness.CheckSymptom(sympt);
-                    if (!isPresent && !additionalSymptoms.Contains(sympt))
-                    {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
-    {
-        if (patient != this)
-            return;
-        bool isRemoved = patient.sickness.RemoveSymptom(symptom);
-        if (!isRemoved) //If the symptom is not removed from sickness try removing it from additional symptoms
-        {
-            if (CanSymptomBeCured(symptom) == false)
-                return;
-
-            if (sickness.CheckSymptom(symptom) == true)
-            {
-                sickness.RemSymptom(symptom);
-                patient.DiscoveredSymptoms.Remove(symptom);
-                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
-            }
-            else
-            {
-                patient.additionalSymptoms.Remove(symptom);
-                patient.DiscoveredSymptoms.Remove(symptom);
-                PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
-            }
-        }
-        else
-        {
-            patient.DiscoveredSymptoms.Remove(symptom);
-            PatientEventManager.Instance.OnRemoveSymptom.Invoke(symptom, patient, tool);
-        }
-
-    }
-
-    private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)
-    {
-        if (patient != this || sickness.CheckSymptom(symptom))
-            return;
-
-        foreach(var item in tool.SymptomsRemoved)
-        {
-            if (CanSymptomBeCured(item) == false)
-                return;
-        }
-
-        if (!patient.additionalSymptoms.Contains(symptom)) //prevent duplicate symptoms
-        {
-            patient.additionalSymptoms.Add(symptom);
-            patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
-            PatientEventManager.Instance.OnAddSymptom.Invoke(symptom, patient, tool);
-        }
-    }
-
-    private void DiscoverNonCriticalSymptoms(Patient patient)
-    {
-        if (patient != this || DiscoveredSymptoms.Count != 0)
-            return;
-
-        foreach(var symptom in sickness.symptomList)
-        {
-            if (!symptom.isHidden)
-                DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());
-            else
-                DiscoveredSymptoms.Add(symptom.symptom, "?");
-        }
-    }
-    private void DiscoverSymptom(Symptom symptom, Patient patient)
-    {
-        if (patient != this)
-            return;
-        patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
-    }
-    private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
-    {
-        if (patient != this || tool.SymptomsAdded.Count > 0)
-            return;
-
-        bool noAdditionalSymptoms = additionalSymptoms.Count == 0;
-        bool solutionMet = true;
-        foreach(SicknessScriptableObject.SolutionStruct symptomCheck in sickness.solutionList)
-        {
-            foreach(SicknessScriptableObject.SymptomStruct symptomStruct in sickness.symptomList)
-            {
-                if (symptomStruct.symptom == symptomCheck.symptom)
-                {
-                    solutionMet = false;
-                    Debug.Log($"Symp checked for: {symptomCheck} Symp found: {symptomStruct.symptom}");
-                }
-            }
-        }
-        bool isCured = noAdditionalSymptoms && solutionMet;
-        if (isCured)
-        {
-            Debug.Log("Cured");
-            // Add gold on cure
-            PlayerManager.Instance.Money += 100;
-
-            PatientEventManager.Instance.OnCureDisease.Invoke(this);
-
-            // Release the Chair if patients is healed on chair
-            if (spawnerID >= 0)
-            {
-            SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
-            }
-
-
-        }
     }
 
 }
