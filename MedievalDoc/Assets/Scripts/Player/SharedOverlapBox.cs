@@ -35,6 +35,10 @@ public class SharedOverlapBox : MonoBehaviour
                     itemPoint = collider.transform;
             }
         }
+        else
+        {
+            highestCollider = null;
+        }
 
         if(drawBox)
             VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + boxOffset, boxSize, transform.rotation);
