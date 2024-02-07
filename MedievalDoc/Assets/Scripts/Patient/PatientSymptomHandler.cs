@@ -15,6 +15,7 @@ public class PatientSymptomHandler : MonoBehaviour
         else
             Debug.LogError("No Sickness");
     }
+
     private void OnEnable()
     {
         Patient.OnTryAddSymptom.AddListener(AddAdditionalSymptom);
@@ -57,7 +58,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this)
+        if (patient != this.patient)
             return;
         bool isRemoved = patient.Sickness.RemoveSymptom(symptom);
         if (!isRemoved) //If the symptom is not removed from Sickness try removing it from additional symptoms
@@ -87,7 +88,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this || patient.Sickness.CheckSymptom(symptom))
+        if (patient != this.patient || patient.Sickness.CheckSymptom(symptom))
             return;
 
         foreach (var item in tool.SymptomsRemoved)
@@ -103,11 +104,12 @@ public class PatientSymptomHandler : MonoBehaviour
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
+
+
     private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this || tool.SymptomsAdded.Count > 0)
+        if (patient != this.patient || tool.SymptomsAdded.Count > 0)
             return;
-
         bool noAdditionalSymptoms = patient.AdditionalSymptoms.Count == 0;
         bool solutionMet = true;
         foreach (SicknessScriptableObject.SolutionStruct symptomCheck in patient.Sickness.solutionList)
@@ -125,8 +127,6 @@ public class PatientSymptomHandler : MonoBehaviour
         if (isCured)
         {
             Debug.Log("Cured");
-            // Add gold on cure
-            PlayerManager.Instance.Money += 100;
             Patient.OnCureDisease.Invoke(patient);
         }
     }
@@ -145,7 +145,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void DiscoverSymptom(Symptom symptom, Patient patient)
     {
-        if (patient != this)
+        if (patient != this.patient)
             return;
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }

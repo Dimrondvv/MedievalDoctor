@@ -34,6 +34,12 @@ public class PatientDamage : MonoBehaviour
                 patientHealthBar.healthBar();
                 CheckAlive();    
             }
+            for (int i = 0; i < patient.AdditionalSymptoms.Count; i++)
+            {
+                patient.Health -= patient.AdditionalSymptoms[i].damage;
+                patientHealthBar.healthBar();
+                CheckAlive();
+            }
         }      
     }
 }
