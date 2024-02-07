@@ -60,6 +60,7 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         if (patient != this.patient)
             return;
+        Debug.Log("test"+ symptom.name);
         bool isRemoved = patient.Sickness.RemoveSymptom(symptom);
         if (!isRemoved) //If the symptom is not removed from Sickness try removing it from additional symptoms
         {
@@ -111,21 +112,12 @@ public class PatientSymptomHandler : MonoBehaviour
         if (patient != this.patient || tool.SymptomsAdded.Count > 0)
             return;
         bool noAdditionalSymptoms = patient.AdditionalSymptoms.Count == 0;
-        bool solutionMet = true;
-        foreach (SicknessScriptableObject.SolutionStruct symptomCheck in patient.Sickness.solutionList)
-        {
-            foreach (SicknessScriptableObject.SymptomStruct symptomStruct in patient.Sickness.symptomList)
-            {
-                if (symptomStruct.symptom == symptomCheck.symptom)
-                {
-                    solutionMet = false;
-                    Debug.Log($"Symp checked for: {symptomCheck} Symp found: {symptomStruct.symptom}");
-                }
-            }
-        }
+        bool solutionMet = patient.Sickness.symptomList.Count == 0;
+
         bool isCured = noAdditionalSymptoms && solutionMet;
         if (isCured)
         {
+            Debug.Log("---------------"+symptom.name);
             Debug.Log("Cured");
             Patient.OnCureDisease.Invoke(patient);
         }
