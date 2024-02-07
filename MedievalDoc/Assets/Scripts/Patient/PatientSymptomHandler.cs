@@ -60,7 +60,6 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         if (patient != this.patient)
             return;
-        Debug.Log("test"+ symptom.name);
         bool isRemoved = patient.Sickness.RemoveSymptom(symptom);
         if (!isRemoved) //If the symptom is not removed from Sickness try removing it from additional symptoms
         {
@@ -73,7 +72,7 @@ public class PatientSymptomHandler : MonoBehaviour
                 patient.DiscoveredSymptoms.Remove(symptom);
                 Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
-            else
+            else if(patient.AdditionalSymptoms.Contains(symptom))
             {
                 patient.AdditionalSymptoms.Remove(symptom);
                 patient.DiscoveredSymptoms.Remove(symptom);
@@ -111,6 +110,7 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         if (patient != this.patient || tool.SymptomsAdded.Count > 0)
             return;
+        Debug.Log($"Symptom: {symptom} | Ilosc symptomow: {patient.Sickness.symptomList.Count}");
         bool noAdditionalSymptoms = patient.AdditionalSymptoms.Count == 0;
         bool solutionMet = patient.Sickness.symptomList.Count == 0;
 
