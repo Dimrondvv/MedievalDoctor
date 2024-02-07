@@ -15,11 +15,11 @@ public class Patient : MonoBehaviour
         }
 
 
-    private int spawnerID;
+    [SerializeField] private int spawnerID;
     public int SpawnerID
     { 
-        get { return health; } 
-        set { health = value; } 
+        get { return spawnerID; } 
+        set { spawnerID = value; } 
         }
 
     [SerializeField] private int health; // player Health (if =< 0 - game over)
