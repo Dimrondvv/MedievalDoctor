@@ -991,7 +991,7 @@ GameObject:
   - component: {fileID: 5812179973506052653}
   - component: {fileID: 5717076916740530043}
   - component: {fileID: 6231083064348575428}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SickCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

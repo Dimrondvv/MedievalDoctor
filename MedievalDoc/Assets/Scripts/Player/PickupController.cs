@@ -8,8 +8,6 @@ public class PickupController : MonoBehaviour {
 
     private GameObject pickedItem;
 
-
-
     public static UnityEvent<GameObject, PickupController> OnInteract = new UnityEvent<GameObject, PickupController>();
 
     public static UnityEvent<GameObject, PickupController> OnInteractEnter = new UnityEvent<GameObject, PickupController>();
