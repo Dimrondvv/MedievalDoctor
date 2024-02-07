@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7df8f7e70f89174691d38505d1fb51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOccupied: 0
 --- !u!1 &4622855080629322249
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +58,7 @@ GameObject:
   - component: {fileID: 5433737236969319706}
   - component: {fileID: 7077554657266055620}
   - component: {fileID: 2716473883976261723}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
