@@ -21,7 +21,11 @@ public class PlayerManager : MonoBehaviour
     private int money; // money
     public int Money { get { return money; } set { money = value; } }
 
+    private bool startProgressBar;
+    public bool StartProgressBar { get { return startProgressBar; } set { startProgressBar = value; } }
+
     public Animator GetAnimator { get { return animator; } set { animator = value; } } 
+    
     private GameObject uiText;
     private GameObject uiTextChild;
 

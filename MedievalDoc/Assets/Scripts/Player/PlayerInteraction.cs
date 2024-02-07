@@ -14,17 +14,17 @@ public class PlayerInteraction : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += PlayerInteract;
-        playerInputActions.Player.InteractAnimation.started += TestStart;
-        playerInputActions.Player.InteractAnimation.canceled += TestCancel;
+        playerInputActions.Player.InteractAnimation.started += OnInteractionStart;
+        playerInputActions.Player.InteractAnimation.canceled += OnInteractionExit;
     }
 
-    private void TestStart(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    private void OnInteractionStart(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         PlayerManager.Instance.GetAnimator.SetBool("performingAction", true);
         Debug.Log("started");
     }
 
-    private void TestCancel(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    private void OnInteractionExit(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         PlayerManager.Instance.GetAnimator.SetBool("performingAction", false);
         Debug.Log("canceled");
