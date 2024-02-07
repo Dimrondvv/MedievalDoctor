@@ -32,4 +32,15 @@ public class PatientManager : MonoBehaviour
     {
         patients.Remove(patient);
     }
+
+
+    public void ReleaseChair(GameObject patient)
+    {
+        if (patient.GetComponent<Patient>().SpawnerID >= 0)
+        {
+            Debug.Log(SpawnPatientTimer.SpawnPoints[GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied);
+            GetComponent<Patient>().SpawnerID = -69;
+        }
+    }
+
 }
