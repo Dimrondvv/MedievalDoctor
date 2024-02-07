@@ -17,6 +17,32 @@ public class PatientNotebook : MonoBehaviour
         get { return patient; }
         set { patient = value; }
     }
+
+    void Start()
+    {
+        if (PatientManager.Instance.patients.Count > 0)
+        {
+            SetNotebookSymptoms(PatientManager.Instance.patients[0]);
+            SetNotebookHistory(PatientManager.Instance.patients[0]);
+            SetPatientColor(PatientManager.Instance.patients[0]);
+            SetPatientName(PatientManager.Instance.patients[0]);
+        }
+        else
+        {
+            SetNotebookSymptoms(null);
+            SetNotebookHistory(null);
+            SetPatientColor(null);
+            SetPatientName(null);
+        }
+    }
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
+
+    }
+
     public void SetNotebookSymptoms(Patient patient)
     {
         if (patient == null)
@@ -69,36 +95,5 @@ public class PatientNotebook : MonoBehaviour
         SetNotebookHistory(PatientManager.Instance.patients[currentPatientIndex]);
         SetPatientColor(PatientManager.Instance.patients[currentPatientIndex]);
         SetPatientName(PatientManager.Instance.patients[currentPatientIndex]);
-    }
-
-    void Start()
-    {
-        if (PatientManager.Instance.patients.Count > 0)
-        {
-            SetNotebookSymptoms(PatientManager.Instance.patients[0]);
-            SetNotebookHistory(PatientManager.Instance.patients[0]);
-            SetPatientColor(PatientManager.Instance.patients[0]);
-            SetPatientName(PatientManager.Instance.patients[0]);
-        }
-        else
-        {
-            SetNotebookSymptoms(null);
-            SetNotebookHistory(null);
-            SetPatientColor(null);
-            SetPatientName(null);
-        }
-    }
-
-    private void Awake()
-    {
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-        playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
