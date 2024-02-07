@@ -9,8 +9,8 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance { get { return instance; } }
     [SerializeField] private Animator animator;
     [SerializeField]
-    private PlayerController playerController;
-    public PlayerController PlayerController { get { return playerController; } }
+    private PickupController pickupController;
+    public PickupController PickupController { get { return pickupController; } }
 
     private int score; // player score
     public int Score { get { return score; } set { score = value; } }

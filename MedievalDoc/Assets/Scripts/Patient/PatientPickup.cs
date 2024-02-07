@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PatientPickup : MonoBehaviour
 {
-    private PlayerController playerController;
+    private PickupController playerController;
     GameObject player;
     Patient patient;
     Transform toolPickupPoint;
 
     private void Start()
     {
-        PlayerController.OnPickup.AddListener(PickupPatient);
-        PlayerController.OnPutdown.AddListener(PutdownPatient);
-        toolPickupPoint = PlayerManager.Instance.PlayerController.GetToolPickupPoint();
-        player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
-        playerController = PlayerManager.Instance.PlayerController.GetPlayerController();
+        PickupController.OnPickup.AddListener(PickupPatient);
+        PickupController.OnPutdown.AddListener(PutdownPatient);
+        toolPickupPoint = PlayerManager.Instance.PickupController.GetToolPickupPoint();
+        player = PlayerManager.Instance.PickupController.GetPlayerGameObject();
+        playerController = PlayerManager.Instance.PickupController.GetPickupController();
     }
 
     private void PickupPatient(GameObject pickedPatient, Transform objectPoint)
@@ -43,7 +43,7 @@ public class PatientPickup : MonoBehaviour
         }
     }
 
-    private void PutdownPatient(PlayerController pickedPatient, Transform pickupPoint)
+    private void PutdownPatient(PickupController pickedPatient, Transform pickupPoint)
     {
         // TO ADD PUTING PATIENT ON FLOOR 
         if (pickedPatient.PickedItem != null && playerController.PickedItem.GetComponent<PatientPickup>() != null && pickupPoint && pickupPoint.GetComponentInChildren<PatientLayDownPoint>() && !pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied)

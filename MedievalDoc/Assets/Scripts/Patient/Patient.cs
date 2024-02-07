@@ -46,7 +46,7 @@ public class Patient : MonoBehaviour
 
     private void Start()
     {
-        player = PlayerManager.Instance.PlayerController.GetPlayerController().gameObject;
+        player = PlayerManager.Instance.PickupController.GetPickupController().gameObject;
         isAlive = true;
     }
 
@@ -68,13 +68,13 @@ public class Patient : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerController.OnInteract.AddListener(InteractWithPatient);
+        PickupController.OnInteract.AddListener(InteractWithPatient);
     }
     private void OnDisable()
     {
-        PlayerController.OnInteract.RemoveListener(InteractWithPatient);
+        PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
-    public void InteractWithPatient(GameObject interactedObject, PlayerController controller)
+    public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {
         if (interactedObject != this.gameObject)
             return;

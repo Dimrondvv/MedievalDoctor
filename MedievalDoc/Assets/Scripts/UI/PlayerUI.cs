@@ -18,8 +18,8 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.OnPickup.AddListener(SetItemSlot);
-        PlayerController.OnPutdown.AddListener(NullItemSlot);
+        PickupController.OnPickup.AddListener(SetItemSlot);
+        PickupController.OnPutdown.AddListener(NullItemSlot);
     }
 
     private void SetItemSlot(GameObject item, Transform obj)
@@ -37,7 +37,7 @@ public class PlayerUI : MonoBehaviour
             Debug.LogError("No sprite");
         }
     }
-    private void NullItemSlot(PlayerController pc, Transform tr)
+    private void NullItemSlot(PickupController pc, Transform tr)
     {
         itemSlot.sprite = null;
     }

@@ -7,20 +7,20 @@ public class ToolPickup : MonoBehaviour
     //private GameObject player;
     private GameObject finger;
     private Transform toolPickupPoint;
-    private PlayerController playerController;
+    private PickupController playerController;
 
     private GameObject pickedToolObject;
 
     void Start()
     {
         // Pickup tool event Listener
-        PlayerController.OnPickup.AddListener(PickupTool);
-        PlayerController.OnPutdown.AddListener(PutdownTool);
+        PickupController.OnPickup.AddListener(PickupTool);
+        PickupController.OnPutdown.AddListener(PutdownTool);
 
-        toolPickupPoint = PlayerManager.Instance.PlayerController.GetToolPickupPoint();
+        toolPickupPoint = PlayerManager.Instance.PickupController.GetToolPickupPoint();
         //player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
-        finger = PlayerManager.Instance.PlayerController.GetFingerObject();
-        playerController = PlayerManager.Instance.PlayerController.GetPlayerController();
+        finger = PlayerManager.Instance.PickupController.GetFingerObject();
+        playerController = PlayerManager.Instance.PickupController.GetPickupController();
     }
 
     private void Update()
@@ -48,7 +48,7 @@ public class ToolPickup : MonoBehaviour
         }
     }
 
-    private void PutdownTool(PlayerController pickedTool, Transform pickupPoint) {
+    private void PutdownTool(PickupController pickedTool, Transform pickupPoint) {
         if (pickedTool.PickedItem != null && playerController.PickedItem.GetComponent<Tool>() != null && pickupPoint && pickupPoint.GetComponentInChildren<ItemLayDownPoint>() && !pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied) {
             GameObject putDownTool = pickedTool.PickedItem;
             pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = true;

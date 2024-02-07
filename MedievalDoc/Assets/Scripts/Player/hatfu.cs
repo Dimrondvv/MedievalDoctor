@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerController : MonoBehaviour
+public class hatfu : MonoBehaviour
 {
     [SerializeField] private float speed;
 
@@ -20,12 +20,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     private int moveValue;
 
-    public static UnityEvent<GameObject, PlayerController> OnInteract = new UnityEvent<GameObject, PlayerController>();
+    public static UnityEvent<GameObject, PickupController> OnInteract = new UnityEvent<GameObject, PickupController>();
 
-    public static UnityEvent<GameObject, PlayerController> OnInteractEnter = new UnityEvent<GameObject, PlayerController>();
+    public static UnityEvent<GameObject, PickupController> OnInteractEnter = new UnityEvent<GameObject, PickupController>();
 
     public static UnityEvent<GameObject, Transform> OnPickup = new UnityEvent<GameObject, Transform>();
-    public static UnityEvent<PlayerController, Transform> OnPutdown = new UnityEvent<PlayerController, Transform>();
+    public static UnityEvent<PickupController, Transform> OnPutdown = new UnityEvent<PickupController, Transform>();
     public GameObject PickedItem { 
         get { return pickedItem; } 
         set { pickedItem = value; }
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         return this.gameObject;
     }
 
-    public PlayerController GetPlayerController() {
+    public hatfu GetPlayerController() {
         return this;
     }
 

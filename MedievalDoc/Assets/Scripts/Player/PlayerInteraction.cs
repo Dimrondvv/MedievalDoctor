@@ -6,11 +6,11 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private float interactionRange;
     private PlayerInputActions playerInputActions;
-    private PlayerController controller;
+    private PickupController controller;
     
     private void Start()
     {
-        controller = GetComponent<PlayerController>();
+        controller = GetComponent<PickupController>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += PlayerInteract;
@@ -43,9 +43,9 @@ public class PlayerInteraction : MonoBehaviour
             if(collider.transform.position.y > highestCollider.transform.position.y)
                 highestCollider = collider;
         }
-        if (highestCollider.GetComponent<PlayerController>() == null)
+        if (highestCollider.GetComponent<PickupController>() == null)
         {
-            PlayerController.OnInteract.Invoke(highestCollider.gameObject, controller);
+            PickupController.OnInteract.Invoke(highestCollider.gameObject, controller);
         }
         
     }

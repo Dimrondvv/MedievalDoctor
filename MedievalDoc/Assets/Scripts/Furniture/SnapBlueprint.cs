@@ -10,8 +10,12 @@ public class SnapBlueprint : MonoBehaviour
     //[SerializeField] PickUpItem playerItem;
     [SerializeField] Material blueprintBlue;
     [SerializeField] Material blueprintRed;
-    [SerializeField] private PlayerController player;
+    [SerializeField] private PickupController player;
 
+
+    private void Start() {
+        player = PlayerManager.Instance.PickupController.GetPickupController();
+    }
     public GameObject Blueprint
     {
         get { return blueprint; }

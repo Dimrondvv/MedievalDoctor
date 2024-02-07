@@ -6,7 +6,7 @@ public class PickUpItem : MonoBehaviour
 {
 
     [SerializeField] private float pickupRange;
-    [SerializeField] private PlayerController playerController;
+    private PickupController playerController;
     private PlayerInputActions playerInputActions;
     
 
@@ -17,6 +17,8 @@ public class PickUpItem : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pickup.performed += PlayerPickup;
+
+        playerController = PlayerManager.Instance.PickupController.GetPickupController();
     }
 
 
@@ -41,12 +43,12 @@ public class PickUpItem : MonoBehaviour
         }
         
         if (playerController.PickedItem == null) {
-            if (highestCollider.GetComponent<PlayerController>() == null)
+            if (highestCollider.GetComponent<PickupController>() == null)
             {
-                PlayerController.OnPickup?.Invoke(highestCollider.gameObject, itemPoint);
+                PickupController.OnPickup?.Invoke(highestCollider.gameObject, itemPoint);
             }
         } else {
-                PlayerController.OnPutdown?.Invoke(playerController, itemPoint);
+                PickupController.OnPutdown?.Invoke(playerController, itemPoint);
         }
     }
 

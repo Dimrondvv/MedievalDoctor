@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     InteractEvent interact = new InteractEvent();
-    PlayerController playerController;
+    PickupController playerController;
 
 
     public InteractEvent GetInteractEvent
@@ -17,12 +17,12 @@ public class Interact : MonoBehaviour
         }
     }
 
-    public PlayerController GetPlayer
+    public PickupController GetPlayer
     {
         get { return playerController; }
     }
 
-    public void CallInteract(PlayerController interactedPlayer)
+    public void CallInteract(PickupController interactedPlayer)
     {
         playerController = interactedPlayer;
         interact.CallInteractEvent();

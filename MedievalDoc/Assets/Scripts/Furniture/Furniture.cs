@@ -6,7 +6,7 @@ public class Furniture : MonoBehaviour
 {
     private GameObject player;
     private Transform furniturePickupPoint;
-    private PlayerController playerController;
+    private PickupController playerController;
 
     private PlayerInputActions playerInputActions;
 
@@ -20,22 +20,22 @@ public class Furniture : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
-        furniturePickupPoint = PlayerManager.Instance.PlayerController.GetFurniturePickupPoint();
-        player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
-        playerController = PlayerManager.Instance.PlayerController.GetPlayerController();
+        furniturePickupPoint = PlayerManager.Instance.PickupController.GetFurniturePickupPoint();
+        player = PlayerManager.Instance.PickupController.GetPlayerGameObject();
+        playerController = PlayerManager.Instance.PickupController.GetPickupController();
     }
 
 
     
 
     private void OnEnable() {
-        PlayerController.OnPickup.AddListener(PickupFurniture);
-        PlayerController.OnPutdown.AddListener(PutdownFurniture);
+        PickupController.OnPickup.AddListener(PickupFurniture);
+        PickupController.OnPutdown.AddListener(PutdownFurniture);
     }
 
     private void OnDisable() {
-        PlayerController.OnPickup.RemoveListener(PickupFurniture);
-        PlayerController.OnPutdown.RemoveListener(PutdownFurniture);
+        PickupController.OnPickup.RemoveListener(PickupFurniture);
+        PickupController.OnPutdown.RemoveListener(PutdownFurniture);
     }
 
     private void PickupFurniture(GameObject pickedFurniture, Transform objectPoint) {
@@ -52,7 +52,7 @@ public class Furniture : MonoBehaviour
         }   
     }
 
-    private void PutdownFurniture(PlayerController pickedFurniture, Transform trans) {
+    private void PutdownFurniture(PickupController pickedFurniture, Transform trans) {
         if (pickedFurniture.PickedItem != null && playerController.PickedItem.GetComponent<Furniture>() != null) {
             GameObject putDownFurniture = pickedFurniture.PickedItem;
             if (putDownFurniture.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable) {

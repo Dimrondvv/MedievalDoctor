@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 namespace ECM2.Walkthrough.Ex22
 {
@@ -11,6 +14,7 @@ namespace ECM2.Walkthrough.Ex22
         // The controlled Character
         
         private Character _character;
+
 
         private void Awake()
         {
