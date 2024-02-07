@@ -34,7 +34,11 @@ public class PatientPickup : MonoBehaviour
             player.transform.GetChild(lastChild).localEulerAngles = Vector3.zero;
 
             // Release chair (fix)
-            PatientManager.Instance.ReleaseChair(pickedPatient);
+            if (pickedPatient.GetComponent<Patient>().SpawnerID >= 0)
+            {
+                SpawnPatientTimer.SpawnPoints[pickedPatient.GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
+                GetComponent<Patient>().SpawnerID = -69;
+            }
         }
         
 
