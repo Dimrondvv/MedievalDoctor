@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddOutline : MonoBehaviour
 {
     private GameObject overlapObject;
+    [SerializeField] private Color outlineColor;
     // Update is called once per frame
 
 
@@ -25,7 +26,7 @@ public class AddOutline : MonoBehaviour
                 var outline = SharedOverlapBox.HighestCollider.gameObject.AddComponent<Outline>();
 
                 outline.OutlineMode = Outline.Mode.OutlineAll;
-                outline.OutlineColor = Color.yellow;
+                outline.OutlineColor = outlineColor;
                 outline.OutlineWidth = 5f;
             }
         }
