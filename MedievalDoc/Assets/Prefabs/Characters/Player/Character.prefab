@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 7506452884428406156}
   - component: {fileID: 82579789240067508}
   - component: {fileID: 3477161537717175715}
+  - component: {fileID: 715674378535923323}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -967,6 +968,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupRange: 1
+--- !u!114 &715674378535923323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304654255836797244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fcce7112693734598415527ce32705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxSize: {x: 0.25, y: 1, z: 0.25}
+  boxOffset: {x: 0, y: 1, z: 0}
+  drawBox: 1
 --- !u!1 &3352193522366169673
 GameObject:
   m_ObjectHideFlags: 0

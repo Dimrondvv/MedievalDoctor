@@ -51,8 +51,4 @@ public class PickUpItem : MonoBehaviour
                 PickupController.OnPutdown?.Invoke(playerController, itemPoint);
         }
     }
-
-    private void Update() {
-        VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + new Vector3(0, 1f, 0), new Vector3(0.25f, 1f, 0.25f), transform.rotation);
-    }
 }
