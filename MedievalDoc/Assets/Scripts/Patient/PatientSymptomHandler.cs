@@ -10,10 +10,10 @@ public class PatientSymptomHandler : MonoBehaviour
     void Start()
     {
         patient = GetComponent<Patient>();
-        if (patient.sickness)
+        if (patient.Sickness)
             DiscoverNonCriticalSymptoms(patient);
         else
-            Debug.LogError("No sickness");
+            Debug.LogError("No Sickness");
     }
     private void OnEnable()
     {
@@ -31,13 +31,13 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private bool CanSymptomBeCured(Symptom symptom)
     {
-        foreach (var item in patient.sickness.solutionList)
+        foreach (var item in patient.Sickness.solutionList)
         {
             if (item.symptom == symptom)
             {
                 foreach (var sympt in item.symptomsNotPresentToCure)
                 {
-                    bool isPresent = patient.sickness.CheckSymptom(sympt);
+                    bool isPresent = patient.Sickness.CheckSymptom(sympt);
                     if (isPresent || patient.AdditionalSymptoms.Contains(sympt))
                     {
                         return false;
@@ -45,7 +45,7 @@ public class PatientSymptomHandler : MonoBehaviour
                 }
                 foreach (var sympt in item.symptomsPresentToCure)
                 {
-                    bool isPresent = patient.sickness.CheckSymptom(sympt);
+                    bool isPresent = patient.Sickness.CheckSymptom(sympt);
                     if (!isPresent && !patient.AdditionalSymptoms.Contains(sympt))
                     {
                         return false;
@@ -59,15 +59,15 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         if (patient != this)
             return;
-        bool isRemoved = patient.sickness.RemoveSymptom(symptom);
-        if (!isRemoved) //If the symptom is not removed from sickness try removing it from additional symptoms
+        bool isRemoved = patient.Sickness.RemoveSymptom(symptom);
+        if (!isRemoved) //If the symptom is not removed from Sickness try removing it from additional symptoms
         {
             if (CanSymptomBeCured(symptom) == false)
                 return;
 
-            if (patient.sickness.CheckSymptom(symptom) == true)
+            if (patient.Sickness.CheckSymptom(symptom) == true)
             {
-                patient.sickness.RemSymptom(symptom);
+                patient.Sickness.RemSymptom(symptom);
                 patient.DiscoveredSymptoms.Remove(symptom);
                 Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
             }
@@ -87,7 +87,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void AddAdditionalSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this || patient.sickness.CheckSymptom(symptom))
+        if (patient != this || patient.Sickness.CheckSymptom(symptom))
             return;
 
         foreach (var item in tool.SymptomsRemoved)
@@ -110,9 +110,9 @@ public class PatientSymptomHandler : MonoBehaviour
 
         bool noAdditionalSymptoms = patient.AdditionalSymptoms.Count == 0;
         bool solutionMet = true;
-        foreach (SicknessScriptableObject.SolutionStruct symptomCheck in patient.sickness.solutionList)
+        foreach (SicknessScriptableObject.SolutionStruct symptomCheck in patient.Sickness.solutionList)
         {
-            foreach (SicknessScriptableObject.SymptomStruct symptomStruct in patient.sickness.symptomList)
+            foreach (SicknessScriptableObject.SymptomStruct symptomStruct in patient.Sickness.symptomList)
             {
                 if (symptomStruct.symptom == symptomCheck.symptom)
                 {
@@ -132,10 +132,10 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void DiscoverNonCriticalSymptoms(Patient patient)
     {
-        if (patient != this || patient.DiscoveredSymptoms.Count != 0)
+        if (patient != this.patient || patient.DiscoveredSymptoms.Count != 0)
             return;
 
-        foreach (var symptom in patient.sickness.symptomList)
+        foreach (var symptom in patient.Sickness.symptomList)
         {
             if (!symptom.isHidden)
                 patient.DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());

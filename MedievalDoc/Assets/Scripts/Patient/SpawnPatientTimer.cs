@@ -107,13 +107,15 @@ public class SpawnPatientTimer : MonoBehaviour
         }
         else
         {
-            Patient.GetComponent<Patient>().spawnerID = spawnerID;
-            SpawnedPatient = Instantiate(Patient, SpawnPoints[spawnerID].transform.position, Quaternion.identity);
-            PatientManager.Instance.patients.Add(SpawnedPatient.GetComponent<Patient>());   
-            SpawnedPatient.SetActive(true);
-            SpawnedPatient.GetComponent<PatientDamage>().enabled = true;
-            SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
-            SpawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
+            Patient.GetComponent<Patient>().SpawnerID = spawnerID;
+            spawnedPatient = Instantiate(Patient, spawnPoints[spawnerID].transform.position, Quaternion.identity);
+            PatientManager.Instance.patients.Add(spawnedPatient.GetComponent<Patient>());   
+            spawnedPatient.SetActive(true);
+            spawnedPatient.GetComponent<Patient>().Health = GetComponent<Patient>().HealthMax;
+            spawnedPatient.GetComponent<Patient>().Immune = false;
+            spawnedPatient.GetComponent<PatientDamage>().enabled = true;
+            spawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
+            spawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
             randomizeSickness.RandomizeSicknessFunction();
             currentSpawnedPatients += 1;
         }
@@ -122,7 +124,7 @@ public class SpawnPatientTimer : MonoBehaviour
     void CheckSpawners()
     {
         availableSpawners = 0;
-        foreach (GameObject chair in SpawnPoints) if (chair.GetComponent<Chair>().IsOccupied == false)
+        foreach (GameObject chair in spawnPoints) if (chair.GetComponent<Chair>().IsOccupied == false)
             {
                 availableSpawners += 1;
             }

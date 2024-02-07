@@ -45,7 +45,7 @@ public class Tool : MonoBehaviour
             return;
         foreach (Symptom symptom in symptomsChecked)
         {
-            bool isPresent = patient.sickness.CheckSymptom(symptom);
+            bool isPresent = patient.Sickness.CheckSymptom(symptom);
             if (isPresent)
             {
                 Patient.OnCheckSymptom.Invoke(symptom, patient);

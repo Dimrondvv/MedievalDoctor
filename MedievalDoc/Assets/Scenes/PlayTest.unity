@@ -1237,6 +1237,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: health
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: immune
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172714479617069582, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: isAlive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2919,6 +2931,62 @@ PrefabInstance:
       propertyPath: Patient
       value: 
       objectReference: {fileID: 552147801}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: spawnTime
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0902f3b402028d444975f82a93fa1ff3, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b9fabfb85c3755b4da7f10701218d515, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8af7f2fa5bc1c8b48a4d2a9a76e1b187, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 16bb8cee22d41674ca83a86a12a195ef, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: f638bdbfd82b9f447a71e402c1de27eb, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 676de0d44b4bcd542b7ae03c95910b91, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 79ff41a7ad26ada43aecb56d26480b5e, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9abbd78fb565e2b4ea9ec0dbf78e29be, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: b73a42b1d6fd3ff4a998152a96acc441, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
+    - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: sicknesses.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 27de1233ff62d004ca52853118a2bc65, type: 2}
     - target: {fileID: 575417472191014539, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: SpawnPointsCopy.Array.data[0]
       value: 

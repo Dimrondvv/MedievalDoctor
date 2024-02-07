@@ -28,9 +28,9 @@ public class PatientDamage : MonoBehaviour
             // Do Nothing
         }
         else{
-            for (int i = 0; i < patient.sickness.symptomList.Count; i++)
+            for (int i = 0; i < patient.Sickness.symptomList.Count; i++)
             {
-                patient.Health -= patient.sickness.symptomList[i].symptom.damage;
+                patient.Health -= patient.Sickness.symptomList[i].symptom.damage;
                 patientHealthBar.healthBar();
                 CheckAlive();    
             }
