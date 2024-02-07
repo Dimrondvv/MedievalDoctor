@@ -56,6 +56,10 @@ public class DayAndNightController : MonoBehaviour
     private TimeSpan sunsetTime;
 
     private DateTime currentTime;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,8 +130,10 @@ public class DayAndNightController : MonoBehaviour
         if (currentTime.Hour >= sunsetHour || currentTime.Hour <= sunriseHour)
         {
             LightsToTurnOn.SetActive(true);
+            GameManager.Instance.IsNight = true;
         } else {
             LightsToTurnOn.SetActive(false);
+            GameManager.Instance.IsNight = false;
         }
     }
 }

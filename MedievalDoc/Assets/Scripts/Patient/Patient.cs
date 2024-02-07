@@ -7,8 +7,20 @@ public class Patient : MonoBehaviour
 {
     GameObject player;
 
-    [SerializeField] public SicknessScriptableObject sickness;
-    public int spawnerID;
+    [SerializeField] private SicknessScriptableObject sickness;
+    public SicknessScriptableObject Sickness
+    { 
+        get { return sickness; } 
+        set { sickness = value; } 
+        }
+
+
+    private int spawnerID;
+    public int SpawnerID
+    { 
+        get { return health; } 
+        set { health = value; } 
+        }
 
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     public int Health { get { return health; } set { health = value; } }
@@ -25,13 +37,15 @@ public class Patient : MonoBehaviour
     public bool isAlive;
 
     [SerializeField] private bool immune; // immunity for tests
+    public bool Immune { get { return immune; } set { immune = value; } }
+
     private string patientName;
     public string PatientName
     {
         get { return patientName; }
         set { patientName = value; }
     }
-    public bool Immune { get { return immune; } set { immune = value; } }
+
     public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
 
     public static UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
@@ -41,8 +55,7 @@ public class Patient : MonoBehaviour
     public static UnityEvent<Symptom, Patient, Tool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
 
-
-    public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
+    //public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
 
     private void Start()
     {

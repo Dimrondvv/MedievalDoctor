@@ -870,12 +870,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barImage: {fileID: 8812386525236150880}
   patient: {fileID: 9172714479617069582}
-  symptomIconFields:
-  - {fileID: 8021058729800314923}
-  - {fileID: 1381839760716177475}
-  - {fileID: 143637737079763814}
-  - {fileID: 3043905951462997221}
-  - {fileID: 4579103249930994371}
 --- !u!1 &5001116719504945045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,12 +1028,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sickness: {fileID: 0}
-  spawnerID: 0
   health: 800
   maxHealth: 800
   patientStory: 
   isAlive: 0
-  immune: 0
+  immune: 1
 --- !u!114 &2487607957396924146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd523b53b4f04e4c924b988b8d95955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   patientHealthBar: {fileID: 6502125523260865521}
 --- !u!114 &3238783951277862441
 MonoBehaviour:

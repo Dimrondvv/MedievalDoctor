@@ -21,6 +21,12 @@ public class Tool : MonoBehaviour
     {
         get { return itemIcon; }
     }
+    private void Start()
+    {
+        OnToolInteract.AddListener(AddSymptom);
+        OnToolInteract.AddListener(RemoveSymptom);
+        OnToolInteract.AddListener(CheckSymptom);
+    }
 
     private void AddSymptom(GameObject tool, Patient patient)
     {
@@ -35,9 +41,10 @@ public class Tool : MonoBehaviour
     {
         if (tool != this.gameObject || symptomsRemoved.Count == 0)
             return;
-
         foreach (Symptom symptom in symptomsRemoved)
-             Patient.OnTryRemoveSymptom.Invoke(symptom, patient, this);
+        {
+            Patient.OnTryRemoveSymptom.Invoke(symptom, patient, this);
+        }
     }
     private void CheckSymptom(GameObject tool, Patient patient)
     {
@@ -45,18 +52,11 @@ public class Tool : MonoBehaviour
             return;
         foreach (Symptom symptom in symptomsChecked)
         {
-            bool isPresent = patient.sickness.CheckSymptom(symptom);
+            bool isPresent = patient.Sickness.CheckSymptom(symptom);
             if (isPresent)
             {
                 Patient.OnCheckSymptom.Invoke(symptom, patient);
             }
         }
-    }
-
-    private void Start()
-    {
-        OnToolInteract.AddListener(AddSymptom);
-        OnToolInteract.AddListener(RemoveSymptom);
-        OnToolInteract.AddListener(CheckSymptom);
     }
 }

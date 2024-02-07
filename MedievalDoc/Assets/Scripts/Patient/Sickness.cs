@@ -91,11 +91,9 @@ public class SicknessScriptableObject : ScriptableObject
         {
             if (item.symptom == symptom)
             {
-                Debug.Log($"Symptom found {item.symptom.name}");
                 return true;
             }
         }
-        Debug.Log("Symptom not found");
         return false;
     }
     

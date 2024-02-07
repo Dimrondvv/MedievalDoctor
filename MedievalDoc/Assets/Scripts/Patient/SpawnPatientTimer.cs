@@ -4,29 +4,75 @@ using UnityEngine;
 
 public class SpawnPatientTimer : MonoBehaviour
 {
-    public float elapsedTime;
+    private float elapsedTime;
+    public float ElapsedTime
+    {
+        get { return elapsedTime; }
+        set { elapsedTime = value; }
+    }
+
     [SerializeField] GameObject Patient;
-    [SerializeField] int SpawnTime; // Timer for patient spawning
-    public int spawnTime { get { return SpawnTime; } set { SpawnTime = value; } }
-    public GameObject SpawnedPatient;
-    [SerializeField] public List<SicknessScriptableObject> Sicknesses;
 
-    [SerializeField] public List<GameObject> SpawnPointsCopy;
-    public static List<GameObject> SpawnPoints;
+    [SerializeField] private int spawnTime; // Timer for patient spawning
+    public int SpawnTime 
+    { 
+        get { return spawnTime; } 
+        set { spawnTime = value; } 
+    }
 
-    [SerializeField] public List<string> patientNames;
-    public int spawnerID;
-    RandomizeSickness randomizeSickness;
-    [SerializeField] int maxPatientCounter;
+    private int spawnerID;
+    public int SpawnerID
+    {
+        get { return spawnerID; }
+        set { spawnerID = value; }
+    }
+
+
+    private GameObject spawnedPatient;
+    public GameObject SpawnedPatient
+    {
+        get { return spawnedPatient; }
+        set { spawnedPatient = value; }
+    }
+
+
+
+    [SerializeField] private List<SicknessScriptableObject> sicknesses;
+    public List<SicknessScriptableObject> Sicknesses
+    {
+        get { return sicknesses; }
+        set { sicknesses = value; }
+    }
+
+    [SerializeField] private List<GameObject> SpawnPointsCopy;
+    private static List<GameObject> spawnPoints;
+    public static List<GameObject> SpawnPoints
+    {
+        get { return spawnPoints; }
+        set { spawnPoints = value; }
+    }
+
+    [SerializeField] private List<string> patientNames;
+    public List<string> PatientNames
+    {
+        get { return patientNames; }
+        set { patientNames = value; }
+    }
+
+
+
+
+
+    private RandomizeSickness randomizeSickness;
+    [SerializeField] private int maxPatientCounter;
     private int currentSpawnedPatients;
     private int availableSpawners;
 
     void Start()
     {
-        InvokeRepeating("TimeCheck", 2, 1);
+        InvokeRepeating("TimeCheck", 0, 1);
         randomizeSickness = GetComponent<RandomizeSickness>();
-
-        Spawning();
+        Spawning(); // Spawn patient at the start of the game
     }
 
     private void Awake()
@@ -61,16 +107,15 @@ public class SpawnPatientTimer : MonoBehaviour
         }
         else
         {
-            Patient.GetComponent<Patient>().spawnerID = spawnerID;
-            SpawnedPatient = Instantiate(Patient, SpawnPoints[spawnerID].transform.position, Quaternion.identity);
-            PatientManager.Instance.patients.Add(SpawnedPatient.GetComponent<Patient>());   
-            SpawnedPatient.SetActive(true);
-            SpawnedPatient.GetComponent<PatientDamage>().enabled = true;
-            SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
-            SpawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
-
-            //.transform.SetParent(pickupPoint);
-            
+            Patient.GetComponent<Patient>().SpawnerID = spawnerID;
+            spawnedPatient = Instantiate(Patient, spawnPoints[spawnerID].transform.position, Quaternion.identity);
+            PatientManager.Instance.patients.Add(spawnedPatient.GetComponent<Patient>());   
+            spawnedPatient.SetActive(true);
+            spawnedPatient.GetComponent<Patient>().Health = GetComponent<Patient>().HealthMax;
+            spawnedPatient.GetComponent<Patient>().Immune = false;
+            spawnedPatient.GetComponent<PatientDamage>().enabled = true;
+            spawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
+            spawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
             randomizeSickness.RandomizeSicknessFunction();
             currentSpawnedPatients += 1;
         }
@@ -79,7 +124,7 @@ public class SpawnPatientTimer : MonoBehaviour
     void CheckSpawners()
     {
         availableSpawners = 0;
-        foreach (GameObject chair in SpawnPoints) if (chair.GetComponent<Chair>().IsOccupied == false)
+        foreach (GameObject chair in spawnPoints) if (chair.GetComponent<Chair>().IsOccupied == false)
             {
                 availableSpawners += 1;
             }
@@ -90,7 +135,14 @@ public class SpawnPatientTimer : MonoBehaviour
         {
             if (TimerManager.Instance.ElapsedTime % SpawnTime == 0)
             {
-                Spawning();
+                if (GameManager.Instance.IsNight)
+                {
+                    // Night = no patient spawned
+                }
+                else
+                {
+                    Spawning();
+                }
             }
         }
     }
