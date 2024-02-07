@@ -15,7 +15,7 @@ public class Patient : MonoBehaviour
         }
 
 
-    private int spawnerID;
+    [SerializeField] private int spawnerID;
     public int SpawnerID
     { 
         get { return spawnerID; } 
