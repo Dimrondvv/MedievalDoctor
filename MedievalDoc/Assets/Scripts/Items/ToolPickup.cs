@@ -18,7 +18,6 @@ public class ToolPickup : MonoBehaviour
         PickupController.OnPutdown.AddListener(PutdownTool);
 
         toolPickupPoint = PlayerManager.Instance.PickupController.GetToolPickupPoint();
-        //player = PlayerManager.Instance.PlayerController.GetPlayerGameObject();
         finger = PlayerManager.Instance.PickupController.GetFingerObject();
         playerController = PlayerManager.Instance.PickupController.GetPickupController();
     }

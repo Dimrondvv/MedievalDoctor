@@ -10,6 +10,10 @@ public class SharedOverlapBox : MonoBehaviour
     private static Collider highestCollider;
     public static Collider HighestCollider { get { return highestCollider; } }
 
+    private static Transform itemPoint;
+    public static Transform ItemPoint { get { return itemPoint; } }
+
+
     void Start()
     {
         
@@ -21,11 +25,14 @@ public class SharedOverlapBox : MonoBehaviour
         if(hitColliders.Length > 0)
         {
             highestCollider = hitColliders[0];
-
+            itemPoint = null;
             foreach (Collider collider in hitColliders)
             {
                 if (collider.transform.position.y > highestCollider.transform.position.y && collider.gameObject != gameObject)
                     highestCollider = collider;
+
+                if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>())
+                    itemPoint = collider.transform;
             }
         }
 

@@ -23,25 +23,9 @@ public class PickUpItem : MonoBehaviour
 
 
     void PlayerPickup(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
-        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + new Vector3(0, 1f, 0), new Vector3(0.25f, 1f, 0.25f), transform.rotation);
-        if (hitColliders.Length == 0)
-        {
-            return;
-        }
+        Collider highestCollider = SharedOverlapBox.HighestCollider;
+        Transform itemPoint = SharedOverlapBox.ItemPoint;
 
-        Collider highestCollider = hitColliders[0];
-        Transform itemPoint = null;
-        foreach (Collider collider in hitColliders)
-        {
-            if (collider.transform.position.y > highestCollider.transform.position.y) {
-                highestCollider = collider;
-            }
-                
-
-            if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>())
-                itemPoint = collider.transform;
-        }
-        
         if (playerController.PickedItem == null) {
             if (highestCollider.GetComponent<PickupController>() == null)
             {
