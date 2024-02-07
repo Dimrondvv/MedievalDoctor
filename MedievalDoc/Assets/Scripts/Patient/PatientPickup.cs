@@ -32,15 +32,17 @@ public class PatientPickup : MonoBehaviour
             pickedPatient.transform.SetParent(player.transform);
             var lastChild = player.transform.childCount - 1;
             player.transform.GetChild(lastChild).localEulerAngles = Vector3.zero;
-        }
 
-        // Release chair (fix)
-        if (pickedPatient.GetComponent<Patient>().SpawnerID >= 0)
-        {
-            SpawnPatientTimer.SpawnPoints[pickedPatient.GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
+            // Release chair (fix)
+            if (pickedPatient.GetComponent<Patient>().SpawnerID >= 0) {
+                Debug.Log(pickedPatient.GetComponent<Patient>().SpawnerID);
+                SpawnPatientTimer.SpawnPoints[pickedPatient.GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
 
-            GetComponent<Patient>().SpawnerID = -69;
+                GetComponent<Patient>().SpawnerID = -69;
+            }
         }
+        
+
     }
 
     private void PutdownPatient(PickupController pickedPatient, Transform pickupPoint)
