@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] int maxDeaths;
     [SerializeField] public int bedHealingValue;
     public int deathCounter;
+    private bool isNight;
+    public bool IsNight
+    {
+        get { return isNight; }
+        set { isNight = value; }
+    }
     private void Awake() 
     { 
 
