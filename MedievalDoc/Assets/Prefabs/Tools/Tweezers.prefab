@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7695447329451422416}
   - component: {fileID: 6743448797544277155}
   - component: {fileID: 3763902246066530021}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tweezers
   m_TagString: Untagged
   m_Icon: {fileID: 0}

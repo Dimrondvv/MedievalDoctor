@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3198481207114560997}
   - component: {fileID: 6638651306898178449}
   - component: {fileID: 2200965321840685456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CuttingSaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8286880015189026379}
   - component: {fileID: 1969280378945480924}
   - component: {fileID: 7236493945456713586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +147,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 96138c8a88e01fc4e9131c678b79ae91, type: 3}
       propertyPath: m_Name
       value: Wand
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96138c8a88e01fc4e9131c678b79ae91, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96138c8a88e01fc4e9131c678b79ae91, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

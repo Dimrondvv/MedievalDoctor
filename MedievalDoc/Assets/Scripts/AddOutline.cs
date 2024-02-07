@@ -17,7 +17,7 @@ public class AddOutline : MonoBehaviour
             return;
         }
 
-        if (SharedOverlapBox.HighestCollider.gameObject.layer == 7)
+        if (SharedOverlapBox.HighestCollider.gameObject.layer == 7 || SharedOverlapBox.HighestCollider.gameObject.layer == 10)
         {
             overlapObject = SharedOverlapBox.HighestCollider.gameObject;
             if (overlapObject.GetComponent<Outline>() == null)
