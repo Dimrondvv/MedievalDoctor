@@ -34,6 +34,7 @@ public class Pause : MonoBehaviour
     {
         Debug.Log("MainMenu");
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 
 
