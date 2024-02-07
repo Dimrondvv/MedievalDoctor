@@ -24,7 +24,7 @@ public class AddOutline : MonoBehaviour
             {
                 var outline = SharedOverlapBox.HighestCollider.gameObject.AddComponent<Outline>();
 
-                outline.OutlineMode = Outline.Mode.OutlineAll;
+                outline.OutlineMode = Outline.Mode.OutlineAndSilhouette;
                 outline.OutlineColor = Color.yellow;
                 outline.OutlineWidth = 5f;
             }
