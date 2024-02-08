@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
-
     [SerializeField] private float pickupRange;
     private PickupController playerController;
     private PlayerInputActions playerInputActions;
-    
-
-
-
 
     private void Start() {
         playerInputActions = new PlayerInputActions();
@@ -20,7 +15,6 @@ public class PickUpItem : MonoBehaviour
 
         playerController = PlayerManager.Instance.PickupController.GetPickupController();
     }
-
 
     void PlayerPickup(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
         Collider highestCollider = SharedOverlapBox.HighestCollider;
