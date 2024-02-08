@@ -38,6 +38,7 @@ public class SharedOverlapBox : MonoBehaviour
         else
         {
             highestCollider = null;
+            itemPoint = null;
         }
 
         if(drawBox)
