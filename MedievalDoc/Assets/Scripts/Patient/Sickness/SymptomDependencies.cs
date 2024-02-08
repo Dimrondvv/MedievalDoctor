@@ -61,7 +61,7 @@ public class SymptomDependencies : ScriptableObject
         bool dependencyExists = false;
         foreach(Dependency i in dependencies)
         {
-            if(symptom = i.GetSymptom)
+            if(symptom == i.GetSymptom)
             {
                 dependencyExists = true; //If dependency exists and is not met function returns false, but if there is no dependency it returns true
                 if (i.canBeRemoved(patient)) //Returns true if dependency is met
@@ -80,7 +80,7 @@ public class SymptomDependencies : ScriptableObject
         bool dependencyExists = false;
         foreach (Dependency i in dependencies)
         {
-            if (symptom = i.GetSymptom)
+            if (symptom == i.GetSymptom)
             {
                 dependencyExists = true; //If dependency exists and is not met function returns false, but if there is no dependency it returns true
                 if (i.canBeAdded(patient)) //Returns true if dependency is met
@@ -99,7 +99,7 @@ public class SymptomDependencies : ScriptableObject
         bool dependencyExists = false;
         foreach (Dependency i in dependencies)
         {
-            if (symptom = i.GetSymptom)
+            if (symptom == i.GetSymptom)
             {
                 dependencyExists = true; //If dependency exists and is not met function returns false, but if there is no dependency it returns true
                 if (i.canBeChecked(patient)) //Returns true if dependency is met
