@@ -27,10 +27,10 @@ public class PickUpItem : MonoBehaviour
         Transform itemPoint = SharedOverlapBox.ItemPoint;
 
         if (playerController.PickedItem == null) {
-            if (highestCollider.GetComponent<PickupController>() == null)
-            {
-                PickupController.OnPickup?.Invoke(highestCollider.gameObject, itemPoint);
-            }
+            if (highestCollider == null)
+                return;
+            
+            PickupController.OnPickup?.Invoke(highestCollider.gameObject, itemPoint);
         } else {
                 PickupController.OnPutdown?.Invoke(playerController, itemPoint);
         }
