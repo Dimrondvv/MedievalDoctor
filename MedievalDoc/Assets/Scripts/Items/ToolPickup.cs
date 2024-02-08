@@ -40,6 +40,7 @@ public class ToolPickup : MonoBehaviour
             pickedTool.transform.position = toolPickupPoint.position;
             
             pickedTool.transform.SetParent(finger.transform);
+            pickedTool.GetComponent<MeshCollider>().enabled = false;
             //pickedTool.transform.eulerAngles = finger.transform.eulerAngles + new Vector3(0f, 90f, 0f);
             //  var lastChild = player.transform.childCount - 1;
 
@@ -55,7 +56,7 @@ public class ToolPickup : MonoBehaviour
             putDownTool.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position + new Vector3(0, offset.y/2, 0);
             putDownTool.transform.rotation = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.rotation;
             putDownTool.transform.SetParent(pickupPoint);
-            putDownTool.GetComponent<Collider>().enabled = true;
+            putDownTool.GetComponent<MeshCollider>().enabled = true;
             playerController.SetPickedItem(null);
         }
     }
