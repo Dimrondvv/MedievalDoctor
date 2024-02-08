@@ -116,7 +116,6 @@ public class Patient : MonoBehaviour
             symptom = sympt,
             isHidden = false
         };
-        Debug.Log("Inserting");
 
         symptoms.Add(symptomStruct);
     }

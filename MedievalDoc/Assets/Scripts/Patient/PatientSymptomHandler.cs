@@ -84,8 +84,6 @@ public class PatientSymptomHandler : MonoBehaviour
                 SpawnPatientTimer.SpawnPoints[GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
                 GetComponent<Patient>().SpawnerID = -69;
             }
-            Debug.Log("---------------"+symptom.name);
-            Debug.Log("Cured");
             Patient.OnCureDisease.Invoke(patient);
         }
     }
