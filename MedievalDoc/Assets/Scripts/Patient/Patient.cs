@@ -31,6 +31,9 @@ public class Patient : MonoBehaviour
     private List<Symptom> additionalSymptoms = new List<Symptom>();
     public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms; } set { additionalSymptoms = value; } }
 
+    private List<Symptom> symptoms;
+    public List<Symptom> Symptoms { get { return symptoms; } set { symptoms = value; } }
+
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
