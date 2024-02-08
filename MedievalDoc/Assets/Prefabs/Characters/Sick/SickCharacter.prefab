@@ -1160,6 +1160,7 @@ MonoBehaviour:
   spawnerID: 0
   health: 800
   maxHealth: 800
+  symptoms: []
   patientStory: 
   isAlive: 0
   immune: 1
@@ -1236,6 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0ef5000ad7808409e8525e790a6494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symptomDependencies: {fileID: 11400000, guid: b74d77113a742854faac15de002e5eb5, type: 2}
 --- !u!114 &8578118266454488655
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1203,6 +1203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SickCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 6231083064348575428, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
+      propertyPath: symptomDependencies
+      value: 
+      objectReference: {fileID: 11400000, guid: b74d77113a742854faac15de002e5eb5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
