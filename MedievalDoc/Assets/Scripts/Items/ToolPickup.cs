@@ -52,11 +52,11 @@ public class ToolPickup : MonoBehaviour
         if (pickedTool.PickedItem != null && playerController.PickedItem.GetComponent<Tool>() != null && pickupPoint && pickupPoint.GetComponentInChildren<ItemLayDownPoint>() && !pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied) {
             GameObject putDownTool = pickedTool.PickedItem;
             pickupPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = true;
+            putDownTool.GetComponent<MeshCollider>().enabled = true;
             var offset = putDownTool.GetComponent<MeshCollider>().bounds.size;
             putDownTool.transform.position = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.position + new Vector3(0, offset.y/2, 0);
             putDownTool.transform.rotation = pickupPoint.GetComponentInChildren<ItemLayDownPoint>().transform.rotation;
             putDownTool.transform.SetParent(pickupPoint);
-            putDownTool.GetComponent<MeshCollider>().enabled = true;
             playerController.SetPickedItem(null);
         }
     }
