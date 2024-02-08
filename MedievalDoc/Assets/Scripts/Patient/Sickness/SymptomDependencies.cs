@@ -25,9 +25,9 @@ public class SymptomDependencies : ScriptableObject
         {
             foreach(var symptom in patient.Symptoms)
             {
-                if (!symptomsPresentRequiredToAdd.Contains(symptom))
+                if (!symptomsPresentRequiredToAdd.Contains(symptom.symptom))
                     return false;
-                else if (symptomsNotPresentRequiredToAdd.Contains(symptom))
+                else if (symptomsNotPresentRequiredToAdd.Contains(symptom.symptom))
                     return false;
             }
             return true;
@@ -36,9 +36,9 @@ public class SymptomDependencies : ScriptableObject
         {
             foreach (var symptom in patient.Symptoms)
             {
-                if (!symptomsPresentRequiredToRemove.Contains(symptom))
+                if (!symptomsPresentRequiredToRemove.Contains(symptom.symptom))
                     return false;
-                else if (symptomsNotPresentRequiredToRemove.Contains(symptom))
+                else if (symptomsNotPresentRequiredToRemove.Contains(symptom.symptom))
                     return false;
             }
             return true;
@@ -47,9 +47,9 @@ public class SymptomDependencies : ScriptableObject
         {
             foreach (var symptom in patient.Symptoms)
             {
-                if (!symptomsPresentRequiredToCheck.Contains(symptom))
+                if (!symptomsPresentRequiredToCheck.Contains(symptom.symptom))
                     return false;
-                else if (symptomsNotPresentRequiredToCheck.Contains(symptom))
+                else if (symptomsNotPresentRequiredToCheck.Contains(symptom.symptom))
                     return false;
             }
             return true;

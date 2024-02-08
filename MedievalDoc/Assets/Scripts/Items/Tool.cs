@@ -52,7 +52,7 @@ public class Tool : MonoBehaviour
             return;
         foreach (Symptom symptom in symptomsChecked)
         {
-            bool isPresent = patient.Sickness.CheckSymptom(symptom);
+            bool isPresent = patient.FindSymptom(symptom);
             if (isPresent)
             {
                 Patient.OnCheckSymptom.Invoke(symptom, patient);

@@ -9,10 +9,10 @@ public class Patient : MonoBehaviour
 
     [SerializeField] private SicknessScriptableObject sickness;
     public SicknessScriptableObject Sickness
-    { 
-        get { return sickness; } 
-        set { sickness = value; } 
-        }
+    {
+        get { return sickness; }
+        set { sickness = value; }
+    }
 
 
     [SerializeField] private int spawnerID;
@@ -31,8 +31,8 @@ public class Patient : MonoBehaviour
     private List<Symptom> additionalSymptoms = new List<Symptom>();
     public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms; } set { additionalSymptoms = value; } }
 
-    private List<Symptom> symptoms;
-    public List<Symptom> Symptoms { get { return symptoms; } set { symptoms = value; } }
+    public List<SicknessScriptableObject.SymptomStruct> symptoms;
+    public List<SicknessScriptableObject.SymptomStruct> Symptoms { get { return symptoms; } set { symptoms = value; } }
 
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
@@ -85,11 +85,43 @@ public class Patient : MonoBehaviour
     private void OnEnable()
     {
         PickupController.OnInteract.AddListener(InteractWithPatient);
+        symptoms = new List<SicknessScriptableObject.SymptomStruct>();
     }
     private void OnDisable()
     {
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
+
+    public void CopySymptoms(SicknessScriptableObject sickness)
+    {
+        foreach(SicknessScriptableObject.SymptomStruct symptom in sickness.symptomList)
+        {
+            symptoms.Add(symptom);
+        }
+    }
+
+    public bool FindSymptom(Symptom symptom)
+    {
+        foreach(var i in symptoms)
+        {
+            if (i.symptom == symptom)
+                return true;
+        }
+        return false;
+    }
+    public void InsertSymptomToList(Symptom sympt)
+    {
+        SicknessScriptableObject.SymptomStruct symptomStruct = new SicknessScriptableObject.SymptomStruct
+        {
+            symptom = sympt,
+            isHidden = false
+        };
+        Debug.Log("Inserting");
+
+        symptoms.Add(symptomStruct);
+    }
+
+
     public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {
         if (interactedObject != this.gameObject)

@@ -1028,6 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sickness: {fileID: 0}
+  spawnerID: 0
   health: 800
   maxHealth: 800
   patientStory: 
@@ -1106,6 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0ef5000ad7808409e8525e790a6494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symptomDependencies: {fileID: 11400000, guid: b74d77113a742854faac15de002e5eb5, type: 2}
 --- !u!1 &6265525569222478492
 GameObject:
   m_ObjectHideFlags: 0
