@@ -23,13 +23,11 @@ public class PlayerInteraction : MonoBehaviour
         if (SharedOverlapBox.HighestCollider.gameObject.layer != 7)
             return;
         PlayerManager.Instance.GetAnimator.SetBool("performingAction", true);
-        Debug.Log("started");
     }
 
     private void OnInteractionExit(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         PlayerManager.Instance.GetAnimator.SetBool("performingAction", false);
-        Debug.Log("canceled");
     }
 
 

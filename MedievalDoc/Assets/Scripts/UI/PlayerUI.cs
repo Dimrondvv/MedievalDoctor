@@ -27,7 +27,6 @@ public class PlayerUI : MonoBehaviour
         Tool tool = item.GetComponent<Tool>();
         if (!tool)
             return;
-        Debug.Log("TEST: " + tool.ItemIcon);
         if (tool.ItemIcon != null)
         {
             itemSlot.sprite = tool.ItemIcon;
