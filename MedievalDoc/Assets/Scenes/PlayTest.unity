@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -514,10 +514,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 272433618}
     m_Modifications:
+    - target: {fileID: 1152872908189070028, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_text
+      value: 'Score:
+
+        Health:
+
+        Money:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152872908189070028, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
+    - target: {fileID: 1152872908189070028, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152872908189070028, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7035118502853451386, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
+    - target: {fileID: 1152872908189070028, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175791780741579946, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -402.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2288384448119504892, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1148402976}
+    - target: {fileID: 4153168815528365451, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_margin.z
+      value: -67.46912
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153168815528365451, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
+    - target: {fileID: 4153168815528365451, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7035118502853451386, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
+    - target: {fileID: 4153168815528365451, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
       propertyPath: m_Name
       value: UIPrefab
