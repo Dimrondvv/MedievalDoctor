@@ -33,7 +33,6 @@ public class Tool : MonoBehaviour
     {
         if (tool != this.gameObject || symptomsAdded.Count == 0)
             return;
-        Debug.Log("Add symptom");
         foreach(var symptom in symptomsAdded)
             Patient.OnTryAddSymptom.Invoke(symptom, patient, this);
 
