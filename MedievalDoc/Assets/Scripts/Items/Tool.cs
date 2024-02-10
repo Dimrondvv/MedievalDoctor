@@ -15,6 +15,7 @@ public class Tool : MonoBehaviour
 
     public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
     public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
+    public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
 
     private PlayerInputActions playerInputActions;
     public Sprite ItemIcon

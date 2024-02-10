@@ -32,8 +32,10 @@ public class PatientSymptomHandler : MonoBehaviour
 
     private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this.patient || !patient.FindSymptom(symptom))
+        if (patient != this.patient || !patient.FindSymptom(symptom) || !IsToolValid(patient, tool))
             return;
+
+
 
         if (symptomDependencies.canSymptomBeRemoved(symptom, patient))
         {
@@ -51,14 +53,9 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void AddSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this.patient || patient.FindSymptom(symptom))
+        if (patient != this.patient || patient.FindSymptom(symptom) || !IsToolValid(patient, tool))
             return;
 
-        foreach (var item in tool.SymptomsRemoved)
-        {
-            if (symptomDependencies.canSymptomBeRemoved(symptom, patient) == false)
-                return;
-        }
 
         if (symptomDependencies.canSymptomBeAdded(symptom, patient))
         {
@@ -66,6 +63,28 @@ public class PatientSymptomHandler : MonoBehaviour
             patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
+    }
+
+    private bool IsToolValid(Patient patient, Tool tool)
+    {
+        foreach (var item in tool.SymptomsRemoved)
+        {
+            if (symptomDependencies.canSymptomBeRemoved(item, patient) == false)
+                return false;
+        }
+        foreach (var item in tool.SymptomsAdded)
+        {
+            if (symptomDependencies.canSymptomBeAdded(item, patient) == false)
+                return false;
+        }
+        foreach (var item in tool.SymptomsChecked)
+        {
+            if (symptomDependencies.canSymptomBeChecked(item, patient) == false)
+                return false;
+        }
+
+
+        return true;
     }
 
 

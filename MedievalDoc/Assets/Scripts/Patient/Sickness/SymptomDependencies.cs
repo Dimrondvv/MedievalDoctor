@@ -24,21 +24,28 @@ public class SymptomDependencies : ScriptableObject
         public bool canBeAdded(Patient patient)
         {
             foreach(var symptom in patient.Symptoms)
-            {
-                if (!symptomsPresentRequiredToAdd.Contains(symptom.symptom))
-                    return false;
-                else if (symptomsNotPresentRequiredToAdd.Contains(symptom.symptom))
+            { 
+                if (symptomsNotPresentRequiredToAdd.Contains(symptom.symptom))
                     return false;
             }
+            foreach(var symptom in symptomsPresentRequiredToAdd)
+            {
+                if (!patient.FindSymptom(symptom))
+                    return false;
+            }
+
             return true;
         }
         public bool canBeRemoved(Patient patient)
         {
             foreach (var symptom in patient.Symptoms)
             {
-                if (!symptomsPresentRequiredToRemove.Contains(symptom.symptom))
+                if (symptomsNotPresentRequiredToRemove.Contains(symptom.symptom))
                     return false;
-                else if (symptomsNotPresentRequiredToRemove.Contains(symptom.symptom))
+            }
+            foreach (var symptom in symptomsPresentRequiredToRemove)
+            {
+                if (!patient.FindSymptom(symptom))
                     return false;
             }
             return true;
@@ -47,9 +54,12 @@ public class SymptomDependencies : ScriptableObject
         {
             foreach (var symptom in patient.Symptoms)
             {
-                if (!symptomsPresentRequiredToCheck.Contains(symptom.symptom))
+                if (symptomsNotPresentRequiredToCheck.Contains(symptom.symptom))
                     return false;
-                else if (symptomsNotPresentRequiredToCheck.Contains(symptom.symptom))
+            }
+            foreach (var symptom in symptomsPresentRequiredToCheck)
+            {
+                if (!patient.FindSymptom(symptom))
                     return false;
             }
             return true;
