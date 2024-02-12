@@ -17,8 +17,7 @@ public class PatronScriptableObject : ScriptableObject
     public struct Requirements
     {
         public Symptom symptom;
-        [Header("true - add \nfalse - remove")]
-        public bool state;
+        public QuestAction questAction;
         public int requiredAmmount;
     }
 

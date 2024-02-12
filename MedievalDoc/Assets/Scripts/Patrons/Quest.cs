@@ -10,9 +10,15 @@ public class QuestScriptableObject : ScriptableObject
     public int reward;
 
     public Symptom symptom;
-    [Header("true - add \nfalse - remove")]
-    public bool state;
+    public QuestAction questAction;
     public int requiredAmmount;
     public int daysToFinish;
 
+}
+
+
+public enum QuestAction
+{
+    AddSymptom = 0,
+    RemoveSymptom = 1
 }

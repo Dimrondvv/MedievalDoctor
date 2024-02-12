@@ -41,11 +41,11 @@ public class PatronCharacter : MonoBehaviour
         questID = Random.Range(0, patronType.questList.Count);
         isQuestActive = true;
 
-        if (patronType.questList[questID].state)
+        if (patronType.questList[questID].questAction == QuestAction.RemoveSymptom)
         {
             stateTXT = "Remove";
         }
-        else
+        else if (patronType.questList[questID].questAction == QuestAction.AddSymptom)
         {
             stateTXT = "Add";
         }

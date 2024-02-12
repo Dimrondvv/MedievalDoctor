@@ -58,7 +58,7 @@ public class PatronsManager : MonoBehaviour
                 for (int x = 0; x < Patrons[i].requirementsToSpawn.Count; x++)
                 {
                     // Check for Added symptoms requirements
-                    if (Patrons[i].requirementsToSpawn[x].state == true)
+                    if (Patrons[i].requirementsToSpawn[x].questAction == QuestAction.AddSymptom)
                     {
                         if (Patrons[i].requirementsToSpawn[x].requiredAmmount == ListOfAddedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
                         {
@@ -69,7 +69,7 @@ public class PatronsManager : MonoBehaviour
                         }
                     }
                     // check for removed symptoms requirements
-                    else
+                    else if((Patrons[i].requirementsToSpawn[x].questAction == QuestAction.RemoveSymptom))
                     {
                         if (Patrons[i].requirementsToSpawn[x].requiredAmmount == ListOfRemovedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
                         {
