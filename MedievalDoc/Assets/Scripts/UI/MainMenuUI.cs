@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class MainMenuUI : MonoBehaviour {
+
+    public UnityEvent OnPlayPressed = new UnityEvent();
+
     [SerializeField] private Button playButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button quitButton;
 
     private void Awake() {
-        playButton.onClick.AddListener( () => {
-            SceneManager.LoadScene(1); //In build settings mainscene is 1
-        });
+        playButton.onClick.AddListener(HandlePlayPressed);
         optionsButton.onClick.AddListener( () => {
             //click 
         });
@@ -22,4 +24,10 @@ public class MainMenuUI : MonoBehaviour {
 
     }
 
+
+    private void HandlePlayPressed()
+    {
+        OnPlayPressed.Invoke();
+        App.Instance.GameplayCore.PressPlay();
+    }
 }
