@@ -10,7 +10,7 @@ public class HealingBed : MonoBehaviour
 
     private void Start()
     {
-        healingValue = GameManager.Instance.bedHealingValue;
+        healingValue = App.Instance.GameplayCore.GameManager.bedHealingValue;
     }
     private void Update()
     {

@@ -138,7 +138,7 @@ public class SpawnPatientTimer : MonoBehaviour
         {
             if (TimerManager.Instance.ElapsedTime % SpawnTime == 0)
             {
-                if (GameManager.Instance.IsNight)
+                if (App.Instance.GameplayCore.GameManager.IsNight)
                 {
                     // Night = no patient spawned
                 }
