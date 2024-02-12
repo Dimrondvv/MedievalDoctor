@@ -9,11 +9,18 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI timer;
     [SerializeField] Image itemSlot;
 
+    [SerializeField] TextMeshProUGUI questTXT;
+    [SerializeField] PatronCharacter patron;
+
 
     private void Update()
     {
         ui.GetComponent<TMP_Text>().text = $"Score:  {PlayerManager.Instance.Score} \nHealth: {PlayerManager.Instance.PlayerHealth} \nMoney:  {PlayerManager.Instance.Money}";
         timer.GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}", TimerManager.Instance.ElapsedTime/60, TimerManager.Instance.ElapsedTime % 60);
+        if (patron.GetComponent<PatronCharacter>().IsQuestActive)
+        {
+            questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nTask:   Remove Arms\n        0/0\nReward: 1000";
+        }
     }
 
     private void Start()

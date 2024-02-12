@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d2a9e676cc43d4699fe41ca363589f, type: 3}
-  m_Name: Dependencies
+  m_Script: {fileID: 11500000, guid: a003352d60c056b46b9267dd98a453db, type: 3}
+  m_Name: RemoveTwoArms
   m_EditorClassIdentifier: 
-  dependencies: []
+  questName: Chop chop
+  reward: 2137
+  symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
+  state: 1
+  requiredAmmount: 2
+  daysToFinish: 10
