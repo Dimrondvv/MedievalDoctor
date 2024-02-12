@@ -12,6 +12,6 @@ public class AppGameState : BaseState
     public override void Initialize()
     {
         base.Initialize();
-        SceneManager.LoadScene("PlayTest", LoadSceneMode.Additive);
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
     }
 }
