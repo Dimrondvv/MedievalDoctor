@@ -28,6 +28,13 @@ public class GameManager : MonoBehaviour
         { 
             Instance = this; 
         } 
+
+        App.Instance.GameplayCore.RegisterGameManager(this);
+    }
+
+    private void OnDestroy()
+    {
+        App.Instance.GameplayCore.UnregisterGameManager();
     }
 
     public void CheckDeathCounter()
