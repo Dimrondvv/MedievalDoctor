@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<Symptom, int> listOfAddedSymptoms = new Dictionary<Symptom, int>();
     private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
-    public static UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
+    public UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
 
     public Dictionary<Symptom, int> ListOfRemovedSymptoms
     {

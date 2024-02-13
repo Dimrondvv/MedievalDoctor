@@ -6,13 +6,27 @@ using UnityEngine;
 
 public class PatronScriptableObject : ScriptableObject
 {
-
     public string patronName;
     public Material color;
     public List<Requirements> requirementsToSpawn;
     public List<QuestScriptableObject> questList;
-
-
+   
+    public bool CheckReq(Symptom symptom, GameManager gameManager)
+    {
+        bool reqMet = false;
+        for(int i=0; i<requirementsToSpawn.Count; i++)
+        {
+            if (gameManager.ListOfAddedSymptoms[symptom] == requirementsToSpawn[i].requiredAmmount && requirementsToSpawn[i].symptom == symptom && requirementsToSpawn[i].questAction == QuestAction.AddSymptom)
+            {
+                reqMet = true;
+            }
+            if (gameManager.ListOfRemovedSymptoms[symptom] == requirementsToSpawn[i].requiredAmmount && requirementsToSpawn[i].symptom == symptom && requirementsToSpawn[i].questAction == QuestAction.RemoveSymptom)
+            {
+                reqMet = true;
+            }
+        }
+        return reqMet;
+    }
     [System.Serializable]
     public struct Requirements
     {
@@ -20,8 +34,6 @@ public class PatronScriptableObject : ScriptableObject
         public QuestAction questAction;
         public int requiredAmmount;
     }
-
-
 
     [System.Serializable]
     public struct QuestList
