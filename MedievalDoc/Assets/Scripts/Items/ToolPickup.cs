@@ -29,7 +29,7 @@ public class ToolPickup : MonoBehaviour
 
     private void PickupTool(GameObject pickedTool, Transform objectPoint) {
         if (pickedTool == this.gameObject) {
-            if (objectPoint != null) {
+            if (objectPoint != null && objectPoint.GetComponentInChildren<ItemLayDownPoint>() != null) {
                 objectPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = false;
             }
 

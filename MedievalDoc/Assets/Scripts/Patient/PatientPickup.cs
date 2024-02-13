@@ -26,7 +26,7 @@ public class PatientPickup : MonoBehaviour
                 objectPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied = false;
             }
             
-            playerController.SetPickedItem(pickedPatient);
+            playerController.PickedItem = pickedPatient;
             pickedPatient.GetComponent<Collider>().enabled = false;
             pickedPatient.transform.position = toolPickupPoint.position;
             pickedPatient.transform.SetParent(player.transform);
@@ -56,7 +56,7 @@ public class PatientPickup : MonoBehaviour
             putDownFurniture.transform.rotation = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.rotation;
             putDownFurniture.transform.SetParent(pickupPoint);
             putDownFurniture.GetComponent<Collider>().enabled = true;
-            playerController.SetPickedItem(null);
+            playerController.PickedItem = null;
         }
     }
 }
