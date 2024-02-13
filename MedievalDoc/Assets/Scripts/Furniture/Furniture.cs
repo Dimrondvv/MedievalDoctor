@@ -55,17 +55,31 @@ public class Furniture : MonoBehaviour
         }   
     }
 
-    private void PutdownFurniture(PickupController pickedFurniture, Transform trans) {
-        if (pickedFurniture.PickedItem != null && playerController.PickedItem.GetComponent<Furniture>() != null) {
+    private void PutdownFurniture(PickupController pickedFurniture, Transform transform) {
+        if (pickedFurniture.PickedItem == null) {
+            return;
+        }
+
+        Furniture furniture = playerController.PickedItem.GetComponent<Furniture>();
+
+        if ( furniture ) {
             GameObject putDownFurniture = pickedFurniture.PickedItem;
-            if (putDownFurniture.GetComponent<SnapBlueprint>().Blueprint.GetComponent<BlueprintTrigger>().isPlacable) {
-                putDownFurniture.transform.position = putDownFurniture.GetComponent<SnapBlueprint>().Blueprint.transform.position;
-                putDownFurniture.transform.rotation = putDownFurniture.GetComponent<SnapBlueprint>().Blueprint.transform.rotation;
-                putDownFurniture.GetComponent<SnapBlueprint>().DestroyBlueprint();
+            SnapBlueprint blueprint = putDownFurniture.GetComponent<SnapBlueprint>();
+            BlueprintTrigger blueprintTrigger = blueprint.Blueprint.GetComponent<BlueprintTrigger>();
+
+
+            if (blueprintTrigger.isPlacable) {
+                putDownFurniture.transform.position = blueprint.Blueprint.transform.position;
+                putDownFurniture.transform.rotation = blueprint.Blueprint.transform.rotation;
+
+                blueprint.DestroyBlueprint();
+                
                 putDownFurniture.transform.SetParent(null);
-                picked = false;
                 putDownFurniture.GetComponent<Collider>().enabled = true;
-                playerController.SetPickedItem(null);
+                
+                picked = false;
+                
+                pickedFurniture.SetPickedItem(null);
             }
         }
     }
