@@ -18,7 +18,6 @@ public class PatronsManager : MonoBehaviour
     private void Start()
     {
         spawnable = true;
-
     }
 
     private void OnEnable()
@@ -37,10 +36,7 @@ public class PatronsManager : MonoBehaviour
     private void AddlistenerToGameManager(GameManager gameManager)
     {
         this.gameManager = gameManager;
-        Debug.Log("Add listener gamemanager");
-
         gameManager.SymptomAddedToDictionary.AddListener(CheckSpawn);
-        Debug.Log(gameManager);
     }
 
     private void CheckSpawn(Symptom symptom)
@@ -55,34 +51,13 @@ public class PatronsManager : MonoBehaviour
                     {
                         Debug.Log("Requirements Met! Spawning Patron" + Patrons[i].patronName);
                         Patron.SetActive(true);
+                        Patron.GetComponent<MeshRenderer>().material = Patrons[i].color;
+                        Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
                         spawnable = false;
                     }
-                    // Check for Added symptoms requirements
-                    //if (Patrons[i].requirementsToSpawn[x].questAction == QuestAction.AddSymptom)
-                    //{
-                    //    if (Patrons[i].requirementsToSpawn[x].requiredAmmount == gameManager.ListOfAddedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
-                    //    {
-                    //        Debug.Log("Requirements Met! Spawning Patron" + Patrons[i].patronName);
-                    //        Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
-                    //        Patron.SetActive(true);
-                    //        spawnable = false;
-                    //    }
-                    //}
-                    //// check for removed symptoms requirements
-                    //else if((Patrons[i].requirementsToSpawn[x].questAction == QuestAction.RemoveSymptom))
-                    //{
-                    //    if (Patrons[i].requirementsToSpawn[x].requiredAmmount == gameManager.ListOfRemovedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
-                    //    {
-                    //        Debug.Log("Requirements Met! Spawning Patron"+ Patrons[i].patronName);
-                    //        Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
-                    //        Patron.SetActive(true);
-                    //        spawnable = false;
-                    //    }
-                    //}
                 }
             }
         }
-
     }
 
 

@@ -19,5 +19,4 @@ MonoBehaviour:
     questAction: 1
     requiredAmmount: 1
   questList:
-  - {fileID: 11400000, guid: 881787618905fb34682f05d104511173, type: 2}
   - {fileID: 11400000, guid: e3a5c791668a25f4f882a49d011b0888, type: 2}

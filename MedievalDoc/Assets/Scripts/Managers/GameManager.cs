@@ -16,7 +16,13 @@ public class GameManager : MonoBehaviour
         set { isNight = value; }
     }
 
-    [SerializeField] private List<Symptom> ListOfSymptoms;
+    [SerializeField] private List<Symptom> listOfSymptoms;
+
+    public List<Symptom> ListOfSymptoms
+    {
+        get { return listOfSymptoms; }
+        set { listOfSymptoms = value; }
+    }
 
     private Dictionary<Symptom, int> listOfAddedSymptoms = new Dictionary<Symptom, int>();
     private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
@@ -50,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        foreach (Symptom symptom in ListOfSymptoms)
+        foreach (Symptom symptom in listOfSymptoms)
         {
             listOfAddedSymptoms.Add(symptom, 0);
             listOfRemovedSymptoms.Add(symptom, 0);

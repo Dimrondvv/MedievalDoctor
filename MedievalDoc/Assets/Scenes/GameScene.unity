@@ -1819,10 +1819,6 @@ PrefabInstance:
       propertyPath: questInfo
       value: 
       objectReference: {fileID: 1412845683}
-    - target: {fileID: 2962114453205137915, guid: e9afeb333236a2c459199561c374155b, type: 3}
-      propertyPath: questCanvas
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7006774568240411934, guid: e9afeb333236a2c459199561c374155b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4056,18 +4052,6 @@ PrefabInstance:
     - target: {fileID: 3666012372141686754, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
       propertyPath: m_Name
       value: Patron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3666012372141686754, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971553576931956269, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5072971000137926050, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

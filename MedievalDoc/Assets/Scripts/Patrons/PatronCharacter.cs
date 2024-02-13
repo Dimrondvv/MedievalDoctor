@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PatronCharacter : MonoBehaviour
 {
-    [SerializeField] GameObject patron;
+    [SerializeField] private GameObject patron;
     private int questID;
+    public int QuestID
+    {
+        get { return questID; }
+        set { questID = value; }
+    }
+    GameManager gameManager;
+
     private bool isQuestActive=false;
     public bool IsQuestActive
     {
@@ -18,37 +25,70 @@ public class PatronCharacter : MonoBehaviour
         get { return patronType; }
         set { patronType = value; }
     }
-    private string stateTXT="";
-    public string StateTXT
+
+    private Dictionary<Symptom, int> listOfAddedSymptomsForQuest = new Dictionary<Symptom, int>();
+    public Dictionary<Symptom, int> ListOfAddedSymptomsForQuest
     {
-        get { return stateTXT; }
-        set { stateTXT = value; }
+        get { return listOfAddedSymptomsForQuest; }
+        set { listOfAddedSymptomsForQuest = value; }
     }
 
-
-
-    private void Awake()
+    private Dictionary<Symptom, int> listOfRemovedSymptomsForQuest = new Dictionary<Symptom, int>();
+    public Dictionary<Symptom, int> ListOfRemovedSymptomsForQuest
     {
-        patron.GetComponent<BoxCollider>().enabled = true;
-        patron.GetComponent<MeshRenderer>().enabled = true;
-        patron.GetComponent<MeshRenderer>().material = patronType.color;
+        get { return listOfRemovedSymptomsForQuest; }
+        set { listOfRemovedSymptomsForQuest = value; }
+    }
 
+    private void Start()
+    {
         RandomizeQuest();
+    }
+    private void OnEnable()
+    {
+        if (App.Instance.GameplayCore.GameManager != null)
+        {
+            gameManager = App.Instance.GameplayCore.GameManager;
+        }
+        // copy of dictionaries that are empty
+        foreach (Symptom symptom in gameManager.ListOfSymptoms)
+        {
+            listOfAddedSymptomsForQuest.Add(symptom, 0);
+            listOfRemovedSymptomsForQuest.Add(symptom, 0);
+        }
+        Patient.OnAddSymptom.AddListener(AddedSymptom);
+        Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
+        Debug.Log("gdfshd");
     }
 
     private void RandomizeQuest()
     {
         questID = Random.Range(0, patronType.questList.Count);
-        isQuestActive = true;
 
-        if (patronType.questList[questID].questAction == QuestAction.RemoveSymptom)
+        foreach (Symptom symptom in gameManager.ListOfSymptoms)
         {
-            stateTXT = "Remove";
+            listOfAddedSymptomsForQuest[symptom] = 0;
+            listOfRemovedSymptomsForQuest[symptom] = 0;
         }
-        else if (patronType.questList[questID].questAction == QuestAction.AddSymptom)
-        {
-            stateTXT = "Add";
-        }
+
+        isQuestActive = true;
+    }
+    private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
+    {
+        listOfAddedSymptomsForQuest[symptom] += 1;
+        Debug.Log(listOfAddedSymptomsForQuest[symptom]);
+        CheckQuest(symptom);
+    }
+
+    private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
+    {
+        listOfRemovedSymptomsForQuest[symptom] += 1;
+        Debug.Log(listOfRemovedSymptomsForQuest[symptom]);
+        CheckQuest(symptom);
+    }
+
+    private void CheckQuest(Symptom symptom)
+    {
 
     }
 

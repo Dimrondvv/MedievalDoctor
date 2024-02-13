@@ -18,4 +18,5 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
     questAction: 0
     requiredAmmount: 1
-  questList: []
+  questList:
+  - {fileID: 11400000, guid: ac0d158d7d86c4f4b8ec2e6136b5bcd6, type: 2}
