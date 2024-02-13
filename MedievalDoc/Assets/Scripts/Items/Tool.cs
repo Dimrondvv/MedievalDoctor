@@ -15,6 +15,7 @@ public class Tool : MonoBehaviour
 
     public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
     public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
+    public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
 
     private PlayerInputActions playerInputActions;
     public Sprite ItemIcon
@@ -32,7 +33,6 @@ public class Tool : MonoBehaviour
     {
         if (tool != this.gameObject || symptomsAdded.Count == 0)
             return;
-        Debug.Log("Add symptom");
         foreach(var symptom in symptomsAdded)
             Patient.OnTryAddSymptom.Invoke(symptom, patient, this);
 
@@ -52,7 +52,7 @@ public class Tool : MonoBehaviour
             return;
         foreach (Symptom symptom in symptomsChecked)
         {
-            bool isPresent = patient.Sickness.CheckSymptom(symptom);
+            bool isPresent = patient.FindSymptom(symptom);
             if (isPresent)
             {
                 Patient.OnCheckSymptom.Invoke(symptom, patient);

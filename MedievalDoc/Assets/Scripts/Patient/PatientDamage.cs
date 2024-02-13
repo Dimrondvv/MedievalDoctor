@@ -24,22 +24,14 @@ public class PatientDamage : MonoBehaviour
 
     private void TakeDamage()
     {
-        if(patient.Immune){
-            // Do Nothing
-        }
-        else{
-            for (int i = 0; i < patient.Sickness.symptomList.Count; i++)
-            {
-                patient.Health -= patient.Sickness.symptomList[i].symptom.damage;
-                patientHealthBar.healthBar();
-                CheckAlive();    
-            }
-            for (int i = 0; i < patient.AdditionalSymptoms.Count; i++)
-            {
-                patient.Health -= patient.AdditionalSymptoms[i].damage;
-                patientHealthBar.healthBar();
-                CheckAlive();
-            }
-        }      
+        if (patient.Immune)
+            return;
+
+        foreach (var symptStruct in patient.Symptoms)
+        {
+            patient.Health -= symptStruct.symptom.damage;
+            patientHealthBar.healthBar();
+            CheckAlive();
+        }     
     }
 }

@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 3666776307591895051}
   - component: {fileID: 328184316469907098}
   - component: {fileID: 3400406162959607992}
+  - component: {fileID: 5074438798091626786}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
   player: {fileID: 0}
+--- !u!114 &5074438798091626786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8781600bd1f5ac41a67c97510e4da2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  picked: 0
 --- !u!1001 &8947034050059002830
 PrefabInstance:
   m_ObjectHideFlags: 0

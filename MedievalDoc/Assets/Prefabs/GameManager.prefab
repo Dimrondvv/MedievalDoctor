@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6958139224475420091}
   - component: {fileID: 2934615985081736913}
+  - component: {fileID: 2225845763392631534}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,3 +48,15 @@ MonoBehaviour:
   maxDeaths: 4
   bedHealingValue: 5
   deathCounter: 0
+--- !u!114 &2225845763392631534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495865580938467515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ded0fd3822c56646930296429fde886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

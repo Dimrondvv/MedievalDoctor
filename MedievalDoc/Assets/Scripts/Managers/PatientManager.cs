@@ -26,8 +26,6 @@ public class PatientManager : MonoBehaviour
         Patient.OnPatientDeath.AddListener(RemovePatientFromList);
     }
 
-    
-
     private void RemovePatientFromList(Patient patient)
     {
         patients.Remove(patient);

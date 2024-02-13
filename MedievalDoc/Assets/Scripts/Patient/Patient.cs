@@ -9,17 +9,17 @@ public class Patient : MonoBehaviour
 
     [SerializeField] private SicknessScriptableObject sickness;
     public SicknessScriptableObject Sickness
-    { 
-        get { return sickness; } 
-        set { sickness = value; } 
-        }
+    {
+        get { return sickness; }
+        set { sickness = value; }
+    }
 
 
-    private int spawnerID;
+    [SerializeField] private int spawnerID;
     public int SpawnerID
     { 
-        get { return health; } 
-        set { health = value; } 
+        get { return spawnerID; } 
+        set { spawnerID = value; } 
         }
 
     [SerializeField] private int health; // player Health (if =< 0 - game over)
@@ -30,6 +30,9 @@ public class Patient : MonoBehaviour
 
     private List<Symptom> additionalSymptoms = new List<Symptom>();
     public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms; } set { additionalSymptoms = value; } }
+
+    public List<SicknessScriptableObject.SymptomStruct> symptoms;
+    public List<SicknessScriptableObject.SymptomStruct> Symptoms { get { return symptoms; } set { symptoms = value; } }
 
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
@@ -73,8 +76,8 @@ public class Patient : MonoBehaviour
         }
 
         OnPatientDeath.Invoke(this);// Release the bed on death
-        GameManager.Instance.CheckDeathCounter();
-        GameManager.Instance.deathCounter+=1;
+        App.Instance.GameplayCore.GameManager.CheckDeathCounter();
+        App.Instance.GameplayCore.GameManager.deathCounter+=1;
         PlayerManager.Instance.PlayerHealth -= 25;
         Destroy(this.gameObject); // if dead = destroy object
     }
@@ -82,11 +85,42 @@ public class Patient : MonoBehaviour
     private void OnEnable()
     {
         PickupController.OnInteract.AddListener(InteractWithPatient);
+        symptoms = new List<SicknessScriptableObject.SymptomStruct>();
     }
     private void OnDisable()
     {
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
+
+    public void CopySymptoms(SicknessScriptableObject sickness)
+    {
+        foreach(SicknessScriptableObject.SymptomStruct symptom in sickness.symptomList)
+        {
+            symptoms.Add(symptom);
+        }
+    }
+
+    public bool FindSymptom(Symptom symptom)
+    {
+        foreach(var i in symptoms)
+        {
+            if (i.symptom == symptom)
+                return true;
+        }
+        return false;
+    }
+    public void InsertSymptomToList(Symptom sympt)
+    {
+        SicknessScriptableObject.SymptomStruct symptomStruct = new SicknessScriptableObject.SymptomStruct
+        {
+            symptom = sympt,
+            isHidden = false
+        };
+
+        symptoms.Add(symptomStruct);
+    }
+
+
     public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {
         if (interactedObject != this.gameObject)

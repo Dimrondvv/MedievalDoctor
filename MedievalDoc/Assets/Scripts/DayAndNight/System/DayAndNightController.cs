@@ -130,10 +130,10 @@ public class DayAndNightController : MonoBehaviour
         if (currentTime.Hour >= sunsetHour || currentTime.Hour <= sunriseHour)
         {
             LightsToTurnOn.SetActive(true);
-            GameManager.Instance.IsNight = true;
+            App.Instance.GameplayCore.GameManager.IsNight = true;
         } else {
             LightsToTurnOn.SetActive(false);
-            GameManager.Instance.IsNight = false;
+            App.Instance.GameplayCore.GameManager.IsNight = false;
         }
     }
 }
