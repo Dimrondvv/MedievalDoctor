@@ -16,7 +16,7 @@ MonoBehaviour:
   color: {fileID: 2100000, guid: 82f9830f2519d8847a5cd5dbb2cd0c59, type: 2}
   requirementsToSpawn:
   - symptom: {fileID: 11400000, guid: cdaa542aae5bd964aaa03713e1c8f457, type: 2}
-    state: 0
+    questAction: 1
     requiredAmmount: 1
   questList:
   - {fileID: 11400000, guid: 881787618905fb34682f05d104511173, type: 2}

@@ -9,43 +9,38 @@ public class PatronsManager : MonoBehaviour
     [SerializeField] GameObject Patron;
     [SerializeField] GameObject questInfo;
     [SerializeField] private List<PatronScriptableObject> Patrons;
-    [SerializeField] private List<Symptom> ListOfSymptoms;
+    GameManager gameManager = App.Instance.GameplayCore.GameManager;
+    //[SerializeField] private List<Symptom> ListOfSymptoms;
 
-    private Dictionary<Symptom, int> ListOfAddedSymptoms = new Dictionary<Symptom, int>();
-    private Dictionary<Symptom, int> ListOfRemovedSymptoms = new Dictionary<Symptom, int>();
+    //private Dictionary<Symptom, int> ListOfAddedSymptoms = new Dictionary<Symptom, int>();
+    //private Dictionary<Symptom, int> ListOfRemovedSymptoms = new Dictionary<Symptom, int>();
 
     // only one patron can be spawned so if one is spawned set it to false
     private bool spawnable;
     private Symptom key;
 
 
-    private void Awake()
+    private void Start()
     {
         spawnable = true;
         // Add every symptom to a dictionary that counts them (Remove/Add)
-        foreach(Symptom symptom in ListOfSymptoms)
-        {
-            ListOfAddedSymptoms.Add(symptom, 0);
-            ListOfRemovedSymptoms.Add(symptom, 0);
-        }
     }
 
     private void OnEnable()
     {
         // Add listeners to remove/add symptom
-        Patient.OnAddSymptom.AddListener(AddedSymptom);
-        Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
+        //Patient.OnAddSymptom.AddListener(AddedSymptom);
+        //Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
+
     }
 
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        ListOfAddedSymptoms[symptom] += 1;
         CheckSpawn(symptom);
     }
 
     private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        ListOfRemovedSymptoms[symptom] += 1;
         CheckSpawn(symptom);
     }
 
@@ -60,7 +55,7 @@ public class PatronsManager : MonoBehaviour
                     // Check for Added symptoms requirements
                     if (Patrons[i].requirementsToSpawn[x].questAction == QuestAction.AddSymptom)
                     {
-                        if (Patrons[i].requirementsToSpawn[x].requiredAmmount == ListOfAddedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
+                        if (Patrons[i].requirementsToSpawn[x].requiredAmmount == gameManager.ListOfAddedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
                         {
                             Debug.Log("Requirements Met! Spawning Patron" + Patrons[i].patronName);
                             Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
@@ -71,7 +66,7 @@ public class PatronsManager : MonoBehaviour
                     // check for removed symptoms requirements
                     else if((Patrons[i].requirementsToSpawn[x].questAction == QuestAction.RemoveSymptom))
                     {
-                        if (Patrons[i].requirementsToSpawn[x].requiredAmmount == ListOfRemovedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
+                        if (Patrons[i].requirementsToSpawn[x].requiredAmmount == gameManager.ListOfRemovedSymptoms[symptom] && Patrons[i].requirementsToSpawn[x].symptom == symptom)
                         {
                             Debug.Log("Requirements Met! Spawning Patron"+ Patrons[i].patronName);
                             Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
