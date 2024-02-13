@@ -40,10 +40,13 @@ public class Furniture : MonoBehaviour
 
     private void PickupFurniture(GameObject pickedFurniture, Transform objectPoint) {
         if (pickedFurniture == this.gameObject) {
+            Collider pickedFurnitureCollider = pickedFurniture.GetComponent<Collider>();
+            SnapBlueprint pickedFurnitureBlueprint = pickedFurniture.GetComponent<SnapBlueprint>();
             playerController.SetPickedItem(pickedFurniture);
-            pickedFurniture.GetComponent<Collider>().enabled = false;
+            
+            pickedFurnitureCollider.enabled = false;
             pickedFurniture.transform.position = furniturePickupPoint.position;
-            pickedFurniture.GetComponent<SnapBlueprint>().CreateBlueprint(pickedFurniture);
+            pickedFurnitureBlueprint.CreateBlueprint(pickedFurniture);
             pickedFurniture.transform.SetParent(player.transform);
 
             var lastChild = player.transform.childCount - 1;
