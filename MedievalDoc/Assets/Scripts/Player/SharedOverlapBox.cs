@@ -31,7 +31,7 @@ public class SharedOverlapBox : MonoBehaviour
                 if (collider.transform.position.y > highestCollider.transform.position.y && collider.gameObject != gameObject)
                     highestCollider = collider;
 
-                if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>())
+                if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>() || collider.GetComponent<Crafting>())
                     itemPoint = collider.transform;
             }
         }

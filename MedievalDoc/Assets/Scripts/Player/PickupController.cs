@@ -38,8 +38,10 @@ public class PickupController : MonoBehaviour {
     }
 
     public void SetPickedItem(GameObject pickedObject) {
-        pickedItem = pickedObject;
-
+        pickedObject.transform.position = GetToolPickupPoint().position;
+        pickedObject.transform.SetParent(GetFingerObject().transform);
+        pickedObject.GetComponent<MeshCollider>().enabled = false;
+        PickedItem = pickedObject;
     }
 
     public Transform GetToolPickupPoint() {

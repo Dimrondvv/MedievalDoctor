@@ -40,7 +40,7 @@ public class Furniture : MonoBehaviour
 
     private void PickupFurniture(GameObject pickedFurniture, Transform objectPoint) {
         if (pickedFurniture == this.gameObject) {
-            playerController.SetPickedItem(pickedFurniture);
+            playerController.PickedItem = pickedFurniture;
             pickedFurniture.GetComponent<Collider>().enabled = false;
             pickedFurniture.transform.position = furniturePickupPoint.position;
             pickedFurniture.GetComponent<SnapBlueprint>().CreateBlueprint(pickedFurniture);
@@ -62,7 +62,7 @@ public class Furniture : MonoBehaviour
                 putDownFurniture.transform.SetParent(null);
                 picked = false;
                 putDownFurniture.GetComponent<Collider>().enabled = true;
-                playerController.SetPickedItem(null);
+                playerController.PickedItem = null;
             }
         }
     }
