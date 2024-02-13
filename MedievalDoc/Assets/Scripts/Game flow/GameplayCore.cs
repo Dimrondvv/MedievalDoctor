@@ -23,6 +23,7 @@ public class GameplayCore
     public void RegisterGameManager(GameManager gameManager)
     {
         GameManager = gameManager;
+        Debug.Log("Registered");
         OnGameManagerRegistered.Invoke(gameManager);
     }
     public void UnregisterGameManager()

@@ -18,16 +18,27 @@ public class PatronsManager : MonoBehaviour
     private void Start()
     {
         spawnable = true;
+
     }
 
     private void OnEnable()
     {
-        App.Instance.GameplayCore.OnGameManagerRegistered.AddListener(AddlistenerToGameManager);
+        if (App.Instance.GameplayCore.GameManager != null)
+        {
+            gameManager = App.Instance.GameplayCore.GameManager;
+            gameManager.SymptomAddedToDictionary.AddListener(CheckSpawn);
+        }
+        else
+        {
+            App.Instance.GameplayCore.OnGameManagerRegistered.AddListener(AddlistenerToGameManager);
+        }
     }
 
     private void AddlistenerToGameManager(GameManager gameManager)
     {
         this.gameManager = gameManager;
+        Debug.Log("Add listener gamemanager");
+
         gameManager.SymptomAddedToDictionary.AddListener(CheckSpawn);
         Debug.Log(gameManager);
     }
