@@ -6,9 +6,11 @@ public class ItemChest : MonoBehaviour
 {
     [SerializeField] private GameObject itemPrefab;
     private bool isClosed = false;
+    private Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         PickupController.OnPickup.AddListener(TakeItemFromChest);
         PickupController.OnPutdown.AddListener(PutItemInChest);
         PickupController.OnInteract.AddListener(CloseChest);
@@ -26,7 +28,9 @@ public class ItemChest : MonoBehaviour
     }
     private void PutItemInChest(PickupController player, Transform objectType)
     {
-        if (player.PickedItem != gameObject || player.PickedItem.GetComponent<Item>() == null)
+        if (objectType == null)
+            return;
+        if (objectType.gameObject != gameObject || player.PickedItem.GetComponent<Item>() == null)
             return;
         var item = player.PickedItem;
         if (item == null || item.GetComponent<Item>().ItemName != itemPrefab.GetComponent<Item>().ItemName)
@@ -92,7 +96,7 @@ public class ItemChest : MonoBehaviour
             return;
         if (isClosed)
         {
-            Debug.Log("Open");
+            animator.SetBool("isOpen", true);
             isClosed = false;
             PickupController.OnPickup.AddListener(TakeItemFromChest);
             PickupController.OnPutdown.AddListener(PutItemInChest);
@@ -101,7 +105,7 @@ public class ItemChest : MonoBehaviour
         }
         else
         {
-            Debug.Log("Close");
+            animator.SetBool("isOpen", false);
             isClosed = true;
             PickupController.OnPickup.AddListener(PickupChest);
             PickupController.OnPutdown.AddListener(PutdownChest);
