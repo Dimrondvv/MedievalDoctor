@@ -33,7 +33,6 @@ public class SnapBlueprint : MonoBehaviour
         BlueprintTrigger bpTrigger = blueprint.AddComponent<BlueprintTrigger>();
         bpTrigger.blueprintBlue = blueprintBlue;
         bpTrigger.blueprintRed = blueprintRed;
-        bpTrigger.ChangeBlueprintToBlue(blueprint);
     }
 
     public void DestroyBlueprint()

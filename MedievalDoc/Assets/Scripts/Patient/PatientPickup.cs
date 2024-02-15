@@ -46,14 +46,21 @@ public class PatientPickup : MonoBehaviour
 
     private void PutdownPatient(PickupController pickedPatient, Transform pickupPoint)
     {
+        if (pickedPatient.PickedItem == null || pickupPoint == null) {
+            return;
+        }
+
+        PatientPickup patientPickup = pickedPatient.PickedItem.GetComponent<PatientPickup>();
+        PatientLayDownPoint patientLayDownPoint = pickupPoint.GetComponentInChildren<PatientLayDownPoint>();
+
         // TO ADD PUTING PATIENT ON FLOOR 
-        if (pickedPatient.PickedItem != null && playerController.PickedItem.GetComponent<PatientPickup>() != null && pickupPoint && pickupPoint.GetComponentInChildren<PatientLayDownPoint>() && !pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied)
+        if (patientPickup && patientLayDownPoint && !patientLayDownPoint.IfOccupied)
         {
             GameObject putDownFurniture = pickedPatient.PickedItem;
-            //Quaternion rotation = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.rotation;
+
             pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied = true;
-            putDownFurniture.transform.position = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.position;
-            putDownFurniture.transform.rotation = pickupPoint.GetComponentInChildren<PatientLayDownPoint>().transform.rotation;
+            putDownFurniture.transform.position = patientLayDownPoint.transform.position;
+            putDownFurniture.transform.rotation = patientLayDownPoint.transform.rotation;
             putDownFurniture.transform.SetParent(pickupPoint);
             putDownFurniture.GetComponent<Collider>().enabled = true;
             playerController.PickedItem = null;
