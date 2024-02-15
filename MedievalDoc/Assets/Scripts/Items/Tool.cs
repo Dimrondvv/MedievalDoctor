@@ -7,7 +7,7 @@ public class Tool : MonoBehaviour
 {
     //Key - bool which defines if symptom action is valid
     [SerializeField] private Sprite itemIcon;
-
+    [SerializeField] private string toolName;
     [SerializeField] private List<Symptom> symptomsAdded;
     [SerializeField] private List<Symptom> symptomsRemoved;
     [SerializeField] private List<Symptom> symptomsChecked;
@@ -17,6 +17,7 @@ public class Tool : MonoBehaviour
     public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
     public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
     public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
+    public string ToolName { get { return toolName; } }
 
     private PlayerInputActions playerInputActions;
     public Sprite ItemIcon
