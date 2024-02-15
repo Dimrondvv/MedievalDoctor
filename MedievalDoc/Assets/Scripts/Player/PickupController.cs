@@ -40,7 +40,7 @@ public class PickupController : MonoBehaviour {
     public void SetPickedItem(GameObject pickedObject) {
         pickedObject.transform.position = GetToolPickupPoint().position;
         pickedObject.transform.SetParent(GetFingerObject().transform);
-        pickedObject.GetComponent<MeshCollider>().enabled = false;
+        pickedObject.GetComponent<Collider>().enabled = false;
         PickedItem = pickedObject;
     }
 

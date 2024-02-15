@@ -24,16 +24,16 @@ public class ItemChest : MonoBehaviour
     }
     private void PutItemInChest(PickupController player, Transform objectType)
     {
-        if (objectType == null)
+
+        if (objectType == null || player.PickedItem == null)
             return;
-        if (objectType.gameObject != gameObject )
+        if (objectType.gameObject != gameObject || player.PickedItem.GetComponent<Item>() == null)
+            return;
+        var item = player.PickedItem;
+        if (item == null || item.GetComponent<Item>().ItemName != itemPrefab.GetComponent<Item>().ItemName)
             return;
         
-        var item = player.PickedItem;
-/*        if (item.GetComponent<Item>() == null)
-            return;
-        if)*/
-            player.PickedItem = null;
+        player.PickedItem = null;
         Destroy(item);
     }
 
