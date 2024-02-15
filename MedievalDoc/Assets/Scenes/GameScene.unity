@@ -3559,7 +3559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
-  player: {fileID: 617745664}
+  player: {fileID: 0}
 --- !u!1001 &1800588527
 PrefabInstance:
   m_ObjectHideFlags: 0

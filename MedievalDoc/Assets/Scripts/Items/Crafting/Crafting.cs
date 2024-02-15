@@ -45,8 +45,6 @@ public class Crafting : MonoBehaviour
         if (station != gameObject)
             return;
 
-        Debug.Log("Craft interacted;");
-
         Recipe validRecipe = null;
         foreach(var item in recipes)
         {
@@ -56,7 +54,6 @@ public class Crafting : MonoBehaviour
 
         if (validRecipe != null)
         {
-            Debug.Log("Crafted");
             StartCoroutine(CraftingCoroutine(validRecipe));
         }
     }
@@ -67,7 +64,6 @@ public class Crafting : MonoBehaviour
         yield return new WaitForSeconds(recipe.timeRequiredToCraft);
         GetComponent<CraftProgressBar>().StopProgressBar();
 
-        Debug.Log("Craft finished");
         GameObject result = Instantiate(recipe.result);
         insertedItems.Clear();
         result.transform.position = resultLayDownPoint.position;
