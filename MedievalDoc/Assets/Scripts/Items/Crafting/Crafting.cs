@@ -60,9 +60,9 @@ public class Crafting : MonoBehaviour
 
     IEnumerator CraftingCoroutine(Recipe recipe)
     {
-        GetComponent<CraftProgressBar>().StartProgressBar(recipe.timeRequiredToCraft);
+        GetComponent<ProgressBar>().StartProgressBar(recipe.timeRequiredToCraft);
         yield return new WaitForSeconds(recipe.timeRequiredToCraft);
-        GetComponent<CraftProgressBar>().StopProgressBar();
+        GetComponent<ProgressBar>().StopProgressBar();
 
         GameObject result = Instantiate(recipe.result);
         insertedItems.Clear();

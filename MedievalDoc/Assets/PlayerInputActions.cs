@@ -82,7 +82,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InteractAnimation"",
+                    ""name"": ""InteractPress"",
                     ""type"": ""Button"",
                     ""id"": ""62616e63-a40e-4646-9989-a107b61e54c6"",
                     ""expectedControlType"": ""Button"",
@@ -361,7 +361,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": ""Press(pressPoint=0.5,behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""InteractAnimation"",
+                    ""action"": ""InteractPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -482,7 +482,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""InteractAnimation"",
+                    ""action"": ""InteractPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -499,7 +499,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Journal = m_Player.FindAction("Journal", throwIfNotFound: true);
-        m_Player_InteractAnimation = m_Player.FindAction("InteractAnimation", throwIfNotFound: true);
+        m_Player_InteractPress = m_Player.FindAction("InteractPress", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
     }
 
@@ -568,7 +568,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Journal;
-    private readonly InputAction m_Player_InteractAnimation;
+    private readonly InputAction m_Player_InteractPress;
     private readonly InputAction m_Player_Run;
     public struct PlayerActions
     {
@@ -580,7 +580,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Journal => m_Wrapper.m_Player_Journal;
-        public InputAction @InteractAnimation => m_Wrapper.m_Player_InteractAnimation;
+        public InputAction @InteractPress => m_Wrapper.m_Player_InteractPress;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -609,9 +609,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Journal.started += instance.OnJournal;
             @Journal.performed += instance.OnJournal;
             @Journal.canceled += instance.OnJournal;
-            @InteractAnimation.started += instance.OnInteractAnimation;
-            @InteractAnimation.performed += instance.OnInteractAnimation;
-            @InteractAnimation.canceled += instance.OnInteractAnimation;
+            @InteractPress.started += instance.OnInteractPress;
+            @InteractPress.performed += instance.OnInteractPress;
+            @InteractPress.canceled += instance.OnInteractPress;
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
@@ -637,9 +637,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Journal.started -= instance.OnJournal;
             @Journal.performed -= instance.OnJournal;
             @Journal.canceled -= instance.OnJournal;
-            @InteractAnimation.started -= instance.OnInteractAnimation;
-            @InteractAnimation.performed -= instance.OnInteractAnimation;
-            @InteractAnimation.canceled -= instance.OnInteractAnimation;
+            @InteractPress.started -= instance.OnInteractPress;
+            @InteractPress.performed -= instance.OnInteractPress;
+            @InteractPress.canceled -= instance.OnInteractPress;
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
@@ -668,7 +668,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnPickup(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnJournal(InputAction.CallbackContext context);
-        void OnInteractAnimation(InputAction.CallbackContext context);
+        void OnInteractPress(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
     }
 }

@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CraftProgressBar : MonoBehaviour
+public class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Image barImage;
-    private bool isCrafting;
-    private float progress = 0;
-    
+
+    private void Update()
+    {
+        barImage.transform.parent.transform.rotation = Quaternion.Euler(Vector3.zero);
+    }
+
     public void StartProgressBar(float timeToCraft)
     {
         barImage.transform.parent.gameObject.SetActive(true);
-        StartCoroutine(ProgressBar(timeToCraft));
+        StartCoroutine(ProgressBarFill(timeToCraft));
     }
     public void StopProgressBar()
     {
+        StopCoroutine(ProgressBarFill(0));
         barImage.transform.parent.gameObject.SetActive(false);
     }
-    IEnumerator ProgressBar(float timeToCraft)
+    IEnumerator ProgressBarFill(float timeToCraft)
     {
         float time = 0.0f;
         while(time < timeToCraft)
