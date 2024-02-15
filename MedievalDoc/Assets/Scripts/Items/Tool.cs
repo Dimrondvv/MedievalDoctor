@@ -12,12 +12,14 @@ public class Tool : MonoBehaviour
     [SerializeField] private List<Symptom> symptomsRemoved;
     [SerializeField] private List<Symptom> symptomsChecked;
     [SerializeField] private bool isOneUse;
+    [SerializeField] private float interactionTime;
     public static UnityEvent<GameObject, Patient> OnToolInteract = new UnityEvent<GameObject, Patient>(); //Invoked when interacted with a tool
 
     public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
     public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
     public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
     public string ToolName { get { return toolName; } }
+    public float InteractionTime { get { return interactionTime; } }
 
     private PlayerInputActions playerInputActions;
     public Sprite ItemIcon

@@ -37,10 +37,11 @@ public class SharedOverlapBox : MonoBehaviour
                 if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>() || collider.GetComponent<Crafting>() || collider.GetComponent<ItemChest>())
                     itemPoint = collider.transform;
 
-                if (collider.gameObject.layer == 7)
+                if (collider.gameObject.layer == 7 && isInteractable == false)
+                {
                     isInteractable = true;
-                else
-                    isInteractable = false;
+                }
+                
             }
         }
         else

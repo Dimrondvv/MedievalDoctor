@@ -7,6 +7,8 @@ public class Crafting : MonoBehaviour
     [SerializeField] private List<Recipe> recipes;
     [SerializeField] private List<GameObject> insertedItems;
     [SerializeField] private Transform resultLayDownPoint;
+    [SerializeField] private float interactionTime;
+    public float InteractionTime { get { return interactionTime; } }
 
     private void Start()
     {
