@@ -11,7 +11,7 @@ public class Recipe : ScriptableObject
 
     public bool CheckReq(List<GameObject> itemList)
     {
-        if (itemList.Count == 0)
+        if (itemList.Count == 0 || itemList.Count != requiredItems.Count)
             return false;
 
         for(int i = 0; i < requiredItems.Count; i++)
