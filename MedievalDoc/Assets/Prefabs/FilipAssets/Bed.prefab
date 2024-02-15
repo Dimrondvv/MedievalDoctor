@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74168d17fb6de74f8b5fe9f2a95c6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
-  blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
+  blueprintBlue: {fileID: -876546973899608171, guid: 475eace2a76a2a945a0779d3eb8368d7, type: 3}
+  blueprintRed: {fileID: -876546973899608171, guid: 650a391ed8139c34e9872447bf41c823, type: 3}
   player: {fileID: 0}
 --- !u!114 &7077554657266055620
 MonoBehaviour:
