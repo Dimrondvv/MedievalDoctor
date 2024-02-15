@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1771,11 +1771,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &921186525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3745168548390971575, guid: 48e0bddb2a0914b4fa3c3a3a6b98d5e2, type: 3}
-  m_PrefabInstance: {fileID: 2127238671}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &942676568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,7 +3438,8 @@ GameObject:
   - component: {fileID: 1778163129}
   - component: {fileID: 1778163128}
   - component: {fileID: 1778163127}
-  m_Layer: 0
+  - component: {fileID: 1778163132}
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3462,7 +3458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6252a77c44e70f043bd2e70c2395e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 921186525}
+  itemPrefab: {fileID: 1378011950948654423, guid: 43558bf9a3987604e9f9f09afc2ec67d, type: 3}
 --- !u!65 &1778163128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3504,7 +3500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5735aa57a7680704f9e3ff530da93aea, type: 2}
+  - {fileID: 2100000, guid: cb1f0b0c4b949ee498862524849a2814, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3549,6 +3545,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778163132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778163126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74168d17fb6de74f8b5fe9f2a95c6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
+  blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
+  player: {fileID: 617745664}
 --- !u!1001 &1800588527
 PrefabInstance:
   m_ObjectHideFlags: 0

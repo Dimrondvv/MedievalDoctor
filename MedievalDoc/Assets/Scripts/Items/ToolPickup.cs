@@ -35,9 +35,8 @@ public class ToolPickup : MonoBehaviour
                 objectPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = false;
             }
 
-            pickedToolObject = pickedTool;
             
-            playerController.SetPickedItem(pickedTool);
+            pickupController.SetPickedItem(pickedTool);
         }
     }
 

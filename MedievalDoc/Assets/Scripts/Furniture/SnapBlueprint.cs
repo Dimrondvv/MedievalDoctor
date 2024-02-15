@@ -24,6 +24,12 @@ public class SnapBlueprint : MonoBehaviour
     public void CreateBlueprint(GameObject pickedObject)
     {
         blueprint = Instantiate(pickedObject, pickedObject.transform.rotation * Vector3.forward + pickedObject.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
+        blueprint.layer = 0;
+
+        Outline outline = blueprint.GetComponent<Outline>(); //If blueprint is a clone of an object with outline, destroy the outline
+        if (outline != null)
+            Destroy(outline);
+
         Collider collider = blueprint.GetComponent<Collider>();
         collider.isTrigger = true;
         collider.enabled = true;
