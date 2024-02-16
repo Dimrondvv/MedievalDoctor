@@ -9,17 +9,37 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI timer;
     [SerializeField] Image itemSlot;
 
+    [SerializeField] TextMeshProUGUI questTXT;
+    [SerializeField] PatronCharacter patron;
+
+    private PatronCharacter patronCharacter;
 
     private void Update()
     {
         ui.GetComponent<TMP_Text>().text = $"Score:  {PlayerManager.Instance.Score} \nHealth: {PlayerManager.Instance.PlayerHealth} \nMoney:  {PlayerManager.Instance.Money}";
         timer.GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}", TimerManager.Instance.ElapsedTime/60, TimerManager.Instance.ElapsedTime % 60);
+        if (patronCharacter.IsQuestActive)
+        {
+            if (patronCharacter.PatronType.questList[patronCharacter.QuestID].questAction == QuestAction.RemoveSymptom)
+            {
+                questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nQuest:  {patronCharacter.PatronType.questList[patronCharacter.QuestID].questName}\nTask:   Remove {patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom.symptomName}\n        {patronCharacter.ListOfRemovedSymptomsForQuest[patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom]}/{patronCharacter.PatronType.questList[patronCharacter.QuestID].requiredAmmount}\nReward: {patronCharacter.PatronType.questList[patronCharacter.QuestID].goldReward} gold\n        {patronCharacter.PatronType.questList[patronCharacter.QuestID].scoreReward} points";
+            }
+            else
+            {                                                                                                                                                                                                                                                                         // listOfRemovedSymptomsForQuest[patronType.questList[questID].symptom]
+                questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nQuest:  {patronCharacter.PatronType.questList[patronCharacter.QuestID].questName}\nTask:   Add {patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom.symptomName}\n        {patronCharacter.ListOfAddedSymptomsForQuest[patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom]}/{patronCharacter.PatronType.questList[patronCharacter.QuestID].requiredAmmount}\nReward: {patronCharacter.PatronType.questList[patronCharacter.QuestID].goldReward} gold\n        {patronCharacter.PatronType.questList[patronCharacter.QuestID].scoreReward} points";
+            }
+        }
+        else
+        {
+            questTXT.GetComponent<TMP_Text>().text = "";
+        }
     }
 
     private void Start()
     {
         PickupController.OnPickup.AddListener(SetItemSlot);
         PickupController.OnPutdown.AddListener(NullItemSlot);
+        patronCharacter = patron.GetComponent<PatronCharacter>();
     }
 
     private void SetItemSlot(GameObject item, Transform obj)

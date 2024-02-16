@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63573da52792b304e9ba560938738c79, type: 2}
   - {fileID: 11400000, guid: a541a7c7374d44c4e8e0621f8d9a9812, type: 2}
   symptomsChecked: []
+  isOneUse: 1
 --- !u!64 &1763034117163666037
 MeshCollider:
   m_ObjectHideFlags: 0

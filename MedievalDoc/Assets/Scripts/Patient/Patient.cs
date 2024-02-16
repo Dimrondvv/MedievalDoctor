@@ -123,7 +123,7 @@ public class Patient : MonoBehaviour
 
     public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {
-        if (interactedObject != this.gameObject)
+        if (interactedObject != this.gameObject || controller.PickedItem == null)
             return;
         if(controller.PickedItem.GetComponent<Tool>() != null)
         {

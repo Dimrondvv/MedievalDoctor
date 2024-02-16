@@ -29,7 +29,6 @@ public class PatientIconSymptom : MonoBehaviour
     {
         Patient.OnAddSymptom.AddListener(AddedDisplay);
         Patient.OnRemoveSymptom.AddListener(RemovedDisplay);
-
     }
 
     private void AddedDisplay(Symptom symptom, Patient patient, Tool tool)

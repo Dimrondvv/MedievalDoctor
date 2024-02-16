@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -445}
+  m_AnchoredPosition: {x: -247.5, y: -445}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5634228055233779756
@@ -484,6 +484,8 @@ MonoBehaviour:
   ui: {fileID: 1152872908189070028}
   timer: {fileID: 4153168815528365451}
   itemSlot: {fileID: 2614911609162608555}
+  questTXT: {fileID: 0}
+  patron: {fileID: 0}
 --- !u!1 &4848072828655317597
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: -402.01}
+  m_AnchoredPosition: {x: -550.42, y: -402.01}
   m_SizeDelta: {x: 407.68, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8928196737750232622
