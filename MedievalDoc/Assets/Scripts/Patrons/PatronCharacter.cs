@@ -43,7 +43,8 @@ public class PatronCharacter : MonoBehaviour
 
     private void Start()
     {
-        RandomizeQuest();
+        //RandomizeQuest();
+        StartCoroutine(DelayBetweenQuests());
     }
     private void OnEnable()
     {
