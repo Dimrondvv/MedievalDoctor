@@ -58,7 +58,6 @@ public class PatronCharacter : MonoBehaviour
         }
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
-        Debug.Log("gdfshd");
     }
 
     private void RandomizeQuest()
@@ -76,7 +75,6 @@ public class PatronCharacter : MonoBehaviour
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         listOfAddedSymptomsForQuest[symptom] += 1;
-        Debug.Log(listOfAddedSymptomsForQuest[symptom]);
         CheckQuest(symptom);
     }
 
@@ -89,6 +87,22 @@ public class PatronCharacter : MonoBehaviour
 
     private void CheckQuest(Symptom symptom)
     {
+        if(listOfAddedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
+        {
+            RewardForQuest();
+        }
+        if(listOfRemovedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
+        {
+            RewardForQuest();
+        }
+    }
+
+    private void RewardForQuest()
+    {
+        PlayerManager.Instance.Score += patronType.questList[questID].scoreReward;
+        PlayerManager.Instance.Money += patronType.questList[questID].goldReward;
+        isQuestActive = false;
+        Debug.Log(isQuestActive);
 
     }
 

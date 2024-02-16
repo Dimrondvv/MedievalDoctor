@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: RemoveOneDrzazga
   m_EditorClassIdentifier: 
   questName: Blybly
-  reward: 69000
+  goldReward: 500
+  scoreReward: 10
   symptom: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
   questAction: 1
   requiredAmmount: 1

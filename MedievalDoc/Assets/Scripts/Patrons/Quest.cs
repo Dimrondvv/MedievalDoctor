@@ -7,7 +7,8 @@ using UnityEngine;
 public class QuestScriptableObject : ScriptableObject
 {
     public string questName;
-    public int reward;
+    public int goldReward;
+    public int scoreReward;
 
     public Symptom symptom;
     public QuestAction questAction;

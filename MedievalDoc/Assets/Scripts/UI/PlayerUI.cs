@@ -22,12 +22,16 @@ public class PlayerUI : MonoBehaviour
         {
             if (patronCharacter.PatronType.questList[patronCharacter.QuestID].questAction == QuestAction.RemoveSymptom)
             {
-                questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nQuest:  {patronCharacter.PatronType.questList[patronCharacter.QuestID].questName}\nTask:   Remove {patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom.symptomName}\n        /{patronCharacter.PatronType.questList[patronCharacter.QuestID].requiredAmmount}\nReward: {patronCharacter.PatronType.questList[patronCharacter.QuestID].reward}";
+                questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nQuest:  {patronCharacter.PatronType.questList[patronCharacter.QuestID].questName}\nTask:   Remove {patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom.symptomName}\n        {patronCharacter.ListOfRemovedSymptomsForQuest[patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom]}/{patronCharacter.PatronType.questList[patronCharacter.QuestID].requiredAmmount}\nReward: {patronCharacter.PatronType.questList[patronCharacter.QuestID].goldReward} gold\n        {patronCharacter.PatronType.questList[patronCharacter.QuestID].scoreReward} points";
             }
             else
             {                                                                                                                                                                                                                                                                         // listOfRemovedSymptomsForQuest[patronType.questList[questID].symptom]
-                questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nQuest:  {patronCharacter.PatronType.questList[patronCharacter.QuestID].questName}\nTask:   Add {patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom.symptomName}\n        {patronCharacter.ListOfAddedSymptomsForQuest[patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom]}/{patronCharacter.PatronType.questList[patronCharacter.QuestID].requiredAmmount}\nReward: {patronCharacter.PatronType.questList[patronCharacter.QuestID].reward}";
+                questTXT.GetComponent<TMP_Text>().text = $"Patron: {patron.PatronType.patronName}\nQuest:  {patronCharacter.PatronType.questList[patronCharacter.QuestID].questName}\nTask:   Add {patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom.symptomName}\n        {patronCharacter.ListOfAddedSymptomsForQuest[patronCharacter.PatronType.questList[patronCharacter.QuestID].symptom]}/{patronCharacter.PatronType.questList[patronCharacter.QuestID].requiredAmmount}\nReward: {patronCharacter.PatronType.questList[patronCharacter.QuestID].goldReward} gold\n        {patronCharacter.PatronType.questList[patronCharacter.QuestID].scoreReward} points";
             }
+        }
+        else
+        {
+            questTXT.GetComponent<TMP_Text>().text = "";
         }
     }
 

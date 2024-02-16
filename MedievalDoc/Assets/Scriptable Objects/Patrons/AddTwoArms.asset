@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: AddTwoArms
   m_EditorClassIdentifier: 
   questName: Chop chop
-  reward: 6969
+  goldReward: 300
+  scoreReward: 15
   symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
-  state: 0
+  questAction: 0
   requiredAmmount: 2
   daysToFinish: 5
