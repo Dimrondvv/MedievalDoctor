@@ -974,6 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 1
+  defaultInteractionTime: 1.5
 --- !u!114 &3477161537717175715
 MonoBehaviour:
   m_ObjectHideFlags: 0

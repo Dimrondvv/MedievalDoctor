@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private float interactionRange;
-    [SerializeField] private float interactionTime;
+    [SerializeField] private float defaultInteractionTime;
     private PlayerInputActions playerInputActions;
     private PickupController controller;
     private bool hasInteracted;
@@ -15,9 +15,6 @@ public class PlayerInteraction : MonoBehaviour
         controller = GetComponent<PickupController>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        //playerInputActions.Player.Interact.performed += PlayerInteract;
-        //playerInputActions.Player.Interact.started += OnInteractionStart;
-        //playerInputActions.Player.Interact.canceled += OnInteractionExit;
 
         playerInputActions.Player.InteractPress.started += Interact;
     }
@@ -28,33 +25,30 @@ public class PlayerInteraction : MonoBehaviour
             return;
         if (SharedOverlapBox.HighestCollider.gameObject.layer != 7)
             return;
-        float interactTime = 0;
 
-        if (controller.PickedItem != null)
+        float interactTime = defaultInteractionTime;
+        bool setFlag = false; //bool to check if the time was set
+        if (controller.PickedItem != null) //Set the interact time to the time specified in the tool
         {
-            if (controller.PickedItem.GetComponent<Tool>())
+            Tool pickedTool = controller.PickedItem.GetComponent<Tool>();
+            if (pickedTool != null)
             {
-                interactTime = controller.PickedItem.GetComponent<Tool>().InteractionTime;
+                interactTime = pickedTool.InteractionTime;
+                setFlag = true;
             }
-            else
-            {
-                interactTime = interactionTime;
-            }
+
         }
-        else if (SharedOverlapBox.HighestCollider.GetComponent<Crafting>())
+        if (SharedOverlapBox.HighestCollider != null && !setFlag) //If no tool in hand set the interact time to the time specified in crafting
         {
-            interactTime = SharedOverlapBox.HighestCollider.GetComponent<Crafting>().InteractionTime;
-        }
-        else
-        {
-            interactTime = interactionTime;
+            Crafting isCrafting = SharedOverlapBox.HighestCollider.GetComponent<Crafting>();
+            if (isCrafting != null)
+                interactTime = isCrafting.InteractionTime;
         }
 
-        if (interactTime == 0)
-            interactTime = interactionTime;
+        //IF MORE THINGS WITH SPECIFIED INTERACT TIME APPEAR ADD IFS HERE!!!!
 
 
-        StartCoroutine(InteractionCoroutine(interactionTime));
+        StartCoroutine(InteractionCoroutine(interactTime));
     }
 
     IEnumerator InteractionCoroutine(float interactTime)
@@ -79,7 +73,6 @@ public class PlayerInteraction : MonoBehaviour
         Debug.Log(playerInputActions.Player.InteractPress.IsPressed());
         if (interactTime > time) //Stop the interaction if player stops holding the button before time ends
         {
-            Debug.Log("Break");
             hasInteracted = false;
             GetComponent<ProgressBar>().StopProgressBar();
             yield break;
