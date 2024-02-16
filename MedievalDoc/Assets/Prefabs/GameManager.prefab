@@ -48,6 +48,7 @@ MonoBehaviour:
   maxDeaths: 4
   bedHealingValue: 5
   deathCounter: 0
+  delayQuestInSeconds: 10
   listOfSymptoms:
   - {fileID: 11400000, guid: cdaa542aae5bd964aaa03713e1c8f457, type: 2}
   - {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}

@@ -16,6 +16,13 @@ public class GameManager : MonoBehaviour
         set { isNight = value; }
     }
 
+    [SerializeField] private int delayQuestInSeconds;
+    public int DelayQuestInSeconds
+    {
+        get { return delayQuestInSeconds; }
+        set { delayQuestInSeconds = value; }
+    }
+
     [SerializeField] private List<Symptom> listOfSymptoms;
 
     public List<Symptom> ListOfSymptoms

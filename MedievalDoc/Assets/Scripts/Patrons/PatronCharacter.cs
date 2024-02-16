@@ -13,6 +13,7 @@ public class PatronCharacter : MonoBehaviour
     }
     GameManager gameManager;
 
+
     private bool isQuestActive=false;
     public bool IsQuestActive
     {
@@ -103,7 +104,13 @@ public class PatronCharacter : MonoBehaviour
         PlayerManager.Instance.Money += patronType.questList[questID].goldReward;
         isQuestActive = false;
         Debug.Log(isQuestActive);
+        StartCoroutine(DelayBetweenQuests());
+    }
 
+    IEnumerator DelayBetweenQuests()
+    {
+        yield return new WaitForSeconds(gameManager.DelayQuestInSeconds);
+        RandomizeQuest();
     }
 
 }
