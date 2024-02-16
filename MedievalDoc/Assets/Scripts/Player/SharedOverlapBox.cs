@@ -13,6 +13,9 @@ public class SharedOverlapBox : MonoBehaviour
     private static Transform itemPoint;
     public static Transform ItemPoint { get { return itemPoint; } }
 
+    private static bool isInteractable;
+    public static bool IsInteractable { get { return isInteractable; } }
+
 
     void Start()
     {
@@ -31,14 +34,21 @@ public class SharedOverlapBox : MonoBehaviour
                 if (collider.transform.position.y > highestCollider.transform.position.y && collider.gameObject != gameObject)
                     highestCollider = collider;
 
-                if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>())
+                if (collider.GetComponentInChildren<ItemLayDownPoint>() || collider.GetComponentInChildren<PatientLayDownPoint>() || collider.GetComponent<Crafting>() || collider.GetComponent<ItemChest>())
                     itemPoint = collider.transform;
+
+                if (collider.gameObject.layer == 7 && isInteractable == false)
+                {
+                    isInteractable = true;
+                }
+                
             }
         }
         else
         {
             highestCollider = null;
             itemPoint = null;
+            isInteractable = false;
         }
 
         if(drawBox)

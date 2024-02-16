@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InteractAnimation",
+                    "name": "InteractPress",
                     "type": "Button",
                     "id": "62616e63-a40e-4646-9989-a107b61e54c6",
                     "expectedControlType": "Button",
@@ -339,7 +339,7 @@
                     "interactions": "Press(pressPoint=0.5,behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "InteractAnimation",
+                    "action": "InteractPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -460,7 +460,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InteractAnimation",
+                    "action": "InteractPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

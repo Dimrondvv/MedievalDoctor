@@ -32,7 +32,7 @@ public class PatientSymptomHandler : MonoBehaviour
 
     private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this.patient || !patient.FindSymptom(symptom) || !IsToolValid(patient, tool))
+        if (patient != this.patient || !patient.FindSymptom(symptom))
             return;
 
 
@@ -53,7 +53,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void AddSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this.patient || patient.FindSymptom(symptom) || !IsToolValid(patient, tool))
+        if (patient != this.patient || patient.FindSymptom(symptom))
             return;
 
 

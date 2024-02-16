@@ -22,8 +22,8 @@ public class PlayerProgressionBar : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
-        playerInputActions.Player.InteractAnimation.started += OnInteractionStart;
-        playerInputActions.Player.InteractAnimation.canceled += OnInteractionExit;
+        playerInputActions.Player.InteractPress.started += OnInteractionStart;
+        playerInputActions.Player.InteractPress.canceled += OnInteractionExit;
     }
     void FixedUpdate()
     {
