@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2381,6 +2381,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bebc46171641bc42973def7170ce3dc, type: 2}
   insertedItems: []
   resultLayDownPoint: {fileID: 1625183679}
+  interactionTime: 0
 --- !u!65 &1310115147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2708,6 +2709,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3864576226528409948, guid: 6a1c1ced40b960c4880b41457d3e350a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870655032965986057, guid: 6a1c1ced40b960c4880b41457d3e350a, type: 3}
+      propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4051,6 +4056,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+      propertyPath: interactionTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
