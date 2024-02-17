@@ -51,7 +51,14 @@ public class Crafting : MonoBehaviour
         foreach(var item in recipes)
         {
             if (item.CheckReq(insertedItems))
+            {
                 validRecipe = item;
+                foreach(var i in insertedItems)
+                {
+                    Destroy(i);
+                }
+                insertedItems.Clear();
+            }
         }
 
         if (validRecipe != null)
@@ -67,7 +74,6 @@ public class Crafting : MonoBehaviour
         GetComponent<ProgressBar>().StopProgressBar();
 
         GameObject result = Instantiate(recipe.result);
-        insertedItems.Clear();
         result.transform.position = resultLayDownPoint.position;
     }
 }
