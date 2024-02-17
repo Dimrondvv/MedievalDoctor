@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float defaultInteractionTime;
     private PlayerInputActions playerInputActions;
     private PickupController controller;
-    private bool hasInteracted;
+    //private bool hasInteracted;
     
     private void Start()
     {
@@ -62,7 +62,7 @@ public class PlayerInteraction : MonoBehaviour
             if (!SharedOverlapBox.IsInteractable) //Stop the interaction if player leaves the hitbox of interactable object
             {
                 Debug.Log(SharedOverlapBox.HighestCollider.gameObject);
-                hasInteracted = false;
+                //hasInteracted = false;
                 GetComponent<ProgressBar>().StopProgressBar();
                 yield break;
             }
@@ -73,7 +73,7 @@ public class PlayerInteraction : MonoBehaviour
         Debug.Log(playerInputActions.Player.InteractPress.IsPressed());
         if (interactTime > time) //Stop the interaction if player stops holding the button before time ends
         {
-            hasInteracted = false;
+            //hasInteracted = false;
             GetComponent<ProgressBar>().StopProgressBar();
             yield break;
         }

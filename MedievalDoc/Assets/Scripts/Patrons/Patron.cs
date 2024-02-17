@@ -35,10 +35,4 @@ public class PatronScriptableObject : ScriptableObject
         public int requiredAmmount;
     }
 
-    [System.Serializable]
-    public struct QuestList
-    {
-        public List<QuestScriptableObject> quests;
-    }
-
 }

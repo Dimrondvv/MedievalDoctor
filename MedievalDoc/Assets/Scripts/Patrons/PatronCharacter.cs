@@ -77,30 +77,41 @@ public class PatronCharacter : MonoBehaviour
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         listOfAddedSymptomsForQuest[symptom] += 1;
-        CheckQuest(symptom);
+        if (isQuestActive) { 
+            CheckQuest(symptom, QuestAction.AddSymptom);
+        }
     }
 
     private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         listOfRemovedSymptomsForQuest[symptom] += 1;
-        Debug.Log(listOfRemovedSymptomsForQuest[symptom]);
-        CheckQuest(symptom);
+        if (isQuestActive)
+        {
+            CheckQuest(symptom, QuestAction.RemoveSymptom);
+        }
     }
 
-    private void CheckQuest(Symptom symptom)
+    private void CheckQuest(Symptom symptom, QuestAction action)
     {
-        if(listOfAddedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
+        if(patronType.questList[questID].CheckQuest(symptom, this, action))
         {
+            Debug.Log(patronType.questList[questID].CheckQuest(symptom, this, action));
+            Debug.Log("hgfjlkd");
             RewardForQuest();
         }
-        if(listOfRemovedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
-        {
-            RewardForQuest();
-        }
+        //if(listOfAddedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
+        //{
+        //    RewardForQuest();
+        //}
+        //if(listOfRemovedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
+        //{
+        //    RewardForQuest();
+        //}
     }
 
     private void RewardForQuest()
     {
+        Debug.Log("Quest Finished!");
         PlayerManager.Instance.Score += patronType.questList[questID].scoreReward;
         PlayerManager.Instance.Money += patronType.questList[questID].goldReward;
         isQuestActive = false;
