@@ -7,6 +7,7 @@ using UnityEngine;
 public class PatronCharacter : MonoBehaviour
 {
     [SerializeField] private GameObject patron;
+    [SerializeField] private DayAndNightController dayController;
     private int questID;
     public int QuestID
     {
@@ -43,6 +44,14 @@ public class PatronCharacter : MonoBehaviour
         set { listOfRemovedSymptomsForQuest = value; }
     }
 
+    private int daysToFinish;
+    public int DaysToFinish
+    {
+        get { return daysToFinish; }
+        set { daysToFinish = value; }
+    }
+
+
     private void Start()
     {
         //RandomizeQuest();
@@ -67,7 +76,7 @@ public class PatronCharacter : MonoBehaviour
     private void RandomizeQuest()
     {
         questID = Random.Range(0, patronType.questList.Count);
-
+        daysToFinish = patronType.questList[questID].daysToFinish + dayController.DayCounter;
         foreach (Symptom symptom in gameManager.ListOfSymptoms)
         {
             listOfAddedSymptomsForQuest[symptom] = 0;
@@ -97,34 +106,22 @@ public class PatronCharacter : MonoBehaviour
     {
         if(patronType.questList[questID].CheckQuest(symptom, this))
         {
-            Debug.Log(patronType.questList[questID].CheckQuest(symptom, this));
-            Debug.Log("hgfjlkd");
             RewardForQuest();
         }
-        //if(listOfAddedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
-        //{
-        //    RewardForQuest();
-        //}
-        //if(listOfRemovedSymptomsForQuest[symptom] == patronType.questList[questID].requiredAmmount && symptom == patronType.questList[questID].symptom)
-        //{
-        //    RewardForQuest();
-        //}
     }
 
     private void RewardForQuest()
     {
-        Debug.Log("Quest Finished!");
         PlayerManager.Instance.Score += patronType.questList[questID].scoreReward;
         PlayerManager.Instance.Money += patronType.questList[questID].goldReward;
         isQuestActive = false;
-        Debug.Log(isQuestActive);
         StartCoroutine(DelayBetweenQuests());
     }
 
-    IEnumerator DelayBetweenQuests()
+    public IEnumerator DelayBetweenQuests()
     {
         yield return new WaitForSeconds(gameManager.DelayQuestInSeconds);
-        RandomizeQuest();
+        if (!App.Instance.GameplayCore.GameManager.IsNight) { RandomizeQuest(); }
     }
 
 }

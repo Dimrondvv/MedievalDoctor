@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -796,6 +796,10 @@ PrefabInstance:
       propertyPath: questTXT
       value: 
       objectReference: {fileID: 946952289}
+    - target: {fileID: 4235800773331941420, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: dayAndNightController
+      value: 
+      objectReference: {fileID: 1873233452}
     - target: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
       propertyPath: m_Name
       value: UIPrefab
@@ -1726,6 +1730,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 96486536025720453, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
+      propertyPath: dayController
+      value: 
+      objectReference: {fileID: 1873233452}
     - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.12

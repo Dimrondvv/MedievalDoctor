@@ -14,6 +14,7 @@ public class QuestScriptableObject : ScriptableObject
     public int daysToFinish;
     public List<Task> tasks;
 
+
     [System.Serializable]
     public struct Task
     {
@@ -44,7 +45,6 @@ public class QuestScriptableObject : ScriptableObject
         }
         if (reqList.All(x => x))
         {
-            Debug.Log("true");
             reqMet = true;
         }
         return reqMet;

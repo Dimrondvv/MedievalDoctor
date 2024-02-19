@@ -11,6 +11,8 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI questTXT;
     [SerializeField] PatronCharacter patron;
+    [SerializeField] DayAndNightController dayAndNightController;
+    [SerializeField] TextMeshProUGUI dayTXT;
 
     private PatronCharacter patronCharacter;
 
@@ -18,6 +20,7 @@ public class PlayerUI : MonoBehaviour
     {
         ui.GetComponent<TMP_Text>().text = $"Score:  {PlayerManager.Instance.Score} \nHealth: {PlayerManager.Instance.PlayerHealth} \nMoney:  {PlayerManager.Instance.Money}";
         timer.GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}", TimerManager.Instance.ElapsedTime/60, TimerManager.Instance.ElapsedTime % 60);
+        dayTXT.GetComponent<TMP_Text>().text = $"Day: {dayAndNightController.DayCounter}";
         if (patronCharacter.IsQuestActive)
         {
             questTXT.GetComponent<TMP_Text>().text = $"Patron:   {patron.PatronType.patronName}\n"; // Patron Name

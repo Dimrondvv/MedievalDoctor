@@ -33,7 +33,6 @@ public class PatronScriptableObject : ScriptableObject
         }
         if (reqList.All(x => x))
         {
-            Debug.Log("true");
             reqMet = true;
         }
         return reqMet;
