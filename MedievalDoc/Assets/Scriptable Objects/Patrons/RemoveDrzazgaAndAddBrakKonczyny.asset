@@ -20,8 +20,6 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
     questAction: 1
     requiredAmmount: 1
-    reqMet: 0
   - symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
     questAction: 0
-    requiredAmmount: 1
-    reqMet: 0
+    requiredAmmount: 2

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class PatronCharacter : MonoBehaviour
@@ -41,13 +43,6 @@ public class PatronCharacter : MonoBehaviour
         set { listOfRemovedSymptomsForQuest = value; }
     }
 
-    private List<bool> questChecks;
-    public List<bool> QuestChecks
-    {
-        get { return questChecks; }
-        set { questChecks = value; }
-    }
-
     private void Start()
     {
         //RandomizeQuest();
@@ -79,7 +74,6 @@ public class PatronCharacter : MonoBehaviour
             listOfRemovedSymptomsForQuest[symptom] = 0;
         }
 
-
         isQuestActive = true;
     }
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
@@ -101,9 +95,9 @@ public class PatronCharacter : MonoBehaviour
 
     private void CheckQuest(Symptom symptom, QuestAction action)
     {
-        if(patronType.questList[questID].CheckQuest(symptom, this, action))
+        if(patronType.questList[questID].CheckQuest(symptom, this))
         {
-            Debug.Log(patronType.questList[questID].CheckQuest(symptom, this, action));
+            Debug.Log(patronType.questList[questID].CheckQuest(symptom, this));
             Debug.Log("hgfjlkd");
             RewardForQuest();
         }

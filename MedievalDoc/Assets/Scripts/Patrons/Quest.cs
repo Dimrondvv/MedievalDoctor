@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "QuestScriptableObject", menuName = "ScriptableObjects/Quest", order = 4)]
@@ -20,73 +22,33 @@ public class QuestScriptableObject : ScriptableObject
         public int requiredAmmount;
     }
 
-
-
-    public bool CheckQuest(Symptom symptom, PatronCharacter patronCharacter, QuestAction action)
+    public bool CheckQuest(Symptom symptom, PatronCharacter patronCharacter)
     {
         bool reqMet = false;
-        int temp = 0;
+        List<Task> patronCharacterTasks = patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks;
+        bool[] reqList = new bool[patronCharacterTasks.Count];
 
-        for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++) // check every task for requirements
+        for (int i = 0; i < patronCharacterTasks.Count; i++)
         {
-
-
-
-            if (symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom
-                && action == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].questAction
-                && patronCharacter.ListOfAddedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount)
+            reqList[i] = false;
+            if (patronCharacterTasks[i].questAction == QuestAction.AddSymptom &&
+                patronCharacter.ListOfAddedSymptomsForQuest[patronCharacterTasks[i].symptom] >= patronCharacterTasks[i].requiredAmmount)
             {
-                Debug.Log("hej");
+                reqList[i] = true;
             }
-
-                //if (patronCharacter.ListOfAddedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
-                //    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom ||
-                //    patronCharacter.ListOfRemovedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
-                //    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom
-                //    )
-                //{
-                //    Debug.Log("git");
-                //}
-                //{
-                //    Debug.Log("added gut");
-                //    addedReqMet = true;
-
-                //}
-                //if (patronCharacter.ListOfRemovedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
-                //    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom)
-                //{
-                //    Debug.Log("removed gut");
-                //    removedReqMet = true;
-                //}
-
-
+            if (patronCharacterTasks[i].questAction == QuestAction.RemoveSymptom &&
+                patronCharacter.ListOfRemovedSymptomsForQuest[patronCharacterTasks[i].symptom] >= patronCharacterTasks[i].requiredAmmount)
+            {
+                reqList[i] = true;
             }
-
-        //for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++)
-        //{
-        //    if (patronCharacter.QuestChecks[i] == true)
-        //    {
-        //        temp += 1;
-        //    }
-        //}
-
-            //for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++)
-            //{
-            //    if (patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].reqMet == false)
-            //    {
-            //        //reqMet = false;
-            //    }
-            //}
-
-            //if(addedReqMet == true && removedReqMet == true)
-            //{
-            //    reqMet = true;
-            //}
-
-
-            return reqMet;
+        }
+        if (reqList.All(x => x))
+        {
+            Debug.Log("true");
+            reqMet = true;
+        }
+        return reqMet;
     }
-
 }
 
 public enum QuestAction

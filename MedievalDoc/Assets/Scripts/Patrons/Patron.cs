@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PatronScriptableObject", menuName = "ScriptableObjects/Patron", order = 3)]
@@ -10,20 +11,30 @@ public class PatronScriptableObject : ScriptableObject
     public Material color;
     public List<Requirements> requirementsToSpawn;
     public List<QuestScriptableObject> questList;
-   
-    public bool CheckReq(Symptom symptom, GameManager gameManager)
+
+    public bool CheckReq(GameManager gameManager)
     {
         bool reqMet = false;
-        for(int i=0; i<requirementsToSpawn.Count; i++)
+        bool[] reqList = new bool[requirementsToSpawn.Count];
+
+        for (int i = 0; i < requirementsToSpawn.Count; i++)
         {
-            if (gameManager.ListOfAddedSymptoms[symptom] == requirementsToSpawn[i].requiredAmmount && requirementsToSpawn[i].symptom == symptom && requirementsToSpawn[i].questAction == QuestAction.AddSymptom)
+            reqList[i] = false;
+            if (requirementsToSpawn[i].questAction == QuestAction.AddSymptom &&
+                gameManager.ListOfAddedSymptoms[requirementsToSpawn[i].symptom] >= requirementsToSpawn[i].requiredAmmount)
             {
-                reqMet = true;
+                reqList[i] = true;
             }
-            if (gameManager.ListOfRemovedSymptoms[symptom] == requirementsToSpawn[i].requiredAmmount && requirementsToSpawn[i].symptom == symptom && requirementsToSpawn[i].questAction == QuestAction.RemoveSymptom)
+            if (requirementsToSpawn[i].questAction == QuestAction.RemoveSymptom &&
+                gameManager.ListOfRemovedSymptoms[requirementsToSpawn[i].symptom] >= requirementsToSpawn[i].requiredAmmount)
             {
-                reqMet = true;
+                reqList[i] = true;
             }
+        }
+        if (reqList.All(x => x))
+        {
+            Debug.Log("true");
+            reqMet = true;
         }
         return reqMet;
     }

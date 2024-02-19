@@ -45,9 +45,7 @@ public class PatronsManager : MonoBehaviour
         {
             for (int i = 0; i < Patrons.Count; i++)
             {
-                for (int x = 0; x < Patrons[i].requirementsToSpawn.Count; x++)
-                {
-                    if (Patrons[i].CheckReq(symptom, gameManager) == true)
+                    if (Patrons[i].CheckReq(gameManager) == true)
                     {
                         Debug.Log("Requirements Met! Spawning Patron" + Patrons[i].patronName);
                         Patron.SetActive(true);
@@ -55,7 +53,7 @@ public class PatronsManager : MonoBehaviour
                         Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
                         spawnable = false;
                     }
-                }
+                
             }
         }
     }

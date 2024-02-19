@@ -70,7 +70,6 @@ public class PlayerInteraction : MonoBehaviour
             time += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log(playerInputActions.Player.InteractPress.IsPressed());
         if (interactTime > time) //Stop the interaction if player stops holding the button before time ends
         {
             //hasInteracted = false;
@@ -80,7 +79,6 @@ public class PlayerInteraction : MonoBehaviour
         Collider highestCollider = SharedOverlapBox.HighestCollider;
         if (highestCollider.GetComponent<PickupController>() == null)
         {
-            Debug.Log("Interacting");
             GetComponent<ProgressBar>().StopProgressBar();
             PickupController.OnInteract.Invoke(highestCollider.gameObject, controller);
         }
