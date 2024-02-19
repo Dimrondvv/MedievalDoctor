@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a003352d60c056b46b9267dd98a453db, type: 3}
   m_Name: RemoveDrzazga
   m_EditorClassIdentifier: 
-  questName: 
-  goldReward: 0
-  scoreReward: 0
-  daysToFinish: 0
+  questName: Drzazga
+  goldReward: 999
+  scoreReward: 999
+  daysToFinish: 2
   tasks:
   - symptom: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
     questAction: 1
