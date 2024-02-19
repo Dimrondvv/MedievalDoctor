@@ -18,7 +18,6 @@ public class QuestScriptableObject : ScriptableObject
         public Symptom symptom;
         public QuestAction questAction;
         public int requiredAmmount;
-        public bool reqMet;
     }
 
 
@@ -26,40 +25,64 @@ public class QuestScriptableObject : ScriptableObject
     public bool CheckQuest(Symptom symptom, PatronCharacter patronCharacter, QuestAction action)
     {
         bool reqMet = false;
-        bool addedReqMet = false;
-        bool removedReqMet = false;
+        int temp = 0;
 
         for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++) // check every task for requirements
         {
-            if (symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom)
-            {
-                if (patronCharacter.ListOfAddedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
-                    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom)
-                {
-                    Debug.Log("added gut");
-                    addedReqMet = true;
 
-                }
-                if (patronCharacter.ListOfRemovedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
-                    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom)
-                {
-                    Debug.Log("removed gut");
-                    removedReqMet = true;
-                }
+
+
+            if (symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom
+                && action == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].questAction
+                && patronCharacter.ListOfAddedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount)
+            {
+                Debug.Log("hej");
+            }
+
+                //if (patronCharacter.ListOfAddedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
+                //    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom ||
+                //    patronCharacter.ListOfRemovedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
+                //    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom
+                //    )
+                //{
+                //    Debug.Log("git");
+                //}
+                //{
+                //    Debug.Log("added gut");
+                //    addedReqMet = true;
+
+                //}
+                //if (patronCharacter.ListOfRemovedSymptomsForQuest[symptom] >= patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].requiredAmmount
+                //    && symptom == patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].symptom)
+                //{
+                //    Debug.Log("removed gut");
+                //    removedReqMet = true;
+                //}
+
 
             }
-        }
-        for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++)
-        {
-            if (patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].reqMet == false)
-            {
-                reqMet = false;
-            }
-        }
+
+        //for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++)
+        //{
+        //    if (patronCharacter.QuestChecks[i] == true)
+        //    {
+        //        temp += 1;
+        //    }
+        //}
+
+            //for (int i = 0; i < patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks.Count; i++)
+            //{
+            //    if (patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks[i].reqMet == false)
+            //    {
+            //        //reqMet = false;
+            //    }
+            //}
+
             //if(addedReqMet == true && removedReqMet == true)
             //{
             //    reqMet = true;
             //}
+
 
             return reqMet;
     }

@@ -41,6 +41,13 @@ public class PatronCharacter : MonoBehaviour
         set { listOfRemovedSymptomsForQuest = value; }
     }
 
+    private List<bool> questChecks;
+    public List<bool> QuestChecks
+    {
+        get { return questChecks; }
+        set { questChecks = value; }
+    }
+
     private void Start()
     {
         //RandomizeQuest();
@@ -71,6 +78,7 @@ public class PatronCharacter : MonoBehaviour
             listOfAddedSymptomsForQuest[symptom] = 0;
             listOfRemovedSymptomsForQuest[symptom] = 0;
         }
+
 
         isQuestActive = true;
     }

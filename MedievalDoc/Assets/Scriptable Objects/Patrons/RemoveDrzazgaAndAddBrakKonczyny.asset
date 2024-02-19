@@ -17,9 +17,11 @@ MonoBehaviour:
   scoreReward: 10
   daysToFinish: 5
   tasks:
-  - symptom: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
+  - symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
     questAction: 1
     requiredAmmount: 1
+    reqMet: 0
   - symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
     questAction: 0
-    requiredAmmount: 2
+    requiredAmmount: 1
+    reqMet: 0
