@@ -8,7 +8,6 @@ public class GameplayCore
     public UnityEvent<GameManager> OnGameManagerRegistered = new UnityEvent<GameManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
 
-
     public GameManager GameManager { get; private set; }
 
     public void Initialize()
