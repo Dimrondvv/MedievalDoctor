@@ -70,7 +70,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.3
+    - _OutlineWidth: 0.15
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: MonaspaceNeon-Regular SDF - czcionka z pl znakami
   m_EditorClassIdentifier: 
-  hashCode: 272802021
+  hashCode: -457836947
   material: {fileID: -7035118502853451386}
-  materialHashCode: 2074790437
+  materialHashCode: -1435184467
   m_Version: 1.1.0
   m_SourceFontFileGUID: 24fd52720aed61e40808b5ff7bee1072
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 24fd52720aed61e40808b5ff7bee1072, type: 3}

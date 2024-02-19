@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ItemChest : MonoBehaviour
 {
     [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private TextMeshPro nameDisplay;
     private bool isClosed = false;
     private Animator animator;
+    private Item chestItem;
 
     private void Start()
     {
+        nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
         animator = GetComponent<Animator>();
+        chestItem = itemPrefab.GetComponent<Item>();
         PickupController.OnPickup.AddListener(TakeItemFromChest);
         PickupController.OnPutdown.AddListener(PutItemInChest);
         PickupController.OnInteract.AddListener(CloseChest);
@@ -33,12 +37,14 @@ public class ItemChest : MonoBehaviour
         if (objectType.gameObject != gameObject || player.PickedItem.GetComponent<Item>() == null)
             return;
         var item = player.PickedItem;
-        if (item == null || item.GetComponent<Item>().ItemName != itemPrefab.GetComponent<Item>().ItemName)
+        if (item == null || item.GetComponent<Item>().ItemName != chestItem.ItemName)
             return;
         
         player.PickedItem = null;
         Destroy(item);
     }
+
+    #region ChestPickupPutdown
     private void PickupChest(GameObject pickedFurniture, Transform objectType)
     {
         if (objectType.gameObject != gameObject)
@@ -88,6 +94,7 @@ public class ItemChest : MonoBehaviour
             }
         }
     }
+    #endregion
 
     private void CloseChest(GameObject interactedObject, PickupController player)
     {
@@ -116,5 +123,15 @@ public class ItemChest : MonoBehaviour
 
     }
 
-
+    private void Update()
+    {
+        if (SharedOverlapBox.HighestCollider == GetComponent<Collider>())
+        {
+            nameDisplay.gameObject.SetActive(true);
+        }
+        else
+        {
+            nameDisplay.gameObject.SetActive(false);
+        }
+    }
 }

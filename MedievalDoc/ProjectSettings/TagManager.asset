@@ -44,3 +44,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI_Sort
+    uniqueID: 293459167
+    locked: 0
