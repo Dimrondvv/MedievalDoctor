@@ -60,6 +60,8 @@ public class PatientIconSymptom : MonoBehaviour
             return;
         }
 
+        if (symtoms[0].symptomName == "Katar")
+            Debug.Log("ADD Display: " + symtoms[0].symptomName);
         icons[0].enabled = true;
         icons[1].enabled = true;
 
