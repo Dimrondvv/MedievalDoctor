@@ -43,6 +43,14 @@ public class PatientSymptomHandler : MonoBehaviour
             {
                 if (i.symptom == symptom)
                 {
+                    Symptom.AddedOnRemoval symptomAdded = i.symptom.addOnRemove;
+                    if (symptomAdded != null) //Check if addOnRemove variable equals the default value and therefore is null
+                    {
+                        if(!GetComponent<Patient>().FindSymptom(symptomAdded.notPresentToAdd))
+                        {
+                            Patient.OnTryAddSymptom.Invoke(symptomAdded.symtpomAddedOnRemoval, patient, tool);
+                        }
+                    }
                     patient.Symptoms.Remove(i);
                     patient.DiscoveredSymptoms.Remove(symptom);
                     Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
