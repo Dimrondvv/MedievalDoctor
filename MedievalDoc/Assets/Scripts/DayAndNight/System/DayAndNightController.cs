@@ -99,11 +99,6 @@ public class DayAndNightController : MonoBehaviour
             dayCounter += 1;
         }
         daytemp = dayCounterTemp;
-        //Debug.Log(currentTime.Hour);
-        //if (currentTime.Hour == 0 && currentTime.Minute >= 59 && currentTime.Second >= 59)
-        //{
-        //    dayCounter += 1;
-        //}
 
         if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
         {
