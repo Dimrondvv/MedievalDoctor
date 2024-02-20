@@ -8,8 +8,9 @@ public class PatientIconSymptom : MonoBehaviour
     [SerializeField] private List<Image> icons;
     [SerializeField] private Sprite plus;
     [SerializeField] private Sprite minus;
-    private List<Symptom> symtoms;
-    private bool state; // true = symtom added, false = symtom removed
+    [SerializeField] private SymptomDependencies symptomDependencies;
+    private Patient patient;
+    private List<Symptom> symptoms = new List<Symptom>();
     [SerializeField] private float timeToFade;
     private bool fadeout;
     private Vector3 stateDestination;
@@ -18,11 +19,12 @@ public class PatientIconSymptom : MonoBehaviour
     private Vector3 stateHomePosition;
     private Vector3 symptomHomePosition;
 
+    private List<bool> states = new List<bool>();
     // Start is called before the first frame update
     void Start()
     {
-        symtoms = new List<Symptom>();
         InvokeRepeating("Display", 0, 1);
+        patient = GetComponent<Patient>();
     }
 
     private void OnEnable()
@@ -33,39 +35,37 @@ public class PatientIconSymptom : MonoBehaviour
 
     private void AddedDisplay(Symptom symptom, Patient patient, Tool tool)
     {
+
         if (patient != GetComponent<Patient>())
         {
             return;
         }
-        symtoms.Add(symptom);
-        state = true;
+        symptoms.Add(symptom);
+        states.Add(true);
     }
 
     private void RemovedDisplay(Symptom symptom, Patient patient, Tool tool)
     {
-        if(patient != GetComponent<Patient>())
+        if (patient != GetComponent<Patient>())
         {
             return;
         }
-        symtoms.Add(symptom);
-        state = false;
+        symptoms.Add(symptom);
+        states.Add(false);
     }
 
     private void Display()
     {
-        if (symtoms.Count == 0)
+        if (symptoms.Count == 0)
         {
             icons[0].enabled = false;
             icons[1].enabled = false;
             return;
         }
-
-        if (symtoms[0].symptomName == "Katar")
-            Debug.Log("ADD Display: " + symtoms[0].symptomName);
         icons[0].enabled = true;
         icons[1].enabled = true;
 
-        if (state)
+        if (states[0])
         {
             icons[0].sprite = plus;
         }
@@ -76,7 +76,7 @@ public class PatientIconSymptom : MonoBehaviour
 
         icons[0].color = Color.white;
         icons[1].color = Color.white;
-        icons[1].sprite = symtoms[0].symptomIcon;
+        icons[1].sprite = symptoms[0].symptomIcon;
 
         icons[0].GetComponent<CanvasGroup>().alpha = 1;
         icons[1].GetComponent<CanvasGroup>().alpha = 1;
@@ -92,7 +92,8 @@ public class PatientIconSymptom : MonoBehaviour
 
 
         fadeout = true;
-        symtoms.RemoveAt(0);
+        symptoms.RemoveAt(0);
+        states.RemoveAt(0);
     }
 
     private void Update()
