@@ -12,7 +12,12 @@ public class QuestScriptableObject : ScriptableObject
     public int goldReward;
     public int scoreReward;
     public int daysToFinish;
+
+    public QuestType type;
+
     public List<Task> tasks;
+
+
 
 
     [System.Serializable]
