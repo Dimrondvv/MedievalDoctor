@@ -16,6 +16,7 @@ MonoBehaviour:
   goldReward: 650
   scoreReward: 10
   daysToFinish: 5
+  type: 1
   tasks:
   - symptom: {fileID: 11400000, guid: 3bbec7fe56edc6f41b23efa8b5532b11, type: 2}
     questAction: 1

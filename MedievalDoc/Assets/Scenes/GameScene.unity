@@ -2980,10 +2980,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 82579789240067508, guid: 75a68369c2e8d504395e7c18861fd3e3, type: 3}
-      propertyPath: interactionTime
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3304654255836797244, guid: 75a68369c2e8d504395e7c18861fd3e3, type: 3}
       propertyPath: m_Name
       value: Character
