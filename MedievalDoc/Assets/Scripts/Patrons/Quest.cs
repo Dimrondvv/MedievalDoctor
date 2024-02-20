@@ -51,6 +51,14 @@ public class QuestScriptableObject : ScriptableObject
     }
 }
 
+public enum QuestType
+{
+    SymptomQuest = 0,
+    PatientQuest = 1
+}
+
+
+
 public enum QuestAction
 {
     AddSymptom = 0,

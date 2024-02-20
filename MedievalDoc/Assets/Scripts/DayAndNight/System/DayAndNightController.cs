@@ -65,7 +65,11 @@ public class DayAndNightController : MonoBehaviour
     private TimeSpan sunsetTime;
 
     private DateTime currentTime;
-
+    public DateTime CurrentTime
+    {
+        get { return currentTime; }
+        set { currentTime = value; }
+    }
 
 
 
@@ -89,7 +93,7 @@ public class DayAndNightController : MonoBehaviour
     private void UpdateTimeOfDay() {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
         dayCounter = currentTime.Day - DateTime.Now.Day + 1;
-        if(dayCounter == patronCharacter.DaysToFinish)
+        if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
         {
             patronCharacter.IsQuestActive = false;
             StartCoroutine(patronCharacter.DelayBetweenQuests());

@@ -44,11 +44,18 @@ public class PatronCharacter : MonoBehaviour
         set { listOfRemovedSymptomsForQuest = value; }
     }
 
-    private int daysToFinish;
-    public int DaysToFinish
+    private int deadLineDay;
+    public int DeadLineDay
     {
-        get { return daysToFinish; }
-        set { daysToFinish = value; }
+        get { return deadLineDay; }
+        set { deadLineDay = value; }
+    }
+
+    private int deadLineHour;
+    public int DeadLineHour
+    {
+        get { return deadLineHour; }
+        set { deadLineHour = value; }
     }
 
 
@@ -75,8 +82,10 @@ public class PatronCharacter : MonoBehaviour
 
     private void RandomizeQuest()
     {
+        Debug.Log("randomizing quest");
         questID = Random.Range(0, patronType.questList.Count);
-        daysToFinish = patronType.questList[questID].daysToFinish + dayController.DayCounter;
+        deadLineDay = patronType.questList[questID].daysToFinish + dayController.CurrentTime.Day;
+        deadLineHour = dayController.CurrentTime.Hour;
         foreach (Symptom symptom in gameManager.ListOfSymptoms)
         {
             listOfAddedSymptomsForQuest[symptom] = 0;
