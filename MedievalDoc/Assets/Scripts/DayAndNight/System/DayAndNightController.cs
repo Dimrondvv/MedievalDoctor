@@ -36,7 +36,8 @@ public class DayAndNightController : MonoBehaviour
         get { return dayCounter; } 
         set { dayCounter = value; }
     }
-
+    private int daytemp;
+    private int dayCounterTemp;
 
     [SerializeField]
     private Light sunLight;
@@ -92,7 +93,18 @@ public class DayAndNightController : MonoBehaviour
 
     private void UpdateTimeOfDay() {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        dayCounter = currentTime.Day - DateTime.Now.Day + 1;
+        dayCounterTemp = currentTime.Day - DateTime.Now.Day + 1;
+        if(daytemp != dayCounterTemp)
+        {
+            dayCounter += 1;
+        }
+        daytemp = dayCounterTemp;
+        //Debug.Log(currentTime.Hour);
+        //if (currentTime.Hour == 0 && currentTime.Minute >= 59 && currentTime.Second >= 59)
+        //{
+        //    dayCounter += 1;
+        //}
+
         if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
         {
             patronCharacter.IsQuestActive = false;

@@ -8,8 +8,6 @@ public class PatientIconSymptom : MonoBehaviour
     [SerializeField] private List<Image> icons;
     [SerializeField] private Sprite plus;
     [SerializeField] private Sprite minus;
-    [SerializeField] private SymptomDependencies symptomDependencies;
-    private Patient patient;
     private List<Symptom> symptoms = new List<Symptom>();
     [SerializeField] private float timeToFade;
     private bool fadeout;
@@ -24,7 +22,6 @@ public class PatientIconSymptom : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Display", 0, 1);
-        patient = GetComponent<Patient>();
     }
 
     private void OnEnable()

@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patron: {fileID: 3666012372141686754}
+  dayController: {fileID: 0}
