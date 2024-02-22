@@ -98,6 +98,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=0.5),Press(behavior=1)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Bookmarks"",
+                    ""type"": ""Value"",
+                    ""id"": ""032ef6a8-397b-40b6-b744-d990d19b892e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -485,6 +494,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""InteractPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""916b166a-51b2-4d66-ba1d-4780b70d04b3"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bookmarks"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""149b12ca-8af6-40db-b9d1-3283d4668fdf"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bookmarks"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""351046c8-d2c7-482b-9346-748f1ea097ed"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bookmarks"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""03e46c49-c888-47c4-bfaa-c67cc01e89da"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bookmarks"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -501,6 +554,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Journal = m_Player.FindAction("Journal", throwIfNotFound: true);
         m_Player_InteractPress = m_Player.FindAction("InteractPress", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
+        m_Player_Bookmarks = m_Player.FindAction("Bookmarks", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -570,6 +624,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Journal;
     private readonly InputAction m_Player_InteractPress;
     private readonly InputAction m_Player_Run;
+    private readonly InputAction m_Player_Bookmarks;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -582,6 +637,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Journal => m_Wrapper.m_Player_Journal;
         public InputAction @InteractPress => m_Wrapper.m_Player_InteractPress;
         public InputAction @Run => m_Wrapper.m_Player_Run;
+        public InputAction @Bookmarks => m_Wrapper.m_Player_Bookmarks;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -615,6 +671,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
+            @Bookmarks.started += instance.OnBookmarks;
+            @Bookmarks.performed += instance.OnBookmarks;
+            @Bookmarks.canceled += instance.OnBookmarks;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -643,6 +702,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
+            @Bookmarks.started -= instance.OnBookmarks;
+            @Bookmarks.performed -= instance.OnBookmarks;
+            @Bookmarks.canceled -= instance.OnBookmarks;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -670,5 +732,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnJournal(InputAction.CallbackContext context);
         void OnInteractPress(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnBookmarks(InputAction.CallbackContext context);
     }
 }
