@@ -12,10 +12,17 @@ public class UpgradeManager : MonoBehaviour
 
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
-    private List<string> toolP;
 
-    private void MakeToolForMe(string toolName)
+    public void MakeToolForMe(string toolName)
     {
+        
+        for (int i = 0; i < fullToolList.Count; i++)
+        {
+            if (toolName == fullToolList[i].name)
+            {
+                Debug.Log(toolName);
+            }
+        }
         //mo¿e coœ takiego?
         //newtool = Instantiate(GameObject.Find(toolName));
         //i po tym do possessedToolsNames dodaæ newtool'a
@@ -31,8 +38,8 @@ public class UpgradeManager : MonoBehaviour
         {
             toolsToBeChoosed = toolList.OrderBy(x => UnityEngine.Random.value).Take(toolList.Count).ToList();
         }
-
-        //Debug.Log(upgradeWindow.PlayerChoice(toolsToBeChoosed, fullToolList));
+        Time.timeScale = 0f;
+        upgradeWindow.PlayerChoice(toolsToBeChoosed, fullToolList);
     }
 
 
@@ -41,28 +48,23 @@ public class UpgradeManager : MonoBehaviour
         fullToolListNames = fullToolList.Select(o => o.name).ToList();
     }
 
-    private void Update()
+    private void Update() // to do eventu z upgradem wywaliæ
     {
         if (Input.GetKeyDown(KeyCode.U)) // https://youtu.be/ujUKcNZ-rK4?si=9zcX_2YXuFKOEOUh
         {
-            possessedToolsNames = possessedTools.Select(o => o.name).ToList(); // to do eventu z upgradem wywaliæ
+            possessedToolsNames = possessedTools.Select(o => o.name).ToList(); 
             
             for(int i = 0;i < possessedToolsNames.Count;i++)
             {
                 for(int j = 0;j < fullToolListNames.Count;j++)
                 {
-                    if (possessedToolsNames[i] != fullToolListNames[j])
+                    if (possessedToolsNames[i] == fullToolListNames[j])
                     {
-                        toolP.Add(fullToolListNames[j]);
+                        fullToolListNames.RemoveAt(j);
                     }
                 }
             }
-            /*for (int i = 0; i < toolP.Count;i++)
-            {
-                Debug.Log(toolP[i]);
-            }*/
-            
-            //MakeMeChoose(fullToolListNames.Except(possessedToolsNames).ToList());
+            MakeMeChoose(fullToolListNames);
         }
     }
 }
