@@ -8,6 +8,8 @@ public class PatronCharacter : MonoBehaviour
 {
     [SerializeField] private GameObject patron;
     [SerializeField] private DayAndNightController dayController;
+    [SerializeField] private SpawnPatientTimer spawnPatientTimer;
+
     private int questID;
     public int QuestID
     {
@@ -58,6 +60,13 @@ public class PatronCharacter : MonoBehaviour
         set { deadLineHour = value; }
     }
 
+    private Patient killThisPatient;
+    public Patient KillThisPatient
+    {
+        get { return killThisPatient; }
+        set { killThisPatient = value; }
+    }
+
 
     private void Start()
     {
@@ -85,6 +94,7 @@ public class PatronCharacter : MonoBehaviour
         }
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
+        Patient.OnPatientDeath.AddListener(PatientDeath);
     }
 
     private void RandomizeQuest()
@@ -98,6 +108,16 @@ public class PatronCharacter : MonoBehaviour
             listOfAddedSymptomsForQuest[symptom] = 0;
             listOfRemovedSymptomsForQuest[symptom] = 0;
         }
+        if (patronType.questList[questID].type == QuestType.SymptomQuest)
+        {
+            Debug.Log("Symptom quest");
+        }
+        if (patronType.questList[questID].type == QuestType.PatientQuest)
+        {
+            killThisPatient = spawnPatientTimer.TrySpawning();
+            Debug.Log("Kill this dude:" + killThisPatient.PatientName);
+            Debug.Log("Patient quest");
+        }
 
         isQuestActive = true;
     }
@@ -108,6 +128,17 @@ public class PatronCharacter : MonoBehaviour
         StartCoroutine(DelayBetweenQuests());
     }
 
+    private void PatientDeath(Patient patient)
+    {
+        if(isQuestActive)
+        {
+            if(patient == killThisPatient)
+            {
+                Debug.Log("dedek");
+                RewardForQuest();
+            }
+        }
+    }
 
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {

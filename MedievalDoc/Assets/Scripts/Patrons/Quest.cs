@@ -15,13 +15,18 @@ public class QuestScriptableObject : ScriptableObject
 
     public QuestType type;
 
-    public List<Task> tasks;
+    public List<SymptomTask> tasks;
 
-
-
+    public List<PatientTask> patientTask;
 
     [System.Serializable]
-    public struct Task
+    public struct PatientTask
+    {
+ 
+    }
+
+    [System.Serializable]
+    public struct SymptomTask
     {
         public Symptom symptom;
         public QuestAction questAction;
@@ -30,29 +35,35 @@ public class QuestScriptableObject : ScriptableObject
 
     public bool CheckQuest(Symptom symptom, PatronCharacter patronCharacter)
     {
-        bool reqMet = false;
-        List<Task> patronCharacterTasks = patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks;
-        bool[] reqList = new bool[patronCharacterTasks.Count];
 
-        for (int i = 0; i < patronCharacterTasks.Count; i++)
+        bool reqMet = false;
+        
+
+        if (patronCharacter.PatronType.questList[patronCharacter.QuestID].type == QuestType.SymptomQuest)
         {
-            reqList[i] = false;
-            if (patronCharacterTasks[i].questAction == QuestAction.AddSymptom &&
-                patronCharacter.ListOfAddedSymptomsForQuest[patronCharacterTasks[i].symptom] >= patronCharacterTasks[i].requiredAmmount)
+            List<SymptomTask> patronCharacterTasks = patronCharacter.PatronType.questList[patronCharacter.QuestID].tasks;
+            bool[] reqList = new bool[patronCharacterTasks.Count];
+
+            for (int i = 0; i < patronCharacterTasks.Count; i++)
             {
-                reqList[i] = true;
+                reqList[i] = false;
+                if (patronCharacterTasks[i].questAction == QuestAction.AddSymptom &&
+                    patronCharacter.ListOfAddedSymptomsForQuest[patronCharacterTasks[i].symptom] >= patronCharacterTasks[i].requiredAmmount)
+                {
+                    reqList[i] = true;
+                }
+                if (patronCharacterTasks[i].questAction == QuestAction.RemoveSymptom &&
+                    patronCharacter.ListOfRemovedSymptomsForQuest[patronCharacterTasks[i].symptom] >= patronCharacterTasks[i].requiredAmmount)
+                {
+                    reqList[i] = true;
+                }
             }
-            if (patronCharacterTasks[i].questAction == QuestAction.RemoveSymptom &&
-                patronCharacter.ListOfRemovedSymptomsForQuest[patronCharacterTasks[i].symptom] >= patronCharacterTasks[i].requiredAmmount)
+            if (reqList.All(x => x))
             {
-                reqList[i] = true;
+                reqMet = true;
             }
         }
-        if (reqList.All(x => x))
-        {
-            reqMet = true;
-        }
-        return reqMet;
+            return reqMet;
     }
 }
 

@@ -47,6 +47,13 @@ public class GameManager : MonoBehaviour
         set { listOfAddedSymptoms = value; }
     }
 
+    [SerializeField] private List<Patient> listOfCurrentPatients = new List<Patient>();
+    public List<Patient> ListOfCurrentPatients
+    {
+        get { return listOfCurrentPatients; }
+        set { listOfCurrentPatients = value; }
+    }
+
 
 
     private void Awake() 
@@ -59,6 +66,8 @@ public class GameManager : MonoBehaviour
     {
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
+        SpawnPatientTimer.OnPatientSpawn.AddListener(AddedPatient);
+        Patient.OnPatientDeath.AddListener(RemovedPatient);
     }
 
     private void Start()
@@ -70,7 +79,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
+    private void AddedPatient(Patient patient)
+    {
+        listOfCurrentPatients.Add(patient);
+    }
+
+    private void RemovedPatient(Patient patient)
+    {
+        listOfCurrentPatients.Remove(patient);
+    }
+
+
+    private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         listOfAddedSymptoms[symptom] += 1;
         SymptomAddedToDictionary.Invoke(symptom);
