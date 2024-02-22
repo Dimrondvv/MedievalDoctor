@@ -39,8 +39,8 @@ public class PickupController : MonoBehaviour {
 
     public void SetPickedItem(GameObject pickedObject) {
         pickedObject.transform.position = GetToolPickupPoint().position;
-        pickedObject.transform.rotation = GetToolPickupPoint().localRotation;
         pickedObject.transform.SetParent(GetFingerObject().transform);
+        pickedObject.transform.localEulerAngles = new Vector3(0, -60f, 0);//GetToolPickupPoint().rotation * Vector3.forward;
         pickedObject.GetComponent<Collider>().enabled = false;
         PickedItem = pickedObject;
     }
