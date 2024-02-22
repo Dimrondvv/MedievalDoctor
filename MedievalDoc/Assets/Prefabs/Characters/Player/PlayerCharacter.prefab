@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 1057027327184217019}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1014,6 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 1
+  defaultInteractionTime: 0
 --- !u!114 &2802415554505426055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1028,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupRange: 1
-  playerController: {fileID: 0}
 --- !u!95 &8206842266131647170
 Animator:
   serializedVersion: 5
