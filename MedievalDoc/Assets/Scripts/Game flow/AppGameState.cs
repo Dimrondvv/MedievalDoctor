@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AppGameState : BaseState
 {
+    
+
     public AppGameState(int appState) : base(appState)
     {
     }
@@ -12,6 +14,6 @@ public class AppGameState : BaseState
     public override void Initialize()
     {
         base.Initialize();
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
+
     }
 }
