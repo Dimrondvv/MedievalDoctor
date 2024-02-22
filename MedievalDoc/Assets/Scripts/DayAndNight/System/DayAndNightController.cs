@@ -97,6 +97,11 @@ public class DayAndNightController : MonoBehaviour
         if(daytemp != dayCounterTemp)
         {
             dayCounter += 1;
+            if(dayCounter == 10)
+            {
+                UIManager.Instance.EnableNotebook();
+                Time.timeScale = 0;
+            }
         }
         daytemp = dayCounterTemp;
 
