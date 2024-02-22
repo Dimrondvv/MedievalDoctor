@@ -64,6 +64,13 @@ public class PatronCharacter : MonoBehaviour
         //RandomizeQuest();
         StartCoroutine(DelayBetweenQuests());
     }
+
+    private void Update()
+    {
+        
+    }
+
+
     private void OnEnable()
     {
         if (App.Instance.GameplayCore.GameManager != null)
@@ -94,6 +101,14 @@ public class PatronCharacter : MonoBehaviour
 
         isQuestActive = true;
     }
+
+    public void DisableQuest()
+    {
+        IsQuestActive = false;
+        StartCoroutine(DelayBetweenQuests());
+    }
+
+
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         listOfAddedSymptomsForQuest[symptom] += 1;
@@ -113,7 +128,7 @@ public class PatronCharacter : MonoBehaviour
 
     private void CheckQuest(Symptom symptom, QuestAction action)
     {
-        if(patronType.questList[questID].CheckQuest(symptom, this))
+        if(patronType.questList[questID].CheckQuest(symptom, this) && isQuestActive == true)
         {
             RewardForQuest();
         }

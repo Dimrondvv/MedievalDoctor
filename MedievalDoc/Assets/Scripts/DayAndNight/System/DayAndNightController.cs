@@ -102,8 +102,11 @@ public class DayAndNightController : MonoBehaviour
 
         if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
         {
-            patronCharacter.IsQuestActive = false;
-            StartCoroutine(patronCharacter.DelayBetweenQuests());
+            if (patronCharacter.IsQuestActive == true)
+            {
+                patronCharacter.DisableQuest();
+            }
+
         }
     }
 
