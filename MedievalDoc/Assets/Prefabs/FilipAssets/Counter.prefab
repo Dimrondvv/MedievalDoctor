@@ -116,6 +116,7 @@ MonoBehaviour:
   blueprintBlue: {fileID: -876546973899608171, guid: 475eace2a76a2a945a0779d3eb8368d7, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 650a391ed8139c34e9872447bf41c823, type: 3}
   player: {fileID: 0}
+  offset: {x: 0, y: 0, z: -0.5}
 --- !u!114 &5074438798091626786
 MonoBehaviour:
   m_ObjectHideFlags: 0
