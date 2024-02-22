@@ -11,6 +11,7 @@ public class SnapBlueprint : MonoBehaviour
     [SerializeField] Material blueprintBlue;
     [SerializeField] Material blueprintRed;
     [SerializeField] private PickupController player;
+    [SerializeField] private Vector3 offset;
 
 
     private void Start() {
@@ -23,7 +24,7 @@ public class SnapBlueprint : MonoBehaviour
 
     public void CreateBlueprint(GameObject pickedObject)
     {
-        blueprint = Instantiate(pickedObject, pickedObject.transform.rotation * Vector3.forward + pickedObject.transform.position, Quaternion.Euler(player.GetPlayerRoundedRotation()));
+        blueprint = Instantiate(pickedObject, (pickedObject.transform.rotation * (Vector3.forward + offset) + pickedObject.transform.position), Quaternion.Euler(player.GetPlayerRoundedRotation()));
         blueprint.layer = 0;
 
         Outline outline = blueprint.GetComponent<Outline>(); //If blueprint is a clone of an object with outline, destroy the outline
@@ -64,7 +65,7 @@ public class SnapBlueprint : MonoBehaviour
             return;
 
         if (player.PickedItem != null) {
-            blueprint.transform.position = RoundPosition(player.PickedItem.transform.rotation * Vector3.forward + player.PickedItem.transform.position);
+            blueprint.transform.position = RoundPosition(player.PickedItem.transform.rotation * (Vector3.forward + offset) + player.PickedItem.transform.position);
         }
     }
 }

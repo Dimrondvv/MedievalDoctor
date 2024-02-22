@@ -24,7 +24,7 @@ public class SharedOverlapBox : MonoBehaviour
 
     void Update()
     {
-        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + boxOffset, boxSize, transform.rotation);
+        Collider[] hitColliders = Physics.OverlapBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.4f)) + transform.position + boxOffset, boxSize, transform.rotation);
         if(hitColliders.Length > 0)
         {
             highestCollider = hitColliders[0];
@@ -52,6 +52,6 @@ public class SharedOverlapBox : MonoBehaviour
         }
 
         if(drawBox)
-            VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.25f)) + transform.position + boxOffset, boxSize, transform.rotation);
+            VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.6f)) + transform.position + boxOffset, boxSize, transform.rotation);
     }
 }

@@ -895,11 +895,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationMode: 1
-  _rotationRate: 540
+  _rotationRate: 1260
   _startingMovementMode: 1
-  _maxWalkSpeed: 5
-  _minAnalogWalkSpeed: 5
-  _maxAcceleration: 50
+  _maxWalkSpeed: 4.5
+  _minAnalogWalkSpeed: 0.25
+  _maxAcceleration: 24
   _brakingDecelerationWalking: 50
   _groundFriction: 50
   _canEverCrouch: 0
@@ -1451,7 +1451,7 @@ Transform:
   m_GameObject: {fileID: 4863467921047945609}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
