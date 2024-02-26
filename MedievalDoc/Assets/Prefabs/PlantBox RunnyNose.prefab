@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5419214211361428089}
   - component: {fileID: 7194872891957156510}
   - component: {fileID: 7685782646498587779}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlantBox RunnyNose
   m_TagString: Untagged
   m_Icon: {fileID: 0}

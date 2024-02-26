@@ -1183,6 +1183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alchemy Table
       objectReference: {fileID: 0}
+    - target: {fileID: 6228878896931255444, guid: 098b5ccf4ab1c1b49bb97725fd92d60b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6898966513800855890, guid: 098b5ccf4ab1c1b49bb97725fd92d60b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.5
@@ -2741,6 +2745,10 @@ PrefabInstance:
     - target: {fileID: 6426231655311684737, guid: de3347bba1b51f544ad06650ffe909a2, type: 3}
       propertyPath: m_Name
       value: FlaskShelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6426231655311684737, guid: de3347bba1b51f544ad06650ffe909a2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

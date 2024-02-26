@@ -38,7 +38,9 @@ public class ItemChest : MonoBehaviour
             return;
         var item = player.PickedItem;
         if (item == null || item.GetComponent<Item>().ItemName != chestItem.ItemName)
+        { 
             return;
+        }
         
         player.PickedItem = null;
         Destroy(item);

@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 7194872891957156510}
   - component: {fileID: 8802759278180614909}
   - component: {fileID: 2014081459840717744}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MetalCrafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
