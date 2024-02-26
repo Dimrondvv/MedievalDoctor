@@ -1749,6 +1749,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3603478439367945788, guid: 0d9ea37a21e3f0445ba64b9bea161f96, type: 3}
+      propertyPath: speedUpTime
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603478439367945788, guid: 0d9ea37a21e3f0445ba64b9bea161f96, type: 3}
       propertyPath: dayAndNightController
       value: 
       objectReference: {fileID: 1873233452}
