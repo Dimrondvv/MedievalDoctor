@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayAndNightController: {fileID: 0}
-  speedUpTime: 5000
+  speedUpTime: 8000
 --- !u!114 &6989144684914696352
 MonoBehaviour:
   m_ObjectHideFlags: 0
