@@ -38,8 +38,8 @@ public class PickupController : MonoBehaviour {
     }
 
     public void SetPickedItem(GameObject pickedObject) {
-        Debug.Log(PlayerManager.Instance.transform.eulerAngles);
-        pickedObject.transform.eulerAngles = PlayerManager.Instance.transform.rotation * Vector3.forward; 
+        Debug.Log(PlayerManager.Instance.Player.transform.rotation);
+        pickedObject.transform.eulerAngles = PlayerManager.Instance.Player.transform.localEulerAngles; 
         pickedObject.transform.position = GetToolPickupPoint().position;
         pickedObject.transform.position -= pickedObject.GetComponentInChildren<FindToolPickupPoint>().transform.localPosition;
 
