@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayAndNightController: {fileID: 0}
   speedUpTime: 8000
+  blackscreen: {fileID: 0}
+  timeToFade: 0.7
 --- !u!114 &6989144684914696352
 MonoBehaviour:
   m_ObjectHideFlags: 0
