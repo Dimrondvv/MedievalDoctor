@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DevilCow
   m_EditorClassIdentifier: 
   patronName: DevilCow
-  color: {fileID: 2100000, guid: 5735aa57a7680704f9e3ff530da93aea, type: 2}
+  prefab: {fileID: -8282775092825029002, guid: 89f7d7e186cb944478de53f71b64e89c, type: 3}
   requirementsToSpawn:
   - symptom: {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
     questAction: 0

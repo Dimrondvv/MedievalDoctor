@@ -49,7 +49,7 @@ public class PatronsManager : MonoBehaviour
                     {
                         Debug.Log("Requirements Met! Spawning Patron" + Patrons[i].patronName);
                         Patron.SetActive(true);
-                        Patron.GetComponent<MeshRenderer>().material = Patrons[i].color;
+                        Patron.GetComponent<MeshFilter>().mesh = Patrons[i].prefab;
                         Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
                         spawnable = false;
                     }
