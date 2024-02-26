@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnPatientTimer : MonoBehaviour
 {
@@ -68,6 +69,10 @@ public class SpawnPatientTimer : MonoBehaviour
     private int currentSpawnedPatients;
     private int availableSpawners;
 
+
+    public static UnityEvent<Patient> OnPatientSpawn = new UnityEvent<Patient>(); //Invoked when tool is used to check for symptom
+
+
     void Start()
     {
         InvokeRepeating("TimeCheck", 0, 1);
@@ -83,7 +88,7 @@ public class SpawnPatientTimer : MonoBehaviour
     {
         SpawnOnKeyPress();
     }
-    void Spawning()
+    private void Spawning()
     {
         CheckSpawners();
         if (availableSpawners == 0)
@@ -100,7 +105,7 @@ public class SpawnPatientTimer : MonoBehaviour
         availableSpawners = 0;
     }
 
-    void TrySpawning()
+    public Patient TrySpawning()
     {
         spawnerID = Random.Range(0, SpawnPoints.Count);
 
@@ -120,11 +125,13 @@ public class SpawnPatientTimer : MonoBehaviour
             spawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = true;
             spawnPoints[spawnerID].GetComponentInChildren<Chair>().IsOccupied = true;
             randomizeSickness.RandomizeSicknessFunction();
+            OnPatientSpawn.Invoke(spawnedPatient.GetComponent<Patient>());
             currentSpawnedPatients += 1;
         }
+        return spawnedPatient.GetComponent<Patient>();
     }
 
-    void CheckSpawners()
+    private void CheckSpawners()
     {
         availableSpawners = 0;
         foreach (GameObject chair in spawnPoints) if (chair.GetComponent<Chair>().IsOccupied == false)
@@ -132,7 +139,7 @@ public class SpawnPatientTimer : MonoBehaviour
                 availableSpawners += 1;
             }
     }
-    void TimeCheck()
+    private void TimeCheck()
     {
         if (TimerManager.Instance.ElapsedTime > 1)
         {

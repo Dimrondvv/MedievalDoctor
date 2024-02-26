@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -14,10 +15,91 @@ public class GameManager : MonoBehaviour
         get { return isNight; }
         set { isNight = value; }
     }
+
+    [SerializeField] private int delayQuestInSeconds;
+    public int DelayQuestInSeconds
+    {
+        get { return delayQuestInSeconds; }
+        set { delayQuestInSeconds = value; }
+    }
+
+    [SerializeField] private List<Symptom> listOfSymptoms;
+
+    public List<Symptom> ListOfSymptoms
+    {
+        get { return listOfSymptoms; }
+        set { listOfSymptoms = value; }
+    }
+
+    private Dictionary<Symptom, int> listOfAddedSymptoms = new Dictionary<Symptom, int>();
+    private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
+    public UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
+
+    public Dictionary<Symptom, int> ListOfRemovedSymptoms
+    {
+        get { return listOfRemovedSymptoms; }
+        set { listOfRemovedSymptoms = value; }
+    }
+
+    public Dictionary<Symptom, int> ListOfAddedSymptoms
+    {
+        get { return listOfAddedSymptoms; }
+        set { listOfAddedSymptoms = value; }
+    }
+
+    [SerializeField] private List<Patient> listOfCurrentPatients = new List<Patient>();
+    public List<Patient> ListOfCurrentPatients
+    {
+        get { return listOfCurrentPatients; }
+        set { listOfCurrentPatients = value; }
+    }
+
+
+
     private void Awake() 
     { 
 
         App.Instance.GameplayCore.RegisterGameManager(this);
+    }
+
+    private void OnEnable()
+    {
+        Patient.OnAddSymptom.AddListener(AddedSymptom);
+        Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
+        SpawnPatientTimer.OnPatientSpawn.AddListener(AddedPatient);
+        Patient.OnPatientDeath.AddListener(RemovedPatient);
+    }
+
+    private void Start()
+    {
+        foreach (Symptom symptom in listOfSymptoms)
+        {
+            listOfAddedSymptoms.Add(symptom, 0);
+            listOfRemovedSymptoms.Add(symptom, 0);
+        }
+    }
+
+    private void AddedPatient(Patient patient)
+    {
+        listOfCurrentPatients.Add(patient);
+    }
+
+    private void RemovedPatient(Patient patient)
+    {
+        listOfCurrentPatients.Remove(patient);
+    }
+
+
+    private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
+    {
+        listOfAddedSymptoms[symptom] += 1;
+        SymptomAddedToDictionary.Invoke(symptom);
+    }
+
+    private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
+    {
+        listOfRemovedSymptoms[symptom] += 1;
+        SymptomAddedToDictionary.Invoke(symptom);
     }
 
     private void OnDestroy()

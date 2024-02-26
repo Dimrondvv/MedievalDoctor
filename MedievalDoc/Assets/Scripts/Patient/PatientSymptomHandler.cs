@@ -32,7 +32,7 @@ public class PatientSymptomHandler : MonoBehaviour
 
     private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this.patient || !patient.FindSymptom(symptom) || !IsToolValid(patient, tool))
+        if (patient != this.patient || !patient.FindSymptom(symptom))
             return;
 
 
@@ -43,6 +43,14 @@ public class PatientSymptomHandler : MonoBehaviour
             {
                 if (i.symptom == symptom)
                 {
+                    Symptom.AddedOnRemoval symptomAdded = i.symptom.addOnRemove;
+                    if (symptomAdded.symtpomAddedOnRemoval != null) //Check if addOnRemove variable equals the default value and therefore is null
+                    {
+                        if(!GetComponent<Patient>().FindSymptom(symptomAdded.notPresentToAdd))
+                        {
+                            Patient.OnTryAddSymptom.Invoke(symptomAdded.symtpomAddedOnRemoval, patient, tool);
+                        }
+                    }
                     patient.Symptoms.Remove(i);
                     patient.DiscoveredSymptoms.Remove(symptom);
                     Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
@@ -53,7 +61,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     private void AddSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        if (patient != this.patient || patient.FindSymptom(symptom) || !IsToolValid(patient, tool))
+        if (patient != this.patient || patient.FindSymptom(symptom))
             return;
 
 

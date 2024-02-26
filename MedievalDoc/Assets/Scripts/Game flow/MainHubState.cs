@@ -24,7 +24,7 @@ public class MainHubState : BaseState
     private void HandlePlayPressed()
     {
         App.Instance.GameplayCore.OnPlayPressed.RemoveListener(HandlePlayPressed);
-        Parent.MakeTransition((int)EAppState.Game);
+        Parent.MakeTransition((int)EAppState.Loading);
     }
 
     public override void OnExit(int next)

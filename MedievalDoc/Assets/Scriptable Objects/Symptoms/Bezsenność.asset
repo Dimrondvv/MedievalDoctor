@@ -15,3 +15,6 @@ MonoBehaviour:
   symptomName: "Bezsenno\u015B\u0107"
   symptomIcon: {fileID: 21300000, guid: 804ffd641600ec445884c78b0eec14a9, type: 3}
   damage: 5
+  addOnRemove:
+    symtpomAddedOnRemoval: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
+    notPresentToAdd: {fileID: 0}

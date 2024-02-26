@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject notebookCanvas;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiPrefab;
+    [SerializeField] private Canvas loadingScreen;
    
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
@@ -48,6 +49,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void DisableLoadingScreen()
+    {
+        loadingScreen.enabled = false;
+    }
 
     public void PauseMenuFunction(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {

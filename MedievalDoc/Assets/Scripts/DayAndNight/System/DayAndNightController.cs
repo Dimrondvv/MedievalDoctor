@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class DayAndNightController : MonoBehaviour
 {
+
+    [SerializeField] PatronCharacter patronCharacter;
+
     [SerializeField]
     private float timeMultiplier; // How fast time pass in the game
 
@@ -27,7 +30,14 @@ public class DayAndNightController : MonoBehaviour
     private float sunsetHour;
 
     [SerializeField]
-    private int dayCounter;
+    private int dayCounter=1;
+    public int DayCounter
+    { 
+        get { return dayCounter; } 
+        set { dayCounter = value; }
+    }
+    private int daytemp;
+    private int dayCounterTemp;
 
     [SerializeField]
     private Light sunLight;
@@ -56,7 +66,11 @@ public class DayAndNightController : MonoBehaviour
     private TimeSpan sunsetTime;
 
     private DateTime currentTime;
-
+    public DateTime CurrentTime
+    {
+        get { return currentTime; }
+        set { currentTime = value; }
+    }
 
 
 
@@ -79,7 +93,26 @@ public class DayAndNightController : MonoBehaviour
 
     private void UpdateTimeOfDay() {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        dayCounter = currentTime.Day - DateTime.Now.Day + 1;
+        dayCounterTemp = currentTime.Day - DateTime.Now.Day + 1;
+        if(daytemp != dayCounterTemp)
+        {
+            dayCounter += 1;
+            if(dayCounter == 10)
+            {
+                UIManager.Instance.EnableNotebook();
+                Time.timeScale = 0;
+            }
+        }
+        daytemp = dayCounterTemp;
+
+        if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
+        {
+            if (patronCharacter.IsQuestActive == true)
+            {
+                patronCharacter.DisableQuest();
+            }
+
+        }
     }
 
     private void RotateSun() {

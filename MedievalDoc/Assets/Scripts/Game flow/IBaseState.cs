@@ -19,6 +19,7 @@ public enum EAppState
     Invalid = -1,
     Intro = 0,
     MainHub = 1,
-    Game = 2
+    Loading = 2,
+    Game = 3
 }
 

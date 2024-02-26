@@ -9,9 +9,11 @@ public class PatientNotebook : MonoBehaviour
     [SerializeField] private TextMeshProUGUI historyText;
     [SerializeField] private Image patientColorField;
     [SerializeField] private TextMeshProUGUI patientName;
+    [SerializeField] private List<Button> bookmarks;
     private PlayerInputActions playerInputActions;
     private Patient patient;
     private int currentPatientIndex = 0;
+    private int currentBookmarkIndex = 0;
     public Patient Patient
     {
         get { return patient; }
@@ -20,6 +22,7 @@ public class PatientNotebook : MonoBehaviour
 
     void Start()
     {
+
         if (PatientManager.Instance.patients.Count > 0)
         {
             SetNotebookSymptoms(PatientManager.Instance.patients[0]);
@@ -40,6 +43,7 @@ public class PatientNotebook : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
+        playerInputActions.Player.Bookmarks.performed += ChangeBookMark;
 
     }
 
@@ -95,5 +99,18 @@ public class PatientNotebook : MonoBehaviour
         SetNotebookHistory(PatientManager.Instance.patients[currentPatientIndex]);
         SetPatientColor(PatientManager.Instance.patients[currentPatientIndex]);
         SetPatientName(PatientManager.Instance.patients[currentPatientIndex]);
+    }
+    public void ChangeBookMark(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    {
+        currentBookmarkIndex += (int)playerInputActions.Player.Bookmarks.ReadValue<float>();
+        if (currentBookmarkIndex >= bookmarks.Count)
+        {
+            currentBookmarkIndex = 0;
+        }
+        else if (currentBookmarkIndex < 0)
+        {
+            currentBookmarkIndex = bookmarks.Count - 1;
+        }
+        bookmarks[currentBookmarkIndex].onClick.Invoke();
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2266908930758770892}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0.3}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113,9 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74168d17fb6de74f8b5fe9f2a95c6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
-  blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
+  blueprintBlue: {fileID: -876546973899608171, guid: 475eace2a76a2a945a0779d3eb8368d7, type: 3}
+  blueprintRed: {fileID: -876546973899608171, guid: 650a391ed8139c34e9872447bf41c823, type: 3}
   player: {fileID: 0}
+  offset: {x: 0, y: 0, z: -0.5}
 --- !u!114 &5074438798091626786
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InteractAnimation",
+                    "name": "InteractPress",
                     "type": "Button",
                     "id": "62616e63-a40e-4646-9989-a107b61e54c6",
                     "expectedControlType": "Button",
@@ -75,6 +75,15 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "Hold(duration=0.5),Press(behavior=1)",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Bookmarks",
+                    "type": "Value",
+                    "id": "032ef6a8-397b-40b6-b744-d990d19b892e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": true
                 }
             ],
@@ -339,7 +348,7 @@
                     "interactions": "Press(pressPoint=0.5,behavior=2)",
                     "processors": "",
                     "groups": "",
-                    "action": "InteractAnimation",
+                    "action": "InteractPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -460,9 +469,53 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InteractAnimation",
+                    "action": "InteractPress",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "916b166a-51b2-4d66-ba1d-4780b70d04b3",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bookmarks",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "149b12ca-8af6-40db-b9d1-3283d4668fdf",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bookmarks",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "351046c8-d2c7-482b-9346-748f1ea097ed",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bookmarks",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "03e46c49-c888-47c4-bfaa-c67cc01e89da",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bookmarks",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
