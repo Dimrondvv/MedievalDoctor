@@ -19,14 +19,12 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         Patient.OnTryAddSymptom.AddListener(AddSymptom);
         Patient.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
-        Patient.OnRemoveSymptom.AddListener(CheckIfCured);
         Patient.OnCheckSymptom.AddListener(DiscoverSymptom);
     }
     private void OnDestroy()
     {
         Patient.OnTryAddSymptom.RemoveListener(AddSymptom);
         Patient.OnTryRemoveSymptom.RemoveListener(RemoveDiscoveredSymptom);
-        Patient.OnRemoveSymptom.RemoveListener(CheckIfCured);
         Patient.OnCheckSymptom.RemoveListener(DiscoverSymptom);
     }
 
@@ -96,24 +94,24 @@ public class PatientSymptomHandler : MonoBehaviour
     }
 
 
-    private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
-    {
-        if (patient != this.patient || tool.SymptomsAdded.Count > 0)
-            return;
+    //private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
+    //{
+    //    if (patient != this.patient || tool.SymptomsAdded.Count > 0)
+    //        return;
 
 
-        bool isCured = patient.Symptoms.Count == 0;
-        if (isCured)
-        {
-            // Release chair on curing? fix
-            if (patient.GetComponent<Patient>().SpawnerID >= 0)
-            {
-                SpawnPatientTimer.SpawnPoints[GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
-                GetComponent<Patient>().SpawnerID = -69;
-            }
-            Patient.OnCureDisease.Invoke(patient);
-        }
-    }
+    //    bool isCured = patient.Symptoms.Count == 0;
+    //    if (isCured)
+    //    {
+    //        // Release chair on curing? fix
+    //        if (patient.GetComponent<Patient>().SpawnerID >= 0)
+    //        {
+    //            SpawnPatientTimer.SpawnPoints[GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
+    //            GetComponent<Patient>().SpawnerID = -69;
+    //        }
+    //        Patient.OnCureDisease.Invoke(patient);
+    //    }
+    //}
     private void DiscoverNonCriticalSymptoms(Patient patient)
     {
         if (patient != this.patient || patient.DiscoveredSymptoms.Count != 0)

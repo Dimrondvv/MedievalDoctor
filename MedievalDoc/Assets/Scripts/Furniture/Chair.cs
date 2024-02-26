@@ -10,7 +10,10 @@ public class Chair : MonoBehaviour
         set { isOccupied = value; }
     }
 
-    
+    private void Start()
+    {
+        Patient.OnReleasePatient.AddListener(ReleaseChair);
+    }
 
     private void ReleaseChair(Patient patient)
     {
