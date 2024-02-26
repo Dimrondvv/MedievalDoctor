@@ -524,6 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4392582554301000222}
+  - component: {fileID: 7333348137769027405}
   m_Layer: 0
   m_Name: PlayerCharacter_RightHandIndex2
   m_TagString: Untagged
@@ -547,6 +548,18 @@ Transform:
   - {fileID: 6568551730217492992}
   m_Father: {fileID: 8202771125409308358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7333348137769027405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081875298408274537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89918928b45bf0c43a78e0488f0c0cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3097726262427760226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,7 +3037,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8202771125409308358}
-  - component: {fileID: 8576734250524290880}
   m_Layer: 0
   m_Name: PlayerCharacter_RightHandIndex1
   m_TagString: Untagged
@@ -3048,15 +3060,3 @@ Transform:
   - {fileID: 4392582554301000222}
   m_Father: {fileID: 5541768765867537644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8576734250524290880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9023171827345364107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89918928b45bf0c43a78e0488f0c0cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
