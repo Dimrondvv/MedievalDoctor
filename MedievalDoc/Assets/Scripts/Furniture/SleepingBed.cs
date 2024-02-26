@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -20,8 +21,16 @@ public class SleepingBed : MonoBehaviour
     [SerializeField] private float timeToFade;
     private bool fadeout;
     private bool fadeIn;
+    private List<string> dots = new List<string>();
+    private int dotNumber;
+    [SerializeField] private TextMeshProUGUI text;
     private void Start()
     {
+        dotNumber = 0;
+        dots.Add("");
+        dots.Add(".");
+        dots.Add("..");
+        dots.Add("...");
         PickupController.OnInteract.AddListener(SleepTime);
         //player = PlayerManager.Instance.Player;
         DayAndNightController.DayActivation.AddListener(WakeyWakey);
@@ -29,7 +38,7 @@ public class SleepingBed : MonoBehaviour
 
     private void Update()
     {
-        if(fadeIn)
+        if (fadeIn)
         {
             if (blackscreen.GetComponent<CanvasGroup>().alpha <= 1)
             {
@@ -91,8 +100,19 @@ public class SleepingBed : MonoBehaviour
             player.GetComponent<Character>().enabled = false;
             dayAndNightController.TimeMultiplier = speedUpTime;
             //blackscreen.color.a = 255f;
+            InvokeRepeating("Dots", 0, 0.4f);
             fadeIn = true;
         }
     }
 
+    private void Dots()
+    {
+        text.text = "Sleeping" + dots[dotNumber];
+        dotNumber += 1;
+
+        if(dotNumber == dots.Count)
+        {
+            dotNumber = 0;
+        }
+    }
 }
