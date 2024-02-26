@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6252a77c44e70f043bd2e70c2395e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 1378011950948654423, guid: 43558bf9a3987604e9f9f09afc2ec67d, type: 3}
+  itemPrefab: {fileID: 6276212561060190205, guid: 818253b9d0f3c51458e9677e9e0e7d21, type: 3}
   nameDisplay: {fileID: 2844184687265006861}
 --- !u!114 &-1552503129096045971
 MonoBehaviour:
@@ -88,6 +88,7 @@ MonoBehaviour:
   blueprintBlue: {fileID: -876546973899608171, guid: 98c1f303bc9406f409c41d97bdeedcaa, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 516b104abb2eadf4e8ab7d844574f22e, type: 3}
   player: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!95 &244409105645163237
 Animator:
   serializedVersion: 5
