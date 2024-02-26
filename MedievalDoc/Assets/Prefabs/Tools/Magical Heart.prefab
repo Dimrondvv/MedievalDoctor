@@ -105,7 +105,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f3c90174671a45448860f23f0704453, type: 2}
+  - {fileID: 2100000, guid: 50f741b65de84c04ea446bc5511abeae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,9 +177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 3c19347bb622e0843896098522000d63, type: 3}
   toolName: 
-  symptomsAdded: []
+  symptomsAdded:
+  - {fileID: 11400000, guid: e1c16713c237f1847967e1d401273b2a, type: 2}
   symptomsRemoved:
-  - {fileID: 11400000, guid: d3322c48fdb35f04297a5879425170a9, type: 2}
+  - {fileID: 11400000, guid: d4545b7118460b241b1d7c79f9f9fda4, type: 2}
   symptomsChecked: []
   isOneUse: 0
   interactionTime: 0
