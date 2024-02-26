@@ -80,8 +80,8 @@ public class UpgradeManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            //ToolUpgrade(); // bo¿e coœ polskê odpalaj to tylko raz bo olaboga
-            CraftingUpgrade();
+            ToolUpgrade(); // bo¿e coœ polskê odpalaj to tylko raz bo olaboga
+            //CraftingUpgrade();
         }
     }
 }
