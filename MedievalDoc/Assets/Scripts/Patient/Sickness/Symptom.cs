@@ -10,7 +10,7 @@ public class Symptom : ScriptableObject
     //todo: animacja
     public int damage; //how much hp does symptom take per tick
     public AddedOnRemoval addOnRemove;
-
+    public int pointsForCuring;
 
     [System.Serializable]
     public class AddedOnRemoval

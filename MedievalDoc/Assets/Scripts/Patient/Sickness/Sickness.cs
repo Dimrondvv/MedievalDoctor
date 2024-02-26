@@ -8,7 +8,6 @@ public class SicknessScriptableObject : ScriptableObject
     public string sicknessName;
     public List<SymptomStruct> symptomList;
     public List<string> stories;
-    public List<SolutionStruct> solutionList;
 
 
     [System.Serializable]
@@ -22,14 +21,6 @@ public class SicknessScriptableObject : ScriptableObject
         {
             return symptom.symptomName;
         }
-    }
-
-    [System.Serializable]
-    public struct SolutionStruct
-    {
-        public Symptom symptom;
-        public List<Symptom> symptomsNotPresentToCure;
-        public List<Symptom> symptomsPresentToCure;
     }
 
     public void RemSymptom(Symptom symptom)
