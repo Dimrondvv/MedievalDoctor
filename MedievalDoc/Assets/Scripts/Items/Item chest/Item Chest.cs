@@ -12,7 +12,7 @@ public class ItemChest : MonoBehaviour
 
     private void Start()
     {
-        nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
+        //nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
         animator = GetComponent<Animator>();
         chestItem = itemPrefab.GetComponent<Item>();
         PickupController.OnPickup.AddListener(TakeItemFromChest);
