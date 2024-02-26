@@ -8,6 +8,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] private List<GameObject> insertedItems;
     [SerializeField] private Transform resultLayDownPoint;
     [SerializeField] private float interactionTime;
+    [SerializeField] private List<Transform> itemSlots;
     public float InteractionTime { get { return interactionTime; } }
 
     private void Start()
@@ -23,10 +24,13 @@ public class Crafting : MonoBehaviour
             return;
         if (objectPoint.gameObject != gameObject || player.PickedItem.GetComponent<Furniture>() || player.PickedItem.GetComponent <Patient>())
             return;
+        if (itemSlots.Count == insertedItems.Count)
+            return;
 
         insertedItems.Add(player.PickedItem);
-        insertedItems[insertedItems.Count - 1].transform.parent = null;
-        insertedItems[insertedItems.Count - 1].gameObject.SetActive(false);
+        insertedItems[insertedItems.Count - 1].transform.parent = itemSlots[insertedItems.Count - 1];
+        insertedItems[insertedItems.Count - 1].transform.position = itemSlots[insertedItems.Count - 1].position;
+        insertedItems[insertedItems.Count - 1].transform.eulerAngles = Vector3.zero;
         player.PickedItem = null;
 
 
