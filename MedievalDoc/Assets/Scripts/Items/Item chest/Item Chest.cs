@@ -123,15 +123,5 @@ public class ItemChest : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (SharedOverlapBox.HighestCollider == GetComponent<Collider>())
-        {
-            nameDisplay.gameObject.SetActive(true);
-        }
-        else
-        {
-            nameDisplay.gameObject.SetActive(false);
-        }
-    }
+
 }

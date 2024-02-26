@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
-  m_Name: TestRecipe2
+  m_Name: Flask with Water
   m_EditorClassIdentifier: 
-  recipeName: huj
-  result: {fileID: 4622855080629322249, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+  recipeName: FlaskWater
+  result: {fileID: 4622855080629322249, guid: d6a83424a093d0d4c87e97c22f6d4cac, type: 3}
   requiredItems:
   - {fileID: 4622855080629322249, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
-  - {fileID: 8586565331621046186, guid: 1968a4d7572859c4a9c724cedd2171d6, type: 3}
-  - {fileID: 2359515159471360327, guid: 60cc704e0318bba4bb9f44a28e0f1d5f, type: 3}
-  timeRequiredToCraft: 10
+  timeRequiredToCraft: 0
+  isOrderSensitive: 0

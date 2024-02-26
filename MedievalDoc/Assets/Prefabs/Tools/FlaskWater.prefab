@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 1763034117163666037}
   - component: {fileID: 8910808791885417675}
   m_Layer: 10
-  m_Name: Flask
+  m_Name: FlaskWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0b53c33d9b7c622488018233d7e464ea, type: 2}
+  - {fileID: 2100000, guid: 6cc2a32097b0bd54f86eff24a37ef0a7, type: 2}
   - {fileID: 2100000, guid: 984c0f4b55c6d29429ef2328cec1eb79, type: 2}
   - {fileID: 2100000, guid: c1c495a4252c79647bd2dd869c808dcd, type: 2}
   m_StaticBatchInfo:

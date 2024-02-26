@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
-  m_Name: Flaszka
+  m_Name: Poison Antidote
   m_EditorClassIdentifier: 
-  recipeName: Flaszka
-  result: {fileID: 4622855080629322249, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
+  recipeName: Poison Antidote
+  result: {fileID: 4622855080629322249, guid: c6d84e1b9692f4948876cdd3a1b19c7f, type: 3}
   requiredItems:
-  - {fileID: 6276212561060190205, guid: 006553e40c5c52b40961b79b019d9ed7, type: 3}
-  - {fileID: 6276212561060190205, guid: 818253b9d0f3c51458e9677e9e0e7d21, type: 3}
+  - {fileID: 6276212561060190205, guid: 5968402729e7c51438ac2d04ecc7c9a3, type: 3}
   timeRequiredToCraft: 5
   isOrderSensitive: 0
