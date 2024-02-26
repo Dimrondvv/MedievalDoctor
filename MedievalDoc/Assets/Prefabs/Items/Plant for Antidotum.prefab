@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1682712866405683646}
   - component: {fileID: 6754147203179133968}
   m_Layer: 7
-  m_Name: "Zio\u0142a na zatrucie"
+  m_Name: Plant for Antidotum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102c03619f61edd49984d1394a9c50bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: "Zio\u0142a na katar"
+  itemName: Plant for Antidotum
 --- !u!1001 &7479537894833554489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5090edfefe0935e4dbf10f79ed8af088, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b53c33d9b7c622488018233d7e464ea, type: 2}
     - target: {fileID: 919132149155446097, guid: 5090edfefe0935e4dbf10f79ed8af088, type: 3}
       propertyPath: m_Name
       value: Plant

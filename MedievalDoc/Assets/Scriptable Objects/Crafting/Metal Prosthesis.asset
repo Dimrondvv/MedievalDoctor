@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
+  m_Name: Metal Prosthesis
+  m_EditorClassIdentifier: 
+  recipeName: Metal Prosthesis
+  result: {fileID: 4576028313648356371, guid: 655a60ace0d4cad4f950262293822a37, type: 3}
+  requiredItems:
+  - {fileID: 4576028313648356371, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
+  timeRequiredToCraft: 5
+  isOrderSensitive: 0

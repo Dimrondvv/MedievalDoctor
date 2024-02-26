@@ -38,13 +38,14 @@ public class PickupController : MonoBehaviour {
     }
 
     public void SetPickedItem(GameObject pickedObject) {
-        //Debug.Log(pickedObject.GetComponentInChildren<FindToolPickupPoint>().transform.position);
-        pickedObject.transform.eulerAngles = Vector3.forward;
+        Debug.Log(PlayerManager.Instance.Player.transform.rotation);
+        pickedObject.transform.eulerAngles = PlayerManager.Instance.Player.transform.localEulerAngles; 
         pickedObject.transform.position = GetToolPickupPoint().position;
-        pickedObject.transform.localPosition -= pickedObject.GetComponentInChildren<FindToolPickupPoint>().transform.localPosition;
+        pickedObject.transform.position -= pickedObject.GetComponentInChildren<FindToolPickupPoint>().transform.localPosition;
 
         
         pickedObject.transform.SetParent(GetFingerObject().transform);
+
 
         //pickedObject.transform.eulerAngles = new Vector3(0, -60f, 0);//GetToolPickupPoint().rotation * Vector3.forward;
         pickedObject.GetComponent<Collider>().enabled = false;
