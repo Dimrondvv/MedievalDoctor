@@ -8,8 +8,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<Tool> possessedTools; // Tools you have
     [SerializeField] private List<Tool> fullToolList;
     [SerializeField] private UpgradeWindow upgradeWindow;
+    [SerializeField] private List<ItemLayDownPoint> counterList;
     //private List<Symptom> curableSymptoms; // Symptoms that are curable with your current equipment
-
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
 
@@ -20,14 +20,39 @@ public class UpgradeManager : MonoBehaviour
         {
             if (toolName == fullToolList[i].name)
             {
-                Debug.Log(toolName);
+                for( int j = 0; j < counterList.Count; j++)
+                {
+                    if (!counterList[j].checkIfOccupied)
+                    {
+                        Instantiate(fullToolList[i], counterList[j].transform.position, Quaternion.identity);
+                        possessedTools.Add(fullToolList[i]);
+                        return;
+                    }
+                }
+                
             }
         }
-        //mo¿e coœ takiego?
-        //newtool = Instantiate(GameObject.Find(toolName));
-        //i po tym do possessedToolsNames dodaæ newtool'a
-        //
+        //ListOfSymptoms(); // tu aktualizuj liste curable symptomów
     }
+
+    /*private void ListOfSymptoms()
+    {
+        for(int i = 0; i < possessedTools.Count; i++)
+        {
+            for(int j  = 0; j < possessedTools[i].SymptomsRemoved.Count; j++)
+            {
+                Debug.Log(possessedTools[i].SymptomsRemoved[j]);
+                curableSymptoms.Add(possessedTools[i].SymptomsRemoved[j]);
+                if (!curableSymptoms.Contains(possessedTools[i].SymptomsRemoved[j]))
+                {
+                    
+                    Debug.Log(curableSymptoms.Count);
+                }
+            }
+        }
+        //curableSymptoms = curableSymptoms.Distinct().ToList();
+    }*/
+
     private void MakeMeChoose(List<string> toolList)
     {
         List<string> toolsToBeChoosed;
@@ -48,23 +73,27 @@ public class UpgradeManager : MonoBehaviour
         fullToolListNames = fullToolList.Select(o => o.name).ToList();
     }
 
-    private void Update() // to do eventu z upgradem wywaliæ
+    private void UpgradeMyClinic() // https://youtu.be/ujUKcNZ-rK4?si=9zcX_2YXuFKOEOUh
     {
-        if (Input.GetKeyDown(KeyCode.U)) // https://youtu.be/ujUKcNZ-rK4?si=9zcX_2YXuFKOEOUh
+        possessedToolsNames = possessedTools.Select(o => o.name).ToList();
+
+        for (int i = 0; i < possessedToolsNames.Count; i++)
         {
-            possessedToolsNames = possessedTools.Select(o => o.name).ToList(); 
-            
-            for(int i = 0;i < possessedToolsNames.Count;i++)
+            for (int j = 0; j < fullToolListNames.Count; j++)
             {
-                for(int j = 0;j < fullToolListNames.Count;j++)
+                if (possessedToolsNames[i] == fullToolListNames[j])
                 {
-                    if (possessedToolsNames[i] == fullToolListNames[j])
-                    {
-                        fullToolListNames.RemoveAt(j);
-                    }
+                    fullToolListNames.RemoveAt(j);
                 }
             }
-            MakeMeChoose(fullToolListNames);
+        }
+        MakeMeChoose(fullToolListNames);
+    }
+    private void Update() // to do eventu z upgradem wywaliæ
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UpgradeMyClinic();
         }
     }
 }
