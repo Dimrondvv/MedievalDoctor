@@ -94,10 +94,10 @@ public class DayAndNightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TurnOnLights();
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        TurnOnLights();
     }
 
     private void UpdateTimeOfDay() {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class SleepingBed : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class SleepingBed : MonoBehaviour
     private bool amimir;
     private GameObject interactedObject;
     private PickupController player;
+    [SerializeField] private Canvas blackscreen;
+    [SerializeField] private float timeToFade;
+    private bool fadeout;
+    private bool fadeIn;
     private void Start()
     {
         PickupController.OnInteract.AddListener(SleepTime);
@@ -22,24 +27,46 @@ public class SleepingBed : MonoBehaviour
         DayAndNightController.DayActivation.AddListener(WakeyWakey);
     }
 
+    private void Update()
+    {
+        if(fadeIn)
+        {
+            if (blackscreen.GetComponent<CanvasGroup>().alpha <= 1)
+            {
+                blackscreen.GetComponent<CanvasGroup>().alpha += timeToFade * Time.deltaTime;
+
+                if (blackscreen.GetComponent<CanvasGroup>().alpha == 1)
+                {
+                    fadeIn = false;
+                }
+            }
+        }
+
+        if (fadeout)
+        {
+            if (blackscreen.GetComponent<CanvasGroup>().alpha >= 0)
+            {
+                blackscreen.GetComponent<CanvasGroup>().alpha -= timeToFade * Time.deltaTime;
+
+                if (blackscreen.GetComponent<CanvasGroup>().alpha == 0)
+                {
+                    fadeout = false;
+                }
+            }
+        }
+    }
+
     private void WakeyWakey()
     {
         if (amimir)
         {
+            fadeout = true;
             player.GetComponent<CharacterMovement>().enabled = true;
             player.GetComponent<Character>().enabled = true;
             interactedObject.layer = 7;
             amimir = false;
         }
-        //if (amimir)
-        //{
-        //    player.GetComponent<CharacterMovement>().enabled = true;
-        //    player.GetComponent<Character>().enabled = true;
-        //    interactedObject.GetComponent<Furniture>().enabled = true;
-        //    player.transform.position = playerPositionOnInteraction;
-        //    interactedObject.layer = 7;
-        //    amimir = false;
-        //}
+
     }
 
     private void SleepTime(GameObject interactedObject, PickupController player)
@@ -58,31 +85,14 @@ public class SleepingBed : MonoBehaviour
             this.player = player;
             this.interactedObject = interactedObject;
             Debug.Log("A mimir");
-            playerPositionOnInteraction = player.transform.position;
-            playerPositionOnBed = interactedObject.transform.position;
-            Debug.Log(playerPositionOnInteraction);
-            Debug.Log(playerPositionOnBed);
             interactedObject.layer = 0;
+            blackscreen.GetComponent<CanvasGroup>().alpha = 0;
             player.GetComponent<CharacterMovement>().enabled = false;
             player.GetComponent<Character>().enabled = false;
-            player.transform.position = playerPositionOnBed;
             dayAndNightController.TimeMultiplier = speedUpTime;
+            //blackscreen.color.a = 255f;
+            fadeIn = true;
         }
-        //else 
-        //{
-        //    amimir = true;
-        //    this.interactedObject = interactedObject;
-        //    playerPositionOnInteraction = player.transform.position;
-        //    playerPositionOnBed = interactedObject.transform.position;
-        //    Debug.Log(playerPositionOnInteraction);
-        //    Debug.Log(playerPositionOnBed);
-        //    interactedObject.GetComponent<Furniture>().enabled = false;
-        //    player.GetComponent<CharacterMovement>().enabled = false;
-        //    player.GetComponent<Character>().enabled = false;
-        //    //this.player.transform.position = interactedObject.transform.position;
-        //    TeleportToBed(playerPositionOnBed);
-        //    interactedObject.layer = 0;
-        //    dayAndNightController.TimeMultiplier = speedUpTime;
-        //}
     }
+
 }
