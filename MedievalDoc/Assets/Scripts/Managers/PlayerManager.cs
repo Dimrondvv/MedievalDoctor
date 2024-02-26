@@ -29,6 +29,9 @@ public class PlayerManager : MonoBehaviour
     private GameObject uiText;
     private GameObject uiTextChild;
 
+    [SerializeField] private GameObject player;
+    public GameObject Player { get { return player; } set {  Player = value; } }
+
     private void Awake()
     {
         instance = this;
