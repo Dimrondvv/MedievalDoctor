@@ -173,9 +173,9 @@ public class DayAndNightController : MonoBehaviour
             App.Instance.GameplayCore.GameManager.IsNight = true;
         } else {
             LightsToTurnOn.SetActive(false);
-            timeMultiplier = basicTimeMultiplier;
             if(!App.Instance.GameplayCore.GameManager.IsNight == false)
             {
+                timeMultiplier = basicTimeMultiplier;
                 DayActivation.Invoke();
             }
             App.Instance.GameplayCore.GameManager.IsNight = false;

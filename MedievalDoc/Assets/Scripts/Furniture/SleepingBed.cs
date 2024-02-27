@@ -74,6 +74,8 @@ public class SleepingBed : MonoBehaviour
             player.GetComponent<Character>().enabled = true;
             interactedObject.layer = 7;
             amimir = false;
+            CancelInvoke();
+            dotNumber = 0;
         }
 
     }
