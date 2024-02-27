@@ -15,8 +15,11 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<Sprite> plantSprites;
     [SerializeField] private List<ItemChest> plantBoxes;
     //private List<Symptom> curableSymptoms; // Symptoms that are curable with your current equipment
+    
+    [SerializeField] private DayAndNightController dayController;
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
+    private List<bool> upgradeCheckList = new List<bool> { false, false, false };
 
 
 
@@ -112,12 +115,21 @@ public class UpgradeManager : MonoBehaviour
         upgradeWindow.PlayerChoice(planboxesNames, plantSprites, "plant");
     }
 
-    private void Update() // to do eventu z upgradem wywaliæ
+    private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (dayController.DayCounter == 5 && upgradeCheckList[0] == false)
         {
-            //ToolUpgrade(); 
-            //CraftingUpgrade();
+            upgradeCheckList[0] = true;
+            ToolUpgrade();
+        }
+        if (dayController.DayCounter == 7 && upgradeCheckList[1] == false)
+        {
+            upgradeCheckList[1] = true;
+            CraftingUpgrade();
+        }
+        if (dayController.DayCounter == 3 && upgradeCheckList[2] == false)
+        {
+            upgradeCheckList[2] = true;
             PlantUpgrade();
         }
     }
