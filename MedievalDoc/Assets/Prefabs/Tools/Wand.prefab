@@ -54,8 +54,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5670414567807968368}
   - component: {fileID: 8286880015189026379}
-  - component: {fileID: 1969280378945480924}
   - component: {fileID: 7236493945456713586}
+  - component: {fileID: 1308597275241111992}
   m_Layer: 10
   m_Name: Wand
   m_TagString: Untagged
@@ -103,8 +103,20 @@ MonoBehaviour:
   symptomsChecked: []
   isOneUse: 0
   interactionTime: 0
---- !u!64 &1969280378945480924
-MeshCollider:
+--- !u!114 &7236493945456713586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745168548390971575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1308597275241111992
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,22 +133,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8369894381874301590, guid: 96138c8a88e01fc4e9131c678b79ae91, type: 3}
---- !u!114 &7236493945456713586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3745168548390971575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4887278392512052036
 GameObject:
   m_ObjectHideFlags: 0

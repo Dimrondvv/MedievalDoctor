@@ -54,8 +54,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3666776307591895051}
   - component: {fileID: 8328407067703756327}
-  - component: {fileID: 1763034117163666037}
   - component: {fileID: 8910808791885417675}
+  - component: {fileID: 7659954182071358412}
+  - component: {fileID: 4724159872804295039}
   m_Layer: 10
   m_Name: FlaskAntidotum
   m_TagString: Untagged
@@ -99,8 +100,41 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a541a7c7374d44c4e8e0621f8d9a9812, type: 2}
   symptomsChecked: []
   isOneUse: 1
-  interactionTime: 0
---- !u!64 &1763034117163666037
+  interactionTime: 1
+--- !u!114 &8910808791885417675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7659954182071358412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!64 &4724159872804295039
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,18 +156,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1388986636967069719, guid: d5a84e7eefa9d4645a3af1dd53b621e0, type: 3}
---- !u!114 &8910808791885417675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622855080629322249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5334446055756039401
 GameObject:
   m_ObjectHideFlags: 0

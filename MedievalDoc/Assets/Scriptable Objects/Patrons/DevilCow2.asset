@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01d0764ff4bc0a048bc4c5857c5368cf, type: 3}
-  m_Name: DevilCow
+  m_Name: DevilCow2
   m_EditorClassIdentifier: 
   patronName: DevilCow
   prefab: {fileID: -8282775092825029002, guid: 89f7d7e186cb944478de53f71b64e89c, type: 3}
   requirementsToSpawn:
-  - symptom: {fileID: 11400000, guid: 7ca714360d51a80499a7153ad3ca49cf, type: 2}
+  - symptom: {fileID: 11400000, guid: a7992aabb8eb0b6478d72fa681600f79, type: 2}
     questAction: 0
     requiredAmmount: 1
   questList:
-  - {fileID: 11400000, guid: 401b59b41716c0045be83400af351d1f, type: 2}
+  - {fileID: 11400000, guid: bdea7e3ec8eb4f0448d9c4bb7b8f9183, type: 2}

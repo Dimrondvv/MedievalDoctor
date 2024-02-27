@@ -17,8 +17,5 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: ebfef6c221d5b7048bbfbe2b1fc6d4b9, type: 2}
     isHidden: 0
   stories:
-  - "Przewia\u0142o"
-  - "Przezi\u0119biony"
-  - Da pan bimberku
-  - "Troche tej w\xF3deczki dla zdrowia"
-  solutionList: []
+  - I have fever.
+  - Im feeling hot and cold

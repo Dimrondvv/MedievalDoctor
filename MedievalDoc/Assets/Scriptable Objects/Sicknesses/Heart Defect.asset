@@ -17,6 +17,4 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: d3322c48fdb35f04297a5879425170a9, type: 2}
     isHidden: 0
   stories:
-  - Serce nie dziala pomocy
-  - Wymien mi serducho
-  solutionList: []
+  - My Heart aches

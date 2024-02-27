@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a003352d60c056b46b9267dd98a453db, type: 3}
-  m_Name: RemoveDrzazga
+  m_Name: Remove Heart
   m_EditorClassIdentifier: 
-  questName: Drzazga
-  goldReward: 999
-  scoreReward: 999
+  questName: Remove Heart
+  goldReward: 100
+  scoreReward: 300
   daysToFinish: 2
+  type: 0
   tasks:
-  - symptom: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
-    questAction: 1
-    requiredAmmount: 1
+  - symptom: {fileID: 11400000, guid: d4545b7118460b241b1d7c79f9f9fda4, type: 2}
+    questAction: 0
+    requiredAmmount: 5
+  patientTask: []

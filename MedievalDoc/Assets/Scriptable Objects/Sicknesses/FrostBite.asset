@@ -17,5 +17,4 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: c9009aaf069a2ab4aaf8ebcce9e59298, type: 2}
     isHidden: 0
   stories:
-  - "Utnij mi r\u0119ke i daj now\u0105."
-  solutionList: []
+  - My arm is for nothing, cut it.
