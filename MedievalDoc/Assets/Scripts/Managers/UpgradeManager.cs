@@ -25,25 +25,49 @@ public class UpgradeManager : MonoBehaviour
         fullToolListNames = fullToolList.Select(o => o.name).ToList();
     }
 
+    public void MakePlant(string plantName)
+    {
+        if (plantName == "FeverPlant")
+        {
+            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
+        }
+        else if (plantName == "AntidotumPlant")
+        {
+            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
+        }
+    }
+
     public void MakeToolForMe(string toolName)
     {
         for (int i = 0; i < fullToolList.Count; i++)
         {
             if (toolName == fullToolList[i].name)
             {
-                Instantiate(counter, new Vector3(8.8f, 0f, 21.9f), Quaternion.identity);
-                Instantiate(fullToolList[i], new Vector3(8.8f, 1f, 21.9f), Quaternion.identity);
+                Instantiate(counter, new Vector3(8.8f, 0f, 21.9f), Quaternion.identity); //spawn Counter
+                Instantiate(fullToolList[i], new Vector3(8.8f, 1f, 21.9f), Quaternion.identity); //spawn Tool
                 possessedTools.Add(fullToolList[i]);
                 if (toolName == "CuttingSaw")
                 {
-                    Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity);
+                    Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn ArmBox
                 }
                 else if (toolName == "Scalpel")
                 {
-                    Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity);
+                    Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn HeartBox
                 }
                 return;
             }
+        }
+    }
+    
+    public void MakeCrafting(string craftingName)
+    {
+        if (craftingName == "MagicalCrafting")
+        {
+            Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
+        }
+        else if (craftingName == "MetalCrafting")
+        {
+            Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
         }
     }
 
@@ -84,17 +108,7 @@ public class UpgradeManager : MonoBehaviour
     }
 
 
-    public void MakeCrafting(string craftingName)
-    {
-        if(craftingName == "MagicalCrafting")
-        {
-            Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
-        }
-        else if (craftingName == "MetalCrafting")
-        {
-            Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
-        }
-    }
+    
 
     private void CraftingUpgrade()
     {
@@ -102,17 +116,7 @@ public class UpgradeManager : MonoBehaviour
         upgradeWindow.PlayerChoice(craftingNames, craftingSprites, "crafting");
     }
 
-    public void MakePlant(string plantName) 
-    {
-        if (plantName == "FeverPlant")
-        {
-            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
-        }
-        else if (plantName == "AntidotumPlant")
-        {
-            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
-        }
-    }
+    
 
     private void PlantUpgrade()
     {
