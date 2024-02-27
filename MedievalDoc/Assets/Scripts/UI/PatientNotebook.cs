@@ -116,11 +116,10 @@ public class PatientNotebook : MonoBehaviour
     }
     public void ReleasePatientButton(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        if (PatientManager.Instance.patients.Count == 0)
+        if (PatientManager.Instance.patients.Count == 0 || !gameObject.scene.IsValid())
         {
             return;
         }
-
         Patient patient = PatientManager.Instance.patients[currentPatientIndex];
         patient.ReleasePatient();
         UIManager.Instance.DisableNoteBook();
