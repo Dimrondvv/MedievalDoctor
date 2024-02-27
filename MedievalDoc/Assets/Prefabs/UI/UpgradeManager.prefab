@@ -58,14 +58,15 @@ MonoBehaviour:
   - {fileID: 7695447329451422416, guid: 50698cd0673fbe84199975f1e7848705, type: 3}
   - {fileID: 8286880015189026379, guid: 48e0bddb2a0914b4fa3c3a3a6b98d5e2, type: 3}
   upgradeWindow: {fileID: 0}
-  leydownPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  craftingSprites:
+  - {fileID: 21300000, guid: 227cfc1c318ef824b99f792d0e946dbe, type: 3}
+  - {fileID: 21300000, guid: 3bd4eac1344bed245b0a821192c5b3c8, type: 3}
+  craftings:
+  - {fileID: 8806439245379142650, guid: d66180db61f090f42b1aeec940e3c5f4, type: 3}
+  - {fileID: 8802759278180614909, guid: b70d3ff2806229e4f98cbeb8a220ebe3, type: 3}
+  plantSprites:
+  - {fileID: 21300000, guid: 421b7947bfd21ce479c0cdc12fa50282, type: 3}
+  - {fileID: 21300000, guid: e0a1d2218ad104643ae7692077926610, type: 3}
+  plantBoxes:
+  - {fileID: 3013116893439114120, guid: c88da2b08ea57f8488e93a2430b855ce, type: 3}
+  - {fileID: 288582539198131126, guid: aab8fb44134fa0847862935b53d56f42, type: 3}

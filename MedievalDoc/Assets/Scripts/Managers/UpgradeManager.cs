@@ -9,30 +9,34 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<Tool> possessedTools; // Tools you have
     [SerializeField] private List<Tool> fullToolList;
     [SerializeField] private UpgradeWindow upgradeWindow;
-    [SerializeField] private List<ItemLayDownPoint> leydownPoints;
-    [SerializeField] private Sprite potka; // temp potka dla sprajtów których nie ma
+    //[SerializeField] private List<ItemLayDownPoint> leydownPoints;
+    [SerializeField] private List<Sprite> craftingSprites;
+    [SerializeField] private List<Crafting> craftings;
+    [SerializeField] private List<Sprite> plantSprites;
+    [SerializeField] private List<ItemChest> plantBoxes;
     //private List<Symptom> curableSymptoms; // Symptoms that are curable with your current equipment
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
-    public void MakeToolForMe(string toolName)
-    {
-        for (int i = 0; i < fullToolList.Count; i++)
-        {
-            if (toolName == fullToolList[i].name)
-            {
-                Debug.Log("co jest");
-                Instantiate(fullToolList[i], new Vector3(11.38f, 1f, 21.75f), Quaternion.identity);
-                possessedTools.Add(fullToolList[i]);
-                return;
-            }
-        }
-    }
+
 
 
 
     private void Start() // i made it up UwU :3 :D :) ;p
     {
         fullToolListNames = fullToolList.Select(o => o.name).ToList();
+    }
+
+    public void MakeToolForMe(string toolName)
+    {
+        for (int i = 0; i < fullToolList.Count; i++)
+        {
+            if (toolName == fullToolList[i].name)
+            {
+                Instantiate(fullToolList[i], new Vector3(11.38f, 1f, 21.75f), Quaternion.identity);
+                possessedTools.Add(fullToolList[i]);
+                return;
+            }
+        }
     }
 
     private void ToolUpgrade() // https://youtu.be/ujUKcNZ-rK4?si=9zcX_2YXuFKOEOUh
@@ -71,17 +75,50 @@ public class UpgradeManager : MonoBehaviour
         upgradeWindow.PlayerChoice(toolsToBeChoosed, imageList, "tool");
     }
 
+
+    public void MakeCrafting(string craftingName) // tak wiem ze tragedia ale trzeba skleic 
+    {
+        if(craftingName == "MagicalCrafting")
+        {
+            Instantiate(craftings[0], new Vector3(15f, 0f, 22f), Quaternion.identity);
+        }
+        else if (craftingName == "MetalCrafting")
+        {
+            Instantiate(craftings[1], new Vector3(15f, 0f, 22f), Quaternion.identity);
+        }
+    }
+
     private void CraftingUpgrade()
     {
+        List<string> craftingNames = new List<string> { "MagicalCrafting", "MetalCrafting" };
+        upgradeWindow.PlayerChoice(craftingNames, craftingSprites, "crafting");
+    }
 
+    public void MakePlant(string plantName) // tak wiem ze tragedia ale trzeba skleic 
+    {
+        if (plantName == "FeverPlant")
+        {
+            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 22f), Quaternion.identity);
+        }
+        else if (plantName == "AntidotumPlant")
+        {
+            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 22f), Quaternion.identity);
+        }
+    }
+
+    private void PlantUpgrade()
+    {
+        List<string> planboxesNames = new List<string> { "FeverPlant", "AntidotumPlant" };
+        upgradeWindow.PlayerChoice(planboxesNames, plantSprites, "plant");
     }
 
     private void Update() // to do eventu z upgradem wywaliæ
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            ToolUpgrade(); // bo¿e coœ polskê odpalaj to tylko raz bo olaboga
+            //ToolUpgrade(); 
             //CraftingUpgrade();
+            PlantUpgrade();
         }
     }
 }
