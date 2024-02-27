@@ -47,16 +47,9 @@ MonoBehaviour:
   possessedTools:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   fullToolList:
-  - {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}
-  - {fileID: -8713386820704438159, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
   - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
-  - {fileID: 8328407067703756327, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
-  - {fileID: 3550796604154461988, guid: 1968a4d7572859c4a9c724cedd2171d6, type: 3}
   - {fileID: 6365509331743377220, guid: 60cc704e0318bba4bb9f44a28e0f1d5f, type: 3}
-  - {fileID: 7695447329451422416, guid: 50698cd0673fbe84199975f1e7848705, type: 3}
-  - {fileID: 8286880015189026379, guid: 48e0bddb2a0914b4fa3c3a3a6b98d5e2, type: 3}
   upgradeWindow: {fileID: 0}
   craftingSprites:
   - {fileID: 21300000, guid: 227cfc1c318ef824b99f792d0e946dbe, type: 3}
@@ -70,3 +63,8 @@ MonoBehaviour:
   plantBoxes:
   - {fileID: 3013116893439114120, guid: c88da2b08ea57f8488e93a2430b855ce, type: 3}
   - {fileID: 288582539198131126, guid: aab8fb44134fa0847862935b53d56f42, type: 3}
+  dayController: {fileID: 0}
+  bodyPartsBoxes:
+  - {fileID: -3599148963173692717, guid: 0e4ed6646b3fd9343a25e55fef0da355, type: 3}
+  - {fileID: -3599148963173692717, guid: 5125a7408a13caa40ba51b5b24b3f244, type: 3}
+  counter: {fileID: 5074438798091626786, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}

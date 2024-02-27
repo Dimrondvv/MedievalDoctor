@@ -9,22 +9,18 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<Tool> possessedTools; // Tools you have
     [SerializeField] private List<Tool> fullToolList;
     [SerializeField] private UpgradeWindow upgradeWindow;
-    //[SerializeField] private List<ItemLayDownPoint> leydownPoints;
     [SerializeField] private List<Sprite> craftingSprites;
     [SerializeField] private List<Crafting> craftings;
     [SerializeField] private List<Sprite> plantSprites;
     [SerializeField] private List<ItemChest> plantBoxes;
-    //private List<Symptom> curableSymptoms; // Symptoms that are curable with your current equipment
-    
     [SerializeField] private DayAndNightController dayController;
+    [SerializeField] private List<ItemChest> bodyPartsBoxes;
+    [SerializeField] private Furniture counter;
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
     private List<bool> upgradeCheckList = new List<bool> { false, false, false };
 
-
-
-
-    private void Start() // i made it up UwU :3 :D :) ;p
+    private void Start() 
     {
         fullToolListNames = fullToolList.Select(o => o.name).ToList();
     }
@@ -35,8 +31,17 @@ public class UpgradeManager : MonoBehaviour
         {
             if (toolName == fullToolList[i].name)
             {
-                Instantiate(fullToolList[i], new Vector3(11.38f, 1f, 21.75f), Quaternion.identity);
+                Instantiate(counter, new Vector3(8.8f, 0f, 21.9f), Quaternion.identity);
+                Instantiate(fullToolList[i], new Vector3(8.8f, 1f, 21.9f), Quaternion.identity);
                 possessedTools.Add(fullToolList[i]);
+                if (toolName == "CuttingSaw")
+                {
+                    Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity);
+                }
+                else if (toolName == "Scalpel")
+                {
+                    Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity);
+                }
                 return;
             }
         }
@@ -79,15 +84,15 @@ public class UpgradeManager : MonoBehaviour
     }
 
 
-    public void MakeCrafting(string craftingName) // tak wiem ze tragedia ale trzeba skleic 
+    public void MakeCrafting(string craftingName)
     {
         if(craftingName == "MagicalCrafting")
         {
-            Instantiate(craftings[0], new Vector3(15f, 0f, 22f), Quaternion.identity);
+            Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
         }
         else if (craftingName == "MetalCrafting")
         {
-            Instantiate(craftings[1], new Vector3(15f, 0f, 22f), Quaternion.identity);
+            Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
         }
     }
 
@@ -97,15 +102,15 @@ public class UpgradeManager : MonoBehaviour
         upgradeWindow.PlayerChoice(craftingNames, craftingSprites, "crafting");
     }
 
-    public void MakePlant(string plantName) // tak wiem ze tragedia ale trzeba skleic 
+    public void MakePlant(string plantName) 
     {
         if (plantName == "FeverPlant")
         {
-            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19.5f), Quaternion.identity);
+            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
         }
         else if (plantName == "AntidotumPlant")
         {
-            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19.5f), Quaternion.identity);
+            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
         }
     }
 
