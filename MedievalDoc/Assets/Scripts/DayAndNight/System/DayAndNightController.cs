@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DayAndNightController : MonoBehaviour
@@ -11,6 +13,12 @@ public class DayAndNightController : MonoBehaviour
 
     [SerializeField]
     private float timeMultiplier; // How fast time pass in the game
+    private float basicTimeMultiplier;
+    public float TimeMultiplier
+    {
+        get { return timeMultiplier; }
+        set { timeMultiplier = value; }
+    }
 
     [SerializeField]
     private float startHour; // On what hour day should start
@@ -73,10 +81,11 @@ public class DayAndNightController : MonoBehaviour
     }
 
 
-
+    public static UnityEvent DayActivation = new UnityEvent();
     // Start is called before the first frame update
     void Start()
     {
+        basicTimeMultiplier = timeMultiplier;
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
@@ -85,10 +94,10 @@ public class DayAndNightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TurnOnLights();
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        TurnOnLights();
     }
 
     private void UpdateTimeOfDay() {
@@ -135,8 +144,6 @@ public class DayAndNightController : MonoBehaviour
         }
 
         clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation - 68, Vector3.back);
-        //Debug.Log(sunLightRotation);
-        //sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
         sunLight.transform.eulerAngles = new Vector3(sunLightRotation, sunRotationY, 0);
 
     }
@@ -166,6 +173,11 @@ public class DayAndNightController : MonoBehaviour
             App.Instance.GameplayCore.GameManager.IsNight = true;
         } else {
             LightsToTurnOn.SetActive(false);
+            if(!App.Instance.GameplayCore.GameManager.IsNight == false)
+            {
+                timeMultiplier = basicTimeMultiplier;
+                DayActivation.Invoke();
+            }
             App.Instance.GameplayCore.GameManager.IsNight = false;
         }
     }

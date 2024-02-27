@@ -29,6 +29,9 @@ public class PlayerManager : MonoBehaviour
     private GameObject uiText;
     private GameObject uiTextChild;
 
+    [SerializeField] private GameObject player;
+    public GameObject Player { get { return player; } set {  Player = value; } }
+
     private void Awake()
     {
         instance = this;
@@ -38,7 +41,8 @@ public class PlayerManager : MonoBehaviour
     }
     private void Start()
     {
-        Patient.OnCureDisease.AddListener(IncrementScore);
+        //Patient.OnCureDisease.AddListener(IncrementScore);
+        Patient.OnReleasePatient.AddListener(InrecementScorePatientReleased);
         uiText = UIManager.Instance.UiPrefab;
         uiTextChild = uiText.transform.GetChild(0).gameObject;
     }
@@ -50,5 +54,18 @@ public class PlayerManager : MonoBehaviour
         money += 100;
         Destroy(patient.gameObject);
     }
+    private void InrecementScorePatientReleased(Patient patient)
+    {
+        if (patient.CurrentPoints > 0)
+            score += patient.CurrentPoints;
+        else
+        {
+            playerHealth += patient.CurrentPoints;
+            if(playerHealth <= 0)
+            {
+                App.Instance.GameplayCore.GameManager.EndGame();
+            }
+        }
 
+    }
 }

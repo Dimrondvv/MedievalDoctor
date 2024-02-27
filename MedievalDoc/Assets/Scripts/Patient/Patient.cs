@@ -39,6 +39,9 @@ public class Patient : MonoBehaviour
     public string patientStory;
     public bool isAlive;
 
+    private int currentPoints = 100;
+    public int CurrentPoints { get { return currentPoints; } }
+
     [SerializeField] private bool immune; // immunity for tests
     public bool Immune { get { return immune; } set { immune = value; } }
 
@@ -56,7 +59,8 @@ public class Patient : MonoBehaviour
     public static UnityEvent<Symptom, Patient, Tool> OnTryAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
     public static UnityEvent<Symptom, Patient, Tool> OnRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Symptom, Patient, Tool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
-    public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
+    //public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
+    public static UnityEvent<Patient> OnReleasePatient = new UnityEvent<Patient>(); //Invoked when patient is released
     //public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
 
     private void Start()
@@ -73,7 +77,6 @@ public class Patient : MonoBehaviour
         {
             SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
         }
-
         OnPatientDeath.Invoke(this);// Release the bed on death
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
@@ -119,6 +122,17 @@ public class Patient : MonoBehaviour
         symptoms.Add(symptomStruct);
     }
 
+    public void ReleasePatient()
+    {
+        Debug.Log("Releasing " + patientName);
+        foreach (var smpt in symptoms)
+        {
+            currentPoints += smpt.symptom.pointsForCuring;
+        }
+        OnReleasePatient.Invoke(this);
+        Destroy(gameObject);
+    }
+    
 
     public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {

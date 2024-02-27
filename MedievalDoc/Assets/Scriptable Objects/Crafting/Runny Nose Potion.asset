@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
+  m_Name: Runny Nose Potion
+  m_EditorClassIdentifier: 
+  recipeName: RunnyNose Potion
+  result: {fileID: 4622855080629322249, guid: 87a2de879e257d344beb5c0e4daae306, type: 3}
+  requiredItems:
+  - {fileID: 6276212561060190205, guid: 818253b9d0f3c51458e9677e9e0e7d21, type: 3}
+  timeRequiredToCraft: 5
+  isOrderSensitive: 0
