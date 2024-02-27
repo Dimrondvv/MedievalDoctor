@@ -105,7 +105,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f3c90174671a45448860f23f0704453, type: 2}
+  - {fileID: 2100000, guid: b34dd12a3bc0f7146bbc1f5b28865803, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,9 +136,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5060471074954514409}
-  - component: {fileID: 3550796604154461988}
   - component: {fileID: 2284068821810129801}
   - component: {fileID: 8780955930566993679}
+  - component: {fileID: 1379684546010339880}
   m_Layer: 10
   m_Name: Organ
   m_TagString: Untagged
@@ -163,26 +163,6 @@ Transform:
   - {fileID: 1387713679863456353}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3550796604154461988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8586565331621046186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 3c19347bb622e0843896098522000d63, type: 3}
-  toolName: 
-  symptomsAdded: []
-  symptomsRemoved:
-  - {fileID: 11400000, guid: d3322c48fdb35f04297a5879425170a9, type: 2}
-  symptomsChecked: []
-  isOneUse: 0
-  interactionTime: 0
 --- !u!64 &2284068821810129801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -217,3 +197,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1379684546010339880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586565331621046186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102c03619f61edd49984d1394a9c50bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Organ

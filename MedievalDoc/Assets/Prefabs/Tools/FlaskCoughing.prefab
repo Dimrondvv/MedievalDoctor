@@ -96,9 +96,7 @@ MonoBehaviour:
   toolName: 
   symptomsAdded: []
   symptomsRemoved:
-  - {fileID: 11400000, guid: d46a572ed23483141a29c30482e8ef92, type: 2}
   - {fileID: 11400000, guid: 63573da52792b304e9ba560938738c79, type: 2}
-  - {fileID: 11400000, guid: a541a7c7374d44c4e8e0621f8d9a9812, type: 2}
   symptomsChecked: []
   isOneUse: 1
   interactionTime: 0

@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 7194872891957156510}
   - component: {fileID: 8806439245379142650}
   - component: {fileID: 4483430614459888983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagicalCrafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}

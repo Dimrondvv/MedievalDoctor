@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5419214211361428089}
   - component: {fileID: 7194872891957156510}
   - component: {fileID: 288582539198131126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlantBox Antidotum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
