@@ -15,7 +15,7 @@ public class UpgradeWindow : MonoBehaviour
     private string typUpgrade;
 
 
-    public void PlayerChoice(List<string> toolList, List<Sprite> imageList, string typ)
+    public void PlayerChoice(List<string> itemList, List<Sprite> imageList, string typ)
     {
         typUpgrade = typ;
         buttons[0].onClick.AddListener(Click1);
@@ -23,10 +23,10 @@ public class UpgradeWindow : MonoBehaviour
         buttons[2].onClick.AddListener(Click3);
         Time.timeScale = 0f;
         updateUI.SetActive(true);
-        for ( int i = 0; i < toolList.Count; i++ )
+        for ( int i = 0; i < itemList.Count; i++ )
         {
             buttons[i].gameObject.SetActive(true);
-            buttonText[i].text = toolList[i];
+            buttonText[i].text = itemList[i];
             buttonSprites[i].gameObject.SetActive(true);
             buttonSprites[i].sprite = imageList[i];
         }
@@ -77,7 +77,7 @@ public class UpgradeWindow : MonoBehaviour
         }
         else if (typUpgrade == "plant")
         {
-            //tu zrob item inny
+            // tu nie rób bo nie ma 3 treraz
         }
         DisableDilemma();
     }

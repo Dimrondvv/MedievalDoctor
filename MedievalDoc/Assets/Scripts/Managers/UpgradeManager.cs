@@ -98,11 +98,11 @@ public class UpgradeManager : MonoBehaviour
     {
         if (plantName == "FeverPlant")
         {
-            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 22f), Quaternion.identity);
+            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19.5f), Quaternion.identity);
         }
         else if (plantName == "AntidotumPlant")
         {
-            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 22f), Quaternion.identity);
+            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19.5f), Quaternion.identity);
         }
     }
 
