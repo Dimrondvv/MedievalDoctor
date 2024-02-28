@@ -32,7 +32,6 @@ public class SleepingBed : MonoBehaviour
         dots.Add("..");
         dots.Add("...");
         PickupController.OnInteract.AddListener(SleepTime);
-        //player = PlayerManager.Instance.Player;
         DayAndNightController.DayActivation.AddListener(WakeyWakey);
     }
 
@@ -46,11 +45,11 @@ public class SleepingBed : MonoBehaviour
 
                 if (blackscreen.GetComponent<CanvasGroup>().alpha == 1)
                 {
+                    dayAndNightController.TimeMultiplier = speedUpTime;
                     fadeIn = false;
                 }
             }
         }
-
         if (fadeout)
         {
             if (blackscreen.GetComponent<CanvasGroup>().alpha >= 0)
@@ -60,6 +59,9 @@ public class SleepingBed : MonoBehaviour
                 if (blackscreen.GetComponent<CanvasGroup>().alpha == 0)
                 {
                     fadeout = false;
+                    dayAndNightController.TimeMultiplier = dayAndNightController.BasicTimeMultiplayer;
+                    player.GetComponent<CharacterMovement>().enabled = true;
+                    player.GetComponent<Character>().enabled = true;
                 }
             }
         }
@@ -70,14 +72,11 @@ public class SleepingBed : MonoBehaviour
         if (amimir)
         {
             fadeout = true;
-            player.GetComponent<CharacterMovement>().enabled = true;
-            player.GetComponent<Character>().enabled = true;
-            interactedObject.layer = 7;
             amimir = false;
+            interactedObject.layer = 7;
             CancelInvoke();
             dotNumber = 0;
         }
-
     }
 
     private void SleepTime(GameObject interactedObject, PickupController player)
@@ -100,7 +99,6 @@ public class SleepingBed : MonoBehaviour
             blackscreen.GetComponent<CanvasGroup>().alpha = 0;
             player.GetComponent<CharacterMovement>().enabled = false;
             player.GetComponent<Character>().enabled = false;
-            dayAndNightController.TimeMultiplier = speedUpTime;
             //blackscreen.color.a = 255f;
             InvokeRepeating("Dots", 0, 0.4f);
             fadeIn = true;

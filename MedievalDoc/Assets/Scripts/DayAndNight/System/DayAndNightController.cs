@@ -20,6 +20,12 @@ public class DayAndNightController : MonoBehaviour
         set { timeMultiplier = value; }
     }
 
+    public float BasicTimeMultiplayer
+    {
+        get { return basicTimeMultiplier; }
+        set { basicTimeMultiplier = value; }
+    }
+
     [SerializeField]
     private float startHour; // On what hour day should start
 
@@ -142,7 +148,6 @@ public class DayAndNightController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
         }
-
         clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation - 68, Vector3.back);
         sunLight.transform.eulerAngles = new Vector3(sunLightRotation, sunRotationY, 0);
 
@@ -161,7 +166,6 @@ public class DayAndNightController : MonoBehaviour
         if (difference.TotalSeconds < 0) { // If value is lesser than 0 we need to add 24 
             difference += TimeSpan.FromHours(24);
         }
-
         return difference;
     }
 
@@ -175,7 +179,6 @@ public class DayAndNightController : MonoBehaviour
             LightsToTurnOn.SetActive(false);
             if(!App.Instance.GameplayCore.GameManager.IsNight == false)
             {
-                timeMultiplier = basicTimeMultiplier;
                 DayActivation.Invoke();
             }
             App.Instance.GameplayCore.GameManager.IsNight = false;
