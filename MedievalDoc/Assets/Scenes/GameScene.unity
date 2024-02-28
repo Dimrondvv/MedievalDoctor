@@ -5549,7 +5549,10 @@ MonoBehaviour:
   - {fileID: -3599148963173692717, guid: 5125a7408a13caa40ba51b5b24b3f244, type: 3}
   spawnPatientTimer: {fileID: 2138131496752633125}
   counter: {fileID: 5074438798091626786, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
-  tempCheck: {fileID: 11400000, guid: 6099fe6e85f0a14479c793f758a7c842, type: 2}
+  tempCheck:
+  - {fileID: 11400000, guid: 6099fe6e85f0a14479c793f758a7c842, type: 2}
+  - {fileID: 11400000, guid: b5a347d5dd906bb4ca4758126db6e48d, type: 2}
+  - {fileID: 11400000, guid: 27de1233ff62d004ca52853118a2bc65, type: 2}
 --- !u!1001 &4715659988887545821
 PrefabInstance:
   m_ObjectHideFlags: 0

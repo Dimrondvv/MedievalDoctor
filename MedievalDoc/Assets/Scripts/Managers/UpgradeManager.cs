@@ -21,7 +21,7 @@ public class UpgradeManager : MonoBehaviour
     private List<string> possessedToolsNames;
     private List<bool> upgradeCheckList = new List<bool> { false, false, false };
 
-    [SerializeField] SicknessScriptableObject tempCheck;
+    [SerializeField] List<SicknessScriptableObject> tempCheck;
 
     private void Start() 
     {
@@ -33,11 +33,14 @@ public class UpgradeManager : MonoBehaviour
         if (plantName == "FeverPlant")
         {
             Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
-            spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck);
+            spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[0]);
         }
         else if (plantName == "AntidotumPlant")
         {
             Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
+            spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[1]);
+            spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[2]);
+
         }
     }
 
@@ -53,10 +56,12 @@ public class UpgradeManager : MonoBehaviour
                 if (toolName == "CuttingSaw")
                 {
                     Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn ArmBox
+                    spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[3]);
                 }
                 else if (toolName == "Scalpel")
                 {
                     Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn HeartBox
+                    spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[4]);
                 }
                 return;
             }

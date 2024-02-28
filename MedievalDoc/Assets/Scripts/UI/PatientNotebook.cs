@@ -44,10 +44,18 @@ public class PatientNotebook : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
         playerInputActions.Player.Bookmarks.performed += ChangeBookMark;
-        playerInputActions.Player.InteractPress.started += ReleasePatientButton;
 
     }
 
+    private void OnEnable()
+    {
+        playerInputActions.Player.InteractPress.started += ReleasePatientButton;
+
+    }
+    private void OnDisable()
+    {
+        playerInputActions.Player.InteractPress.started -= ReleasePatientButton;
+    }
     public void SetNotebookSymptoms(Patient patient)
     {
         if (patient == null)

@@ -73,14 +73,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 676de0d44b4bcd542b7ae03c95910b91, type: 2}
   - {fileID: 11400000, guid: f638bdbfd82b9f447a71e402c1de27eb, type: 2}
   - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
-  - {fileID: 11400000, guid: 6099fe6e85f0a14479c793f758a7c842, type: 2}
-  - {fileID: 11400000, guid: 8af7f2fa5bc1c8b48a4d2a9a76e1b187, type: 2}
-  - {fileID: 11400000, guid: 9abbd78fb565e2b4ea9ec0dbf78e29be, type: 2}
   - {fileID: 11400000, guid: b9fabfb85c3755b4da7f10701218d515, type: 2}
   - {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
-  - {fileID: 11400000, guid: 16bb8cee22d41674ca83a86a12a195ef, type: 2}
-  - {fileID: 11400000, guid: b5a347d5dd906bb4ca4758126db6e48d, type: 2}
-  - {fileID: 11400000, guid: 27de1233ff62d004ca52853118a2bc65, type: 2}
   SpawnPointsCopy:
   - {fileID: 0}
   - {fileID: 0}
