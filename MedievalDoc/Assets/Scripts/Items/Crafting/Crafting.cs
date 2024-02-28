@@ -21,7 +21,7 @@ public class Crafting : MonoBehaviour
 
     public void InsertItem(PickupController player, Transform objectPoint)
     {
-        if (objectPoint == null)
+        if (objectPoint == null || isCrafting)
             return;
         if (objectPoint.gameObject != gameObject || player.PickedItem.GetComponent<Furniture>() || player.PickedItem.GetComponent <Patient>())
             return;
