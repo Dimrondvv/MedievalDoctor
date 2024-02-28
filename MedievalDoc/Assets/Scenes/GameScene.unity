@@ -4382,6 +4382,14 @@ PrefabInstance:
       propertyPath: SpawnPointsCopy.Array.data[5]
       value: 
       objectReference: {fileID: 1733672336}
+    - target: {fileID: 1919095589453866530, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: invokeTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919095589453866530, guid: f11e3283374d0484587a4c16d0813597, type: 3}
+      propertyPath: accelerationSpeed
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 2138131498301780534, guid: f11e3283374d0484587a4c16d0813597, type: 3}
       propertyPath: m_Name
       value: PatientSpawner
