@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symptomName: Nail
   symptomIcon: {fileID: 21300000, guid: 1c0a6c04369af4c429e690dd2f94bb99, type: 3}
-  damage: 3
+  damage: 5
   addOnRemove:
     symtpomAddedOnRemoval: {fileID: 0}
     notPresentToAdd: {fileID: 0}
+  pointsForCuring: -125

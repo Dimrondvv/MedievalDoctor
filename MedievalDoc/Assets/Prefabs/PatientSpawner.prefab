@@ -68,13 +68,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Patient: {fileID: 0}
-  spawnTime: 35
+  spawnTime: 15
   sicknesses:
-  - {fileID: 11400000, guid: 676de0d44b4bcd542b7ae03c95910b91, type: 2}
+  - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
+  - {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
+  - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
+  - {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
   - {fileID: 11400000, guid: f638bdbfd82b9f447a71e402c1de27eb, type: 2}
+  - {fileID: 11400000, guid: 676de0d44b4bcd542b7ae03c95910b91, type: 2}
+  - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
+  - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
+  - {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
   - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
   - {fileID: 11400000, guid: b9fabfb85c3755b4da7f10701218d515, type: 2}
-  - {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
   SpawnPointsCopy:
   - {fileID: 0}
   - {fileID: 0}
@@ -119,5 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPatientTimer: {fileID: 575417472191014539}
-  accelerationSpeed: 1
-  invokeTime: 45
+  accelerationSpeed: 2
+  invokeTime: 120

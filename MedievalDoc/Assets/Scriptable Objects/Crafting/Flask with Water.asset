@@ -16,5 +16,5 @@ MonoBehaviour:
   result: {fileID: 4622855080629322249, guid: d6a83424a093d0d4c87e97c22f6d4cac, type: 3}
   requiredItems:
   - {fileID: 4622855080629322249, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
-  timeRequiredToCraft: 0
+  timeRequiredToCraft: 1
   isOrderSensitive: 0
