@@ -15,10 +15,13 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<ItemChest> plantBoxes;
     [SerializeField] private DayAndNightController dayController;
     [SerializeField] private List<ItemChest> bodyPartsBoxes;
+    [SerializeField] private GameObject spawnPatientTimer;
     [SerializeField] private Furniture counter;
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
     private List<bool> upgradeCheckList = new List<bool> { false, false, false };
+
+    [SerializeField] SicknessScriptableObject tempCheck;
 
     private void Start() 
     {
@@ -30,6 +33,7 @@ public class UpgradeManager : MonoBehaviour
         if (plantName == "FeverPlant")
         {
             Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
+            spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck);
         }
         else if (plantName == "AntidotumPlant")
         {
