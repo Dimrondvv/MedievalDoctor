@@ -129,6 +129,7 @@ public class Patient : MonoBehaviour
         {
             currentPoints += smpt.symptom.pointsForCuring;
         }
+        Debug.Log("released");
         OnReleasePatient.Invoke(this);
         Destroy(gameObject);
     }
