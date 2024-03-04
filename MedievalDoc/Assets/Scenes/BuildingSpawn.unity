@@ -1550,10 +1550,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokoje:
-  - {fileID: 3212614925307198674, guid: 9e8820c88dbdda44880bff63500ec53f, type: 3}
   - {fileID: 3212614925307198674, guid: 346d52de469fc6d408accf48cf971403, type: 3}
   - {fileID: 3212614925307198674, guid: 4682b3d09ec081543841b312f6029a02, type: 3}
   - {fileID: 3212614925307198674, guid: 5baa757384dc72a4192401d8eb3e0e0f, type: 3}
+  baseRoom: {fileID: 3212614925307198674, guid: 9e8820c88dbdda44880bff63500ec53f, type: 3}
+  dayCount: {fileID: 1873233452}
+  wichDaySpawn: 3
 --- !u!20 &1148402976 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3818812066675153041, guid: 6a1c1ced40b960c4880b41457d3e350a, type: 3}
@@ -2234,7 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patronCharacter: {fileID: 812176828}
-  timeMultiplier: 500
+  timeMultiplier: 2000
   startHour: 12
   maxSunLightIntensity: 1
   maxMoonLightIntensity: 0.5

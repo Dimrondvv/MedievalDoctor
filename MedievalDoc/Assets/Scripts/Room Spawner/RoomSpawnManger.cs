@@ -7,26 +7,39 @@ public class RoomSpawnManger : MonoBehaviour
     [SerializeField]
     private List<GameObject> pokoje = new List<GameObject>();
 
+    [SerializeField]
+    private GameObject baseRoom;
+
+    [SerializeField]
+    private DayAndNightController dayCount;
+
+    [SerializeField]
+    private int wichDaySpawn = 3;
+
     private GameObject prevRoom;
     private int prevDir = 69;
+    private bool callOnce = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        prevRoom = Instantiate(pokoje[0], new Vector3(0, 0, 0), Quaternion.identity);
-        
-        InvokeRepeating("spawnRoom", 1f, 5f);
+        // Spawn base room
+        prevRoom = Instantiate(baseRoom, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (callOnce && (dayCount.DayCounter+1)%wichDaySpawn == 0)
+        {
+            spawnRoom();
+            callOnce = true;
+        }
+
         
     }
 
-    private void spawnInitialRoom()
-    {
-        //prevRoom = Instantiate(pokoje[0], new Vector3(0,0,0), Quaternion.identity);
-    }
+    
 
     private void spawnRoom()
     {
@@ -66,7 +79,6 @@ public class RoomSpawnManger : MonoBehaviour
             }
             //Debug.Log(position);
             prevRoom = Instantiate(pokoje[randomRoom], new Vector3(position.x, 0f, position.z), Quaternion.identity);
-        }
-        
+        } 
     }
 }
