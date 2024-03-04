@@ -80,6 +80,10 @@ public class Crafting : MonoBehaviour
         GetComponent<ProgressBar>().StopProgressBar();
         isCrafting = false;
         GameObject result = Instantiate(recipe.result);
-        result.transform.position = resultLayDownPoint.position;
+        insertedItems.Add(result);
+        insertedItems[insertedItems.Count - 1].transform.parent = itemSlots[insertedItems.Count - 1];
+        insertedItems[insertedItems.Count - 1].transform.position = itemSlots[insertedItems.Count - 1].position;
+        insertedItems[insertedItems.Count - 1].transform.eulerAngles = Vector3.zero;
+        //result.transform.position = resultLayDownPoint.position;
     }
 }

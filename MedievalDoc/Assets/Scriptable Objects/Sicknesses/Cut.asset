@@ -16,6 +16,10 @@ MonoBehaviour:
   symptomList:
   - symptom: {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
     isHidden: 0
+  - symptom: {fileID: 11400000, guid: 2dec3da63c8807346b11162845db23cb, type: 2}
+    isHidden: 0
+  - symptom: {fileID: 11400000, guid: 249af018cc08c25418ad2f15de19a952, type: 2}
+    isHidden: 0
   stories:
   - I cut my finger
   - My foot is bleeding

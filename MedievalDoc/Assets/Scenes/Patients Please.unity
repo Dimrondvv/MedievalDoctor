@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -274,6 +274,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alchemy Table
       objectReference: {fileID: 0}
+    - target: {fileID: 6465156451457802195, guid: 098b5ccf4ab1c1b49bb97725fd92d60b, type: 3}
+      propertyPath: recipes.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465156451457802195, guid: 098b5ccf4ab1c1b49bb97725fd92d60b, type: 3}
+      propertyPath: recipes.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8973dcc40d21d744eb21ad439b039408, type: 2}
+    - target: {fileID: 6465156451457802195, guid: 098b5ccf4ab1c1b49bb97725fd92d60b, type: 3}
+      propertyPath: recipes.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6939f8825601959418f30dce708cb62e, type: 2}
     - target: {fileID: 6898966513800855890, guid: 098b5ccf4ab1c1b49bb97725fd92d60b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.5
