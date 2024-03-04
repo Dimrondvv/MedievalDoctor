@@ -520,7 +520,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""351046c8-d2c7-482b-9346-748f1ea097ed"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -531,7 +531,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""03e46c49-c888-47c4-bfaa-c67cc01e89da"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

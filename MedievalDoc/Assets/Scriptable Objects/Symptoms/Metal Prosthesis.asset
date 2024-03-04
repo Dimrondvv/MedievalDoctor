@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symptomName: Metal Prosthesis
   symptomIcon: {fileID: 21300000, guid: 2929bea84d9dee04eb10c53b8ce0795c, type: 3}
-  damage: 10
+  damage: 0
   addOnRemove:
     symtpomAddedOnRemoval: {fileID: 0}
     notPresentToAdd: {fileID: 0}
+  pointsForCuring: 50

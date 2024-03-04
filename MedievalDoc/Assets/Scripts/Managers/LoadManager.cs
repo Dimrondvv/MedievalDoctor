@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadManager : MonoBehaviour
 {
@@ -29,13 +30,11 @@ public class LoadManager : MonoBehaviour
         loadLevel.allowSceneActivation = false;
         while (loadLevel.progress < 0.9f)
         {
-            Debug.Log("Loading: " + loadLevel.progress);
             yield return null;
         }
         loadLevel.allowSceneActivation = true;
         while (!loadLevel.isDone)
         {
-            Debug.Log("Loading: " + loadLevel.progress);
             yield return null;
         }
         OnGameSceneLoaded.Invoke();

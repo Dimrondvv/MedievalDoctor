@@ -77,7 +77,6 @@ public class Patient : MonoBehaviour
         {
             SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
         }
-
         OnPatientDeath.Invoke(this);// Release the bed on death
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
@@ -125,6 +124,7 @@ public class Patient : MonoBehaviour
 
     public void ReleasePatient()
     {
+        Debug.Log("Releasing " + patientName);
         foreach (var smpt in symptoms)
         {
             currentPoints += smpt.symptom.pointsForCuring;

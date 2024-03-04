@@ -10,6 +10,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] private float interactionTime;
     [SerializeField] private List<Transform> itemSlots;
     public float InteractionTime { get { return interactionTime; } }
+    private bool isCrafting;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class Crafting : MonoBehaviour
 
     public void InsertItem(PickupController player, Transform objectPoint)
     {
-        if (objectPoint == null)
+        if (objectPoint == null || isCrafting)
             return;
         if (objectPoint.gameObject != gameObject || player.PickedItem.GetComponent<Furniture>() || player.PickedItem.GetComponent <Patient>())
             return;
@@ -48,7 +49,7 @@ public class Crafting : MonoBehaviour
     }
     public void CraftItem(GameObject station, PickupController player)
     {
-        if (station != gameObject)
+        if (station != gameObject || isCrafting)
             return;
 
         Recipe validRecipe = null;
@@ -65,7 +66,7 @@ public class Crafting : MonoBehaviour
             }
         }
 
-        if (validRecipe != null)
+        if (validRecipe != null )
         {
             StartCoroutine(CraftingCoroutine(validRecipe));
         }
@@ -73,10 +74,11 @@ public class Crafting : MonoBehaviour
 
     IEnumerator CraftingCoroutine(Recipe recipe)
     {
+        isCrafting = true;
         GetComponent<ProgressBar>().StartProgressBar(recipe.timeRequiredToCraft);
         yield return new WaitForSeconds(recipe.timeRequiredToCraft);
         GetComponent<ProgressBar>().StopProgressBar();
-
+        isCrafting = false;
         GameObject result = Instantiate(recipe.result);
         result.transform.position = resultLayDownPoint.position;
     }

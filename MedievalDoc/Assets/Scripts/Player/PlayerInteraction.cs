@@ -25,7 +25,6 @@ public class PlayerInteraction : MonoBehaviour
             return;
         if (SharedOverlapBox.HighestCollider.gameObject.layer != 7)
             return;
-
         float interactTime = defaultInteractionTime;
         bool setFlag = false; //bool to check if the time was set
         if (controller.PickedItem != null) //Set the interact time to the time specified in the tool

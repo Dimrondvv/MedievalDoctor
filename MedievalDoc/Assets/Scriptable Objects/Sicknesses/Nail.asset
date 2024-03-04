@@ -17,5 +17,4 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
     isHidden: 0
   stories:
-  - "Drzazga w palcu wyjmij mi j\u0105"
-  solutionList: []
+  - Just take this nail out

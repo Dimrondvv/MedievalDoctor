@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   pickupController: {fileID: 0}
+  player: {fileID: 0}

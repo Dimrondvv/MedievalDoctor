@@ -44,10 +44,18 @@ public class PatientNotebook : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
         playerInputActions.Player.Bookmarks.performed += ChangeBookMark;
-        playerInputActions.Player.InteractPress.performed += ReleasePatientButton;
 
     }
 
+    private void OnEnable()
+    {
+        playerInputActions.Player.InteractPress.started += ReleasePatientButton;
+
+    }
+    private void OnDisable()
+    {
+        playerInputActions.Player.InteractPress.started -= ReleasePatientButton;
+    }
     public void SetNotebookSymptoms(Patient patient)
     {
         if (patient == null)
@@ -116,6 +124,10 @@ public class PatientNotebook : MonoBehaviour
     }
     public void ReleasePatientButton(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
+        if (PatientManager.Instance.patients.Count == 0 || !gameObject.scene.IsValid())
+        {
+            return;
+        }
         Patient patient = PatientManager.Instance.patients[currentPatientIndex];
         patient.ReleasePatient();
         UIManager.Instance.DisableNoteBook();

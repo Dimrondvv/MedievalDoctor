@@ -19,8 +19,5 @@ MonoBehaviour:
   - symptom: {fileID: 11400000, guid: 63573da52792b304e9ba560938738c79, type: 2}
     isHidden: 0
   stories:
-  - "Przewia\u0142o"
-  - "Przezi\u0119biony"
-  - Da pan bimberku
-  - "Troche tej w\xF3deczki dla zdrowia"
-  solutionList: []
+  - I went outside when was cold
+  - Do you have potion?

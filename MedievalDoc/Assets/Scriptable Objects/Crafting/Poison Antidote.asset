@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
+  m_Name: Poison Antidote
+  m_EditorClassIdentifier: 
+  recipeName: Poison Antidote
+  result: {fileID: 4622855080629322249, guid: c6d84e1b9692f4948876cdd3a1b19c7f, type: 3}
+  requiredItems:
+  - {fileID: 6276212561060190205, guid: 5968402729e7c51438ac2d04ecc7c9a3, type: 3}
+  - {fileID: 4622855080629322249, guid: d6a83424a093d0d4c87e97c22f6d4cac, type: 3}
+  timeRequiredToCraft: 5
+  isOrderSensitive: 0

@@ -18,3 +18,4 @@ MonoBehaviour:
   addOnRemove:
     symtpomAddedOnRemoval: {fileID: 0}
     notPresentToAdd: {fileID: 0}
+  pointsForCuring: -160
