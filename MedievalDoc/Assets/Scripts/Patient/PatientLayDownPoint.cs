@@ -12,7 +12,7 @@ public class PatientLayDownPoint : MonoBehaviour
 
     private void Start()
     {
-        Patient.OnCureDisease.AddListener(ReleaseBed);
+        Patient.OnReleasePatient.AddListener(ReleaseBed);
         Patient.OnPatientDeath.AddListener(ReleaseBed);
     }
 
