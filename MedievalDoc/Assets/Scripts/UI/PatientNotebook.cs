@@ -14,6 +14,8 @@ public class PatientNotebook : MonoBehaviour
     private Patient patient;
     private int currentPatientIndex = 0;
     private int currentBookmarkIndex = 0;
+
+    public bool areBookmarksBlocked;
     public Patient Patient
     {
         get { return patient; }
@@ -42,7 +44,6 @@ public class PatientNotebook : MonoBehaviour
     {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
         playerInputActions.Player.Bookmarks.performed += ChangeBookMark;
 
     }
@@ -92,36 +93,40 @@ public class PatientNotebook : MonoBehaviour
         }
         patientName.text = patient.PatientName;
     }
-
-    public void ChangePatient(UnityEngine.InputSystem.InputAction.CallbackContext callback)
-    {
-        currentPatientIndex += (int)playerInputActions.Player.RotateBlueprint.ReadValue<float>();
-        if (currentPatientIndex >= PatientManager.Instance.patients.Count)
-        {
-            currentPatientIndex = 0;
-        }
-        else if(currentPatientIndex < 0)
-        {
-            currentPatientIndex = PatientManager.Instance.patients.Count - 1;
-        }
-        SetNotebookSymptoms(PatientManager.Instance.patients[currentPatientIndex]);
-        SetNotebookHistory(PatientManager.Instance.patients[currentPatientIndex]);
-        SetPatientColor(PatientManager.Instance.patients[currentPatientIndex]);
-        SetPatientName(PatientManager.Instance.patients[currentPatientIndex]);
-    }
     public void ChangeBookMark(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        currentBookmarkIndex += (int)playerInputActions.Player.Bookmarks.ReadValue<float>();
-        if (currentBookmarkIndex >= bookmarks.Count)
+        ChangeBookmark((int)playerInputActions.Player.Bookmarks.ReadValue<float>(), false);
+    }
+
+    public void ChangeBookmark(int incr, bool isFromPatient)
+    {
+        if (areBookmarksBlocked)
+            return;
+
+        currentBookmarkIndex += incr;
+        if (currentBookmarkIndex >= bookmarks.Count - 1 && !isFromPatient)
         {
             currentBookmarkIndex = 0;
         }
         else if (currentBookmarkIndex < 0)
         {
-            currentBookmarkIndex = bookmarks.Count - 1;
+            currentBookmarkIndex = bookmarks.Count - 2;
         }
+
         bookmarks[currentBookmarkIndex].onClick.Invoke();
     }
+
+    public void ReleasePatient()
+    {
+        if (PatientManager.Instance.patients.Count == 0 || !gameObject.scene.IsValid())
+        {
+            return;
+        }
+        Patient patient = PatientManager.Instance.patients[currentPatientIndex];
+        patient.ReleasePatient();
+        UIManager.Instance.DisableNoteBook();
+    }
+
     public void ReleasePatientButton(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         if (PatientManager.Instance.patients.Count == 0 || !gameObject.scene.IsValid())

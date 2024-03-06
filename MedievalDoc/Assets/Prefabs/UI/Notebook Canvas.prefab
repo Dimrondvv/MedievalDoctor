@@ -2109,6 +2109,7 @@ MonoBehaviour:
   - {fileID: 3620873167893959282}
   - {fileID: 4925602231821888744}
   - {fileID: 868538306007719998}
+  areBookmarksBlocked: 0
 --- !u!1 &6429311441645746831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,7 +2525,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4790751406883457929}
         m_TargetAssemblyTypeName: PatientNotebook, Assembly-CSharp
-        m_MethodName: ReleasePatientButton
+        m_MethodName: ReleasePatient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
