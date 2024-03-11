@@ -35,11 +35,10 @@ public class Tool : MonoBehaviour
     {
         if (tool != gameObject)
             return;
-
-        if (symptomsRemoved.Count > 0)
-            RemoveSymptom(patient);
         if (symptomsAdded.Count > 0)
             AddSymptom(patient);
+        if (symptomsRemoved.Count > 0)
+            RemoveSymptom(patient);
         if (symptomsChecked.Count > 0)
             CheckSymptom(patient);
 

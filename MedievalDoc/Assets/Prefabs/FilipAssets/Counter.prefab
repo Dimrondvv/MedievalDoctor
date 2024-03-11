@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2266908930758770892}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +99,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Size: {x: 0.8, y: 0.5, z: 0.8}
   m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &3400406162959607992
 MonoBehaviour:
@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 0c99ed8ba1639af49a24bcf0780a9fea, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3f3c90174671a45448860f23f0704453, type: 2}
+      objectReference: {fileID: 2100000, guid: b34dd12a3bc0f7146bbc1f5b28865803, type: 2}
     - target: {fileID: -7511558181221131132, guid: 0c99ed8ba1639af49a24bcf0780a9fea, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 

@@ -12,7 +12,7 @@ public class ItemChest : MonoBehaviour
 
     private void Start()
     {
-        nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
+        //nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
         animator = GetComponent<Animator>();
         chestItem = itemPrefab.GetComponent<Item>();
         PickupController.OnPickup.AddListener(TakeItemFromChest);
@@ -38,7 +38,9 @@ public class ItemChest : MonoBehaviour
             return;
         var item = player.PickedItem;
         if (item == null || item.GetComponent<Item>().ItemName != chestItem.ItemName)
+        { 
             return;
+        }
         
         player.PickedItem = null;
         Destroy(item);
@@ -123,15 +125,5 @@ public class ItemChest : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (SharedOverlapBox.HighestCollider == GetComponent<Collider>())
-        {
-            nameDisplay.gameObject.SetActive(true);
-        }
-        else
-        {
-            nameDisplay.gameObject.SetActive(false);
-        }
-    }
+
 }

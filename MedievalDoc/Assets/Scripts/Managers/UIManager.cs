@@ -48,7 +48,17 @@ public class UIManager : MonoBehaviour
             return instance;
         }
     }
-
+    private void Awake()
+    {
+        instance = this;
+    }
+    private void Start()
+    {
+        uiPrefab.SetActive(true);
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Pause.performed += PauseMenuFunction;
+    }
     public void DisableLoadingScreen()
     {
         loadingScreen.enabled = false;
@@ -79,16 +89,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void EnableNotebook()
+    public void EnableNotebook(int bookmark = 0, bool isFromPatient = false)
     {
 
         if(isPauseEnabled){
             return;
         }
-        else{
-        instantiatedNotebook = Instantiate(notebookCanvas);
-        instantiatedNotebook.SetActive(true);
-        isNotebookEnabled = true; 
+        else
+        {
+            instantiatedNotebook = Instantiate(notebookCanvas);
+            instantiatedNotebook.SetActive(true);
+            instantiatedNotebook.GetComponent<PatientNotebook>().ChangeBookmark(bookmark, isFromPatient);
+            instantiatedNotebook.GetComponent<PatientNotebook>().areBookmarksBlocked = isFromPatient;
+            isNotebookEnabled = true; 
         } 
     }
     public void DisableNoteBook()
@@ -96,7 +109,7 @@ public class UIManager : MonoBehaviour
         isNotebookEnabled = false;
         Destroy(instantiatedNotebook);
     }
-
+/*
     private void ChangeNotebookState(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         if (isNotebookEnabled)
@@ -104,18 +117,7 @@ public class UIManager : MonoBehaviour
         else 
             EnableNotebook();
 
-    }
+    }*/
 
-    private void Awake()
-    {
-        instance = this;
-    }
-    private void Start()
-    {
-        uiPrefab.SetActive(true);
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-        playerInputActions.Player.Pause.performed += PauseMenuFunction;
-        playerInputActions.Player.Journal.performed += ChangeNotebookState;
-    }
+
 }
