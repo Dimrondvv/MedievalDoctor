@@ -37,14 +37,14 @@ public class UpgradeManager : MonoBehaviour
         if (plantName == "FeverPlant")
         {
             //Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
-            RoomSpawnManger.spawnRoom(mushRoom[0]);
+            RoomSpawnManger.spawnRoom(mushRoom[0], 1);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[0]);
             OnUpgrade.Invoke(plantName);
         }
         else if (plantName == "AntidotumPlant")
         {
             //Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
-            RoomSpawnManger.spawnRoom(mushRoom[1]);
+            RoomSpawnManger.spawnRoom(mushRoom[1], 1);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[1]);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[2]);
             OnUpgrade.Invoke(plantName);
@@ -63,14 +63,14 @@ public class UpgradeManager : MonoBehaviour
                 if (toolName == "CuttingSaw")
                 {
                     //Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn ArmBox
-                    RoomSpawnManger.spawnRoom(mushRoom[4]);
+                    RoomSpawnManger.spawnRoom(mushRoom[4], 0);
                     spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[3]);
                     OnUpgrade.Invoke(toolName);
                 }
                 else if (toolName == "Scalpel")
                 {
                     //Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn HeartBox
-                    RoomSpawnManger.spawnRoom(mushRoom[5]);
+                    RoomSpawnManger.spawnRoom(mushRoom[5], 0);
                     spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[4]);
                     OnUpgrade.Invoke(toolName);
                 }
@@ -84,13 +84,13 @@ public class UpgradeManager : MonoBehaviour
         if (craftingName == "MagicalCrafting")
         {
             //Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
-            RoomSpawnManger.spawnRoom(mushRoom[2]);
+            RoomSpawnManger.spawnRoom(mushRoom[2], 2);
             OnUpgrade.Invoke(craftingName);
         }
         else if (craftingName == "MetalCrafting")
         {
             //Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
-            RoomSpawnManger.spawnRoom(mushRoom[3]);
+            RoomSpawnManger.spawnRoom(mushRoom[3], 2);
             OnUpgrade.Invoke(craftingName);
         }
     }

@@ -83,43 +83,45 @@ public class RoomSpawnManger : MonoBehaviour
         } 
     }
 
-    public void spawnRoom(GameObject room)
+    public void spawnRoom(GameObject room, int direction)
     {
 
-        var direction = Random.Range(0, 3);
+        //direction = Random.Range(0, 3);
 
         Vector3 position = prevRoom.transform.position;
         Debug.Log("Dir: " + direction + " Prev: " + prevDir);
-        while (direction == prevDir)
-        {
-            direction = Random.Range(0, 3);
-        }
+        // Pozniej moze git
+        //while (direction == prevDir)
+        //{
+        //    direction = Random.Range(0, 3);
+        //}
         
 
         switch (direction)
         {
-            case 0:
+            case 0: // left
                 prevDir = 2;
                 position.x -= prevRoom.GetComponent<Collider>().bounds.size.x;
                 break;
 
-            case 1:
+            case 1: // up
                 prevDir = 3;
                 position.z += prevRoom.GetComponent<Collider>().bounds.size.z;
                 break;
 
-            case 2:
+            case 2: // right
                 prevDir = 0;
                 position.x += prevRoom.GetComponent<Collider>().bounds.size.x;
                 break;
 
-            case 3:
+            case 3: // down
                 prevDir = 1;
                 position.z -= prevRoom.GetComponent<Collider>().bounds.size.z;
                 break;
         }
         //Debug.Log(position);
-        prevRoom = Instantiate(room, new Vector3(position.x, 0f, position.z), Quaternion.identity);
-        
+        //prevRoom = Instantiate(room, new Vector3(position.x, 0f, position.z), Quaternion.identity);
+        Instantiate(room, new Vector3(position.x, 0f, position.z), Quaternion.identity);
+
     }
 }
