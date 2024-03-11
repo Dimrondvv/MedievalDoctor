@@ -18,10 +18,13 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<ItemChest> bodyPartsBoxes;
     [SerializeField] private GameObject spawnPatientTimer;
     [SerializeField] private Furniture counter;
+    [SerializeField] private RoomSpawnManger RoomSpawnManger;
+    [SerializeField] private List<GameObject> mushRoom;
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
     private List<bool> upgradeCheckList = new List<bool> { false, false, false };
     static UnityEvent<string> OnUpgrade = new UnityEvent<string>();
+
     [SerializeField] List<SicknessScriptableObject> tempCheck;
 
     private void Start() 
@@ -33,18 +36,19 @@ public class UpgradeManager : MonoBehaviour
     {
         if (plantName == "FeverPlant")
         {
-            Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
+            //Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
+            RoomSpawnManger.spawnRoom(mushRoom[0]);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[0]);
             OnUpgrade.Invoke(plantName);
         }
         else if (plantName == "AntidotumPlant")
         {
-            Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
+            //Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
+            RoomSpawnManger.spawnRoom(mushRoom[1]);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[1]);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[2]);
             OnUpgrade.Invoke(plantName);
         }
-
     }
 
     public void MakeToolForMe(string toolName)
@@ -53,18 +57,20 @@ public class UpgradeManager : MonoBehaviour
         {
             if (toolName == fullToolList[i].name)
             {
-                Instantiate(counter, new Vector3(8.8f, 0f, 21.9f), Quaternion.identity); //spawn Counter
-                Instantiate(fullToolList[i], new Vector3(8.8f, 1f, 21.9f), Quaternion.identity); //spawn Tool
+                //Instantiate(counter, new Vector3(8.8f, 0f, 21.9f), Quaternion.identity); //spawn Counter
+                //Instantiate(fullToolList[i], new Vector3(8.8f, 1f, 21.9f), Quaternion.identity); //spawn Tool
                 possessedTools.Add(fullToolList[i]);
                 if (toolName == "CuttingSaw")
                 {
-                    Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn ArmBox
+                    //Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn ArmBox
+                    RoomSpawnManger.spawnRoom(mushRoom[4]);
                     spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[3]);
                     OnUpgrade.Invoke(toolName);
                 }
                 else if (toolName == "Scalpel")
                 {
-                    Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn HeartBox
+                    //Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn HeartBox
+                    RoomSpawnManger.spawnRoom(mushRoom[5]);
                     spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[4]);
                     OnUpgrade.Invoke(toolName);
                 }
@@ -77,12 +83,14 @@ public class UpgradeManager : MonoBehaviour
     {
         if (craftingName == "MagicalCrafting")
         {
-            Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
+            //Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
+            RoomSpawnManger.spawnRoom(mushRoom[2]);
             OnUpgrade.Invoke(craftingName);
         }
         else if (craftingName == "MetalCrafting")
         {
-            Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
+            //Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
+            RoomSpawnManger.spawnRoom(mushRoom[3]);
             OnUpgrade.Invoke(craftingName);
         }
     }

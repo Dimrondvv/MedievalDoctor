@@ -33,7 +33,7 @@ public class RoomSpawnManger : MonoBehaviour
         bool condition = (dayCount.DayCounter + 1) % wichDaySpawn == 0;
         
         if (condition && !callOnce){
-            spawnRoom();
+            spawnRoomRandom();
         }
 
         callOnce = condition;
@@ -42,7 +42,7 @@ public class RoomSpawnManger : MonoBehaviour
 
     
 
-    private void spawnRoom()
+    private void spawnRoomRandom()
     {
         var randomRoom = Random.Range(0, pokoje.Count);
         var direction = Random.Range(0, 3);
@@ -79,7 +79,47 @@ public class RoomSpawnManger : MonoBehaviour
                     break;
             }
             //Debug.Log(position);
-            prevRoom = Instantiate(pokoje[randomRoom], new Vector3(position.x, 0f, position.z), Quaternion.identity);
+            //prevRoom = Instantiate(pokoje[randomRoom], new Vector3(position.x, 0f, position.z), Quaternion.identity);
         } 
+    }
+
+    public void spawnRoom(GameObject room)
+    {
+
+        var direction = Random.Range(0, 3);
+
+        Vector3 position = prevRoom.transform.position;
+        Debug.Log("Dir: " + direction + " Prev: " + prevDir);
+        while (direction == prevDir)
+        {
+            direction = Random.Range(0, 3);
+        }
+        
+
+        switch (direction)
+        {
+            case 0:
+                prevDir = 2;
+                position.x -= prevRoom.GetComponent<Collider>().bounds.size.x;
+                break;
+
+            case 1:
+                prevDir = 3;
+                position.z += prevRoom.GetComponent<Collider>().bounds.size.z;
+                break;
+
+            case 2:
+                prevDir = 0;
+                position.x += prevRoom.GetComponent<Collider>().bounds.size.x;
+                break;
+
+            case 3:
+                prevDir = 1;
+                position.z -= prevRoom.GetComponent<Collider>().bounds.size.z;
+                break;
+        }
+        //Debug.Log(position);
+        prevRoom = Instantiate(room, new Vector3(position.x, 0f, position.z), Quaternion.identity);
+        
     }
 }
