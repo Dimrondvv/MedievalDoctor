@@ -30,12 +30,13 @@ public class RoomSpawnManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (callOnce && (dayCount.DayCounter+1)%wichDaySpawn == 0)
-        {
+        bool condition = (dayCount.DayCounter + 1) % wichDaySpawn == 0;
+        
+        if (condition && !callOnce){
             spawnRoom();
-            callOnce = true;
         }
 
+        callOnce = condition;
         
     }
 
