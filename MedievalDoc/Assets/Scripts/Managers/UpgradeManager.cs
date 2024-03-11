@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class UpgradeManager : MonoBehaviour
     private List<string> fullToolListNames;
     private List<string> possessedToolsNames;
     private List<bool> upgradeCheckList = new List<bool> { false, false, false };
+    static UnityEvent<string> OnUpgrade = new UnityEvent<string>();
 
     [SerializeField] List<SicknessScriptableObject> tempCheck;
 
@@ -34,13 +36,14 @@ public class UpgradeManager : MonoBehaviour
         {
             Instantiate(plantBoxes[0], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn FeverPlantBox
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[0]);
+            OnUpgrade.Invoke(plantName);
         }
         else if (plantName == "AntidotumPlant")
         {
             Instantiate(plantBoxes[1], new Vector3(15f, 0f, 19f), Quaternion.identity); // spawn AntidotumPlantBox
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[1]);
             spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[2]);
-
+            OnUpgrade.Invoke(plantName);
         }
     }
 
@@ -57,11 +60,13 @@ public class UpgradeManager : MonoBehaviour
                 {
                     Instantiate(bodyPartsBoxes[0], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn ArmBox
                     spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[3]);
+                    OnUpgrade.Invoke(toolName);
                 }
                 else if (toolName == "Scalpel")
                 {
                     Instantiate(bodyPartsBoxes[1], new Vector3(15f, 0f, 21.9f), Quaternion.identity); //spawn HeartBox
                     spawnPatientTimer.GetComponent<SpawnPatientTimer>().Sicknesses.Add(tempCheck[4]);
+                    OnUpgrade.Invoke(toolName);
                 }
                 return;
             }
@@ -73,10 +78,12 @@ public class UpgradeManager : MonoBehaviour
         if (craftingName == "MagicalCrafting")
         {
             Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
+            OnUpgrade.Invoke(craftingName);
         }
         else if (craftingName == "MetalCrafting")
         {
             Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
+            OnUpgrade.Invoke(craftingName);
         }
     }
 
