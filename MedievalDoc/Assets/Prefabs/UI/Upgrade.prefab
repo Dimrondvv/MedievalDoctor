@@ -405,7 +405,7 @@ MonoBehaviour:
   - {fileID: 7431760715519976923}
   - {fileID: 2465688917477470618}
   - {fileID: 7605606180261905709}
-  upgradeManager: {fileID: 3839337441289504495, guid: dc8d895b2c020384fb5a633ad0c944da, type: 3}
+  upgradeManager: {fileID: 0}
 --- !u!1 &3028480753726285426
 GameObject:
   m_ObjectHideFlags: 0

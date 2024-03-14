@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class SpawnPatientTimer : MonoBehaviour
 {
+    [SerializeField] DayAndNightController time;
     private float elapsedTime;
     public float ElapsedTime
     {
@@ -159,7 +160,7 @@ public class SpawnPatientTimer : MonoBehaviour
 
     [ExecuteInEditMode] private void SpawnOnKeyPress()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && time.CurrentTime.Hour <= 20)
         {
             Spawning();
         }

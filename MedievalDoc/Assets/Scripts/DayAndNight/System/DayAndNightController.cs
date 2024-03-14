@@ -95,6 +95,7 @@ public class DayAndNightController : MonoBehaviour
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+        //UpdateTimeOfDay(37800);
     }
 
     // Update is called once per frame
@@ -104,14 +105,21 @@ public class DayAndNightController : MonoBehaviour
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
+        if (currentTime.Hour >= sunsetHour - 1 && PatientManager.Instance.patients.Count == 0)
+        {
+            Debug.Log("AAAAAAAA");
+            UpdateTimeOfDay(39600);
+        }
     }
 
-    private void UpdateTimeOfDay() {
-        currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
+
+
+    public void UpdateTimeOfDay(int optionalTimeAdd = 0) {
+        currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier + optionalTimeAdd);
         dayCounterTemp = currentTime.Day - DateTime.Now.Day + 1;
         if(daytemp != dayCounterTemp)
         {
-            dayCounter += 1;
+            dayCounter = dayCounterTemp;
             if(dayCounter == 10)
             {
                 UIManager.Instance.EnableNotebook();
@@ -119,6 +127,8 @@ public class DayAndNightController : MonoBehaviour
             }
         }
         daytemp = dayCounterTemp;
+
+        
 
         if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
         {
