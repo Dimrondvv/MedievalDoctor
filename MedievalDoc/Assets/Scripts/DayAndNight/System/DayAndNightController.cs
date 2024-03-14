@@ -110,7 +110,10 @@ public class DayAndNightController : MonoBehaviour
 
 
 
-    public void UpdateTimeOfDay(int optionalTimeAdd = 0) {
+    public void UpdateTimeOfDay(int optionalTimeAdd = 0, bool isTimeSkip = false) {
+        if (currentTime.Hour > 21 && !isTimeSkip)
+            return;
+
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier + optionalTimeAdd);
         dayCounterTemp = currentTime.Day - DateTime.Now.Day + 1;
         if(daytemp != dayCounterTemp)

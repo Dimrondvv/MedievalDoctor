@@ -61,7 +61,7 @@ public class SleepingBed : MonoBehaviour
 
                 if (blackscreen.GetComponent<CanvasGroup>().alpha <= 0)
                 {
-                    time.UpdateTimeOfDay(39600);
+                    time.UpdateTimeOfDay(39600, true);
                     fadeout = false;
                 }
             }
