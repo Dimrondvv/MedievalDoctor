@@ -24,6 +24,7 @@ public class SleepingBed : MonoBehaviour
     private List<string> dots = new List<string>();
     private int dotNumber;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private DayAndNightController time;
     private void Start()
     {
         dotNumber = 0;
@@ -31,13 +32,15 @@ public class SleepingBed : MonoBehaviour
         dots.Add(".");
         dots.Add("..");
         dots.Add("...");
-        PickupController.OnInteract.AddListener(SleepTime);
-        DayAndNightController.DayActivation.AddListener(WakeyWakey);
     }
 
     private void Update()
     {
-        if (fadeIn)
+        if ((time.CurrentTime.Hour >= 20 || time.CurrentTime.Hour < 7) && PatientManager.Instance.patients.Count == 0 && fadeout == false)
+        {
+            fadeIn = true;
+        }
+        if (fadeIn && !fadeout)
         {
             if (blackscreen.GetComponent<CanvasGroup>().alpha <= 1)
             {
@@ -45,8 +48,8 @@ public class SleepingBed : MonoBehaviour
 
                 if (blackscreen.GetComponent<CanvasGroup>().alpha == 1)
                 {
-                    dayAndNightController.TimeMultiplier = speedUpTime;
                     fadeIn = false;
+                    fadeout = true;
                 }
             }
         }
@@ -56,12 +59,10 @@ public class SleepingBed : MonoBehaviour
             {
                 blackscreen.GetComponent<CanvasGroup>().alpha -= timeToFade * Time.deltaTime;
 
-                if (blackscreen.GetComponent<CanvasGroup>().alpha == 0)
+                if (blackscreen.GetComponent<CanvasGroup>().alpha <= 0)
                 {
+                    time.UpdateTimeOfDay(39600, true);
                     fadeout = false;
-                    dayAndNightController.TimeMultiplier = dayAndNightController.BasicTimeMultiplayer;
-                    player.GetComponent<CharacterMovement>().enabled = true;
-                    player.GetComponent<Character>().enabled = true;
                 }
             }
         }
@@ -107,7 +108,7 @@ public class SleepingBed : MonoBehaviour
 
     private void Dots()
     {
-        text.text = "Sleeping" + dots[dotNumber];
+        text.text = "Next day" + dots[dotNumber];
         dotNumber += 1;
 
         if(dotNumber == dots.Count)

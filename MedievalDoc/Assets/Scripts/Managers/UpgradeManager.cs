@@ -83,12 +83,15 @@ public class UpgradeManager : MonoBehaviour
     {
         if (craftingName == "MagicalCrafting")
         {
+
             //Instantiate(craftings[0], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MagicalCrafting
             RoomSpawnManger.spawnRoom(mushRoom[2], 2);
+
             OnUpgrade.Invoke(craftingName);
         }
         else if (craftingName == "MetalCrafting")
         {
+
             //Instantiate(craftings[1], new Vector3(16f, 0f, 16f), Quaternion.identity); // spawn MetalCrafting
             RoomSpawnManger.spawnRoom(mushRoom[3], 2);
             OnUpgrade.Invoke(craftingName);
@@ -150,17 +153,17 @@ public class UpgradeManager : MonoBehaviour
 
     private void Update() 
     {
-        if (dayController.DayCounter == 3 && upgradeCheckList[0] == false)
+        if (dayController.DayCounter == 3 && (dayController.CurrentTime.Hour >= 7 && dayController.CurrentTime.Hour < 20) && upgradeCheckList[0] == false)
         {
             upgradeCheckList[0] = true;
             ToolUpgrade();
         }
-        if (dayController.DayCounter == 4 && upgradeCheckList[1] == false)
+        if (dayController.DayCounter == 4 && (dayController.CurrentTime.Hour >= 7 && dayController.CurrentTime.Hour < 20) && upgradeCheckList[1] == false)
         {
             upgradeCheckList[1] = true;
             CraftingUpgrade();
         }
-        if (dayController.DayCounter == 2 && upgradeCheckList[2] == false)
+        if (dayController.DayCounter == 2 && (dayController.CurrentTime.Hour >= 7 && dayController.CurrentTime.Hour < 20) && upgradeCheckList[2] == false)
         {
             upgradeCheckList[2] = true;
             PlantUpgrade();
