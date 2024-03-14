@@ -105,11 +105,7 @@ public class DayAndNightController : MonoBehaviour
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
-        if (currentTime.Hour >= sunsetHour - 1 && PatientManager.Instance.patients.Count == 0)
-        {
-            Debug.Log("AAAAAAAA");
-            UpdateTimeOfDay(39600);
-        }
+        
     }
 
 

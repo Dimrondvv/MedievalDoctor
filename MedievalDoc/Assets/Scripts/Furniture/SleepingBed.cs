@@ -36,11 +36,12 @@ public class SleepingBed : MonoBehaviour
 
     private void Update()
     {
-        if ((time.CurrentTime.Hour >= 20 || time.CurrentTime.Hour < 7) && PatientManager.Instance.patients.Count == 0)
-            fadeIn = true;
-        if (fadeIn)
+        if ((time.CurrentTime.Hour >= 20 || time.CurrentTime.Hour < 7) && PatientManager.Instance.patients.Count == 0 && fadeout == false)
         {
-            Debug.Log("AAAAAAAAAA");
+            fadeIn = true;
+        }
+        if (fadeIn && !fadeout)
+        {
             if (blackscreen.GetComponent<CanvasGroup>().alpha <= 1)
             {
                 blackscreen.GetComponent<CanvasGroup>().alpha += timeToFade * Time.deltaTime;
@@ -58,8 +59,9 @@ public class SleepingBed : MonoBehaviour
             {
                 blackscreen.GetComponent<CanvasGroup>().alpha -= timeToFade * Time.deltaTime;
 
-                if (blackscreen.GetComponent<CanvasGroup>().alpha == 0)
+                if (blackscreen.GetComponent<CanvasGroup>().alpha <= 0)
                 {
+                    time.UpdateTimeOfDay(39600);
                     fadeout = false;
                 }
             }
