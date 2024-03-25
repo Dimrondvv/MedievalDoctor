@@ -49,6 +49,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        uiPrefab.SetActive(true);
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Pause.performed += PauseMenuFunction;
+    }
+
     public void DisableLoadingScreen()
     {
         loadingScreen.enabled = false;
@@ -79,7 +87,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void EnableNotebook()
+    private void EnableNotebook()
     {
 
         if(isPauseEnabled){
@@ -91,13 +99,13 @@ public class UIManager : MonoBehaviour
         isNotebookEnabled = true; 
         } 
     }
-    public void DisableNoteBook()
+    private void DisableNoteBook()
     {
         isNotebookEnabled = false;
         Destroy(instantiatedNotebook);
     }
 
-    private void ChangeNotebookState(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    public void ChangeNotebookState()
     {
         if (isNotebookEnabled)
             DisableNoteBook();
@@ -110,12 +118,5 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
     }
-    private void Start()
-    {
-        uiPrefab.SetActive(true);
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
-        playerInputActions.Player.Pause.performed += PauseMenuFunction;
-        playerInputActions.Player.Journal.performed += ChangeNotebookState;
-    }
+    
 }

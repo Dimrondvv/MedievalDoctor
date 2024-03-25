@@ -20,29 +20,10 @@ public class PatientNotebook : MonoBehaviour
         set { patient = value; }
     }
 
-    void Start()
-    {
-
-        if (PatientManager.Instance.patients.Count > 0)
-        {
-            SetNotebookSymptoms(PatientManager.Instance.patients[0]);
-            SetNotebookHistory(PatientManager.Instance.patients[0]);
-            SetPatientColor(PatientManager.Instance.patients[0]);
-            SetPatientName(PatientManager.Instance.patients[0]);
-        }
-        else
-        {
-            SetNotebookSymptoms(null);
-            SetNotebookHistory(null);
-            SetPatientColor(null);
-            SetPatientName(null);
-        }
-    }
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        playerInputActions.Player.RotateBlueprint.performed += ChangePatient;
         playerInputActions.Player.Bookmarks.performed += ChangeBookMark;
 
     }
@@ -84,22 +65,6 @@ public class PatientNotebook : MonoBehaviour
         patientName.text = patient.PatientName;
     }
 
-    public void ChangePatient(UnityEngine.InputSystem.InputAction.CallbackContext callback)
-    {
-        currentPatientIndex += (int)playerInputActions.Player.RotateBlueprint.ReadValue<float>();
-        if (currentPatientIndex >= PatientManager.Instance.patients.Count)
-        {
-            currentPatientIndex = 0;
-        }
-        else if(currentPatientIndex < 0)
-        {
-            currentPatientIndex = PatientManager.Instance.patients.Count - 1;
-        }
-        SetNotebookSymptoms(PatientManager.Instance.patients[currentPatientIndex]);
-        SetNotebookHistory(PatientManager.Instance.patients[currentPatientIndex]);
-        SetPatientColor(PatientManager.Instance.patients[currentPatientIndex]);
-        SetPatientName(PatientManager.Instance.patients[currentPatientIndex]);
-    }
     public void ChangeBookMark(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
         currentBookmarkIndex += (int)playerInputActions.Player.Bookmarks.ReadValue<float>();

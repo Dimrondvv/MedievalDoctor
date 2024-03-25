@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Tool : MonoBehaviour
+public class Tool : MonoBehaviour, IInteractable
 {
     //Key - bool which defines if symptom action is valid
     [SerializeField] private Sprite itemIcon;
@@ -26,6 +26,9 @@ public class Tool : MonoBehaviour
     {
         get { return itemIcon; }
     }
+
+    float IInteractable.InteractionTime { get => interactionTime; set => interactionTime = value; }
+
     private void Start()
     {
         OnToolInteract.AddListener(UseTool);

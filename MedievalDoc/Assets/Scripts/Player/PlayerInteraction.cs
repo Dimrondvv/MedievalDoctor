@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
         bool setFlag = false; //bool to check if the time was set
         if (controller.PickedItem != null) //Set the interact time to the time specified in the tool
         {
-            Tool pickedTool = controller.PickedItem.GetComponent<Tool>();
+            var pickedTool = controller.PickedItem.GetComponent<IInteractable>();
             if (pickedTool != null)
             {
                 interactTime = pickedTool.InteractionTime;
@@ -40,9 +40,9 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (SharedOverlapBox.HighestCollider != null && !setFlag) //If no tool in hand set the interact time to the time specified in crafting
         {
-            Crafting isCrafting = SharedOverlapBox.HighestCollider.GetComponent<Crafting>();
-            if (isCrafting != null)
-                interactTime = isCrafting.InteractionTime;
+            var interactable = SharedOverlapBox.HighestCollider.GetComponent<IInteractable>();
+            if (interactable != null)
+                interactTime = interactable.InteractionTime;
         }
 
         //IF MORE THINGS WITH SPECIFIED INTERACT TIME APPEAR ADD IFS HERE!!!!
