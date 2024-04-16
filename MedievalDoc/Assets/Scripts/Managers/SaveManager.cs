@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using Newtonsoft.Json;
+using System.IO;
 public class SaveManager : MonoBehaviour
 {
     private Dictionary<int, string> gameData; //int - key || string - json
@@ -15,13 +15,15 @@ public class SaveManager : MonoBehaviour
         App.Instance.GameplayCore.UnregisterSaveManager();
     }
 
-    public void SaveGameData<T>(T data)
+    public void SaveGameData<T>(T data, string fileName)
     {
-        
+        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+        File.WriteAllText(Application.persistentDataPath + "/" + fileName, json);
     }
 
-    public string RequestGameData(int key)
+    public T LoadGameData<T>(string fileName)
     {
-        return gameData[key];
+        string json = File.ReadAllText(Application.persistentDataPath + "/" + fileName);
+        return JsonConvert.DeserializeObject<T>(json);
     }
 }
