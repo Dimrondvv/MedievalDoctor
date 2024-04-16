@@ -7,10 +7,12 @@ public class GameplayCore
 {
     public UnityEvent<GameManager> OnGameManagerRegistered = new UnityEvent<GameManager>();
     public UnityEvent<LoadManager> OnLoadManagerRegistered = new UnityEvent<LoadManager>();
+    public UnityEvent<SaveManager> OnSaveManagerRegistered = new UnityEvent<SaveManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
 
     public GameManager GameManager { get; private set; }
     public LoadManager LoadManager { get; private set; }
+    public SaveManager SaveManager { get; private set; }
 
     public void Initialize()
     {
@@ -33,6 +35,12 @@ public class GameplayCore
         Debug.Log("LoadManager Registered");
         OnLoadManagerRegistered.Invoke(loadManager);
     }
+    public void RegisterSaveManager(SaveManager saveManager)
+    {
+        SaveManager = saveManager;
+        Debug.Log("SaveManagerManager Registered");
+        OnSaveManagerRegistered.Invoke(saveManager);
+    }
     public void UnregisterGameManager()
     {
         GameManager = null;
@@ -41,7 +49,10 @@ public class GameplayCore
     {
         LoadManager = null;
     }
-
+    public void UnregisterSaveManager()
+    {
+        SaveManager = null;
+    }
     public void PressPlay()
     {
         OnPlayPressed.Invoke();
