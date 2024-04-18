@@ -5,8 +5,6 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-    private static PlayerManager instance;
-    public static PlayerManager Instance { get { return instance; } }
     [SerializeField] private Animator animator;
     [SerializeField]
     private PickupController pickupController;
@@ -31,7 +29,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        App.Instance.GameplayCore.RegisterPlayerManager(this);
         score = 0;
         playerHealth = 100;
         money = 0;

@@ -61,7 +61,7 @@ public class Patient : MonoBehaviour
 
     private void Start()
     {
-        player = PlayerManager.Instance.PickupController.GetPickupController().gameObject;
+        player = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController().gameObject;
         isAlive = true;
     }
 
@@ -77,7 +77,7 @@ public class Patient : MonoBehaviour
         OnPatientDeath.Invoke(this);// Release the bed on death
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
-        PlayerManager.Instance.PlayerHealth -= 25;
+        App.Instance.GameplayCore.PlayerManager.PlayerHealth -= 25;
         Destroy(this.gameObject); // if dead = destroy object
     }
 

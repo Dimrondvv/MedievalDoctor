@@ -15,7 +15,7 @@ public class SnapBlueprint : MonoBehaviour
 
 
     private void Start() {
-        player = PlayerManager.Instance.PickupController.GetPickupController();
+        player = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
     }
     public GameObject Blueprint
     {

@@ -49,7 +49,7 @@ public class Tool : MonoBehaviour, IInteractable
         if (isOneUse)
         {
             Destroy(gameObject);
-            PlayerManager.Instance.PickupController.PickedItem = null;
+            App.Instance.GameplayCore.PlayerManager.PickupController.PickedItem = null;
         }
     }
 

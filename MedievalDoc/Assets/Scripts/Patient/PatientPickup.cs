@@ -13,9 +13,10 @@ public class PatientPickup : MonoBehaviour
     {
         PickupController.OnPickup.AddListener(PickupPatient);
         PickupController.OnPutdown.AddListener(PutdownPatient);
-        toolPickupPoint = PlayerManager.Instance.PickupController.GetToolPickupPoint();
-        player = PlayerManager.Instance.PickupController.GetPlayerGameObject();
-        playerController = PlayerManager.Instance.PickupController.GetPickupController();
+        PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+        toolPickupPoint = playerManager.PickupController.GetToolPickupPoint();
+        player = playerManager.PickupController.GetPlayerGameObject();
+        playerController = playerManager.PickupController.GetPickupController();
     }
 
     private void PickupPatient(GameObject pickedPatient, Transform objectPoint)

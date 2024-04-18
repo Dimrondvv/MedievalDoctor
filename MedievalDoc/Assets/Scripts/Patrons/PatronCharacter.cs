@@ -167,8 +167,9 @@ public class PatronCharacter : MonoBehaviour
 
     private void RewardForQuest()
     {
-        PlayerManager.Instance.Score += patronType.questList[questID].scoreReward;
-        PlayerManager.Instance.Money += patronType.questList[questID].goldReward;
+        PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+        playerManager.Score += patronType.questList[questID].scoreReward;
+        playerManager.Money += patronType.questList[questID].goldReward;
         isQuestActive = false;
         StartCoroutine(DelayBetweenQuests());
     }

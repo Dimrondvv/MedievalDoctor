@@ -19,10 +19,10 @@ public class Furniture : MonoBehaviour
     private void Start() {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-
-        furniturePickupPoint = PlayerManager.Instance.PickupController.GetFurniturePickupPoint();
-        player = PlayerManager.Instance.PickupController.GetPlayerGameObject();
-        playerController = PlayerManager.Instance.PickupController.GetPickupController();
+        
+        furniturePickupPoint = App.Instance.GameplayCore.PlayerManager.PickupController.GetFurniturePickupPoint();
+        player = App.Instance.GameplayCore.PlayerManager.PickupController.GetPlayerGameObject();
+        playerController = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
     }
 
 

@@ -43,7 +43,8 @@ public class Crafting : MonoBehaviour
             return;
 
         insertedItems[insertedItems.Count - 1].SetActive(true);
-        PlayerManager.Instance.PickupController.SetPickedItem(insertedItems[insertedItems.Count - 1]);
+        PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+        playerManager.PickupController.SetPickedItem(insertedItems[insertedItems.Count - 1]);
         insertedItems.RemoveAt(insertedItems.Count - 1);
     }
     public void CraftItem(GameObject station, PickupController player)

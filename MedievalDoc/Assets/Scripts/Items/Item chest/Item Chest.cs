@@ -28,7 +28,8 @@ public class ItemChest : MonoBehaviour
             return;
         Debug.Log("Take item");
         item = Instantiate(itemPrefab);
-        PlayerManager.Instance.PickupController.SetPickedItem(item);
+        PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+        playerManager.PickupController.SetPickedItem(item);
     }
     private void PutItemInChest(PickupController player, Transform objectType)
     {
@@ -49,7 +50,7 @@ public class ItemChest : MonoBehaviour
     {
         if (objectType.gameObject != gameObject)
             return;
-        PickupController playerController = PlayerManager.Instance.PickupController.GetPickupController();
+        PickupController playerController = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
         Transform furniturePickupPoint = playerController.GetFurniturePickupPoint();
         GameObject player = playerController.gameObject;
 

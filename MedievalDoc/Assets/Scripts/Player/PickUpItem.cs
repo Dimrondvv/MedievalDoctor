@@ -13,7 +13,7 @@ public class PickUpItem : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pickup.performed += PlayerPickup;
 
-        playerController = PlayerManager.Instance.PickupController.GetPickupController();
+        playerController = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
     }
 
     void PlayerPickup(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
