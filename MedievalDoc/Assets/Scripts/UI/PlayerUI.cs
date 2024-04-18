@@ -25,6 +25,7 @@ public class PlayerUI : MonoBehaviour
     {
         PickupController.OnPickup.AddListener(SetItemSlot);
         PickupController.OnPutdown.AddListener(NullItemSlot);
+
         patronCharacter = patron.GetComponent<PatronCharacter>();
         questText = questTXT.GetComponent<TMP_Text>();
         uiText = ui.GetComponent<TMP_Text>();

@@ -34,7 +34,7 @@ public class BaseState : IBaseState
 
     public virtual void OnExit(int next)
     {
-
+        Debug.LogFormat("Exiting State {0}", id);
     }
 
     public void SetParent(AppStateMachine parent)

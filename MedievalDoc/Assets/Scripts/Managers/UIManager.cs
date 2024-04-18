@@ -37,16 +37,9 @@ public class UIManager : MonoBehaviour
             isNotebookEnabled = value;
         }
     }
-
-    private static UIManager instance;
-    public static UIManager Instance
+    private void Awake()
     {
-        get
-        {
-            if (instance == null)
-                Debug.Log("UIManager is null");
-            return instance;
-        }
+        App.Instance.GameplayCore.RegisterUIManager(this);
     }
 
     private void Start()
@@ -56,7 +49,10 @@ public class UIManager : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
     }
-
+    private void OnDestroy()
+    {
+        App.Instance.GameplayCore.UnregisterUIManager();
+    }
     public void DisableLoadingScreen()
     {
         loadingScreen.enabled = false;
@@ -114,9 +110,5 @@ public class UIManager : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        instance = this;
-    }
     
 }

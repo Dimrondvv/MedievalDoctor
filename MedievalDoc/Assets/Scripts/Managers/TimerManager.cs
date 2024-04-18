@@ -20,7 +20,7 @@ public class TimerManager : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("OneSecondTimer", 0, 1);
-        timerText = UIManager.Instance.UiPrefab;
+        timerText = App.Instance.GameplayCore.UIManager.UiPrefab;
         elapsedTime = 0;
         timerChild = timerText.transform.GetChild(1).gameObject;
     }
@@ -33,7 +33,5 @@ public class TimerManager : MonoBehaviour
     void OneSecondTimer()
     {
         elapsedTime+=1;
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
     }
 }

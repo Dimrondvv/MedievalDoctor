@@ -7,11 +7,15 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public bool isPaused;
+    private UIManager ui;
+
 
     public void PauseFunction()
     {
+        ui = App.Instance.GameplayCore.UIManager;
+
         isPaused = true;
-        UIManager.Instance.IsPauseEnabled = true;
+        ui.IsPauseEnabled = true;
         //pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -19,9 +23,9 @@ public class Pause : MonoBehaviour
     public void ResumeFunction()
     {
         isPaused = false;
-        UIManager.Instance.IsNotebookEnabled = false;
-        UIManager.Instance.IsPauseEnabled = false;
-        UIManager.Instance.PauseMenu.SetActive(false);
+        ui.IsNotebookEnabled = false;
+        ui.IsPauseEnabled = false;
+        ui.PauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
@@ -33,6 +37,7 @@ public class Pause : MonoBehaviour
     public void MainMenu()
     {
         Debug.Log("MainMenu");
+        
         SceneManager.LoadScene(0);
         TimerManager.Instance.ElapsedTime = 0;
         Time.timeScale = 1f;

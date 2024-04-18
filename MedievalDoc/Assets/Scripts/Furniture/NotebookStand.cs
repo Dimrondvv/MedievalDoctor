@@ -20,7 +20,7 @@ public class NotebookStand : MonoBehaviour, IInteractable
         if (interactionObject != gameObject)
             return;
 
-        UIManager.Instance.ChangeNotebookState();
+        App.Instance.GameplayCore.UIManager.ChangeNotebookState();
         isNoteBookOn = !isNoteBookOn;
     }
 

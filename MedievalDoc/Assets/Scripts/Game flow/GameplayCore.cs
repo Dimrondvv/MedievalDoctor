@@ -10,6 +10,7 @@ public class GameplayCore
     public UnityEvent<SaveManager> OnSaveManagerRegistered = new UnityEvent<SaveManager>();
     public UnityEvent<PatientManager> OnPatientManagerRegistered = new UnityEvent<PatientManager>();
     public UnityEvent<PlayerManager> OnPlayerManagerRegistered = new UnityEvent<PlayerManager>();
+    public UnityEvent<UIManager> OnUIManagerRegistered = new UnityEvent<UIManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
 
     public GameManager GameManager { get; private set; }
@@ -17,6 +18,7 @@ public class GameplayCore
     public SaveManager SaveManager { get; private set; }
     public PatientManager PatientManager { get; private set; }
     public PlayerManager PlayerManager { get; private set; }
+    public UIManager UIManager { get; private set; }
 
     public void Initialize()
     {
@@ -48,14 +50,20 @@ public class GameplayCore
     public void RegisterPatientManager(PatientManager patientManager)
     {
         PatientManager = patientManager;
-        Debug.Log("SaveManagerManager Registered");
+        Debug.Log("PatientManager Registered");
         OnPatientManagerRegistered.Invoke(patientManager);
     }
     public void RegisterPlayerManager(PlayerManager playerManager)
     {
         PlayerManager = playerManager;
-        Debug.Log("SaveManagerManager Registered");
+        Debug.Log("PlayerManager Registered");
         OnPlayerManagerRegistered.Invoke(playerManager);
+    }
+    public void RegisterUIManager(UIManager uiManager)
+    {
+        UIManager = uiManager;
+        Debug.Log("UIManager Registered");
+        OnUIManagerRegistered.Invoke(uiManager);
     }
 
     public void UnregisterGameManager()
@@ -78,6 +86,11 @@ public class GameplayCore
     {
         PatientManager = null;
     }
+    public void UnregisterUIManager()
+    {
+        UIManager = null;
+    }
+
     public void PressPlay()
     {
         OnPlayPressed.Invoke();

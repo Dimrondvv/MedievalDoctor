@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         Patient.OnCureDisease.AddListener(IncrementScore);
-        uiText = UIManager.Instance.UiPrefab;
+        uiText = App.Instance.GameplayCore.UIManager.UiPrefab;
         uiTextChild = uiText.transform.GetChild(0).gameObject;
     }
     
