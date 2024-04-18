@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class PatientManager : MonoBehaviour
 {
-    private static PatientManager instance;
-    public static PatientManager Instance
-    {
-        get 
-        { 
-            return instance;
-        }
-    }
 
     public List<Patient> patients;
 
     private void Awake()
     {
-        if(instance == null)
-            instance = this;
+        App.Instance.GameplayCore.RegisterPatientManager(this);
     }
     private void Start()
     {
         Patient.OnCureDisease.AddListener(RemovePatientFromList);
         Patient.OnPatientDeath.AddListener(RemovePatientFromList);
     }
+    private void OnDestroy()
+    {
+        App.Instance.GameplayCore.UnregisterPatientManager();
+    }
 
     private void RemovePatientFromList(Patient patient)
     {
         patients.Remove(patient);
+        
     }
 }

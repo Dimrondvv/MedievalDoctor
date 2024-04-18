@@ -8,11 +8,13 @@ public class GameplayCore
     public UnityEvent<GameManager> OnGameManagerRegistered = new UnityEvent<GameManager>();
     public UnityEvent<LoadManager> OnLoadManagerRegistered = new UnityEvent<LoadManager>();
     public UnityEvent<SaveManager> OnSaveManagerRegistered = new UnityEvent<SaveManager>();
+    public UnityEvent<PatientManager> OnPatientManagerRegistered = new UnityEvent<PatientManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
 
     public GameManager GameManager { get; private set; }
     public LoadManager LoadManager { get; private set; }
     public SaveManager SaveManager { get; private set; }
+    public PatientManager PatientManager { get; private set; }
 
     public void Initialize()
     {
@@ -41,6 +43,12 @@ public class GameplayCore
         Debug.Log("SaveManagerManager Registered");
         OnSaveManagerRegistered.Invoke(saveManager);
     }
+    public void RegisterPatientManager(PatientManager patientManager)
+    {
+        PatientManager = patientManager;
+        Debug.Log("SaveManagerManager Registered");
+        OnPatientManagerRegistered.Invoke(patientManager);
+    }
     public void UnregisterGameManager()
     {
         GameManager = null;
@@ -52,6 +60,10 @@ public class GameplayCore
     public void UnregisterSaveManager()
     {
         SaveManager = null;
+    }
+    public void UnregisterPatientManager()
+    {
+        PatientManager = null;
     }
     public void PressPlay()
     {

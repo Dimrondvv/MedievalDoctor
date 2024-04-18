@@ -117,7 +117,7 @@ public class SpawnPatientTimer : MonoBehaviour
         {
             Patient.GetComponent<Patient>().SpawnerID = spawnerID;
             spawnedPatient = Instantiate(Patient, spawnPoints[spawnerID].transform.position, Quaternion.identity);
-            PatientManager.Instance.patients.Add(spawnedPatient.GetComponent<Patient>());   
+            App.Instance.GameplayCore.PatientManager.patients.Add(spawnedPatient.GetComponent<Patient>());   
             spawnedPatient.SetActive(true);
             spawnedPatient.GetComponent<Patient>().Health = GetComponent<Patient>().HealthMax;
             spawnedPatient.GetComponent<Patient>().Immune = false;
