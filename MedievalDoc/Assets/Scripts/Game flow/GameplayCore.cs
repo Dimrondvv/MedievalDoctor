@@ -11,6 +11,7 @@ public class GameplayCore
     public UnityEvent<PatientManager> OnPatientManagerRegistered = new UnityEvent<PatientManager>();
     public UnityEvent<PlayerManager> OnPlayerManagerRegistered = new UnityEvent<PlayerManager>();
     public UnityEvent<UIManager> OnUIManagerRegistered = new UnityEvent<UIManager>();
+    public UnityEvent<TimerManager> OnTimerManagerRegistered = new UnityEvent<TimerManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
 
     public GameManager GameManager { get; private set; }
@@ -19,6 +20,7 @@ public class GameplayCore
     public PatientManager PatientManager { get; private set; }
     public PlayerManager PlayerManager { get; private set; }
     public UIManager UIManager { get; private set; }
+    public TimerManager TimerManager { get; private set; }
 
     public void Initialize()
     {
@@ -65,6 +67,13 @@ public class GameplayCore
         Debug.Log("UIManager Registered");
         OnUIManagerRegistered.Invoke(uiManager);
     }
+    public void RegisterTimerManager(TimerManager timerManager)
+    {
+        TimerManager = timerManager;
+        Debug.Log("UIManager Registered");
+        OnTimerManagerRegistered.Invoke(timerManager);
+    }
+
 
     public void UnregisterGameManager()
     {
@@ -90,7 +99,10 @@ public class GameplayCore
     {
         UIManager = null;
     }
-
+    public void UnregisterTimerManager()
+    {
+        TimerManager = null;
+    }
     public void PressPlay()
     {
         OnPlayPressed.Invoke();

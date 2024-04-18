@@ -141,9 +141,10 @@ public class SpawnPatientTimer : MonoBehaviour
     }
     private void TimeCheck()
     {
-        if (TimerManager.Instance.ElapsedTime > 1)
+        float time = App.Instance.GameplayCore.TimerManager.ElapsedTime;
+        if (time > 1)
         {
-            if (TimerManager.Instance.ElapsedTime % SpawnTime == 0)
+            if (time % SpawnTime == 0)
             {
                 if (App.Instance.GameplayCore.GameManager.IsNight)
                 {

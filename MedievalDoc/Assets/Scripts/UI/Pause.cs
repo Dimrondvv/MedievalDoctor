@@ -39,7 +39,7 @@ public class Pause : MonoBehaviour
         Debug.Log("MainMenu");
         
         SceneManager.LoadScene(0);
-        TimerManager.Instance.ElapsedTime = 0;
+        App.Instance.GameplayCore.TimerManager.ElapsedTime = 0;
         Time.timeScale = 1f;
     }
 

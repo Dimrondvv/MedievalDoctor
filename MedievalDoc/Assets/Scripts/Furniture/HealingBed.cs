@@ -7,17 +7,19 @@ public class HealingBed : MonoBehaviour
     private int healingValue;
     private Patient patient;
     private int tempelapsedTime;
+    private TimerManager timerManager;
 
     private void Start()
     {
         healingValue = App.Instance.GameplayCore.GameManager.bedHealingValue;
+        timerManager = App.Instance.GameplayCore.TimerManager;
     }
     private void Update()
     {
-        if (tempelapsedTime < TimerManager.Instance.ElapsedTime)
+        if (tempelapsedTime < timerManager.ElapsedTime)
         {
             HealTick();
-            tempelapsedTime = TimerManager.Instance.ElapsedTime;
+            tempelapsedTime = timerManager.ElapsedTime;
         }
     }
     private void HealTick()
