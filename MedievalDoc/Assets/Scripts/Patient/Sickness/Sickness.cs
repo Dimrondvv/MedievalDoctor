@@ -6,6 +6,7 @@ using UnityEngine;
 public class SicknessScriptableObject : ScriptableObject
 {
     public string sicknessName;
+    public string sicknessDescritpion;
     public List<SymptomStruct> symptomList;
     public List<string> stories;
     public List<SolutionStruct> solutionList;
