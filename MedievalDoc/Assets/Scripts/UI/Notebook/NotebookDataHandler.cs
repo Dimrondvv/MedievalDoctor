@@ -20,13 +20,10 @@ public class NotebookDataHandler : MonoBehaviour
             LoadNotebookData();
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        SaveNotebookData();
     }
-
     private void WaitForManagerRegister(SaveManager mng)
     {
         saveManager = mng;
@@ -35,14 +32,18 @@ public class NotebookDataHandler : MonoBehaviour
     private void LoadNotebookData()
     {
         data = saveManager.LoadGameData<NotebookData>(notebookDataFileName + ".json");
-        if(data.discoveredIngredients == null)
+        if(!data.wasDataInitialized)
         {
             data = new NotebookData();
+            data.InitializeData();
             saveManager.SaveGameData<NotebookData>(data, notebookDataFileName + ".json");
+
         }
     }
     private void SaveNotebookData()
     {
         saveManager.SaveGameData<NotebookData>(data, notebookDataFileName + ".json");
     }
+
+
 }

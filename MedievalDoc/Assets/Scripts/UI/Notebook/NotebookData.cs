@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public struct NotebookData
 {
+    public bool wasDataInitialized;
+
     //KEY - discovered thing name || VALUE - discovered thing description
     public Dictionary<string, string> discoveredSicknesses;
     public Dictionary<string, string> discoveredRecipes;
@@ -17,9 +19,10 @@ public struct NotebookData
     public Dictionary<string, int> ingredientsDiscoveredDuringRun;
     public Dictionary<string, int> toolsDiscoveredDuringRun;
 
-
-    public NotebookData(int par = 1)
+    public void InitializeData()
     {
+        wasDataInitialized = true;
+
         discoveredSicknesses = new Dictionary<string, string>();
         discoveredRecipes = new Dictionary<string, string>();
         discoveredIngredients = new Dictionary<string, string>();
