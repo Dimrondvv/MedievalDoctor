@@ -19,11 +19,20 @@ public class SaveManager : MonoBehaviour
     {
         string json = JsonConvert.SerializeObject(data, Formatting.Indented);
         File.WriteAllText(Application.persistentDataPath + "/" + fileName, json);
+        Debug.Log($"SAVED FILE TO {Application.persistentDataPath + "/" + fileName}");
     }
 
     public T LoadGameData<T>(string fileName)
     {
-        string json = File.ReadAllText(Application.persistentDataPath + "/" + fileName);
-        return JsonConvert.DeserializeObject<T>(json);
+        try
+        {
+            string json = File.ReadAllText(Application.persistentDataPath + "/" + fileName);
+            Debug.Log($"LOADED FILE FROM {Application.persistentDataPath + "/" + fileName}");
+            return JsonConvert.DeserializeObject<T>(json);
+        }
+        catch
+        {
+            return default(T);
+        }
     }
 }

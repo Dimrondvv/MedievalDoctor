@@ -70,7 +70,7 @@ public class GameplayCore
     public void RegisterTimerManager(TimerManager timerManager)
     {
         TimerManager = timerManager;
-        Debug.Log("UIManager Registered");
+        Debug.Log("TimerManager Registered");
         OnTimerManagerRegistered.Invoke(timerManager);
     }
 
