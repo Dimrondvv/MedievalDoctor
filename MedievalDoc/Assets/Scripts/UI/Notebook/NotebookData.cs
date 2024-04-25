@@ -5,12 +5,14 @@ public struct NotebookData
 {
     public bool wasDataInitialized;
 
-    //KEY - discovered thing name || VALUE - discovered thing description
-    public Dictionary<string, string> discoveredSicknesses;
-    public Dictionary<string, string> discoveredRecipes;
-    public Dictionary<string, string> discoveredIngredients;
-    public Dictionary<string, string> discoveredTools;
-    public Dictionary<string, string> discoveredPatrons;
+    //KEY - discovered thing name || VALUE - discovered thing data
+    public Dictionary<string, DiscoveredData> discoveredSicknesses;
+    public Dictionary<string, DiscoveredData> discoveredRecipes;
+    public Dictionary<string, DiscoveredData> discoveredIngredients;
+    public Dictionary<string, DiscoveredData> discoveredTools;
+    public Dictionary<string, DiscoveredData> discoveredPatrons;
+
+
 
     //KEY - Name of thing || VALUE - number of interaction times 
     public Dictionary<string, int> sicknessesDiscoveredDuringRun;
@@ -23,11 +25,11 @@ public struct NotebookData
     {
         wasDataInitialized = true;
 
-        discoveredSicknesses = new Dictionary<string, string>();
-        discoveredRecipes = new Dictionary<string, string>();
-        discoveredIngredients = new Dictionary<string, string>();
-        discoveredTools = new Dictionary<string, string>();
-        discoveredPatrons = new Dictionary<string, string>();
+        discoveredSicknesses = new Dictionary<string, DiscoveredData>();
+        discoveredRecipes = new Dictionary<string, DiscoveredData>();
+        discoveredIngredients = new Dictionary<string, DiscoveredData>();
+        discoveredTools = new Dictionary<string, DiscoveredData>();
+        discoveredPatrons = new Dictionary<string, DiscoveredData>();
 
         toolsDiscoveredDuringRun = new Dictionary<string, int>();
         sicknessesDiscoveredDuringRun = new Dictionary<string, int>();

@@ -64,13 +64,19 @@ public class NotebookDataHandler : MonoBehaviour
         if (data.discoveredSicknesses.ContainsKey(sicknessName)) //If sickness is already discovered return
             return;
 
+        DiscoveredData sicknessData = new DiscoveredData
+        {
+            name = sicknessName,
+            description = sicknessDecsription
+        };
+
         if (data.sicknessesDiscoveredDuringRun.ContainsKey(sicknessName))
         {
             data.sicknessesDiscoveredDuringRun[sicknessName]++; //Increase count of sickness discovered during run, if the count discovered is higher than required add it to discovered permanently and remove from discovered during run
             
             if(data.sicknessesDiscoveredDuringRun[sicknessName] >= interactionsRequired)
             {
-                data.discoveredSicknesses.Add(sicknessName, sicknessDecsription);
+                data.discoveredSicknesses.Add(sicknessName, sicknessData);
                 data.sicknessesDiscoveredDuringRun.Remove(sicknessName);
             }
         }
@@ -80,7 +86,7 @@ public class NotebookDataHandler : MonoBehaviour
 
             if (data.sicknessesDiscoveredDuringRun[sicknessName] >= interactionsRequired)
             {
-                data.discoveredSicknesses.Add(sicknessName, sicknessDecsription);
+                data.discoveredSicknesses.Add(sicknessName, sicknessData);
                 data.sicknessesDiscoveredDuringRun.Remove(sicknessName);
             }
         }
@@ -90,8 +96,16 @@ public class NotebookDataHandler : MonoBehaviour
         Tool toolUsed = tool.GetComponent<Tool>();
         string toolName = toolUsed.ToolName;
         string toolDescription = toolUsed.ToolDescription;
+        Sprite toolIcon = toolUsed.ItemIcon;
         if (data.discoveredTools.ContainsKey(toolName)) //Return if tool already discovered
             return;
+
+        DiscoveredData toolData = new DiscoveredData
+        {
+            name = toolName,
+            description = toolDescription,
+            icon = toolIcon
+        };
 
         if (data.toolsDiscoveredDuringRun.ContainsKey(toolName)) //Same as in sickness
         {
@@ -99,7 +113,7 @@ public class NotebookDataHandler : MonoBehaviour
 
             if (data.toolsDiscoveredDuringRun[toolName] >= interactionsRequired)
             {
-                data.discoveredTools.Add(toolName, toolDescription);
+                data.discoveredTools.Add(toolName, toolData);
                 data.toolsDiscoveredDuringRun.Remove(toolName);
             }
         }
@@ -109,7 +123,7 @@ public class NotebookDataHandler : MonoBehaviour
 
             if (data.toolsDiscoveredDuringRun[toolName] >= interactionsRequired)
             {
-                data.discoveredTools.Add(toolName, toolDescription);
+                data.discoveredTools.Add(toolName, toolData);
                 data.toolsDiscoveredDuringRun.Remove(toolName);
             }
         }
@@ -121,13 +135,19 @@ public class NotebookDataHandler : MonoBehaviour
         if (data.discoveredRecipes.ContainsKey(recipeName)) //Return if recipe already discovered
             return;
 
+        DiscoveredData recipesData = new DiscoveredData 
+        {
+            name = recipeName,
+            description = recipeDescription
+        };
+
         if (data.recipesDiscoveredDuringRun.ContainsKey(recipeName)) //Same as in sickness
         {
             data.recipesDiscoveredDuringRun[recipeName]++;
 
             if (data.recipesDiscoveredDuringRun[recipeName] >= interactionsRequired)
             {
-                data.discoveredRecipes.Add(recipeName, recipeDescription);
+                data.discoveredRecipes.Add(recipeName, recipesData);
                 data.recipesDiscoveredDuringRun.Remove(recipeName);
             }
         }
@@ -137,7 +157,7 @@ public class NotebookDataHandler : MonoBehaviour
 
             if (data.recipesDiscoveredDuringRun[recipeName] >= interactionsRequired)
             {
-                data.discoveredRecipes.Add(recipeName, recipeDescription);
+                data.discoveredRecipes.Add(recipeName, recipesData);
                 data.recipesDiscoveredDuringRun.Remove(recipeName);
             }
         }
@@ -149,13 +169,19 @@ public class NotebookDataHandler : MonoBehaviour
         if (data.discoveredPatrons.ContainsKey(patronName)) //Return if recipe already discovered
             return;
 
+        DiscoveredData patronData = new DiscoveredData
+        {
+            name = patronName,
+            description = patronDescription
+        };
+
         if (data.patronsDiscoveredDuringRun.ContainsKey(patronName)) //Same as in sickness
         {
             data.patronsDiscoveredDuringRun[patronName]++;
 
             if (data.patronsDiscoveredDuringRun[patronName] >= interactionsRequired)
             {
-                data.discoveredPatrons.Add(patronName, patronDescription);
+                data.discoveredPatrons.Add(patronName, patronData);
                 data.patronsDiscoveredDuringRun.Remove(patronName);
             }
         }
@@ -165,7 +191,7 @@ public class NotebookDataHandler : MonoBehaviour
 
             if (data.patronsDiscoveredDuringRun[patronName] >= interactionsRequired)
             {
-                data.discoveredPatrons.Add(patronName, patronDescription);
+                data.discoveredPatrons.Add(patronName, patronData);
                 data.patronsDiscoveredDuringRun.Remove(patronName);
             }
         }
