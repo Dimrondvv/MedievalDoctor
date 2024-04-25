@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HolyCow
   m_EditorClassIdentifier: 
   patronName: HolyCow
+  patronDescription: A cow that is holy
   color: {fileID: 2100000, guid: 82f9830f2519d8847a5cd5dbb2cd0c59, type: 2}
   requirementsToSpawn:
   - symptom: {fileID: 11400000, guid: cdaa542aae5bd964aaa03713e1c8f457, type: 2}

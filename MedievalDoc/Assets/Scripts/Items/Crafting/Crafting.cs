@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Crafting : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Crafting : MonoBehaviour
     [SerializeField] private Transform resultLayDownPoint;
     [SerializeField] private float interactionTime;
     [SerializeField] private List<Transform> itemSlots;
+
+    public static UnityEvent<Recipe> OnCraftingCompleted = new UnityEvent<Recipe>();
     public float InteractionTime { get { return interactionTime; } }
 
     private void Start()
@@ -80,5 +83,6 @@ public class Crafting : MonoBehaviour
 
         GameObject result = Instantiate(recipe.result);
         result.transform.position = resultLayDownPoint.position;
+        OnCraftingCompleted.Invoke(recipe);
     }
 }

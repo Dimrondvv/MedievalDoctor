@@ -5,6 +5,7 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     public string recipeName;
+    public string recipeDescription;
     public GameObject result;
     public List<GameObject> requiredItems;
     public float timeRequiredToCraft;

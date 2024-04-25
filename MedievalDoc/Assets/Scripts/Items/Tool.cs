@@ -8,6 +8,7 @@ public class Tool : MonoBehaviour, IInteractable
     //Key - bool which defines if symptom action is valid
     [SerializeField] private Sprite itemIcon;
     [SerializeField] private string toolName;
+    [SerializeField] private string toolDescription;
     [SerializeField] private List<Symptom> symptomsAdded;
     [SerializeField] private List<Symptom> symptomsRemoved;
     [SerializeField] private List<Symptom> symptomsChecked;
@@ -19,9 +20,9 @@ public class Tool : MonoBehaviour, IInteractable
     public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
     public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
     public string ToolName { get { return toolName; } }
+    public string ToolDescription { get { return toolDescription; } }
     public float InteractionTime { get { return interactionTime; } }
 
-    private PlayerInputActions playerInputActions;
     public Sprite ItemIcon
     {
         get { return itemIcon; }

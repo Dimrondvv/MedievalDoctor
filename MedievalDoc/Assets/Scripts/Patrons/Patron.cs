@@ -8,6 +8,7 @@ using UnityEngine;
 public class PatronScriptableObject : ScriptableObject
 {
     public string patronName;
+    public string patronDescription;
     public Material color;
     public List<Requirements> requirementsToSpawn;
     public List<QuestScriptableObject> questList;

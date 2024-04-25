@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PatronsManager : MonoBehaviour
 {
     [SerializeField] GameObject Patron;
     [SerializeField] GameObject questInfo;
     [SerializeField] private List<PatronScriptableObject> Patrons;
+    public static UnityEvent<PatronScriptableObject> OnPatronSpawned = new UnityEvent<PatronScriptableObject>();
     GameManager gameManager;
     // only one patron can be spawned so if one is spawned set it to false
     private bool spawnable;
@@ -51,6 +53,7 @@ public class PatronsManager : MonoBehaviour
                         Patron.SetActive(true);
                         Patron.GetComponent<MeshRenderer>().material = Patrons[i].color;
                         Patron.GetComponent<PatronCharacter>().PatronType = Patrons[i];
+                        OnPatronSpawned.Invoke(Patron.GetComponent<PatronCharacter>().PatronType);
                         spawnable = false;
                     }
                 
