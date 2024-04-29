@@ -1,27 +1,29 @@
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 [System.Serializable]
-public struct NotebookData
+public class NotebookData
 {
-    public bool wasDataInitialized;
+    public bool wasDataInitialized { get; set; }
 
     //KEY - discovered thing name || VALUE - discovered thing data
-    public Dictionary<string, DiscoveredData> discoveredSicknesses;
-    public Dictionary<string, DiscoveredData> discoveredRecipes;
-    public Dictionary<string, DiscoveredData> discoveredIngredients;
-    public Dictionary<string, DiscoveredData> discoveredTools;
-    public Dictionary<string, DiscoveredData> discoveredPatrons;
+    [JsonProperty]public Dictionary<string, DiscoveredData> discoveredSicknesses { get; set; }
+    [JsonProperty] public Dictionary<string, DiscoveredData> discoveredRecipes { get; set; }
+    [JsonProperty] public Dictionary<string, DiscoveredData> discoveredIngredients { get; set; }
+    [JsonProperty] public Dictionary<string, DiscoveredData> discoveredTools { get; set; }
+    [JsonProperty] public Dictionary<string, DiscoveredData> discoveredPatrons { get; set; }
 
 
 
     //KEY - Name of thing || VALUE - number of interaction times 
-    public Dictionary<string, int> sicknessesDiscoveredDuringRun;
-    public Dictionary<string, int> recipesDiscoveredDuringRun;
-    public Dictionary<string, int> ingredientsDiscoveredDuringRun;
-    public Dictionary<string, int> toolsDiscoveredDuringRun;
-    public Dictionary<string, int> patronsDiscoveredDuringRun;
+    [JsonProperty] public Dictionary<string, int> sicknessesDiscoveredDuringRun { get; set; }
+    [JsonProperty] public Dictionary<string, int> recipesDiscoveredDuringRun { get; set; }
+    [JsonProperty] public Dictionary<string, int> ingredientsDiscoveredDuringRun { get; set; }
+    [JsonProperty] public Dictionary<string, int> toolsDiscoveredDuringRun { get; set; }
+    [JsonProperty] public Dictionary<string, int> patronsDiscoveredDuringRun { get; set; }
 
-    public void InitializeData()
+    public NotebookData()
     {
         wasDataInitialized = true;
 
@@ -36,4 +38,45 @@ public struct NotebookData
         recipesDiscoveredDuringRun = new Dictionary<string, int>();
         patronsDiscoveredDuringRun = new Dictionary<string, int>();
     }
+
+    public NotebookData(bool wasDataInitialized, Dictionary<string, DiscoveredData> discoveredSicknesses, Dictionary<string, DiscoveredData> discoveredRecipes, Dictionary<string, DiscoveredData> discoveredIngredients, Dictionary<string, DiscoveredData> discoveredTools, Dictionary<string, DiscoveredData> discoveredPatrons, Dictionary<string, int> sicknessesDiscoveredDuringRun, Dictionary<string, int> recipesDiscoveredDuringRun, Dictionary<string, int> ingredientsDiscoveredDuringRun, Dictionary<string, int> toolsDiscoveredDuringRun, Dictionary<string, int> patronsDiscoveredDuringRun)
+    {
+        this.wasDataInitialized = wasDataInitialized;
+        this.discoveredSicknesses = discoveredSicknesses;
+        this.discoveredRecipes = discoveredRecipes;
+        this.discoveredIngredients = discoveredIngredients;
+        this.discoveredTools = discoveredTools;
+        this.discoveredPatrons = discoveredPatrons;
+        this.sicknessesDiscoveredDuringRun = sicknessesDiscoveredDuringRun;
+        this.recipesDiscoveredDuringRun = recipesDiscoveredDuringRun;
+        this.ingredientsDiscoveredDuringRun = ingredientsDiscoveredDuringRun;
+        this.toolsDiscoveredDuringRun = toolsDiscoveredDuringRun;
+        this.patronsDiscoveredDuringRun = patronsDiscoveredDuringRun;
+    }
+
+    //[OnDeserialized]
+    //public void DeserializeData(StreamingContext context)
+    //{
+    //    foreach(var d in discoveredSicknesses)
+    //    {
+    //        d.Value.DeserializeIcon();
+    //    }
+    //    foreach (var d in discoveredRecipes)
+    //    {
+    //        d.Value.DeserializeIcon();
+    //    }
+    //    foreach (var d in discoveredIngredients)
+    //    {
+    //        d.Value.DeserializeIcon();
+    //    }
+    //    foreach (var d in discoveredTools)
+    //    {
+    //        d.Value.DeserializeIcon();
+    //    }
+    //    foreach (var d in discoveredPatrons)
+    //    {
+    //        d.Value.DeserializeIcon();
+    //    }
+
+    //}
 }

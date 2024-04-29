@@ -30,17 +30,20 @@ public class NotebookDataHandler : MonoBehaviour
     private void WaitForManagerRegister(SaveManager mng)
     {
         saveManager = mng;
+
+       
         LoadNotebookData();
     }
     private void LoadNotebookData()
     {
-        data = saveManager.LoadGameData<NotebookData>(notebookDataFileName + ".json");
-        if(!data.wasDataInitialized)
+        try
         {
+            data = saveManager.LoadGameData<NotebookDataRootObject>(notebookDataFileName + ".json").ntData;
+        }
+        catch
+        {
+            Debug.Log("Creating new instance of NotebookData");
             data = new NotebookData();
-            data.InitializeData();
-            saveManager.SaveGameData<NotebookData>(data, notebookDataFileName + ".json");
-
         }
     }
 
@@ -54,21 +57,20 @@ public class NotebookDataHandler : MonoBehaviour
 
     private void SaveNotebookData()
     {
-        saveManager.SaveGameData<NotebookData>(data, notebookDataFileName + ".json");
+        if (!data.wasDataInitialized)
+            data.wasDataInitialized = true;
+        saveManager.SaveGameData<NotebookDataRootObject>(new NotebookDataRootObject { ntData = data }, notebookDataFileName + ".json");
     }
 
     private void AddCuredSicknessToDict(Patient curedPatient)
     {
         string sicknessName = curedPatient.Sickness.sicknessName;
         string sicknessDecsription = curedPatient.Sickness.sicknessDescritpion;
+        
         if (data.discoveredSicknesses.ContainsKey(sicknessName)) //If sickness is already discovered return
             return;
 
-        DiscoveredData sicknessData = new DiscoveredData
-        {
-            name = sicknessName,
-            description = sicknessDecsription
-        };
+        DiscoveredData sicknessData = new DiscoveredData(sicknessName, sicknessDecsription, "avx");
 
         if (data.sicknessesDiscoveredDuringRun.ContainsKey(sicknessName))
         {
@@ -100,12 +102,8 @@ public class NotebookDataHandler : MonoBehaviour
         if (data.discoveredTools.ContainsKey(toolName)) //Return if tool already discovered
             return;
 
-        DiscoveredData toolData = new DiscoveredData
-        {
-            name = toolName,
-            description = toolDescription,
-            icon = toolIcon
-        };
+        DiscoveredData toolData = new DiscoveredData(toolName, toolDescription, toolIcon.name);
+        
 
         if (data.toolsDiscoveredDuringRun.ContainsKey(toolName)) //Same as in sickness
         {
@@ -135,11 +133,8 @@ public class NotebookDataHandler : MonoBehaviour
         if (data.discoveredRecipes.ContainsKey(recipeName)) //Return if recipe already discovered
             return;
 
-        DiscoveredData recipesData = new DiscoveredData 
-        {
-            name = recipeName,
-            description = recipeDescription
-        };
+        DiscoveredData recipesData = new DiscoveredData(recipeName, recipeDescription, "axc"); 
+        
 
         if (data.recipesDiscoveredDuringRun.ContainsKey(recipeName)) //Same as in sickness
         {
@@ -169,11 +164,7 @@ public class NotebookDataHandler : MonoBehaviour
         if (data.discoveredPatrons.ContainsKey(patronName)) //Return if recipe already discovered
             return;
 
-        DiscoveredData patronData = new DiscoveredData
-        {
-            name = patronName,
-            description = patronDescription
-        };
+        DiscoveredData patronData = new DiscoveredData(patronName, patronDescription, "acs");
 
         if (data.patronsDiscoveredDuringRun.ContainsKey(patronName)) //Same as in sickness
         {
