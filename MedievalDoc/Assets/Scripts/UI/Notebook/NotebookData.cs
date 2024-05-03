@@ -53,30 +53,4 @@ public class NotebookData
         this.toolsDiscoveredDuringRun = toolsDiscoveredDuringRun;
         this.patronsDiscoveredDuringRun = patronsDiscoveredDuringRun;
     }
-
-    //[OnDeserialized]
-    //public void DeserializeData(StreamingContext context)
-    //{
-    //    foreach(var d in discoveredSicknesses)
-    //    {
-    //        d.Value.DeserializeIcon();
-    //    }
-    //    foreach (var d in discoveredRecipes)
-    //    {
-    //        d.Value.DeserializeIcon();
-    //    }
-    //    foreach (var d in discoveredIngredients)
-    //    {
-    //        d.Value.DeserializeIcon();
-    //    }
-    //    foreach (var d in discoveredTools)
-    //    {
-    //        d.Value.DeserializeIcon();
-    //    }
-    //    foreach (var d in discoveredPatrons)
-    //    {
-    //        d.Value.DeserializeIcon();
-    //    }
-
-    //}
 }
