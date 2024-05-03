@@ -9,7 +9,7 @@ public class DiscoveredData
 {
     [JsonProperty] public string name { get; set; }
     [JsonProperty] public string description { get; set; }
-    [JsonProperty] public Sprite icon { get; set; }
+    [JsonIgnore] public Sprite icon { get; set; }
     [JsonProperty] public string iconName { get; set; }
 
     public DiscoveredData(string name, string description, string iconName)
@@ -24,6 +24,6 @@ public class DiscoveredData
     [OnDeserialized]
     public void DeserializeIcon(StreamingContext context)
     {
-        icon = Resources.Load<Sprite>("Sprites/Icons" + iconName);
+        icon = Resources.Load<Sprite>($"Icons/{iconName}");
     }
 }

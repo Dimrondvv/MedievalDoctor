@@ -8,7 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiPrefab;
     [SerializeField] private Canvas loadingScreen;
-   
+    [SerializeField] private NotebookDataHandler notebookDataHandler;
+
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
     public GameObject PauseMenu { get { return pauseMenu; } }
@@ -24,6 +25,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public NotebookDataHandler NotebookDataHandler
+    {
+        get { return notebookDataHandler; }
+        private set { notebookDataHandler = value; }
+    }
 
     private GameObject instantiatedNotebook;
     private bool isNotebookEnabled = false;

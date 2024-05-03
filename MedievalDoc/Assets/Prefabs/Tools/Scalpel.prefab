@@ -48,11 +48,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 2f1f3489e61fd7e408110ef88bdcc653, type: 3}
+  toolName: Scalpel
+  toolDescription: scalpel
   symptomsAdded:
   - {fileID: 11400000, guid: 347adea9f863f634695dff011f1f66e1, type: 2}
   - {fileID: 11400000, guid: dfd48d60727a0964297d2c032ba0be2e, type: 2}
   symptomsRemoved: []
   symptomsChecked: []
+  isOneUse: 0
+  interactionTime: 0
 --- !u!64 &8219617635775317190
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: c143d370579b02f43a713e51e6432670, type: 3}
-  toolName: 
+  toolName: Wand
+  toolDescription: Magic :o
   symptomsAdded:
   - {fileID: 11400000, guid: a541a7c7374d44c4e8e0621f8d9a9812, type: 2}
   symptomsRemoved:

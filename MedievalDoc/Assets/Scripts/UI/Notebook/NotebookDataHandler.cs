@@ -23,6 +23,26 @@ public class NotebookDataHandler : MonoBehaviour
         AddEventListeners();
         
     }
+
+    public Dictionary<string, DiscoveredData> RequestBookmarkData(string bookmarkName)
+    {
+        switch (bookmarkName)
+        {
+            case "tools":
+                return data.discoveredTools;
+            case "patrons":
+                return data.discoveredPatrons;
+            case "recipes":
+                return data.discoveredRecipes;
+            case "ingredients":
+                return data.discoveredIngredients;
+            case "sicknesses":
+                return data.discoveredSicknesses;
+            default:
+                return null;
+        }
+    }
+
     private void OnDestroy()
     {
         SaveNotebookData();
@@ -36,13 +56,13 @@ public class NotebookDataHandler : MonoBehaviour
     }
     private void LoadNotebookData()
     {
-        try
+        try //Try fetch data from SaveManager, if file does not exist avoid error by creating a new instance of the data
         {
             data = saveManager.LoadGameData<NotebookDataRootObject>(notebookDataFileName + ".json").ntData;
         }
         catch
         {
-            Debug.Log("Creating new instance of NotebookData");
+            Debug.Log("Creating new data instance");
             data = new NotebookData();
         }
     }
@@ -59,7 +79,7 @@ public class NotebookDataHandler : MonoBehaviour
     {
         if (!data.wasDataInitialized)
             data.wasDataInitialized = true;
-        saveManager.SaveGameData<NotebookDataRootObject>(new NotebookDataRootObject { ntData = data }, notebookDataFileName + ".json");
+        saveManager.SaveGameData<NotebookDataRootObject>(new NotebookDataRootObject(data), notebookDataFileName + ".json");
     }
 
     private void AddCuredSicknessToDict(Patient curedPatient)
