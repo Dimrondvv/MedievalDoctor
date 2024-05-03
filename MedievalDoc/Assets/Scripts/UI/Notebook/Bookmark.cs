@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 public class Bookmark : MonoBehaviour
 {
     [SerializeField] string bookmarkName;
     [SerializeField] TextMeshProUGUI nameTextField;
     [SerializeField] GridLayoutGroup iconLayout;
+    [SerializeField] NotebookContentPage notebookContentPage;
 
     private Dictionary<string, DiscoveredData> bookmarkData;
 
@@ -19,12 +21,15 @@ public class Bookmark : MonoBehaviour
         InstantiateBookmark();
     }
 
-    private void InstantiateBookmark()
+    private void InstantiateBookmark() //Dont initialize if the grid children count is higher than 0, since it means that the object has already been initialized
     {
-        if (iconLayout.transform.childCount > 0) //Dont initialize if the grid children count is higher than 0, since it means that the object has already been initialized
+        if (iconLayout.transform.childCount > 0)
+        {
+            notebookContentPage.GeneratePage(bookmarkData.First().Value);
             return;
-
+        }
         GenerateBookmarkIcons();
+        notebookContentPage.GeneratePage(bookmarkData.First().Value);
     }
 
     private void GenerateBookmarkIcons()
@@ -32,13 +37,19 @@ public class Bookmark : MonoBehaviour
 
         foreach (var data in bookmarkData.Values)
         {
-            GameObject imageObject = new GameObject($"Icon {data.name}");
+            GameObject imageObject = CreateIconButton(data);
             imageObject.transform.SetParent(iconLayout.transform);
-            Image img = imageObject.AddComponent<Image>();
-            img.sprite = data.icon;
         }
     }
 
+    private GameObject CreateIconButton(DiscoveredData data)
+    {
+        GameObject imageObject = new GameObject($"Icon {data.name}");
+        Image img = imageObject.AddComponent<Image>();
+        Button button = imageObject.AddComponent<Button>();
+        button.onClick.AddListener(delegate { notebookContentPage.GeneratePage(data); });
+        img.sprite = data.icon;
 
-
+        return imageObject;
+    }
 }

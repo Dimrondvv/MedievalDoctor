@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185503671e43e124ca3cbf53dec94105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notebookCanvas: {fileID: 0}
+  notebookCanvas: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+  pauseMenu: {fileID: 0}
   uiPrefab: {fileID: 0}
+  loadingScreen: {fileID: 0}
+  notebookDataHandler: {fileID: 0}
