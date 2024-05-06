@@ -63,6 +63,7 @@ public class Patient : MonoBehaviour
     {
         player = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController().gameObject;
         isAlive = true;
+        PatientManager.OnPatientSpawn.Invoke(this);
     }
 
 
@@ -73,6 +74,7 @@ public class Patient : MonoBehaviour
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
         App.Instance.GameplayCore.PlayerManager.PlayerHealth -= 25;
+        PickupController.OnInteract.RemoveListener(InteractWithPatient);
         Destroy(this.gameObject); // if dead = destroy object
     }
 
@@ -84,6 +86,15 @@ public class Patient : MonoBehaviour
     private void OnDisable()
     {
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
+    }
+
+    public void SetSickness(SicknessScriptableObject sickness)
+    {
+        this.sickness = sickness;
+        if(sickness.stories.Count > 0)
+            patientStory = sickness.stories[Random.Range(0, sickness.stories.Count - 1)];
+
+        CopySymptoms(sickness);
     }
 
     public void CopySymptoms(SicknessScriptableObject sickness)

@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PatientManager : MonoBehaviour
 {
-
-    public List<Patient> patients;
+    [SerializeField] public GameObject patientPrefab;
+    [SerializeField] public List<Patient> patients;
+    [SerializeField] public List<SicknessScriptableObject> sicknessPool; //List of sicknesses available to spawn
+    [SerializeField] public Names names;
+    public static UnityEvent<Patient> OnPatientSpawn = new UnityEvent<Patient>();
 
     private void Awake()
     {
@@ -15,6 +19,7 @@ public class PatientManager : MonoBehaviour
     {
         Patient.OnCureDisease.AddListener(RemovePatientFromList);
         Patient.OnPatientDeath.AddListener(RemovePatientFromList);
+        OnPatientSpawn.AddListener(AddPatientToList);
     }
     private void OnDestroy()
     {
@@ -24,6 +29,9 @@ public class PatientManager : MonoBehaviour
     private void RemovePatientFromList(Patient patient)
     {
         patients.Remove(patient);
-        
+    }
+    private void AddPatientToList(Patient patient)
+    {
+        patients.Add(patient);
     }
 }
