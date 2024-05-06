@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
     {
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
-        SpawnPatientTimer.OnPatientSpawn.AddListener(AddedPatient);
         Patient.OnPatientDeath.AddListener(RemovedPatient);
     }
 
@@ -76,11 +75,6 @@ public class GameManager : MonoBehaviour
             listOfAddedSymptoms.Add(symptom, 0);
             listOfRemovedSymptoms.Add(symptom, 0);
         }
-    }
-
-    private void AddedPatient(Patient patient)
-    {
-        listOfCurrentPatients.Add(patient);
     }
 
     private void RemovedPatient(Patient patient)

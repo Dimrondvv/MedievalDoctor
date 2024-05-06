@@ -68,11 +68,6 @@ public class Patient : MonoBehaviour
 
     public void Death()
     {
-        // Release the Chair if patients dies on it (Fix)
-        if (spawnerID >= 0)
-        {
-            SpawnPatientTimer.SpawnPoints[spawnerID].GetComponent<Chair>().IsOccupied = false;
-        }
 
         OnPatientDeath.Invoke(this);// Release the bed on death
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();

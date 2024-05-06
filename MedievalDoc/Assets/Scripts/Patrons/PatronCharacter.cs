@@ -8,7 +8,7 @@ public class PatronCharacter : MonoBehaviour
 {
     [SerializeField] private GameObject patron;
     [SerializeField] private DayAndNightController dayController;
-    [SerializeField] private SpawnPatientTimer spawnPatientTimer;
+    
 
     private int questID;
     public int QuestID
@@ -114,7 +114,6 @@ public class PatronCharacter : MonoBehaviour
         }
         if (patronType.questList[questID].type == QuestType.PatientQuest)
         {
-            killThisPatient = spawnPatientTimer.TrySpawning();
             Debug.Log("Kill this dude:" + killThisPatient.PatientName);
             Debug.Log("Patient quest");
         }

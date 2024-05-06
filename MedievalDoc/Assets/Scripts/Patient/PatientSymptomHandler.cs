@@ -105,12 +105,6 @@ public class PatientSymptomHandler : MonoBehaviour
         bool isCured = patient.Symptoms.Count == 0;
         if (isCured)
         {
-            // Release chair on curing? fix
-            if (patient.GetComponent<Patient>().SpawnerID >= 0)
-            {
-                SpawnPatientTimer.SpawnPoints[GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
-                GetComponent<Patient>().SpawnerID = -69;
-            }
             Patient.OnCureDisease.Invoke(patient);
         }
     }

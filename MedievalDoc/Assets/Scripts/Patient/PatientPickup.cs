@@ -37,7 +37,6 @@ public class PatientPickup : MonoBehaviour
             // Release chair (fix)
             if (pickedPatient.GetComponent<Patient>().SpawnerID >= 0)
             {
-                SpawnPatientTimer.SpawnPoints[pickedPatient.GetComponent<Patient>().SpawnerID].GetComponent<Chair>().IsOccupied = false;
                 GetComponent<Patient>().SpawnerID = -69;
             }
         }
