@@ -5,6 +5,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
+    [SerializeField] GameObject patientCardCanvas;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiPrefab;
     [SerializeField] private Canvas loadingScreen;
@@ -20,7 +21,7 @@ public class UIManager : MonoBehaviour
         {
             return isPauseEnabled;
         }
-        set{
+        set {
             isPauseEnabled = value;
         }
     }
@@ -31,8 +32,9 @@ public class UIManager : MonoBehaviour
         private set { notebookDataHandler = value; }
     }
 
-    private GameObject instantiatedNotebook;
+    private GameObject instantiatedUI;
     private bool isNotebookEnabled = false;
+    private bool isPatientCardEnabled = false;
     public bool IsNotebookEnabled
     {
         get
@@ -43,6 +45,18 @@ public class UIManager : MonoBehaviour
             isNotebookEnabled = value;
         }
     }
+    public bool IsPatientCardEnabled
+    {
+        get
+        {
+            return isPatientCardEnabled;
+        }
+        set
+        {
+            isPatientCardEnabled = value;
+        }
+    }
+
     private void Awake()
     {
         App.Instance.GameplayCore.RegisterUIManager(this);
@@ -69,7 +83,7 @@ public class UIManager : MonoBehaviour
 
         if(isNotebookEnabled){  // disable notebook instead of pausing the game
             isNotebookEnabled = false;
-            Destroy(instantiatedNotebook);
+            Destroy(instantiatedUI);
         }
 
         //GetComponent<Pause>().isPaused
@@ -96,15 +110,26 @@ public class UIManager : MonoBehaviour
             return;
         }
         else{
-        instantiatedNotebook = Instantiate(notebookCanvas);
-        instantiatedNotebook.SetActive(true);
+        instantiatedUI = Instantiate(notebookCanvas);
+        instantiatedUI.SetActive(true);
         isNotebookEnabled = true; 
         } 
     }
     private void DisableNoteBook()
     {
         isNotebookEnabled = false;
-        Destroy(instantiatedNotebook);
+        Destroy(instantiatedUI);
+    }
+
+    private void EnablePatientCard()
+    {
+        isPatientCardEnabled = true;
+        patientCardCanvas.GetComponent<PatientCard>().background.gameObject.SetActive(true);
+    }
+    private void DisablePatientCard()
+    {
+        isPatientCardEnabled = false;
+        patientCardCanvas.GetComponent<PatientCard>().background.gameObject.SetActive(false);
     }
 
     public void ChangeNotebookState()
@@ -113,8 +138,12 @@ public class UIManager : MonoBehaviour
             DisableNoteBook();
         else 
             EnableNotebook();
-
     }
-
-    
+    public void ChangePatientCardState()
+    {
+        if (isPatientCardEnabled)
+            DisablePatientCard();
+        else
+            EnablePatientCard();
+    }
 }

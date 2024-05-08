@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class PatientCard : MonoBehaviour
 {
-    [SerializeField] Image background;
+    [SerializeField] public Image background;
     [SerializeField] GameObject defaultState;
     [SerializeField] GameObject patientState;
     [SerializeField] TextMeshProUGUI patientName; 
@@ -14,14 +14,18 @@ public class PatientCard : MonoBehaviour
 
     void Start()
     {
-        PatientManager.OnPatientSpawn.AddListener(GoToPatientState);
+        PatientManager.OnPatientSpawnFinalized.AddListener(GoToPatientState);
         Patient.OnPatientDeath.AddListener(ReturnToDefaultState);
+        Patient.OnAddSymptom.AddListener(UpdateSymptoms);
+        Patient.OnRemoveSymptom.AddListener(UpdateSymptoms);
+        
     }
 
     
 
     private void ReturnToDefaultState(Patient patient)
     {
+        patientSymptomList.text = ""; //Reset patient symptom list
         patientState.SetActive(false);
         defaultState.SetActive(true);
     }
@@ -34,6 +38,18 @@ public class PatientCard : MonoBehaviour
 
     private void FillPatientInformation(Patient patient)
     {
+        patientName.text = patient.PatientName;
+        patientStory.text = patient.patientStory;
 
+        UpdateSymptoms(null, patient, null);
+    }
+
+    private void UpdateSymptoms(Symptom smpt, Patient patient, Tool tool)
+    {
+        patientSymptomList.text = ""; //Reset patient symptom list
+        foreach (var symptom in patient.symptoms)
+        {
+            patientSymptomList.text += $"- {symptom.GetSymptomName()} \n";
+        }
     }
 }

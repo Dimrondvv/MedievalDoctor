@@ -14,6 +14,13 @@ public class NotebookStand : MonoBehaviour, IInteractable
     {
         PickupController.OnInteract.AddListener(InteractWithStand);
     }
+    private void Update()
+    {
+        if (isNoteBookOn && SharedOverlapBox.HighestCollider.gameObject != gameObject)
+        {
+            InteractWithStand(gameObject, null);
+        }
+    }
 
     private void InteractWithStand(GameObject interactionObject, PickupController player)
     {
@@ -24,12 +31,6 @@ public class NotebookStand : MonoBehaviour, IInteractable
         isNoteBookOn = !isNoteBookOn;
     }
 
-    private void Update()
-    {
-        if (isNoteBookOn && SharedOverlapBox.HighestCollider.gameObject != gameObject)
-        {
-            InteractWithStand(gameObject, null);
-        }
-    }
+
 
 }

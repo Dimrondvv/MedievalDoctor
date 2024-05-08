@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7990382556419833910}
   - component: {fileID: 3687146953745333905}
   - component: {fileID: 1072565750933882180}
+  - component: {fileID: 4813624068837893842}
   m_Layer: 5
   m_Name: Patient Card
   m_TagString: Untagged
@@ -102,6 +103,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4813624068837893842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732741638234926446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4632911b13755c041ad98dfaa357bf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 6188689288528532004}
+  defaultState: {fileID: 3885395372203871369}
+  patientState: {fileID: 3415073203591925862}
+  patientName: {fileID: 7361890901213329883}
+  patientSymptomList: {fileID: 3712857671764622331}
+  patientStory: {fileID: 4536526607306162317}
 --- !u!1 &1098460483261542364
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +344,7 @@ GameObject:
   - component: {fileID: 8781867000319263481}
   - component: {fileID: 4536526607306162317}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Story text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,15 +358,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2645236456718650789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1514.2572}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6644638147479000626}
+  m_Father: {fileID: 5527716260742808544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138.05396, y: 260.5594}
+  m_AnchoredPosition: {x: 0, y: -268.99994}
   m_SizeDelta: {x: 250, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8781867000319263481
@@ -478,9 +497,7 @@ Transform:
   m_Children:
   - {fileID: 9102686411787211656}
   - {fileID: 5527716260742808544}
-  - {fileID: 667584240686497508}
   - {fileID: 6302019659974974361}
-  - {fileID: 97055394024496852}
   - {fileID: 6896279439750257971}
   m_Father: {fileID: 3252100834568601059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -647,7 +664,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -1514.2572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 667584240686497508}
   m_Father: {fileID: 6644638147479000626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -778,15 +796,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4291236079246455163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1514.2572}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6644638147479000626}
+  m_Father: {fileID: 6302019659974974361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170.94604, y: 259.5594}
+  m_AnchoredPosition: {x: 0, y: -269.99994}
   m_SizeDelta: {x: 300, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &847824059397026711
@@ -817,11 +835,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-Symptom1
-
-    -Symptom2
-
-    -Symptom3'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -919,7 +933,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -1514.2572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 97055394024496852}
   m_Father: {fileID: 6644638147479000626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1041,7 +1056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3252100834568601059
 RectTransform:
   m_ObjectHideFlags: 0
