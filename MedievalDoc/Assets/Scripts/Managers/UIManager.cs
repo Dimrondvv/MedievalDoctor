@@ -126,7 +126,7 @@ public class UIManager : MonoBehaviour
         isPatientCardEnabled = true;
         patientCardCanvas.GetComponent<PatientCard>().background.gameObject.SetActive(true);
     }
-    private void DisablePatientCard()
+    public void DisablePatientCard()
     {
         isPatientCardEnabled = false;
         patientCardCanvas.GetComponent<PatientCard>().background.gameObject.SetActive(false);

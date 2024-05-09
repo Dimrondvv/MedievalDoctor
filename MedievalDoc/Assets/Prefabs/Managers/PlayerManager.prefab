@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   pickupController: {fileID: 0}
+  playerObject: {fileID: 0}
+  playerHealth: 100
+  scoreToCashModifier: 2
+  scoreToHpModifier: 5

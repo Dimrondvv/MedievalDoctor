@@ -6,23 +6,26 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField]
-    private PickupController pickupController;
+    [SerializeField] private PickupController pickupController;
+    public GameObject playerObject;
     public PickupController PickupController { get { return pickupController; } }
 
-    private int score; // player score
+    private int score = 0; // player score
     public int Score { get { return score; } set { score = value; } }
 
-    private int playerHealth; // player Health (if =< 0 - game over)
+    [SerializeField] private int playerHealth; // player Health (if =< 0 - game over)
     public int PlayerHealth { get { return playerHealth; } set { playerHealth = value; } }
 
-    private int money; // money
+    private int money = 0; // money
     public int Money { get { return money; } set { money = value; } }
 
     private bool startProgressBar;
     public bool StartProgressBar { get { return startProgressBar; } set { startProgressBar = value; } }
 
-    public Animator GetAnimator { get { return animator; } set { animator = value; } } 
+    public Animator GetAnimator { get { return animator; } set { animator = value; } }
+
+    public int scoreToCashModifier;
+    public int scoreToHpModifier;
     
     private GameObject uiText;
     private GameObject uiTextChild;
@@ -30,23 +33,17 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         App.Instance.GameplayCore.RegisterPlayerManager(this);
-        score = 0;
-        playerHealth = 100;
-        money = 0;
     }
     private void Start()
     {
-        Patient.OnCureDisease.AddListener(IncrementScore);
         uiText = App.Instance.GameplayCore.UIManager.UiPrefab;
         uiTextChild = uiText.transform.GetChild(0).gameObject;
     }
-    
-    
-    private void IncrementScore(Patient patient)
-    {
-        score++;
-        money += 100;
-        Destroy(patient.gameObject);
-    }
 
+    public void UpdateStats(int health, int score, int cash)
+    {
+        playerHealth += health;
+        this.score += score;
+        money += cash;
+    }
 }

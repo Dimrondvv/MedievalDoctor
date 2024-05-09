@@ -11,6 +11,7 @@ public class PatientManager : MonoBehaviour
     [SerializeField] public Names names;
     public static UnityEvent<Patient> OnPatientSpawn = new UnityEvent<Patient>();
     public static UnityEvent<Patient> OnPatientSpawnFinalized = new UnityEvent<Patient>(); //Event called after patient stats are set
+    public static UnityEvent<Patient> OnPatientReleased = new UnityEvent<Patient>(); //Event called after patient stats are set
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class PatientManager : MonoBehaviour
         Patient.OnCureDisease.AddListener(RemovePatientFromList);
         Patient.OnPatientDeath.AddListener(RemovePatientFromList);
         OnPatientSpawn.AddListener(AddPatientToList);
+        OnPatientReleased.AddListener(RemovePatientFromList);
     }
     private void OnDestroy()
     {
@@ -34,5 +36,9 @@ public class PatientManager : MonoBehaviour
     private void AddPatientToList(Patient patient)
     {
         patients.Add(patient);
+    }
+    public void InvokePatientRelease()
+    {
+        OnPatientReleased.Invoke(App.Instance.GameplayCore.PatientManager.patients[0]);
     }
 }

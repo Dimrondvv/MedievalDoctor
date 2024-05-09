@@ -18,10 +18,14 @@ public class PatientCard : MonoBehaviour
         Patient.OnPatientDeath.AddListener(ReturnToDefaultState);
         Patient.OnAddSymptom.AddListener(UpdateSymptoms);
         Patient.OnRemoveSymptom.AddListener(UpdateSymptoms);
-        
+        PatientManager.OnPatientReleased.AddListener(HandlePatientRelease);
     }
 
-    
+    private void HandlePatientRelease(Patient patient)
+    {
+        ReturnToDefaultState(patient);
+        App.Instance.GameplayCore.UIManager.DisablePatientCard();
+    }
 
     private void ReturnToDefaultState(Patient patient)
     {

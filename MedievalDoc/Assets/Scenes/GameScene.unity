@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -836,6 +836,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812176828}
     - target: {fileID: 4235800773331941420, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
+      propertyPath: patronUI
+      value: 
+      objectReference: {fileID: 946952289}
+    - target: {fileID: 4235800773331941420, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
       propertyPath: questTXT
       value: 
       objectReference: {fileID: 946952289}
@@ -1136,12 +1140,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 801730023}
     - target: {fileID: 1879356677326525449, guid: c793b438b48145343a829d39acaca6e5, type: 3}
+      propertyPath: playerHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879356677326525449, guid: c793b438b48145343a829d39acaca6e5, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1329704475}
+    - target: {fileID: 1879356677326525449, guid: c793b438b48145343a829d39acaca6e5, type: 3}
       propertyPath: pickupController
       value: 
       objectReference: {fileID: 617745664}
     - target: {fileID: 1879356677326525449, guid: c793b438b48145343a829d39acaca6e5, type: 3}
       propertyPath: playerController
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879356677326525449, guid: c793b438b48145343a829d39acaca6e5, type: 3}
+      propertyPath: scoreToHpModifier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879356677326525449, guid: c793b438b48145343a829d39acaca6e5, type: 3}
+      propertyPath: scoreToCashModifier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8126698497718696754, guid: c793b438b48145343a829d39acaca6e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1498,7 +1518,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7506452884428406156, guid: 75a68369c2e8d504395e7c18861fd3e3, type: 3}
   m_PrefabInstance: {fileID: 1329704474}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1329704475}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f35ad1e1749f9644fbf3f846c0cf5aee, type: 3}
@@ -3124,6 +3144,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a68369c2e8d504395e7c18861fd3e3, type: 3}
+--- !u!1 &1329704475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3304654255836797244, guid: 75a68369c2e8d504395e7c18861fd3e3, type: 3}
+  m_PrefabInstance: {fileID: 1329704474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1331555446
 PrefabInstance:
   m_ObjectHideFlags: 0

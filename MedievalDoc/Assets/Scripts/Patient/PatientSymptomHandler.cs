@@ -73,28 +73,6 @@ public class PatientSymptomHandler : MonoBehaviour
         }
     }
 
-    private bool IsToolValid(Patient patient, Tool tool)
-    {
-        foreach (var item in tool.SymptomsRemoved)
-        {
-            if (symptomDependencies.canSymptomBeRemoved(item, patient) == false)
-                return false;
-        }
-        foreach (var item in tool.SymptomsAdded)
-        {
-            if (symptomDependencies.canSymptomBeAdded(item, patient) == false)
-                return false;
-        }
-        foreach (var item in tool.SymptomsChecked)
-        {
-            if (symptomDependencies.canSymptomBeChecked(item, patient) == false)
-                return false;
-        }
-
-
-        return true;
-    }
-
 
     private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
     {

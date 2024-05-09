@@ -17,7 +17,8 @@ public class CardInteraction : MonoBehaviour, IInteractable
     {
         if (isCardOn && SharedOverlapBox.HighestCollider.gameObject != gameObject)
         {
-            InteractWithCard(gameObject, null);
+            App.Instance.GameplayCore.UIManager.DisablePatientCard();
+            isCardOn = false;
         }
     }
     private void InteractWithCard(GameObject interactionObject, PickupController player)

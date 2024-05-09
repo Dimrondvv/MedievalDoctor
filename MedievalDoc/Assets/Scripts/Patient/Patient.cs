@@ -61,9 +61,10 @@ public class Patient : MonoBehaviour
 
     private void Start()
     {
-        player = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController().gameObject;
+        player = App.Instance.GameplayCore.PlayerManager.playerObject;
         isAlive = true;
         PatientManager.OnPatientSpawn.Invoke(this);
+        PatientManager.OnPatientReleased.AddListener(ReleasePatient);
     }
 
 
@@ -73,9 +74,8 @@ public class Patient : MonoBehaviour
         OnPatientDeath.Invoke(this);// Release the bed on death
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
-        App.Instance.GameplayCore.PlayerManager.PlayerHealth -= 25;
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
-        Destroy(this.gameObject); // if dead = destroy object
+        Destroy(gameObject); // if dead = destroy object
     }
 
     private void OnEnable()
@@ -125,6 +125,17 @@ public class Patient : MonoBehaviour
         symptoms.Add(symptomStruct);
     }
 
+    private int CalculateSCore()
+    {
+        int score = 0;
+
+        foreach(var symptom in symptoms)
+        {
+            score += symptom.symptom.score;
+        }
+
+        return score;
+    }
 
     public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {
@@ -134,7 +145,24 @@ public class Patient : MonoBehaviour
         {
             Tool.OnToolInteract.Invoke(controller.PickedItem, this);
         }
-        
     }
 
+    private void UpdatePlayerScore()
+    {
+        int score = CalculateSCore();
+        PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+        int hpModifier = playerManager.scoreToHpModifier;
+        int cashModifier = playerManager.scoreToCashModifier;
+
+        playerManager.UpdateStats(score / hpModifier, score, score / cashModifier); //Updat stats with values of score divided by respective modifiers
+    }
+
+    private void ReleasePatient(Patient patient)
+    {
+        if (patient != this)
+            return;
+
+        UpdatePlayerScore();
+        Destroy(gameObject); //TODO - animation of walking out
+    }
 }
