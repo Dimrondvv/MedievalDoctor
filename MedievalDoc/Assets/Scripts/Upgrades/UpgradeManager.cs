@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
+    [SerializeField] public List<Upgrade> upgrades;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        App.Instance.GameplayCore.RegisterUpgradeManager(this);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        App.Instance.GameplayCore.UnregisterUpgradeManager();
     }
+    
 }

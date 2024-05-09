@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Upgrade : MonoBehaviour
+public class Upgrade : ScriptableObject
 {
-    [SerializeField] GameObject roomPrefab;
-    [SerializeField] List<SicknessScriptableObject> sicknessesAdded;
-    [SerializeField] string upgradeName;
-    [SerializeField] string upgradeDescription;
-    [SerializeField] Image upgradeIcon;
+    [SerializeField] public GameObject roomPrefab;
+    [SerializeField] public List<SicknessScriptableObject> sicknessesAdded;
+    [SerializeField] public string upgradeName;
+    [SerializeField] public string upgradeDescription;
+    [SerializeField] public Image upgradeIcon;
 
 }
