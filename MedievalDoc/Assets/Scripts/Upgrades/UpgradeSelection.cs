@@ -38,6 +38,7 @@ public static class UpgradeSelection
         {
             App.Instance.GameplayCore.PatientManager.sicknessPool.Add(sickness);
         }
+        Debug.Log($"Selected upgrade {upgrade.upgradeName}");
         //TODO - spawn room
     }
 

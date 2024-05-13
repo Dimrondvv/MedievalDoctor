@@ -17,6 +17,15 @@ public class UpgradeUI : MonoBehaviour
         ClearUpgradeBoard();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            ClearUpgradeBoard();
+            InitializeUpgradeBoard();
+        }
+    }
+
     public void InitializeUpgradeBoard()
     {
         List <Upgrade> upgrades = UpgradeSelection.PickUpgrades(upgradeIcons.Count);
@@ -29,17 +38,29 @@ public class UpgradeUI : MonoBehaviour
 
     private void ClearUpgradeBoard()
     {
+        
         for(int i = 0; i < upgradeIcons.Count; i++)
         {
-            upgradeIcons[i] = null;
+            upgradeIcons[i].sprite = null;
             upgradeNames[i].text = "";
             upgradeDescriptions[i].text = "";
         }
     }
     private void SetUpgradeSlot(int index, Upgrade upgrade)
     {
-        upgradeIcons[index] = upgrade.upgradeIcon;
+        upgradeIcons[index].sprite = upgrade.upgradeIcon;
         upgradeNames[index].text = upgrade.upgradeName;
         upgradeDescriptions[index].text = upgrade.upgradeDescription;
+        var btn = upgradeIcons[index].gameObject.GetComponent<Button>();
+        if (btn == null)
+        {
+            btn = upgradeIcons[index].gameObject.AddComponent<Button>();
+        }
+        else
+        {
+            btn.onClick.RemoveAllListeners();
+        }
+        btn.onClick.AddListener(delegate { UpgradeSelection.SelectUpgrade(upgrade); });
+
     }
 }

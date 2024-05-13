@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.37678885, b: 0.37678885, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.297419, b: 0.297419, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -844,13 +844,14 @@ GameObject:
   - component: {fileID: 7413357164553154714}
   - component: {fileID: 6217484246235134065}
   - component: {fileID: 2282488031748274378}
+  - component: {fileID: 1738635828598283298}
   m_Layer: 5
   m_Name: UpgradeWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7205475130325725061
 RectTransform:
   m_ObjectHideFlags: 0
@@ -937,6 +938,30 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1738635828598283298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979258748053996015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318cf1009f1684341b9cf24be629dbe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeIcons:
+  - {fileID: 871675608129887326}
+  - {fileID: 8119827546273823638}
+  - {fileID: 6712633040283898589}
+  upgradeNames:
+  - {fileID: 7897307346882632383}
+  - {fileID: 8599420218287739135}
+  - {fileID: 1682567871632543197}
+  upgradeDescriptions:
+  - {fileID: 3976739391999961307}
+  - {fileID: 658962013162158242}
+  - {fileID: 5297406191216234330}
 --- !u!1 &7279836415257806024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.745283, g: 0.1364008, b: 0.1364008, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
