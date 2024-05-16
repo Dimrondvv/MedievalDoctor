@@ -15,6 +15,11 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private float timeMultiplier; // How fast time pass in the game
 
+    public float TimeMultiplier {
+        get { return timeMultiplier;  }
+        set { timeMultiplier = value;  }
+    }
+
     [SerializeField]
     private float startHour; // On what hour day should start
 
