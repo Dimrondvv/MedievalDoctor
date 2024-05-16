@@ -11,28 +11,25 @@ public class DaySummaryManager : MonoBehaviour
     [SerializeField]
     private PatientManager patientManager;
 
-    [SerializeField]
-    private int summaryHour = 18;
 
     private DateTime time;
     
     // Start is called before the first frame update
     void Start()
     {
-
+        dayAndNightController.OnEndOfaDay.AddListener(stopTime);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        time = dayAndNightController.CurrentTime;
- 
-        if (time.Hour >= summaryHour && patientManager.patients.Count == 1) {
-            dayAndNightController.TimeMultiplier = 0;
-            Debug.Log("========= STOP THE TIME =========");
-        }
+    }
 
-       
+    void stopTime(float endTime) {
+        dayAndNightController.TimeMultiplier = endTime;
+        Debug.Log("========= STOP THE TIME =========");
+        
+        
     }
 }

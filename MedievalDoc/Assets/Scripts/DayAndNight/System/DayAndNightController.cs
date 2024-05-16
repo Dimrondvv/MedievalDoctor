@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DayAndNightController : MonoBehaviour
 {
 
     [SerializeField] 
     private bool isSunRotating = true;
+
 
     [SerializeField] PatronCharacter patronCharacter;
 
@@ -68,7 +70,7 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private GameObject LightsToTurnOn;
 
-
+    public UnityEvent<float> OnEndOfaDay; // This is ev
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -80,6 +82,8 @@ public class DayAndNightController : MonoBehaviour
         set { currentTime = value; }
     }
 
+    private int numberOfPatient;
+
 
 
     // Start is called before the first frame update
@@ -88,6 +92,7 @@ public class DayAndNightController : MonoBehaviour
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+        numberOfPatient = App.Instance.GameplayCore.PatientManager.patients.Count;
     }
 
     // Update is called once per frame
@@ -120,6 +125,10 @@ public class DayAndNightController : MonoBehaviour
                 patronCharacter.DisableQuest();
             }
 
+        }
+
+        if(currentTime.Hour >= 13 && numberOfPatient == 0) {
+            OnEndOfaDay?.Invoke(0);
         }
     }
 
