@@ -29,7 +29,5 @@ public class DaySummaryManager : MonoBehaviour
     void stopTime(float endTime) {
         dayAndNightController.TimeMultiplier = endTime;
         Debug.Log("========= STOP THE TIME =========");
-        
-        
     }
 }

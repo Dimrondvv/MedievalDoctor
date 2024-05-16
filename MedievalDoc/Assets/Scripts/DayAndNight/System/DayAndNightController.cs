@@ -127,7 +127,7 @@ public class DayAndNightController : MonoBehaviour
 
         }
 
-        if(currentTime.Hour >= 13 && numberOfPatient == 0) {
+        if(currentTime.Hour >= 13) {
             OnEndOfaDay?.Invoke(0);
         }
     }
