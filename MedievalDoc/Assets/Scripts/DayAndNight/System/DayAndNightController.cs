@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class DayAndNightController : MonoBehaviour
 {
 
+    [SerializeField] 
+    private bool isSunRotating = true;
+
     [SerializeField] PatronCharacter patronCharacter;
 
     [SerializeField]
@@ -116,6 +119,8 @@ public class DayAndNightController : MonoBehaviour
     }
 
     private void RotateSun() {
+       
+
         float sunLightRotation;
 
         if (currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime) {
@@ -137,7 +142,10 @@ public class DayAndNightController : MonoBehaviour
         clock.transform.rotation = Quaternion.AngleAxis(sunLightRotation - 68, Vector3.back);
         //Debug.Log(sunLightRotation);
         //sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
-        sunLight.transform.eulerAngles = new Vector3(sunLightRotation, sunRotationY, 0);
+
+        if (isSunRotating) {
+            sunLight.transform.eulerAngles = new Vector3(sunLightRotation, sunRotationY, 0);
+        }
 
     }
 
