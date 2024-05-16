@@ -53,7 +53,8 @@ public class PatientCard : MonoBehaviour
         patientSymptomList.text = ""; //Reset patient symptom list
         foreach (var symptom in patient.symptoms)
         {
-            patientSymptomList.text += $"- {symptom.GetSymptomName()} \n";
+            if(!symptom.isHidden)
+                patientSymptomList.text += $"- {symptom.GetSymptomName()} \n";
         }
     }
 }

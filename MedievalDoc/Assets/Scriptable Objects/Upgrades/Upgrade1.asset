@@ -18,3 +18,10 @@ MonoBehaviour:
   upgradeName: Upgrade1
   upgradeDescription: costamcostam
   upgradeIcon: {fileID: 21300000, guid: 6052723c28e8a4a48a44d8ef286ff336, type: 3}
+  requirements:
+  - type: 1
+    count: 1
+    name: "Brak ko\u0144czyny"
+  - type: 2
+    count: 1
+    name: CuttingSaw

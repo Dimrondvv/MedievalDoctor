@@ -11,6 +11,7 @@ public static class UpgradeSelection
 
         List<Upgrade> selectedUpgrades = new List<Upgrade>();
         List<Upgrade> upgrades = App.Instance.GameplayCore.UpgradeManager.upgrades;
+        List<Upgrade> upgradesChecked = new List<Upgrade>();
 
         if (upgradeCount > upgrades.Count) //Avoid infinite while loops
         {
@@ -22,11 +23,20 @@ public static class UpgradeSelection
         while (selectedUpgrades.Count < upgradeCount)
         {
             int rand = Random.Range(0, upgrades.Count);
-
-            if (!selectedUpgrades.Contains(upgrades[rand]))
+            bool reqNotmet = false;
+            if (!selectedUpgrades.Contains(upgrades[rand]) && !upgradesChecked.Contains(upgrades[rand]))
             {
-                selectedUpgrades.Add(upgrades[rand]);
+                foreach(var req in upgrades[rand].requirements)
+                {
+                    if (!req.CheckRequirement())
+                        reqNotmet = true;
+                }
+                if(!reqNotmet)
+                    selectedUpgrades.Add(upgrades[rand]);
+                upgradesChecked.Add(upgrades[rand]);
             }
+            if (upgrades.Count - upgradesChecked.Count == 0)
+                break;
         }
 
         return selectedUpgrades;

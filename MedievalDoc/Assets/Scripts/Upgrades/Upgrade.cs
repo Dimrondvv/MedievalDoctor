@@ -11,5 +11,6 @@ public class Upgrade : ScriptableObject
     [SerializeField] public string upgradeName;
     [SerializeField] public string upgradeDescription;
     [SerializeField] public Sprite upgradeIcon;
+    [SerializeField] public List<Requirement> requirements;
 
 }

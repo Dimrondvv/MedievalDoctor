@@ -60,7 +60,12 @@ public class UpgradeUI : MonoBehaviour
         {
             btn.onClick.RemoveAllListeners();
         }
-        btn.onClick.AddListener(delegate { UpgradeSelection.SelectUpgrade(upgrade); });
+        btn.onClick.AddListener(delegate { OnClickUpgrade(upgrade); });
 
+    }
+
+    private void OnClickUpgrade(Upgrade upgrade)
+    {
+        UpgradeSelection.SelectUpgrade(upgrade); 
     }
 }
