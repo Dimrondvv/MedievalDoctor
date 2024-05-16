@@ -49,7 +49,8 @@ public static class UpgradeSelection
             App.Instance.GameplayCore.PatientManager.sicknessPool.Add(sickness);
         }
         Debug.Log($"Selected upgrade {upgrade.upgradeName}");
-        //TODO - spawn room
+        List<Transform> spawnPoints = App.Instance.GameplayCore.UpgradeManager.roomSpawnPoints;
+        GameObject.Instantiate(upgrade.roomPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)]);
     }
 
 }
