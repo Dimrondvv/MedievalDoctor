@@ -9,10 +9,13 @@ public class DaySummaryManager : MonoBehaviour
     private DayAndNightController dayAndNightController;
 
     [SerializeField]
+    private PatientManager patientManager;
+
+    [SerializeField]
     private int summaryHour = 18;
 
     private DateTime time;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +25,14 @@ public class DaySummaryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         time = dayAndNightController.CurrentTime;
  
-        if (time.Hour >= summaryHour) {
+        if (time.Hour >= summaryHour && patientManager.patients.Count == 1) {
             dayAndNightController.TimeMultiplier = 0;
+            Debug.Log("========= STOP THE TIME =========");
         }
 
-        Debug.Log(time);
+       
     }
 }
