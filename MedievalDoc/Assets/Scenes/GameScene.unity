@@ -1463,7 +1463,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayAndNightController: {fileID: 1873233452}
-  summaryHour: 13
+  SummaryUI: {fileID: 9024034326732092549, guid: c16cf95ab9134b046bd3074bbc9cd52b, type: 3}
+  isSummaryState: 0
+  isTimeStoped: 0
 --- !u!1 &558231612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}

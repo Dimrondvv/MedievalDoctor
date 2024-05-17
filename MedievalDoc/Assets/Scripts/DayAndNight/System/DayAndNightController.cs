@@ -70,7 +70,7 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private GameObject LightsToTurnOn;
 
-    public UnityEvent<float> OnEndOfaDay; // This is ev
+    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>(); // This is ev
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -82,9 +82,9 @@ public class DayAndNightController : MonoBehaviour
         set { currentTime = value; }
     }
 
-    private int numberOfPatient;
 
 
+    bool UseJustOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -92,7 +92,6 @@ public class DayAndNightController : MonoBehaviour
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
-        numberOfPatient = App.Instance.GameplayCore.PatientManager.patients.Count;
     }
 
     // Update is called once per frame
@@ -127,9 +126,13 @@ public class DayAndNightController : MonoBehaviour
 
         }
 
-        if(currentTime.Hour >= 13) {
+        
+        if(currentTime.Hour == 13 && !UseJustOnce) {
+            UseJustOnce = true;
+            Debug.Log("chuj");
             OnEndOfaDay?.Invoke(0);
-        }
+        } 
+
     }
 
     private void RotateSun() {
