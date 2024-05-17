@@ -44,4 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85979dfafd63d44cac9a1a9d6b13045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: efd31e174e1364c4396e359b903636d7, type: 2}
+  - {fileID: 11400000, guid: 11d67e0a62ef9ce45bd34c58bd2660f2, type: 2}
+  - {fileID: 11400000, guid: 232d064eed73f074488141e5c1967997, type: 2}
+  roomSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -86,11 +86,12 @@ public class NotebookDataHandler : MonoBehaviour
     {
         string sicknessName = curedPatient.Sickness.sicknessName;
         string sicknessDecsription = curedPatient.Sickness.sicknessDescritpion;
+        Sprite sicknessIcon = curedPatient.Sickness.icon;
         
         if (data.discoveredSicknesses.ContainsKey(sicknessName)) //If sickness is already discovered return
             return;
 
-        DiscoveredData sicknessData = new DiscoveredData(sicknessName, sicknessDecsription, "avx");
+        DiscoveredData sicknessData = new DiscoveredData(sicknessName, sicknessDecsription, sicknessIcon.name);
 
         if (data.sicknessesDiscoveredDuringRun.ContainsKey(sicknessName))
         {
@@ -150,10 +151,11 @@ public class NotebookDataHandler : MonoBehaviour
     {
         string recipeName = recipe.recipeName;
         string recipeDescription = recipe.recipeDescription;
+        Sprite recipeIcon = recipe.icon;
         if (data.discoveredRecipes.ContainsKey(recipeName)) //Return if recipe already discovered
             return;
 
-        DiscoveredData recipesData = new DiscoveredData(recipeName, recipeDescription, "axc"); 
+        DiscoveredData recipesData = new DiscoveredData(recipeName, recipeDescription, recipeIcon.name); 
         
 
         if (data.recipesDiscoveredDuringRun.ContainsKey(recipeName)) //Same as in sickness

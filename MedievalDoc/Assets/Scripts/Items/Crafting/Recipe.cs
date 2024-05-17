@@ -10,6 +10,7 @@ public class Recipe : ScriptableObject
     public List<GameObject> requiredItems;
     public float timeRequiredToCraft;
     public bool isOrderSensitive;
+    public Sprite icon;
 
     public bool CheckReq(List<GameObject> itemList)
     {

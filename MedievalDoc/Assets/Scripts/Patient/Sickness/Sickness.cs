@@ -10,6 +10,7 @@ public class SicknessScriptableObject : ScriptableObject
     public List<SymptomStruct> symptomList;
     public List<string> stories;
     public List<SolutionStruct> solutionList;
+    public Sprite icon;
 
 
     [System.Serializable]

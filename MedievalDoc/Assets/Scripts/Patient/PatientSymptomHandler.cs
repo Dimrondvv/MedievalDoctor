@@ -11,8 +11,6 @@ public class PatientSymptomHandler : MonoBehaviour
     void Start()
     {
         patient = GetComponent<Patient>();
-        DiscoverNonCriticalSymptoms(patient);
-
     }
 
     private void OnEnable()

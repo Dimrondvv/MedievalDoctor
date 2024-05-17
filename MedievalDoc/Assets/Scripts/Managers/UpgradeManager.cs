@@ -5,6 +5,7 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] public List<Upgrade> upgrades;
+    [SerializeField] public List<RoomSpawnPoint> roomSpawnPoints;
 
     // Start is called before the first frame update
     void Start()

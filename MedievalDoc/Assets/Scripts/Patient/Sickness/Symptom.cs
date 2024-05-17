@@ -13,7 +13,7 @@ public class Symptom : ScriptableObject
     [Header("Points added on release, should be negative \nto take away score, score/modifier of as hp and money")]
     public int score; //How much points player gets when symptom is present on patient release (should be negative if symptom does not reward)
     public AddedOnRemoval addOnRemove;
-
+    public bool isHidden;
 
     [System.Serializable]
     public class AddedOnRemoval

@@ -3,26 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeSelection : MonoBehaviour
+public static class UpgradeSelection
 {
-    private List<Upgrade> upgrades;
-    [SerializeField] private List<Image> upgradeIcons;
-    [SerializeField] private List<string> upgradeNames;
-    [SerializeField] private List<string> upgradeDescription;
-    // Start is called before the first frame update
-    void Start()
+
+    public static List<Upgrade> PickUpgrades(int upgradeCount)
     {
-        upgrades = App.Instance.GameplayCore.UpgradeManager.upgrades;
+
+        List<Upgrade> selectedUpgrades = new List<Upgrade>();
+        List<Upgrade> upgrades = App.Instance.GameplayCore.UpgradeManager.upgrades;
+        List<Upgrade> upgradesChecked = new List<Upgrade>();
+
+        if (upgradeCount > upgrades.Count) //Avoid infinite while loops
+        {
+            Debug.Log("Not enough upgrades to pick from");
+            return upgrades;
+        }
+
+
+        while (selectedUpgrades.Count < upgradeCount)
+        {
+            int rand = Random.Range(0, upgrades.Count);
+            bool reqNotmet = false;
+            if (!selectedUpgrades.Contains(upgrades[rand]) && !upgradesChecked.Contains(upgrades[rand]))
+            {
+                foreach(var req in upgrades[rand].requirements)
+                {
+                    if (!req.CheckRequirement())
+                        reqNotmet = true;
+                }
+                if(!reqNotmet)
+                    selectedUpgrades.Add(upgrades[rand]);
+                upgradesChecked.Add(upgrades[rand]);
+            }
+            if (upgrades.Count - upgradesChecked.Count == 0)
+                break;
+        }
+
+        return selectedUpgrades;
     }
 
-    
-    private void SelectUpgrade(Upgrade upgrade)
+    public static void SelectUpgrade(Upgrade upgrade)
     {
-        foreach(var sickness in upgrade.sicknessesAdded)
+        foreach (var sickness in upgrade.sicknessesAdded)
         {
             App.Instance.GameplayCore.PatientManager.sicknessPool.Add(sickness);
         }
-        //TODO - spawn room
+        Debug.Log($"Selected upgrade {upgrade.upgradeName}");
+        List<RoomSpawnPoint> spawnPoints = App.Instance.GameplayCore.UpgradeManager.roomSpawnPoints;
+        int index;
+        do
+        {
+            if (spawnPoints.Count > 1)
+                index = Random.Range(0, spawnPoints.Count);
+            else
+                index = 0;
+        } while (!spawnPoints[index].CheckSpawnConditions());
+        GameObject.Instantiate(upgrade.roomPrefab, spawnPoints[index].transform);
+        spawnPoints.RemoveAt(index);
+
     }
 
 }

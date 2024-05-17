@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] int maxDeaths;
     [SerializeField] public int bedHealingValue;
+    public InteractionLog interactionLog;
     public int deathCounter;
     private bool isNight;
     public bool IsNight
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
         Patient.OnPatientDeath.AddListener(RemovedPatient);
+        Tool.OnToolInteract.AddListener(ToolUsed);
+        
     }
 
     private void Start()
@@ -85,15 +88,28 @@ public class GameManager : MonoBehaviour
 
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        listOfAddedSymptoms[symptom] += 1;
-        SymptomAddedToDictionary.Invoke(symptom);
+        if (interactionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+            interactionLog.symptomsCaused[symptom.symptomName]++;
+        else
+            interactionLog.symptomsCaused.Add(symptom.symptomName, 1);
     }
 
     private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
-        listOfRemovedSymptoms[symptom] += 1;
-        SymptomAddedToDictionary.Invoke(symptom);
+        if (interactionLog.symptomsCured.ContainsKey(symptom.symptomName))
+            interactionLog.symptomsCured[symptom.symptomName]++;
+        else
+            interactionLog.symptomsCured.Add(symptom.symptomName, 1);
     }
+    private void ToolUsed(GameObject tool, Patient patient)
+    {
+
+        if (interactionLog.toolsUsed.ContainsKey(tool.name))
+            interactionLog.toolsUsed[tool.name]++;
+        else
+            interactionLog.toolsUsed.Add(tool.name, 1);
+    }
+
 
     private void OnDestroy()
     {
