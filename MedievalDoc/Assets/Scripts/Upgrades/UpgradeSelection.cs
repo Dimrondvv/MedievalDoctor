@@ -44,13 +44,23 @@ public static class UpgradeSelection
 
     public static void SelectUpgrade(Upgrade upgrade)
     {
-        foreach(var sickness in upgrade.sicknessesAdded)
+        foreach (var sickness in upgrade.sicknessesAdded)
         {
             App.Instance.GameplayCore.PatientManager.sicknessPool.Add(sickness);
         }
         Debug.Log($"Selected upgrade {upgrade.upgradeName}");
-        List<Transform> spawnPoints = App.Instance.GameplayCore.UpgradeManager.roomSpawnPoints;
-        GameObject.Instantiate(upgrade.roomPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)]);
+        List<RoomSpawnPoint> spawnPoints = App.Instance.GameplayCore.UpgradeManager.roomSpawnPoints;
+        int index;
+        do
+        {
+            if (spawnPoints.Count > 1)
+                index = Random.Range(0, spawnPoints.Count);
+            else
+                index = 0;
+        } while (!spawnPoints[index].CheckSpawnConditions());
+        GameObject.Instantiate(upgrade.roomPrefab, spawnPoints[index].transform);
+        spawnPoints.RemoveAt(index);
+
     }
 
 }
