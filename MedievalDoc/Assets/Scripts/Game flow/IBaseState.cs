@@ -20,6 +20,7 @@ public enum EAppState
     Intro = 0,
     MainHub = 1,
     Loading = 2,
-    Game = 3
+    Game = 3,
+    Summary = 4
 }
 

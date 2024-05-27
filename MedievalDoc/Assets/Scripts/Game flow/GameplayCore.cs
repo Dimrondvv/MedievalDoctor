@@ -13,6 +13,7 @@ public class GameplayCore
     public UnityEvent<UIManager> OnUIManagerRegistered = new UnityEvent<UIManager>();
     public UnityEvent<TimerManager> OnTimerManagerRegistered = new UnityEvent<TimerManager>();
     public UnityEvent<UpgradeManager> OnUpgradeManagerRegistered = new UnityEvent<UpgradeManager>();
+    public UnityEvent<DaySummaryManager> OnDaySummaryRegistered = new UnityEvent<DaySummaryManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
 
     public GameManager GameManager { get; private set; }
@@ -23,6 +24,7 @@ public class GameplayCore
     public UIManager UIManager { get; private set; }
     public TimerManager TimerManager { get; private set; }
     public UpgradeManager UpgradeManager { get; private set; }
+    public DaySummaryManager DaySummaryManager { get; private set; }
 
     public void Initialize()
     {
@@ -82,6 +84,13 @@ public class GameplayCore
         OnUpgradeManagerRegistered.Invoke(upgradeManager);
     }
 
+    public void RegisterDaySummaryManager(DaySummaryManager daySummaryManager)
+    {
+        DaySummaryManager = daySummaryManager;
+        Debug.Log("DaySummaryManager Registered");
+        OnDaySummaryRegistered.Invoke(daySummaryManager);
+    }
+
     public void UnregisterGameManager()
     {
         GameManager = null;
@@ -113,6 +122,11 @@ public class GameplayCore
     public void UnregisterUpgradeManager()
     {
         UpgradeManager = null;
+    }
+
+    public void UnregisterDaySummaryManager()
+    {
+        DaySummaryManager = null;
     }
     public void PressPlay()
     {

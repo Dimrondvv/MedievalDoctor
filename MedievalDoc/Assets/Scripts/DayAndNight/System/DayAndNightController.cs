@@ -70,7 +70,7 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private GameObject LightsToTurnOn;
 
-    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>(); // This is ev
+    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>(); 
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -129,7 +129,6 @@ public class DayAndNightController : MonoBehaviour
         
         if(currentTime.Hour == 13 && !UseJustOnce) {
             UseJustOnce = true;
-            Debug.Log("chuj");
             OnEndOfaDay?.Invoke(0);
         } 
 

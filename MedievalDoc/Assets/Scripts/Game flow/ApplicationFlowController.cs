@@ -9,6 +9,7 @@ public class ApplicationFlowController : MonoBehaviour
     public MainHubState mainHub = new MainHubState((int)EAppState.MainHub);
     public LoadingState load = new LoadingState((int)EAppState.Loading);
     public AppGameState game = new AppGameState((int)EAppState.Game);
+    public SummaryState summary = new SummaryState((int)EAppState.Summary);
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class ApplicationFlowController : MonoBehaviour
         stateMachine.AddState(mainHub);
         stateMachine.AddState(load);
         stateMachine.AddState(game);
+        stateMachine.AddState(summary);
 
         stateMachine.Initialize();
     }

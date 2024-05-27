@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class AppGameState : BaseState
 {
@@ -16,4 +17,14 @@ public class AppGameState : BaseState
         base.Initialize();
 
     }
+
+    private void LoadGameState()
+    {
+        
+    }
+
+    //public void ChanageToSummaryState()
+    //{
+    //    Parent.MakeTransition((int)EAppState.Summary);
+    //}
 }
