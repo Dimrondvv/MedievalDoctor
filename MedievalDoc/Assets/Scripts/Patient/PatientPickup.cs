@@ -52,18 +52,36 @@ public class PatientPickup : MonoBehaviour
 
         PatientPickup patientPickup = pickedPatient.PickedItem.GetComponent<PatientPickup>();
         PatientLayDownPoint patientLayDownPoint = pickupPoint.GetComponentInChildren<PatientLayDownPoint>();
+        TrashCan trashCan = pickupPoint.GetComponent<TrashCan>();
 
-        // TO ADD PUTING PATIENT ON FLOOR 
+
+
+        // TO ADD PUTTING PATIENT ON FLOOR 
         if (patientPickup && patientLayDownPoint && !patientLayDownPoint.IfOccupied)
         {
-            GameObject putDownFurniture = pickedPatient.PickedItem;
+            // put body in trashCan if patient is dead
+            if(trashCan != null)
+            {
+                if (pickupPoint.name == trashCan.name && !patientPickup.GetComponent<Patient>().IsAlive)
+                {
+                    Destroy(patientPickup.gameObject);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                GameObject putDownFurniture = pickedPatient.PickedItem;
 
-            pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied = true;
-            putDownFurniture.transform.position = patientLayDownPoint.transform.position;
-            putDownFurniture.transform.rotation = patientLayDownPoint.transform.rotation;
-            putDownFurniture.transform.SetParent(pickupPoint);
-            putDownFurniture.GetComponent<Collider>().enabled = true;
-            playerController.PickedItem = null;
+                pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied = true;
+                putDownFurniture.transform.position = patientLayDownPoint.transform.position;
+                putDownFurniture.transform.rotation = patientLayDownPoint.transform.rotation;
+                putDownFurniture.transform.SetParent(pickupPoint);
+                putDownFurniture.GetComponent<Collider>().enabled = true;
+                playerController.PickedItem = null;
+            }
         }
     }
 }

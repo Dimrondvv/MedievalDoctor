@@ -22,6 +22,7 @@ public class Patient : MonoBehaviour
         set { spawnerID = value; } 
         }
 
+
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     public int Health { get { return health; } set { health = value; } }
 
@@ -37,7 +38,10 @@ public class Patient : MonoBehaviour
     private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
     public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
-    public bool isAlive;
+
+
+    private bool isAlive;
+    public bool IsAlive { get { return isAlive; } set {  isAlive = value; } }
 
     [SerializeField] private bool immune; // immunity for tests
     public bool Immune { get { return immune; } set { immune = value; } }
@@ -71,11 +75,12 @@ public class Patient : MonoBehaviour
     public void Death()
     {
 
-        OnPatientDeath.Invoke(this);// Release the bed on death
+        //OnPatientDeath.Invoke(this);// Release the bed on death
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
-        PickupController.OnInteract.RemoveListener(InteractWithPatient);
-        Destroy(gameObject); // if dead = destroy object
+        //PickupController.OnInteract.RemoveListener(InteractWithPatient);
+        Debug.Log("umrłem");
+        //Destroy(gameObject); // if dead = destroy object
     }
 
     private void OnEnable()
