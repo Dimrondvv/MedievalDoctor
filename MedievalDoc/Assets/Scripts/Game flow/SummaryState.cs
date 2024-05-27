@@ -13,19 +13,17 @@ public class SummaryState : BaseState
     public override void Initialize()
     {
         base.Initialize();
-        //LoadSummaryState();
+        LoadSummaryState();
     }
 
-    //private void LoadSummaryState()
-    //{
-    //    SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
-    //    App.Instance.GameplayCore.OnDaySummaryRegistered.AddListener(ChanageToSummaryState);
-    //}
+    private void LoadSummaryState()
+    {
+        Debug.Log("£adowanie sceny");
+        SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
+        
+    }
 
-    //public void ChanageToSummaryState()
-    //{
-    //    Parent.MakeTransition((int)EAppState.Summary);
-    //}
+    
 
     public override void OnExit(int next)
     {

@@ -15,13 +15,16 @@ public class AppGameState : BaseState
     public override void Initialize()
     {
         base.Initialize();
-
+        App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
     }
 
-    private void LoadGameState()
+    private void ChanageToSummaryState()
     {
-        
+        Debug.Log("Rodzic robic tranzycje");
+        Parent.MakeTransition((int)EAppState.Summary);
     }
+
+    
 
     //public void ChanageToSummaryState()
     //{
