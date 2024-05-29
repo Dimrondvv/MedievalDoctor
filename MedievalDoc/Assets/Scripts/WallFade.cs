@@ -43,7 +43,6 @@ public class WallFade : MonoBehaviour
 
     IEnumerator FadeOutWall(MeshRenderer wallRenderer)
     {
-        Debug.Log("Starting coroutine");
         isRunning = true;
         Color defaultColor = wallRenderer.material.color;
         float time = 0.0f;
@@ -59,7 +58,6 @@ public class WallFade : MonoBehaviour
     }
     IEnumerator FadeInWall(MeshRenderer wallRenderer)
     {
-        Debug.Log("Starting coroutine");
         isRunning = true;
         Color defaultColor = wallRenderer.material.color;
         float time = 0.0f;
