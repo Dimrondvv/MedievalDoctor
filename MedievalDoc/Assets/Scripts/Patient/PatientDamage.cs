@@ -15,16 +15,16 @@ public class PatientDamage : MonoBehaviour
 
     private void CheckAlive()
     {
-        if (patient.Health <= 0)
+        if (patient.Health <= 0 && patient.IsAlive == true)
         {
-            patient.isAlive = false;
+            patient.IsAlive = false;
             patient.Death();
         }
     }
 
     private void TakeDamage()
     {
-        if (patient.Immune)
+        if (patient.Immune || !patient.IsAlive)
             return;
 
         foreach (var symptStruct in patient.Symptoms)

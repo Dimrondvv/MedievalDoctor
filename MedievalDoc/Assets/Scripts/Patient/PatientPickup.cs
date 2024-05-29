@@ -52,8 +52,26 @@ public class PatientPickup : MonoBehaviour
 
         PatientPickup patientPickup = pickedPatient.PickedItem.GetComponent<PatientPickup>();
         PatientLayDownPoint patientLayDownPoint = pickupPoint.GetComponentInChildren<PatientLayDownPoint>();
+        TrashCan trashCan = pickupPoint.GetComponent<TrashCan>();
 
-        // TO ADD PUTING PATIENT ON FLOOR 
+
+        // put body in trashCan if patient is dead
+        if (trashCan != null)
+        {
+            if (pickupPoint.name == trashCan.name && !patientPickup.GetComponent<Patient>().IsAlive)
+            {
+                Destroy(patientPickup.gameObject);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+
+
+        // TO ADD PUTTING PATIENT ON FLOOR 
         if (patientPickup && patientLayDownPoint && !patientLayDownPoint.IfOccupied)
         {
             GameObject putDownFurniture = pickedPatient.PickedItem;
@@ -64,6 +82,7 @@ public class PatientPickup : MonoBehaviour
             putDownFurniture.transform.SetParent(pickupPoint);
             putDownFurniture.GetComponent<Collider>().enabled = true;
             playerController.PickedItem = null;
+            
         }
     }
 }
