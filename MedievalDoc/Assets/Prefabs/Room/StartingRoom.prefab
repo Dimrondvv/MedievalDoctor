@@ -478,6 +478,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8619429916553617334, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_TagString
+      value: High Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -8267060593782352737, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4cab3767dbfd85c45b245ccfd430ab60, type: 2}
+    - target: {fileID: -7792854805417321218, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4cab3767dbfd85c45b245ccfd430ab60, type: 2}
     - target: {fileID: 842644116475837091, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -489,6 +501,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
       propertyPath: m_Name
       value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075641416079994737, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_TagString
+      value: High Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854334934867418194, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_TagString
+      value: High Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

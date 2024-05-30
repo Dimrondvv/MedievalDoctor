@@ -30,14 +30,18 @@ public class WallFade : MonoBehaviour
                 StartCoroutine(FadeOutWall(renderer));
             }
         }
-
+        List<Collider> wallsToRemove = new List<Collider>();
         foreach(var wall in fadedOutWalls)
         {
             if(wall != hit.collider)
             {
                 StartCoroutine(FadeInWall(wall.gameObject.GetComponent<MeshRenderer>()));
-                fadedOutWalls.Remove(wall);
+                wallsToRemove.Add(wall);
             }
+        }
+        foreach(var wall in wallsToRemove)
+        {
+            fadedOutWalls.Remove(wall);
         }
     }
 
