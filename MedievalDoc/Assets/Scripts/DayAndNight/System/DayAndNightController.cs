@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DayAndNightController : MonoBehaviour
 {
 
-    [SerializeField] PatronCharacter patronCharacter;
 
     [SerializeField]
     private float timeMultiplier; // How fast time pass in the game
@@ -104,15 +103,6 @@ public class DayAndNightController : MonoBehaviour
             }
         }
         daytemp = dayCounterTemp;
-
-        if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
-        {
-            if (patronCharacter.IsQuestActive == true)
-            {
-                patronCharacter.DisableQuest();
-            }
-
-        }
     }
 
     private void RotateSun() {
