@@ -2391,6 +2391,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 948340254485880588, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 948340254485880588, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864636468601224635, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864636468601224635, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3564634438690753018, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2400,6 +2416,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3745849831114586738, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796788573398725469, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796788573398725469, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173214950747991781, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173214950747991781, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373798776032930802, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373798776032930802, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
