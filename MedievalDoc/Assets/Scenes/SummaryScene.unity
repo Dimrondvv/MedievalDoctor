@@ -769,6 +769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98249ac76bacee845b46bb3f9ab453bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealedPatientText: {fileID: 1490133309}
+  UpsetPatientText: {fileID: 1527199821}
+  EarnedMoneyText: {fileID: 628864142}
+  BillText: {fileID: 1584374598}
+  DeathsText: {fileID: 188941727}
 --- !u!1 &941636568
 GameObject:
   m_ObjectHideFlags: 0
