@@ -15,6 +15,7 @@ public class AppGameState : BaseState
     public override void Initialize()
     {
         base.Initialize();
+        Debug.Log("++++ Inicjalizacja ++++");
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
     }
 
@@ -24,7 +25,13 @@ public class AppGameState : BaseState
         Parent.MakeTransition((int)EAppState.Summary);
     }
 
-    
+
+    public override void OnExit(int next)
+    {
+        SceneManager.UnloadSceneAsync("GameScene");
+        base.OnExit(next);
+    }
+
 
     //public void ChanageToSummaryState()
     //{

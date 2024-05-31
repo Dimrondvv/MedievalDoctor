@@ -49,7 +49,7 @@ public class DaySummaryManager : MonoBehaviour
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
         App.Instance.GameplayCore.DaySummaryManager.OnTimeStoped.Invoke();
-        //Debug.Log("========= STOP THE TIME =========");
+        Debug.Log("========= STOP THE TIME =========");
     }
 
     void ChangeToSummaryState() {
@@ -57,7 +57,7 @@ public class DaySummaryManager : MonoBehaviour
         if (isTimeStoped && patientCount == 0) {
             isSummaryState = true;
             ChangingToSummaryState?.Invoke();
-            
+            Debug.Log("remove listener");
             DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
             
         }

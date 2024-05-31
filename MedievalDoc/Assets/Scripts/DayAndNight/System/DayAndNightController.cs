@@ -11,6 +11,9 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField] 
     private bool isSunRotating = true;
 
+    [SerializeField]
+    private int SummaryHour = 20;
+
 
     [SerializeField] PatronCharacter patronCharacter;
 
@@ -127,7 +130,7 @@ public class DayAndNightController : MonoBehaviour
         }
 
         
-        if(currentTime.Hour == 13 && !UseJustOnce) {
+        if(currentTime.Hour == SummaryHour && !UseJustOnce) {
             UseJustOnce = true;
             OnEndOfaDay?.Invoke(0);
         } 

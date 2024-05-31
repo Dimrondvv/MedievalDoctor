@@ -27,7 +27,7 @@ public class SummaryState : BaseState
 
     public override void OnExit(int next)
     {
-        SceneManager.UnloadSceneAsync("GameScene");
+        SceneManager.UnloadSceneAsync("SummaryScene");
         base.OnExit(next);
     }
 }
