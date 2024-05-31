@@ -20,6 +20,10 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private float timeMultiplier; // How fast time pass in the game
 
+    PatientManager patientManager;
+    private float timeMultiplayerCopy;
+
+
     public float TimeMultiplier {
         get { return timeMultiplier;  }
         set { timeMultiplier = value;  }
@@ -92,9 +96,13 @@ public class DayAndNightController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeMultiplayerCopy = timeMultiplier;
+        patientManager = App.Instance.GameplayCore.PatientManager;
+        PatientManager.OnPatientSpawn.AddListener(StartTimer);
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+        timeMultiplier = 0;
     }
 
     // Update is called once per frame
@@ -104,6 +112,11 @@ public class DayAndNightController : MonoBehaviour
         RotateSun();
         UpdateLightSettings();
         TurnOnLights();
+    }
+
+    private void StartTimer(Patient patient)
+    {
+        timeMultiplier = timeMultiplayerCopy;
     }
 
     private void UpdateTimeOfDay() {
