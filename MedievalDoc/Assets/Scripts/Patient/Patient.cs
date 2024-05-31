@@ -90,8 +90,12 @@ public class Patient : MonoBehaviour
 
     public void RageQuit()
     {
+        OnPatientDeath.Invoke(this);
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
+        App.Instance.GameplayCore.GameManager.CheckDeathCounter();
+        App.Instance.GameplayCore.GameManager.deathCounter += 1;
         Debug.Log("Im Leaving >:(");
+        Destroy(gameObject);
     }
 
 
