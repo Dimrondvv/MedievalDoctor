@@ -15,13 +15,11 @@ public class AppGameState : BaseState
     public override void Initialize()
     {
         base.Initialize();
-        Debug.Log("++++ Inicjalizacja ++++");
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
     }
 
     private void ChanageToSummaryState()
     {
-        Debug.Log("Rodzic robic tranzycje");
         Parent.MakeTransition((int)EAppState.Summary);
     }
 
@@ -31,10 +29,4 @@ public class AppGameState : BaseState
         SceneManager.UnloadSceneAsync("GameScene");
         base.OnExit(next);
     }
-
-
-    //public void ChanageToSummaryState()
-    //{
-    //    Parent.MakeTransition((int)EAppState.Summary);
-    //}
 }

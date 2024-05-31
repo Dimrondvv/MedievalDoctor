@@ -58,14 +58,13 @@ public class DaySummaryManager : MonoBehaviour
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
         
-        Debug.Log("========= STOP THE TIME =========");
+       
     }
 
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
             isSummaryState = true;
             ChangingToSummaryState?.Invoke();
-            Debug.Log("remove listener");
             DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
             
         }

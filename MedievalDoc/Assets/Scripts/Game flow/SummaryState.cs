@@ -18,9 +18,7 @@ public class SummaryState : BaseState
 
     private void LoadSummaryState()
     {
-        Debug.Log("£adowanie sceny");
-        SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
-        
+        SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);     
     }
 
     
