@@ -17,6 +17,6 @@ MonoBehaviour:
   damage: 5
   score: 20
   addOnRemove:
-    symtpomAddedOnRemoval: {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
+    symtpomAddedOnRemoval: {fileID: 0}
     notPresentToAdd: {fileID: 0}
   isHidden: 0
