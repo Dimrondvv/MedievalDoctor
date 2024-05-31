@@ -74,13 +74,10 @@ public class Patient : MonoBehaviour
 
     public void Death()
     {
-
-        //OnPatientDeath.Invoke(this);// Release the bed on death
+        OnPatientDeath.Invoke(this);
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
-        //PickupController.OnInteract.RemoveListener(InteractWithPatient);
-        Debug.Log("umrłem");
-        //Destroy(gameObject); // if dead = destroy object
+        PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
     private void OnEnable()

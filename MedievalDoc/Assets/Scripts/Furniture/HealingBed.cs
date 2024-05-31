@@ -27,7 +27,10 @@ public class HealingBed : MonoBehaviour
         if (this.GetComponentInChildren<Patient>() != null)
         {
             patient = this.GetComponentInChildren<Patient>();
-            patient.Health += healingValue;
+            if (patient.IsAlive)
+            {
+                patient.Health += healingValue;
+            }
         }
 
     }
