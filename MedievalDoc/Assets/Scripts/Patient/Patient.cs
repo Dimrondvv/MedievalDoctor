@@ -53,8 +53,12 @@ public class Patient : MonoBehaviour
         set { patientName = value; }
     }
 
-    public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
+    private int angryMeter;
+    public int AngryMeter { get { return angryMeter; } }
+    [SerializeField] public int maximumAnger;
+    public int MaximumAnger { get { return maximumAnger; } }
 
+    public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
     public static UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
     public static UnityEvent<Symptom, Patient, Tool> OnAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
     public static UnityEvent<Symptom, Patient, Tool> OnTryAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
@@ -71,6 +75,10 @@ public class Patient : MonoBehaviour
         PatientManager.OnPatientReleased.AddListener(ReleasePatient);
     }
 
+    public void IncreaseMaddness(int value)
+    {
+        angryMeter += value;
+    }
 
     public void Death()
     {
@@ -79,6 +87,18 @@ public class Patient : MonoBehaviour
         App.Instance.GameplayCore.GameManager.deathCounter+=1;
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
+
+    public void RageQuit()
+    {
+        OnPatientDeath.Invoke(this);
+        PickupController.OnInteract.RemoveListener(InteractWithPatient);
+        App.Instance.GameplayCore.GameManager.CheckDeathCounter();
+        App.Instance.GameplayCore.GameManager.deathCounter += 1;
+        Debug.Log("Im Leaving >:(");
+        Destroy(gameObject);
+    }
+
+
 
     private void OnEnable()
     {

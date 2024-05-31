@@ -4249,7 +4249,7 @@ MonoBehaviour:
   isSunRotating: 0
   patronCharacter: {fileID: 812176828}
   timeMultiplier: 500
-  startHour: 12
+  startHour: 12.1
   maxSunLightIntensity: 1
   maxMoonLightIntensity: 0.5
   sunRotationY: -30

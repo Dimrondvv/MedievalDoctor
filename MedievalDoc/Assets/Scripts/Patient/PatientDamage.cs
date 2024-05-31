@@ -26,6 +26,8 @@ public class PatientDamage : MonoBehaviour
     {
         if (patient.Immune || !patient.IsAlive)
             return;
+        if (patient.AngryMeter == patient.MaximumAnger)
+            return;
 
         foreach (var symptStruct in patient.Symptoms)
         {
