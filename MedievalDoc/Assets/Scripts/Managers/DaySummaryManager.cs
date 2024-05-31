@@ -21,6 +21,8 @@ public class DaySummaryManager : MonoBehaviour
     [SerializeField]
     private bool isTimeStoped;
 
+    private int patientCount;
+
     private UnityEvent OnTimeStoped = new UnityEvent();
     public  UnityEvent ChangingToSummaryState = new UnityEvent();
 
@@ -35,6 +37,8 @@ public class DaySummaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         DayAndNightController.OnEndOfaDay.AddListener(stopTime);
         OnTimeStoped.AddListener(ChangeToSummaryState);
     }
@@ -42,18 +46,22 @@ public class DaySummaryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        patientCount = App.Instance.GameplayCore.PatientManager.patients.Count;
+
+        if (isTimeStoped && patientCount == 0)
+        {
+            App.Instance.GameplayCore.DaySummaryManager.OnTimeStoped.Invoke();
+        }
     }
 
     void stopTime(float endTime) {
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
-        App.Instance.GameplayCore.DaySummaryManager.OnTimeStoped.Invoke();
+        
         Debug.Log("========= STOP THE TIME =========");
     }
 
     void ChangeToSummaryState() {
-        int patientCount = App.Instance.GameplayCore.PatientManager.patients.Count;
         if (isTimeStoped && patientCount == 0) {
             isSummaryState = true;
             ChangingToSummaryState?.Invoke();
