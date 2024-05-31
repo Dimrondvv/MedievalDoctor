@@ -69,6 +69,9 @@ public class GameManager : MonoBehaviour
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
         Patient.OnPatientDeath.AddListener(RemovedPatient);
         Tool.OnToolInteract.AddListener(ToolUsed);
+        PickupController.OnInteract.AddListener(ObjectInteracted);
+        Patient.OnPatientDeath.AddListener(PatientKilled);
+        Patient.OnCureDisease.AddListener(PatientCured);
         
     }
 
@@ -128,7 +131,39 @@ public class GameManager : MonoBehaviour
             localInteractionLog.toolsUsed.Add(tool.name, 1);
         }
     }
-
+    private void ObjectInteracted(GameObject obj, PickupController pc)
+    {
+        if (localInteractionLog.objectsInteracted.ContainsKey(obj.name))
+        {
+            localInteractionLog.objectsInteracted[obj.name]++;
+        }
+        else
+        {
+            localInteractionLog.objectsInteracted.Add(obj.name, 1);
+        }
+    }
+    private void PatientKilled(Patient patient)
+    {
+        if (localInteractionLog.patientsKilled.ContainsKey(patient.PatientName))
+        {
+            localInteractionLog.patientsKilled[patient.PatientName]++;
+        }
+        else
+        {
+            localInteractionLog.patientsKilled.Add(patient.PatientName, 1);
+        }
+    }
+    private void PatientCured(Patient patient)
+    {
+        if (localInteractionLog.patientsCured.ContainsKey(patient.PatientName))
+        {
+            localInteractionLog.patientsCured[patient.PatientName]++;
+        }
+        else
+        {
+            localInteractionLog.patientsCured.Add(patient.PatientName, 1);
+        }
+    }
 
     private void OnDestroy()
     {
