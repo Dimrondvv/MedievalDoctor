@@ -15,4 +15,10 @@ public class InteractionLog
         this.symptomsCaused = symptomsCaused;
         this.toolsUsed = toolsUsed;
     }
+    public InteractionLog()
+    {
+        symptomsCured = new Dictionary<string, int>();
+        symptomsCaused = new Dictionary<string, int>();
+        toolsUsed = new Dictionary<string, int>();
+    }
 }

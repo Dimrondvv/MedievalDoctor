@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterQuest", menuName = "ScriptableObjects/CharacterQuest")]
-public class CharacterQuest : ScriptableObject
+public class CharacterQuest : Quest
 {
-    public string questName;
-    public string description;
-    public int reward;
     public CharacterQuestType questType;
-
+    
 }
 public enum CharacterQuestType
 {
-    heal,
-    kill,
+    heal = 0,
+    kill =  1
 }

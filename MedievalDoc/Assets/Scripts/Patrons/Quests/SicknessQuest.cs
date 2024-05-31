@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SicknessQuest", menuName = "ScriptableObjects/SicknessQuest")]
-public class SicknessQuest : ScriptableObject
+public class SicknessQuest : Quest
 {
-    public string questName;
-    public string description;
-    public int reward;
     public SicknessQuestType questType;
-
 }
 public enum SicknessQuestType
 {

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int maxDeaths;
     [SerializeField] public int bedHealingValue;
     public InteractionLog interactionLog;
+    public InteractionLog localInteractionLog;
     public int deathCounter;
     private bool isNight;
     public bool IsNight
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
             listOfAddedSymptoms.Add(symptom, 0);
             listOfRemovedSymptoms.Add(symptom, 0);
         }
+        localInteractionLog = new InteractionLog();
     }
 
     private void RemovedPatient(Patient patient)
@@ -89,25 +91,42 @@ public class GameManager : MonoBehaviour
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (interactionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+        {
             interactionLog.symptomsCaused[symptom.symptomName]++;
+            localInteractionLog.symptomsCaused[symptom.symptomName]++;
+        }
         else
-            interactionLog.symptomsCaused.Add(symptom.symptomName, 1);
+        {
+            localInteractionLog.symptomsCaused.Add(symptom.symptomName, 1);
+        }
     }
 
     private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (interactionLog.symptomsCured.ContainsKey(symptom.symptomName))
+        {
             interactionLog.symptomsCured[symptom.symptomName]++;
+            localInteractionLog.symptomsCured[symptom.symptomName]++;
+        }
         else
+        {
             interactionLog.symptomsCured.Add(symptom.symptomName, 1);
+            localInteractionLog.symptomsCured.Add(symptom.symptomName, 1);
+        }
     }
     private void ToolUsed(GameObject tool, Patient patient)
     {
 
         if (interactionLog.toolsUsed.ContainsKey(tool.name))
+        {
             interactionLog.toolsUsed[tool.name]++;
+            localInteractionLog.toolsUsed[tool.name]++;
+        }
         else
+        {
             interactionLog.toolsUsed.Add(tool.name, 1);
+            localInteractionLog.toolsUsed.Add(tool.name, 1);
+        }
     }
 
 
