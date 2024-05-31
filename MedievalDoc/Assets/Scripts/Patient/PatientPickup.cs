@@ -55,33 +55,34 @@ public class PatientPickup : MonoBehaviour
         TrashCan trashCan = pickupPoint.GetComponent<TrashCan>();
 
 
+        // put body in trashCan if patient is dead
+        if (trashCan != null)
+        {
+            if (pickupPoint.name == trashCan.name && !patientPickup.GetComponent<Patient>().IsAlive)
+            {
+                Destroy(patientPickup.gameObject);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+
+
 
         // TO ADD PUTTING PATIENT ON FLOOR 
         if (patientPickup && patientLayDownPoint && !patientLayDownPoint.IfOccupied)
         {
-            // put body in trashCan if patient is dead
-            if(trashCan != null)
-            {
-                if (pickupPoint.name == trashCan.name && !patientPickup.GetComponent<Patient>().IsAlive)
-                {
-                    Destroy(patientPickup.gameObject);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-                GameObject putDownFurniture = pickedPatient.PickedItem;
+            GameObject putDownFurniture = pickedPatient.PickedItem;
 
-                pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied = true;
-                putDownFurniture.transform.position = patientLayDownPoint.transform.position;
-                putDownFurniture.transform.rotation = patientLayDownPoint.transform.rotation;
-                putDownFurniture.transform.SetParent(pickupPoint);
-                putDownFurniture.GetComponent<Collider>().enabled = true;
-                playerController.PickedItem = null;
-            }
+            pickupPoint.GetComponentInChildren<PatientLayDownPoint>().IfOccupied = true;
+            putDownFurniture.transform.position = patientLayDownPoint.transform.position;
+            putDownFurniture.transform.rotation = patientLayDownPoint.transform.rotation;
+            putDownFurniture.transform.SetParent(pickupPoint);
+            putDownFurniture.GetComponent<Collider>().enabled = true;
+            playerController.PickedItem = null;
+            
         }
     }
 }

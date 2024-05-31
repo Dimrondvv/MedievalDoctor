@@ -7,6 +7,7 @@ TagManager:
   - Reception
   - Clinic
   - Workshop
+  - High Wall
   layers:
   - Default
   - TransparentFX
