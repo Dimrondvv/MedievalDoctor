@@ -15,7 +15,6 @@ public class DayAndNightController : MonoBehaviour
     private int SummaryHour = 20;
 
 
-    [SerializeField] PatronCharacter patronCharacter;
 
     [SerializeField]
     private float timeMultiplier; // How fast time pass in the game
@@ -133,14 +132,7 @@ public class DayAndNightController : MonoBehaviour
         }
         daytemp = dayCounterTemp;
 
-        if (currentTime.Day == patronCharacter.DeadLineDay && currentTime.Hour == patronCharacter.DeadLineHour)
-        {
-            if (patronCharacter.IsQuestActive == true)
-            {
-                patronCharacter.DisableQuest();
-            }
-
-        }
+        
 
         
         if(currentTime.Hour == SummaryHour && !UseJustOnce) {

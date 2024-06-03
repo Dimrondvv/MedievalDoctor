@@ -8,14 +8,26 @@ public class Requirement
     public RequirementType type;
     public int count;
     public string name;
+    public bool isLocal;
 
     public bool CheckRequirement()
     {
-        InteractionLog log = App.Instance.GameplayCore.GameManager.interactionLog;
+        InteractionLog log;
+        if (!isLocal)
+        {
+            log = App.Instance.GameplayCore.GameManager.interactionLog;
+        }
+        else
+        {
+            log = App.Instance.GameplayCore.GameManager.localInteractionLog;
+        }
         List<Dictionary<string, int>> interactions = new List<Dictionary<string, int>>();
         interactions.Add(log.symptomsCured);
         interactions.Add(log.symptomsCaused);
         interactions.Add(log.toolsUsed);
+        interactions.Add(log.patientsCured);
+        interactions.Add(log.patientsKilled);
+        interactions.Add(log.objectsInteracted);
 
         if (!interactions[(int)type].ContainsKey(name))
             return false;
@@ -31,5 +43,8 @@ public enum RequirementType
 {
     SymptomCured = 0,
     SymptomCaused = 1,
-    ToolUsed = 2
+    ToolUsed = 2,
+    PatientCured = 3,
+    PatientKilled = 4,
+    ObjectInteracted = 5
 };
