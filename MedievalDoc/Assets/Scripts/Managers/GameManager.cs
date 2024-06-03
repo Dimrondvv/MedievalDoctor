@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] int maxDeaths;
     [SerializeField] public int bedHealingValue;
+    [SerializeField] public List<Quest> quests;
+    [SerializeField] public List<TutorialQuest> tutorialQuests;
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
@@ -83,6 +85,14 @@ public class GameManager : MonoBehaviour
             listOfRemovedSymptoms.Add(symptom, 0);
         }
         localInteractionLog = new InteractionLog();
+    }
+
+    private void Update()
+    {
+        if(QuestFunctionality.currentQuest != null)
+        {
+            QuestFunctionality.CheckCompletion();
+        }
     }
 
     private void RemovedPatient(Patient patient)
