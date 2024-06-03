@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0095311745aa93c4fa2c0c2444fa1576, type: 3}
+  m_Name: 1stQuest
+  m_EditorClassIdentifier: 
+  questName: First Quest
+  description: Press 'F' to interact with the patient card
+  reward: 10
+  spawnRequirements: []
+  completeRequirements:
+  - type: 5
+    count: 1
+    name: Patient Card Object
+    isLocal: 1
+  nextQuest: {fileID: 0}

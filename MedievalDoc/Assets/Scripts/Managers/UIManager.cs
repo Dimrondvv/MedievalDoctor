@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject uiPrefab;
     [SerializeField] private Canvas loadingScreen;
     [SerializeField] private NotebookDataHandler notebookDataHandler;
+    [SerializeField] public QuestUI questUI;
 
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
@@ -64,6 +65,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        QuestFunctionality.TutorialQuestLine();
         uiPrefab.SetActive(true);
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
