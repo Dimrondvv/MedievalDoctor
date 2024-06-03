@@ -72,7 +72,6 @@ public class NotebookDataHandler : MonoBehaviour
         Patient.OnCureDisease.AddListener(AddCuredSicknessToDict);
         Tool.OnToolInteract.AddListener(AddDiscoveredToolToDict);
         Crafting.OnCraftingCompleted.AddListener(AddDiscoveredRecipeToDict);
-        PatronsManager.OnPatronSpawned.AddListener(AddDiscoveredPatronToDict);
     }
 
     private void SaveNotebookData()
@@ -179,7 +178,7 @@ public class NotebookDataHandler : MonoBehaviour
             }
         }
     }
-    private void AddDiscoveredPatronToDict(PatronScriptableObject patron)
+    /*private void AddDiscoveredPatronToDict(PatronScriptableObject patron)
     {
         string patronName = patron.patronName;
         string patronDescription = patron.patronDescription;
@@ -208,5 +207,5 @@ public class NotebookDataHandler : MonoBehaviour
                 data.patronsDiscoveredDuringRun.Remove(patronName);
             }
         }
-    }
+    }*/
 }
