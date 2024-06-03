@@ -24,6 +24,7 @@ public class InteractionLog
         symptomsCaused = new Dictionary<string, int>();
         toolsUsed = new Dictionary<string, int>();
         patientsCured = new Dictionary<string, int>();
+        patientsKilled = new Dictionary<string, int>();
         objectsInteracted = new Dictionary<string, int>();
     }
 }
