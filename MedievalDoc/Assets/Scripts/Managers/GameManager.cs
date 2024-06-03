@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
+    public int madCounter;
     private bool isNight;
     public bool IsNight
     {
@@ -162,6 +163,17 @@ public class GameManager : MonoBehaviour
         else
         {
             localInteractionLog.patientsCured.Add(patient.PatientName, 1);
+        }
+    }
+
+    private void PatientMad(Patient patient)
+    {
+        if (localInteractionLog.patientsMad.ContainsKey(patient.PatientName))
+        {
+            localInteractionLog.patientsMad[patient.PatientName]++;
+        } else
+        {
+            localInteractionLog.patientsMad.Add(patient.PatientName, 1);
         }
     }
 

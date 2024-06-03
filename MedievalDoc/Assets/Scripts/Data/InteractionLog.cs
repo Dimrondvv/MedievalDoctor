@@ -11,7 +11,7 @@ public class InteractionLog
     [JsonIgnore] public Dictionary<string, int> patientsCured { get; set; } //patient name string
     [JsonIgnore] public Dictionary<string, int> patientsKilled { get; set; } //patient name string
     [JsonIgnore] public Dictionary<string, int> objectsInteracted { get; set; } //Object name string
-
+    [JsonIgnore] public Dictionary<string, int> patientsMad { get; set; } 
     public InteractionLog(Dictionary<string, int> symptomsCured, Dictionary<string, int> symptomsCaused, Dictionary<string, int> toolsUsed)
     {
         this.symptomsCured = symptomsCured;
@@ -26,5 +26,6 @@ public class InteractionLog
         patientsCured = new Dictionary<string, int>();
         patientsKilled = new Dictionary<string, int>();
         objectsInteracted = new Dictionary<string, int>();
+        patientsMad = new Dictionary<string, int>();
     }
 }

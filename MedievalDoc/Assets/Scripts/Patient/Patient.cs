@@ -88,9 +88,18 @@ public class Patient : MonoBehaviour
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
+    public void Upset()
+    {
+        OnPatientDeath.Invoke(this);
+        App.Instance.GameplayCore.GameManager.CheckDeathCounter();
+        App.Instance.GameplayCore.GameManager.madCounter += 1;
+        PickupController.OnInteract.RemoveListener(InteractWithPatient);
+    }
+
+
     public void RageQuit()
     {
-        Death();
+        Upset();
         Debug.Log("Im Leaving >:(");
         Destroy(gameObject);
     }
