@@ -27,12 +27,14 @@ public class SummaryUI : MonoBehaviour
     private int money;
     private int madPatients;
     private int deadPatients;
+    private int royalTax;
     // Start is called before the first frame update
     void Start()
     {
         money = App.Instance.GameplayCore.PlayerManager.Money;
-        madPatients = App.Instance.GameplayCore.GameManager.madCounter;
+        madPatients = App.Instance.GameplayCore.GameManager.MadCounter;
         deadPatients = App.Instance.GameplayCore.GameManager.deathCounter;
+        royalTax = App.Instance.GameplayCore.GameManager.RoyalTax;
 
         UpdateHealedPatientText();
         UpdateMadPatients();
@@ -81,6 +83,7 @@ public class SummaryUI : MonoBehaviour
 
     private void UpdateSummaryMoney()
     {
-        SummaryText.text ="Summary: " + (money - 150).ToString();
+
+        SummaryText.text ="Summary: " + (money - royalTax).ToString();
     }
 }

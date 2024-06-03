@@ -11,7 +11,20 @@ public class GameManager : MonoBehaviour
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
-    public int madCounter;
+    private int royalTax; // w starcie przypisywana wartoœæ -150 c:
+    public int RoyalTax
+    {
+        get { return royalTax; }
+        set { royalTax = value; }
+    }
+
+    private int madCounter;
+    public int MadCounter
+    {
+        get { return madCounter; }
+        set { madCounter = value;  }
+    }
+
     private bool isNight;
     public bool IsNight
     {
@@ -78,6 +91,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        royalTax = 150;
         foreach (Symptom symptom in listOfSymptoms)
         {
             listOfAddedSymptoms.Add(symptom, 0);

@@ -92,7 +92,7 @@ public class Patient : MonoBehaviour
     {
         OnPatientDeath.Invoke(this);
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
-        App.Instance.GameplayCore.GameManager.madCounter += 1;
+        App.Instance.GameplayCore.GameManager.MadCounter += 1;
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
