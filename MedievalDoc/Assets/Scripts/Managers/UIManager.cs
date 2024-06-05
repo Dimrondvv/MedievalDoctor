@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas loadingScreen;
     [SerializeField] private NotebookDataHandler notebookDataHandler;
     [SerializeField] public QuestUI questUI;
+    [SerializeField] public UpgradeUI upgradeUI;
 
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
@@ -58,6 +59,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     private void Awake()
     {
         App.Instance.GameplayCore.RegisterUIManager(this);
@@ -75,6 +77,17 @@ public class UIManager : MonoBehaviour
     {
         App.Instance.GameplayCore.UnregisterUIManager();
     }
+    public void InitializeUpgradeBoard() => upgradeUI.InitializeUpgradeBoard();
+    public void DisableUpgradeBoard() => upgradeUI.ClearUpgradeBoard();
+
+    public void UpgradeBoard()
+    {
+        if (!upgradeUI.isActive)
+            InitializeUpgradeBoard();
+        else
+            DisableUpgradeBoard();
+    }
+
     public void DisableLoadingScreen()
     {
         loadingScreen.enabled = false;

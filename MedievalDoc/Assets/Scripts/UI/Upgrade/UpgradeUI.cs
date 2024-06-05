@@ -9,21 +9,13 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] List<Image> upgradeIcons;
     [SerializeField] List<TextMeshProUGUI> upgradeNames;
     [SerializeField] List<TextMeshProUGUI> upgradeDescriptions;
-
+    [SerializeField] Image background;
+    public bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
         ClearUpgradeBoard();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            ClearUpgradeBoard();
-            InitializeUpgradeBoard();
-        }
     }
 
     public void InitializeUpgradeBoard()
@@ -34,17 +26,20 @@ public class UpgradeUI : MonoBehaviour
         {
             SetUpgradeSlot(i, upgrades[i]);
         }
+        background.gameObject.SetActive(true);
+        isActive = true;
     }
 
-    private void ClearUpgradeBoard()
+    public void ClearUpgradeBoard()
     {
-        
         for(int i = 0; i < upgradeIcons.Count; i++)
         {
             upgradeIcons[i].sprite = null;
             upgradeNames[i].text = "";
             upgradeDescriptions[i].text = "";
         }
+        background.gameObject.SetActive(false);
+        isActive = false;
     }
     private void SetUpgradeSlot(int index, Upgrade upgrade)
     {
@@ -66,6 +61,7 @@ public class UpgradeUI : MonoBehaviour
 
     private void OnClickUpgrade(Upgrade upgrade)
     {
-        UpgradeSelection.SelectUpgrade(upgrade); 
+        UpgradeSelection.SelectUpgrade(upgrade);
+        ClearUpgradeBoard();
     }
 }

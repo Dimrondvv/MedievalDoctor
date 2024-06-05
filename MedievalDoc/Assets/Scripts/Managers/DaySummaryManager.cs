@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class DaySummaryManager : MonoBehaviour
 {
     [SerializeField]
-    private DayAndNightController dayAndNightController;
+    public DayAndNightController dayAndNightController;
 
     //[SerializeField]
     //private PatientManager patientManager;
@@ -37,8 +37,6 @@ public class DaySummaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-
         DayAndNightController.OnEndOfaDay.AddListener(stopTime);
         OnTimeStoped.AddListener(ChangeToSummaryState);
     }

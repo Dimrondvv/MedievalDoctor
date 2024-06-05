@@ -6,7 +6,8 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] public List<Upgrade> upgrades;
     [SerializeField] public List<RoomSpawnPoint> roomSpawnPoints;
-
+    [SerializeField] public List<int> upgradeDays;
+    [SerializeField] public UpgradeTableInteract upgradeTable;
     // Start is called before the first frame update
     void Start()
     {

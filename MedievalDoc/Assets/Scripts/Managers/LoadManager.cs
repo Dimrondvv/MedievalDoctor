@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadManager : MonoBehaviour
 {
     public UnityEvent OnGameSceneLoaded = new UnityEvent();
-
+    [SerializeField] string nameSceneToLoad;
     private void Awake()
     {
         App.Instance.GameplayCore.RegisterLoadManager(this);
@@ -18,7 +18,7 @@ public class LoadManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        StartCoroutine(SceneLoad("GameScene"));
+        StartCoroutine(SceneLoad(nameSceneToLoad));
     }
 
     IEnumerator SceneLoad(string sceneName)

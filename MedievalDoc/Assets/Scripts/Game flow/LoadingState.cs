@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadingState : BaseState
 {
-
     public LoadingState(int appState) : base(appState)
     {
     }

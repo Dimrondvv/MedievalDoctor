@@ -16,6 +16,18 @@ public class AppGameState : BaseState
     {
         base.Initialize();
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
+        CheckForUpgrade();
+    }
+
+    private void CheckForUpgrade()
+    {
+        int currentDay = App.Instance.GameplayCore.DaySummaryManager.dayAndNightController.DayCounter;
+        List<int> upgradeDays = App.Instance.GameplayCore.UpgradeManager.upgradeDays;
+        if (upgradeDays.Contains(currentDay))
+        {
+            App.Instance.GameplayCore.UpgradeManager.upgradeTable.SubscribeToInteract();
+        }
+
     }
 
     private void ChanageToSummaryState()
