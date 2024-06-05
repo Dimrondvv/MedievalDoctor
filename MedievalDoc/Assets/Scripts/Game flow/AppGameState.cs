@@ -26,7 +26,10 @@ public class AppGameState : BaseState
 
     public override void OnExit(int next)
     {
-        SceneManager.UnloadSceneAsync("GameScene");
+        if (next != (int)EAppState.Summary)
+        {
+            SceneManager.UnloadSceneAsync("GameScene");
+        }
         base.OnExit(next);
     }
 }
