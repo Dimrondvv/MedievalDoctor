@@ -1469,6 +1469,9 @@ MonoBehaviour:
   ChangingToSummaryState:
     m_PersistentCalls:
       m_Calls: []
+  onEndDayPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &558231612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4236467517529331843, guid: 03c161bbac7a92248812126a87a65c6a, type: 3}
@@ -4249,7 +4252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSunRotating: 0
-  SummaryHour: 20
+  SummaryHour: 13
   timeMultiplier: 500
   startHour: 12.1
   maxSunLightIntensity: 1

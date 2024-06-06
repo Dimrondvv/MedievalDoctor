@@ -25,6 +25,7 @@ public class DaySummaryManager : MonoBehaviour
 
     private UnityEvent OnTimeStoped = new UnityEvent();
     public  UnityEvent ChangingToSummaryState = new UnityEvent();
+    public UnityEvent onEndDayPressed = new UnityEvent();
 
 
 
@@ -49,23 +50,33 @@ public class DaySummaryManager : MonoBehaviour
         if (isTimeStoped && patientCount == 0)
         {
             App.Instance.GameplayCore.DaySummaryManager.OnTimeStoped.Invoke();
-        }
+        } 
     }
 
     void stopTime(float endTime) {
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
-        
-       
     }
 
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
             isSummaryState = true;
-            ChangingToSummaryState?.Invoke();
-            DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
             
+            ChangingToSummaryState?.Invoke();
+            OnTimeStoped.RemoveListener(ChangeToSummaryState);
+            DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
         }
+    }
+
+    public void PressEndDay()
+    {
+        onEndDayPressed.Invoke();
+    }
+
+    public void startDay()
+    {
+        dayAndNightController.resetDay();
+        dayAndNightController.UseJustOnce = false;
     }
 
     private void OnDestroy()

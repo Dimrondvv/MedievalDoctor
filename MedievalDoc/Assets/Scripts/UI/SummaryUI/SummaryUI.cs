@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class SummaryUI : MonoBehaviour
@@ -24,10 +25,21 @@ public class SummaryUI : MonoBehaviour
     [SerializeField]
     private TMP_Text SummaryText;
 
+    [SerializeField]
+    private Button endDayButton;
+
     private int money;
     private int madPatients;
     private int deadPatients;
     private int royalTax;
+
+    public UnityEvent OnEndDayPressed = new UnityEvent();
+
+    private void Awake()
+    {
+        endDayButton.onClick.AddListener(HandlePlayPressed);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +47,7 @@ public class SummaryUI : MonoBehaviour
         madPatients = App.Instance.GameplayCore.GameManager.MadCounter;
         deadPatients = App.Instance.GameplayCore.GameManager.deathCounter;
         royalTax = App.Instance.GameplayCore.GameManager.RoyalTax;
+ 
 
         UpdateHealedPatientText();
         UpdateMadPatients();
@@ -85,5 +98,13 @@ public class SummaryUI : MonoBehaviour
     {
 
         SummaryText.text ="Summary: " + (money - royalTax).ToString();
+        App.Instance.GameplayCore.PlayerManager.Money = money - royalTax;
+    }
+
+    private void HandlePlayPressed()
+    {
+        
+        OnEndDayPressed.Invoke();
+        App.Instance.GameplayCore.DaySummaryManager.PressEndDay();
     }
 }

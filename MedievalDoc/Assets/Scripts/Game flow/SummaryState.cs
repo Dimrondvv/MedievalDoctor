@@ -18,10 +18,16 @@ public class SummaryState : BaseState
 
     private void LoadSummaryState()
     {
-        SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);     
+        SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
+        App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.AddListener(HandleEndDayPressed);
     }
 
-    
+    private void HandleEndDayPressed()
+    {
+        App.Instance.GameplayCore.DaySummaryManager.startDay();
+        App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.RemoveListener(HandleEndDayPressed);
+        Parent.MakeTransition((int)EAppState.Game);
+    }
 
     public override void OnExit(int next)
     {
