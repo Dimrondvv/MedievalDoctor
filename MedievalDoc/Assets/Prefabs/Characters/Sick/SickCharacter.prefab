@@ -1180,7 +1180,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5361401020502676296}
   m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 0, z: -0.84078074}
+  m_LocalPosition: {x: 0, y: 0, z: -1.0481192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1189,9 +1189,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3438034, y: 0.79910827}
-  m_SizeDelta: {x: 2, y: 2}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.1399999, y: 0.61934686}
+  m_SizeDelta: {x: 3, y: 2}
+  m_Pivot: {x: 0.88, y: 0.06}
 --- !u!222 &3350636021467770849
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8ef80586de0eb564f834c8dc33710643, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1504,8 +1504,11 @@ MonoBehaviour:
   text: {fileID: 5786372340059364327}
   storyObject: {fileID: 4498134177271363012}
   canvasGroup: {fileID: 4406589845525164988}
-  delay: 0.03
-  fadeoutDelay: 0
+  cloud: {fileID: 3578813470814340210}
+  delay: 0.04
+  fadeoutDelay: 1
+  cloudIncrease: 0.05
+  cloudDelay: 0.01
   timeToFade: 100
 --- !u!1 &6265525569222478492
 GameObject:
@@ -2012,8 +2015,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.8, y: 1.8}
+  m_AnchoredPosition: {x: 0, y: -0.284}
+  m_SizeDelta: {x: 2, y: 1.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8536585114915869778
 CanvasRenderer:
@@ -2043,7 +2046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nie moge spa\u0107, jest na to czar?"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c398e1eb712ee94d8472b92fc8ea31e, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3c398e1eb712ee94d8472b92fc8ea31e, type: 2}
@@ -2070,8 +2073,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
-  m_fontSizeBase: 0.3
+  m_fontSize: 0.25
+  m_fontSizeBase: 0.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
