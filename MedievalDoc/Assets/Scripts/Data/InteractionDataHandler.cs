@@ -5,11 +5,13 @@ using UnityEngine;
 public class InteractionDataHandler : MonoBehaviour
 {
     GameManager gameManager;
+    SaveManager saveManager;
     [SerializeField] string interactionLogFileName;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = App.Instance.GameplayCore.GameManager;
+        saveManager = App.Instance.GameplayCore.SaveManager;
         if (gameManager == null)
             App.Instance.GameplayCore.OnGameManagerRegistered.AddListener(WaitForGameManager);
         else
@@ -28,13 +30,14 @@ public class InteractionDataHandler : MonoBehaviour
 
     private void SaveInteractionLog()
     {
-        InteractionLog log = App.Instance.GameplayCore.GameManager.interactionLog;
-        App.Instance.GameplayCore.SaveManager.SaveGameData<InteractionLog>(log, interactionLogFileName + ".json");
+        InteractionLog log = gameManager.interactionLog;
+        saveManager.SaveGameData<InteractionLog>(log, interactionLogFileName + ".json");
     }
     private void LoadInteractionLog()
     {
         Debug.Log("load");
-        gameManager.interactionLog = App.Instance.GameplayCore.SaveManager.LoadGameData<InteractionLog>(interactionLogFileName + ".json");
+        gameManager.interactionLog = saveManager.LoadGameData<InteractionLog>(interactionLogFileName + ".json");
+        Debug.Log(App.Instance.GameplayCore.GameManager);
         if (gameManager.interactionLog == null)
         {
             Debug.Log("new");

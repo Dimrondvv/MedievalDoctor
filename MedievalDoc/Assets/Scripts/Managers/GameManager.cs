@@ -148,12 +148,18 @@ public class GameManager : MonoBehaviour
         if (interactionLog.toolsUsed.ContainsKey(tool.name))
         {
             interactionLog.toolsUsed[tool.name]++;
-            localInteractionLog.toolsUsed[tool.name]++;
+            if(localInteractionLog.toolsUsed.ContainsKey(tool.name))
+                localInteractionLog.toolsUsed[tool.name]++;
+            else
+                localInteractionLog.toolsUsed.Add(tool.name, 1);
         }
         else
         {
             interactionLog.toolsUsed.Add(tool.name, 1);
-            localInteractionLog.toolsUsed.Add(tool.name, 1);
+            if (localInteractionLog.toolsUsed.ContainsKey(tool.name))
+                localInteractionLog.toolsUsed[tool.name]++;
+            else
+                localInteractionLog.toolsUsed.Add(tool.name, 1);
         }
     }
     private void ObjectInteracted(GameObject obj, PickupController pc)
