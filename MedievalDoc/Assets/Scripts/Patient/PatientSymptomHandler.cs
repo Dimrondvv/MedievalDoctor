@@ -92,4 +92,13 @@ public class PatientSymptomHandler : MonoBehaviour
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
 
+    public static GameObject FindSymptomObject(Patient patient, SicknessScriptableObject.SymptomStruct symptom)
+    {
+        foreach(Transform child in patient.transform)
+        {
+            if (child.gameObject.name == symptom.GetSymptomName() + "_" + symptom.localization.ToString())
+                return child.gameObject;
+        }
+        return null;
+    }
 }

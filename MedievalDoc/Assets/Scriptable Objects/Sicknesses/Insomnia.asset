@@ -17,6 +17,8 @@ MonoBehaviour:
   symptomList:
   - symptom: {fileID: 11400000, guid: cdaa542aae5bd964aaa03713e1c8f457, type: 2}
     isHidden: 0
+    localization: 1
+    isLocalizationSensitive: 1
   stories:
   - I can't sleep, is there a cure for that?
   solutionList:
