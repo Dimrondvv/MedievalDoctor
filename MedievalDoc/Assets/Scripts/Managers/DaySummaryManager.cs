@@ -21,7 +21,21 @@ public class DaySummaryManager : MonoBehaviour
     [SerializeField]
     private bool isTimeStoped;
 
+    public bool IsTimeStoped
+    {
+        get { return isTimeStoped;  }
+        set { isTimeStoped = value; }
+    }
+
     private int patientCount;
+
+    private bool isNewDay;
+
+    public bool IsNewDay
+    {
+        get { return isNewDay; }
+        set { isNewDay = value; }
+    }
 
     private UnityEvent OnTimeStoped = new UnityEvent();
     public  UnityEvent ChangingToSummaryState = new UnityEvent();
@@ -41,6 +55,12 @@ public class DaySummaryManager : MonoBehaviour
         DayAndNightController.OnEndOfaDay.AddListener(stopTime);
         OnTimeStoped.AddListener(ChangeToSummaryState);
     }
+    
+    public void newDay()
+    {
+        OnTimeStoped.AddListener(ChangeToSummaryState);
+        DayAndNightController.OnEndOfaDay.AddListener(stopTime);
+    }
 
     // Update is called once per frame
     void Update()
@@ -49,8 +69,8 @@ public class DaySummaryManager : MonoBehaviour
 
         if (isTimeStoped && patientCount == 0)
         {
-            App.Instance.GameplayCore.DaySummaryManager.OnTimeStoped.Invoke();
-        } 
+            OnTimeStoped.Invoke();
+        }
     }
 
     void stopTime(float endTime) {
@@ -60,8 +80,8 @@ public class DaySummaryManager : MonoBehaviour
 
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
-            isSummaryState = true;
-            
+            Debug.Log("Change to summary");
+            //isSummaryState = true;
             ChangingToSummaryState?.Invoke();
             OnTimeStoped.RemoveListener(ChangeToSummaryState);
             DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
@@ -76,7 +96,6 @@ public class DaySummaryManager : MonoBehaviour
     public void startDay()
     {
         dayAndNightController.resetDay();
-        dayAndNightController.UseJustOnce = false;
     }
 
     private void OnDestroy()

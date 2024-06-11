@@ -32,6 +32,7 @@ public class AppGameState : BaseState
 
     private void ChanageToSummaryState()
     {
+        Debug.Log("EEEEEEEEEEEEEEEEEEEEEE");
         Parent.MakeTransition((int)EAppState.Summary);
     }
 

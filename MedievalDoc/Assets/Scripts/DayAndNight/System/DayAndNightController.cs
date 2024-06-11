@@ -76,8 +76,8 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private GameObject LightsToTurnOn;
 
-    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>(); 
- 
+    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>();
+    public static UnityEvent OnNewDay = new UnityEvent();
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -209,13 +209,14 @@ public class DayAndNightController : MonoBehaviour
     }
 
     public void resetDay()
-    {
-        timeMultiplayerCopy = timeMultiplier;
-        patientManager = App.Instance.GameplayCore.PatientManager;
-        PatientManager.OnPatientSpawn.AddListener(StartTimer);
+    { 
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         timeMultiplier = 0;
+        dayCounter += 1;
+        UseJustOnce = false;
+        App.Instance.GameplayCore.DaySummaryManager.IsTimeStoped = false;
+        App.Instance.GameplayCore.DaySummaryManager.newDay();
     }
 }
