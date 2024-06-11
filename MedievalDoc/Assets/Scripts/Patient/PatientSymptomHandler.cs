@@ -96,7 +96,9 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         foreach(Transform child in patient.transform)
         {
-            if (child.gameObject.name == symptom.GetSymptomName() + "_" + symptom.localization.ToString())
+            if (child.gameObject.name == symptom.GetSymptomName() + "_" + symptom.localization.ToString() && symptom.isLocalizationSensitive)
+                return child.gameObject;
+            else if (child.gameObject.name == symptom.GetSymptomName())
                 return child.gameObject;
         }
         return null;
