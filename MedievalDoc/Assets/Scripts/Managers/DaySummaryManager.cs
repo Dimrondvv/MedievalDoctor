@@ -80,7 +80,6 @@ public class DaySummaryManager : MonoBehaviour
 
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
-            Debug.Log("Change to summary");
             //isSummaryState = true;
             ChangingToSummaryState?.Invoke();
             OnTimeStoped.RemoveListener(ChangeToSummaryState);

@@ -32,8 +32,9 @@ public class AppGameState : BaseState
 
     private void ChanageToSummaryState()
     {
-        Debug.Log("EEEEEEEEEEEEEEEEEEEEEE");
         Parent.MakeTransition((int)EAppState.Summary);
+        App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.RemoveListener(ChanageToSummaryState);
+
     }
 
 
