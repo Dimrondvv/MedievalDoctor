@@ -129,11 +129,18 @@ public class GameManager : MonoBehaviour
         if (interactionLog.symptomsCaused.ContainsKey(symptom.symptomName))
         {
             interactionLog.symptomsCaused[symptom.symptomName]++;
-            localInteractionLog.symptomsCaused[symptom.symptomName]++;
+            if(localInteractionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+                localInteractionLog.symptomsCaused[symptom.symptomName]++;
+            else
+                localInteractionLog.symptomsCaused.Add(symptom.symptomName, 1);
         }
         else
         {
-            localInteractionLog.symptomsCaused.Add(symptom.symptomName, 1);
+            interactionLog.symptomsCaused.Add(symptom.symptomName, 1);
+            if (localInteractionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+                localInteractionLog.symptomsCaused[symptom.symptomName]++;
+            else
+                localInteractionLog.symptomsCaused.Add(symptom.symptomName, 1);
         }
     }
 
@@ -142,12 +149,18 @@ public class GameManager : MonoBehaviour
         if (interactionLog.symptomsCured.ContainsKey(symptom.symptomName))
         {
             interactionLog.symptomsCured[symptom.symptomName]++;
-            localInteractionLog.symptomsCured[symptom.symptomName]++;
+            if (localInteractionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+                localInteractionLog.symptomsCured[symptom.symptomName]++;
+            else
+                localInteractionLog.symptomsCured.Add(symptom.symptomName, 1);
         }
         else
         {
             interactionLog.symptomsCured.Add(symptom.symptomName, 1);
-            localInteractionLog.symptomsCured.Add(symptom.symptomName, 1);
+            if (localInteractionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+                localInteractionLog.symptomsCured[symptom.symptomName]++;
+            else
+                localInteractionLog.symptomsCured.Add(symptom.symptomName, 1);
         }
     }
     private void ToolUsed(GameObject tool, Patient patient)
