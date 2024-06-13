@@ -22,8 +22,8 @@ public class PatientAngry : MonoBehaviour
         else
         {
             patient.IncreaseMaddness(1);
-            CheckAnger();
             patientAngryBar.angryBar();
+            CheckAnger();
         }
     }
 
