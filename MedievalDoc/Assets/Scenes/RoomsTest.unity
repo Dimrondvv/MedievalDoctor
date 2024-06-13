@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2831,6 +2831,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 521890085}
     m_Modifications:
+    - target: {fileID: 4616177063679403000, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: delay
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7476586437806473628, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: m_Name
       value: StartingRoom

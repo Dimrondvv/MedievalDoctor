@@ -9,6 +9,7 @@ using UnityEngine.AI;
 public class PatientWalking : MonoBehaviour
 {
     [SerializeField] private Transform endPoint;
+    [SerializeField] private float delay;
     private NavMeshAgent meshAgent;
     private Vector3 endPointVector;
     private bool move;
@@ -19,23 +20,39 @@ public class PatientWalking : MonoBehaviour
         patient = patientObject;
         meshAgent = patient.GetComponent<NavMeshAgent>();
         endPointVector = new Vector3(endPoint.position.x, endPoint.position.y, endPoint.position.z);
-        Debug.Log(meshAgent.acceleration);
         move = true;
+        //meshAgent.destination = endPointVector;
+       // meshAgent.SetDestination(endPointVector);
+        StartCoroutine(Walking());
     }
 
-    private void Update() // Przerobic to na korutyne + dodaæ obrócenie siê na koniec + pieczenie na nowo sceny co event ze zmian¹ sceny
+    IEnumerator Walking()
     {
-        if (move)
+        while (move)
         {
-            Debug.Log("hklhjkh");
             meshAgent.SetDestination(endPointVector);
-
-            if (!meshAgent.hasPath)
+            if (!meshAgent.pathPending)
             {
-                Debug.Log("hljkhljkh");
-                move = false;
+                if (meshAgent.remainingDistance <= meshAgent.stoppingDistance)
+                {
+                    if (!meshAgent.hasPath || meshAgent.velocity.sqrMagnitude == 0f)
+                    {
+                        move = false;
+                        StopWalking();
+                    }
+                }
             }
+            yield return new WaitForSeconds(delay);
         }
     }
+
+    private void StopWalking()
+    {
+        StopCoroutine(Walking());
+        // rotate pacient
+    }
+
+    //dodaæ obrócenie siê na koniec + pieczenie na nowo sceny co event ze zmian¹ sceny
+
 
 }
