@@ -7,7 +7,7 @@ public class PatientAngry : MonoBehaviour
     Patient patient;
     [SerializeField] PatientAngryBar patientAngryBar;
 
-    private void Start()
+    public void StartAnger()
     {
         patient = GetComponent<Patient>();
         InvokeRepeating("MadMeter", 0, 1);

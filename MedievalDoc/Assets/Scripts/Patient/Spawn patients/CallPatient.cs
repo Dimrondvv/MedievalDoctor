@@ -27,7 +27,6 @@ public class CallPatient : MonoBehaviour, IInteractable
             return;
 
         var patient = Instantiate(patientPrefab, tempSpawnPosition); //Instantiate patient prefab at spawn position
-
         patientWalking.StartWalking(patient);
     }
 }

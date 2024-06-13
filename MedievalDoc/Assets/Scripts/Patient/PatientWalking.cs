@@ -4,16 +4,21 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 
 public class PatientWalking : MonoBehaviour
 {
     [SerializeField] private Transform endPoint;
     [SerializeField] private float delay;
+    [SerializeField] private float rotationDelay;
+    [SerializeField] private Transform lookTowards;
     private NavMeshAgent meshAgent;
     private Vector3 endPointVector;
     private bool move;
+    private bool rotated;
     private GameObject patient;
+    private float tempX=9999;
 
     public void StartWalking(GameObject patientObject)
     {
@@ -21,6 +26,7 @@ public class PatientWalking : MonoBehaviour
         meshAgent = patient.GetComponent<NavMeshAgent>();
         endPointVector = new Vector3(endPoint.position.x, endPoint.position.y, endPoint.position.z);
         move = true;
+        rotated = false;
         //meshAgent.destination = endPointVector;
        // meshAgent.SetDestination(endPointVector);
         StartCoroutine(Walking());
@@ -49,10 +55,48 @@ public class PatientWalking : MonoBehaviour
     private void StopWalking()
     {
         StopCoroutine(Walking());
-        // rotate pacient
+        StartCoroutine(RotatePatient());
     }
 
-    //dodaæ obrócenie siê na koniec + pieczenie na nowo sceny co event ze zmian¹ sceny
+    IEnumerator RotatePatient()
+    {
+        while (!rotated)
+        {
+            var rot = Rotation(patient.transform, lookTowards);
+            float singleStep = 2f * Time.deltaTime;
+            Vector3 newDirection = Vector3.RotateTowards(patient.transform.forward, rot, singleStep, 0.0f);
+            if(newDirection.x != tempX)
+            {
+                tempX = newDirection.x;
+            }
+            else
+            {
+                ActivatePatient();
+                rotated = true;
+            }
+            patient.transform.rotation = Quaternion.LookRotation(newDirection);
+            yield return new WaitForSeconds(rotationDelay);
+        }
+    }
+
+    private void ActivatePatient()
+    {
+        patient.GetComponent<PatientStory>().StoryTime();
+        patient.GetComponent<PatientAngry>().StartAnger();
+        patient.GetComponent<Patient>().Immune = false;
+    }
+
+    private Vector3 Rotation(Transform rotatingObject, Transform facingObject)
+    {
+        var obj1 = rotatingObject.position;
+        obj1.y = 0f;
+        var obj2 = facingObject.position;
+        obj2.y = 0f;
+        var direction = obj2 - obj1;
+        return direction;
+    }
+
+    //pieczenie na nowo sceny co event ze zmian¹ sceny
 
 
 }

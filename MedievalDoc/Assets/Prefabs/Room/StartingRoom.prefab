@@ -801,9 +801,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 9162862219946399452}
     m_Modifications:
     - target: {fileID: 607279469159437885, guid: 99edff67edb0bc64498da3786d761803, type: 3}
+      propertyPath: delay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 607279469159437885, guid: 99edff67edb0bc64498da3786d761803, type: 3}
       propertyPath: endPoint
       value: 
       objectReference: {fileID: 7357976059921349747}
+    - target: {fileID: 607279469159437885, guid: 99edff67edb0bc64498da3786d761803, type: 3}
+      propertyPath: lookTowards
+      value: 
+      objectReference: {fileID: 3895328092113833176}
+    - target: {fileID: 607279469159437885, guid: 99edff67edb0bc64498da3786d761803, type: 3}
+      propertyPath: rotationDelay
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4141828291047590350, guid: 99edff67edb0bc64498da3786d761803, type: 3}
       propertyPath: tempSpawnPosition
       value: 
