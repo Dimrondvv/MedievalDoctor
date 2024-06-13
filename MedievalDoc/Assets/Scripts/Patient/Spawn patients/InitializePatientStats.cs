@@ -20,4 +20,10 @@ public class InitializePatientStats : MonoBehaviour
         patient.PatientName = App.Instance.GameplayCore.PatientManager.names.GetRandomName();
         PatientManager.OnPatientSpawnFinalized.Invoke(patient);
     }
+    private void SetPatientStats(Patient patient, SicknessScriptableObject sickness) 
+    {
+        patient.SetSickness(sickness);
+        patient.PatientName = App.Instance.GameplayCore.PatientManager.names.GetRandomName();
+        PatientManager.OnPatientSpawnFinalized.Invoke(patient);
+    }
 }
