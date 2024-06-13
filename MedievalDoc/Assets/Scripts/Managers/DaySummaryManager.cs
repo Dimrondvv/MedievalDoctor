@@ -40,6 +40,7 @@ public class DaySummaryManager : MonoBehaviour
     private UnityEvent OnTimeStoped = new UnityEvent();
     public  UnityEvent ChangingToSummaryState = new UnityEvent();
     public UnityEvent onEndDayPressed = new UnityEvent();
+    public UnityEvent onNewDay = new UnityEvent();
 
 
 
@@ -60,6 +61,7 @@ public class DaySummaryManager : MonoBehaviour
     {
         OnTimeStoped.AddListener(ChangeToSummaryState);
         DayAndNightController.OnEndOfaDay.AddListener(stopTime);
+        onNewDay?.Invoke();
     }
 
     // Update is called once per frame

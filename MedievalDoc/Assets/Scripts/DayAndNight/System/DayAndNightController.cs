@@ -103,6 +103,7 @@ public class DayAndNightController : MonoBehaviour
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         timeMultiplier = 0;
+        
     }
 
     // Update is called once per frame
@@ -125,7 +126,8 @@ public class DayAndNightController : MonoBehaviour
         if(daytemp != dayCounterTemp)
         {
             dayCounter += 1;
-            if(dayCounter == 10)
+            App.Instance.GameplayCore.DaySummaryManager.onNewDay.Invoke();
+            if (dayCounter == 10)
             {
                 App.Instance.GameplayCore.UIManager.ChangeNotebookState();
                 Time.timeScale = 0;
