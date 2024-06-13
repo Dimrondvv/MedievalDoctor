@@ -17,6 +17,7 @@ public class AppGameState : BaseState
         base.Initialize();
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
         CheckForUpgrade();
+        CheckForWin();
     }
 
     private void CheckForUpgrade()
@@ -28,6 +29,15 @@ public class AppGameState : BaseState
             App.Instance.GameplayCore.UpgradeManager.upgradeTable.SubscribeToInteract();
         }
 
+    }
+
+    private void CheckForWin()
+    {
+        int currentDay = App.Instance.GameplayCore.DaySummaryManager.dayAndNightController.DayCounter;
+        if (currentDay == App.Instance.GameplayCore.GameManager.dayOfWin)
+        {
+            App.Instance.GameplayCore.GameManager.OnGameWin.Invoke();
+        }
     }
 
     private void ChanageToSummaryState()

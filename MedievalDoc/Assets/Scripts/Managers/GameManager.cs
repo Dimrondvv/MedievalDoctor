@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int bedHealingValue;
     [SerializeField] public List<Quest> quests;
     [SerializeField] public List<TutorialQuest> tutorialQuests;
+    [SerializeField] public int dayOfWin;
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<Symptom, int> listOfAddedSymptoms = new Dictionary<Symptom, int>();
     private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
     public UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
+    public UnityEvent OnGameWin = new UnityEvent();
 
     public Dictionary<Symptom, int> ListOfRemovedSymptoms
     {
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
         PickupController.OnInteract.AddListener(ObjectInteracted);
         Patient.OnPatientDeath.AddListener(PatientKilled);
         Patient.OnCureDisease.AddListener(PatientCured);
+        OnGameWin.AddListener(EndGame);
         
     }
 
@@ -115,6 +118,11 @@ public class GameManager : MonoBehaviour
         listOfCurrentPatients.Remove(patient);
     }
 
+    private void EndGame()
+    {
+        App.Instance.GameplayCore.UIManager.DisplayWinMessage();
+        Time.timeScale = 0;
+    }
 
     private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
@@ -148,12 +156,18 @@ public class GameManager : MonoBehaviour
         if (interactionLog.toolsUsed.ContainsKey(tool.name))
         {
             interactionLog.toolsUsed[tool.name]++;
-            localInteractionLog.toolsUsed[tool.name]++;
+            if(localInteractionLog.toolsUsed.ContainsKey(tool.name))
+                localInteractionLog.toolsUsed[tool.name]++;
+            else
+                localInteractionLog.toolsUsed.Add(tool.name, 1);
         }
         else
         {
             interactionLog.toolsUsed.Add(tool.name, 1);
-            localInteractionLog.toolsUsed.Add(tool.name, 1);
+            if (localInteractionLog.toolsUsed.ContainsKey(tool.name))
+                localInteractionLog.toolsUsed[tool.name]++;
+            else
+                localInteractionLog.toolsUsed.Add(tool.name, 1);
         }
     }
     private void ObjectInteracted(GameObject obj, PickupController pc)

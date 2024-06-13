@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private NotebookDataHandler notebookDataHandler;
     [SerializeField] public QuestUI questUI;
     [SerializeField] public UpgradeUI upgradeUI;
-
+    [SerializeField] public TextMeshProUGUI winText;
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
     public GameObject PauseMenu { get { return pauseMenu; } }
@@ -72,11 +72,14 @@ public class UIManager : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
+        App.Instance.GameplayCore.GameManager.OnGameWin.AddListener(DisplayWinMessage);
     }
     private void OnDestroy()
     {
         App.Instance.GameplayCore.UnregisterUIManager();
     }
+
+    public void DisplayWinMessage() => winText.gameObject.SetActive(true);
     public void InitializeUpgradeBoard() => upgradeUI.InitializeUpgradeBoard();
     public void DisableUpgradeBoard() => upgradeUI.ClearUpgradeBoard();
 

@@ -78,25 +78,13 @@ public class PatientSymptomHandler : MonoBehaviour
             return;
 
 
-        bool isCured = patient.Symptoms.Count == 0;
+        bool isCured = false;
         if (isCured)
         {
             Patient.OnCureDisease.Invoke(patient);
         }
     }
-    private void DiscoverNonCriticalSymptoms(Patient patient)
-    {
-        if (patient != this.patient || patient.DiscoveredSymptoms.Count != 0)
-            return;
-
-        foreach (var symptom in patient.Symptoms)
-        {
-            if (!symptom.isHidden)
-                patient.DiscoveredSymptoms.Add(symptom.symptom, symptom.GetSymptomName());
-            else
-                patient.DiscoveredSymptoms.Add(symptom.symptom, "?");
-        }
-    }
+    
     private void DiscoverSymptom(Symptom symptom, Patient patient)
     {
         if (patient != this.patient)
@@ -104,4 +92,15 @@ public class PatientSymptomHandler : MonoBehaviour
         patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
     }
 
+    public static GameObject FindSymptomObject(Patient patient, SicknessScriptableObject.SymptomStruct symptom)
+    {
+        foreach(Transform child in patient.transform)
+        {
+            if (child.gameObject.name == symptom.GetSymptomName() + "_" + symptom.localization.ToString() && symptom.isLocalizationSensitive)
+                return child.gameObject;
+            else if (child.gameObject.name == symptom.GetSymptomName())
+                return child.gameObject;
+        }
+        return null;
+    }
 }

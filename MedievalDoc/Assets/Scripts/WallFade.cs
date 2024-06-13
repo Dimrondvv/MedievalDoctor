@@ -55,7 +55,6 @@ public class WallFade : MonoBehaviour
             alpha -= time / Mathf.Max(timeToFade, 0.000001f);
             wallRenderer.material.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, alpha);
             time += Time.deltaTime;
-            Debug.Log(alpha);
             yield return new WaitForEndOfFrame();
         }
         isRunning = false;
@@ -70,7 +69,6 @@ public class WallFade : MonoBehaviour
             alpha += time / Mathf.Max(timeToFade, 0.000001f);
             wallRenderer.material.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, alpha);
             time += Time.deltaTime;
-            Debug.Log(alpha);
             yield return new WaitForEndOfFrame();
         }
         isRunning = false;
