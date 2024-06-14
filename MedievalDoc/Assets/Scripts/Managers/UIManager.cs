@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
     [SerializeField] GameObject patientCardCanvas;
+    [SerializeField] GameObject DebugUICanvas;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiPrefab;
     [SerializeField] private Canvas loadingScreen;
@@ -17,6 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject UiPrefab { get { return uiPrefab; } }
     public GameObject PauseMenu { get { return pauseMenu; } }
     private bool isPauseEnabled = false;
+
+    private GameObject currentCheatCanvas;
     public bool IsPauseEnabled
     {
         get
@@ -67,11 +70,13 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        QuestFunctionality.TutorialQuestLine();
+        //QuestFunctionality.TutorialQuestLine();
         uiPrefab.SetActive(true);
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+        playerInputActions.Debug.Enable();
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
+        playerInputActions.Debug.OpenDebug.performed += OpenDebugWindow;
         App.Instance.GameplayCore.GameManager.OnGameWin.AddListener(DisplayWinMessage);
     }
     private void OnDestroy()
@@ -82,7 +87,15 @@ public class UIManager : MonoBehaviour
     public void DisplayWinMessage() => winText.gameObject.SetActive(true);
     public void InitializeUpgradeBoard() => upgradeUI.InitializeUpgradeBoard();
     public void DisableUpgradeBoard() => upgradeUI.ClearUpgradeBoard();
-
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    private void OpenDebugWindow(UnityEngine.InputSystem.InputAction.CallbackContext callback) 
+    {
+        if (currentCheatCanvas == null)
+            currentCheatCanvas = Instantiate(DebugUICanvas);
+        else
+            Destroy(currentCheatCanvas);
+    }
+#endif
     public void UpgradeBoard()
     {
         if (!upgradeUI.isActive)

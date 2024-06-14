@@ -5,58 +5,19 @@ using UnityEngine.Events;
 
 public class Patient : MonoBehaviour
 {
-    GameObject player;
-
     [SerializeField] private SicknessScriptableObject sickness;
-    public SicknessScriptableObject Sickness
-    {
-        get { return sickness; }
-        set { sickness = value; }
-    }
-
-
-    [SerializeField] private int spawnerID;
-    public int SpawnerID
-    { 
-        get { return spawnerID; } 
-        set { spawnerID = value; } 
-        }
-
-
     [SerializeField] private int health; // player Health (if =< 0 - game over)
-    public int Health { get { return health; } set { health = value; } }
-
     [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
-    public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
-
-    private List<Symptom> additionalSymptoms = new List<Symptom>();
-    public List<Symptom> AdditionalSymptoms { get { return additionalSymptoms; } set { additionalSymptoms = value; } }
+    [SerializeField] private bool immune; // immunity for tests
+    [SerializeField] private int spawnerID;
+    [SerializeField] public int maximumAnger;
 
     public List<SicknessScriptableObject.SymptomStruct> symptoms;
     public List<SicknessScriptableObject.SymptomStruct> Symptoms { get { return symptoms; } set { symptoms = value; } }
-
-    private Dictionary<Symptom, string> discoveredSymptoms = new Dictionary<Symptom, string>(); //Key - symptom / Display value
-    public Dictionary<Symptom, string> DiscoveredSymptoms { get { return discoveredSymptoms; } }
     public string patientStory;
-
-
     private bool isAlive;
-    public bool IsAlive { get { return isAlive; } set {  isAlive = value; } }
-
-    [SerializeField] private bool immune; // immunity for tests
-    public bool Immune { get { return immune; } set { immune = value; } }
-
     private string patientName;
-    public string PatientName
-    {
-        get { return patientName; }
-        set { patientName = value; }
-    }
-
     private int angryMeter;
-    public int AngryMeter { get { return angryMeter; } }
-    [SerializeField] public int maximumAnger;
-    public int MaximumAnger { get { return maximumAnger; } }
 
     public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
     public static UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
@@ -65,14 +26,31 @@ public class Patient : MonoBehaviour
     public static UnityEvent<Symptom, Patient, Tool> OnRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Symptom, Patient, Tool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
-    //public static UnityEvent<GameObject> OnHealthChange = new UnityEvent<GameObject>();
-
+    public SicknessScriptableObject Sickness { get { return sickness; } set { sickness = value; } }
+    public int SpawnerID { get { return spawnerID; } set { spawnerID = value; } }
+    public string PatientName { get { return patientName; } set { patientName = value; } }
+    public int AngryMeter { get { return angryMeter; } }
+    public int MaximumAnger { get { return maximumAnger; } }
+    public bool IsAlive { get { return isAlive; } set { isAlive = value; } }
+    public bool Immune { get { return immune; } set { immune = value; } }
+    public int Health { get { return health; } set { health = value; } }
+    public int HealthMax { get { return maxHealth; } set { maxHealth = value; } }
     private void Start()
     {
-        player = App.Instance.GameplayCore.PlayerManager.playerObject;
         isAlive = true;
         PatientManager.OnPatientSpawn.Invoke(this);
         PatientManager.OnPatientReleased.AddListener(ReleasePatient);
+    }
+
+    private void OnEnable()
+    {
+        PickupController.OnInteract.AddListener(InteractWithPatient);
+        symptoms = new List<SicknessScriptableObject.SymptomStruct>();
+    }
+
+    private void OnDisable()
+    {
+        PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
     public void IncreaseMaddness(int value)
@@ -84,7 +62,7 @@ public class Patient : MonoBehaviour
     {
         OnPatientDeath.Invoke(this);
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
-        App.Instance.GameplayCore.GameManager.deathCounter+=1;
+        App.Instance.GameplayCore.GameManager.deathCounter += 1;
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
@@ -96,26 +74,12 @@ public class Patient : MonoBehaviour
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
-
     public void RageQuit()
     {
         Upset();
         Debug.Log("Im Leaving >:(");
         Destroy(gameObject);
     }
-
-
-
-    private void OnEnable()
-    {
-        PickupController.OnInteract.AddListener(InteractWithPatient);
-        symptoms = new List<SicknessScriptableObject.SymptomStruct>();
-    }
-    private void OnDisable()
-    {
-        PickupController.OnInteract.RemoveListener(InteractWithPatient);
-    }
-
 
     public void SetSickness(SicknessScriptableObject sickness)
     {
