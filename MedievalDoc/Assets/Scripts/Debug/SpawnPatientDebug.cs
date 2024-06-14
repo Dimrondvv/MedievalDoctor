@@ -10,6 +10,8 @@ public class SpawnPatientDebug : MonoBehaviour
     [SerializeField] TextMeshProUGUI sicknessDescription;
     [SerializeField] Transform scrollViewContent;
     [SerializeField] GameObject textPrefab;
+    [SerializeField] GameObject patientPrefab;
+    [SerializeField] Vector3 spawnPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -49,5 +51,17 @@ public class SpawnPatientDebug : MonoBehaviour
             obj.GetComponent<TextMeshProUGUI>().text = smpt.GetSymptomName();
         }
 
+    }
+    public void SpawnPatient()
+    {
+        PatientManager.OnPatientSpawnFinalized.AddListener(SetPatientSickness);
+        var patient = Instantiate(patientPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    private void SetPatientSickness(Patient patient)
+    {
+        InitializePatientStats initializer = new InitializePatientStats();
+        initializer.SetPatientStats(patient.GetComponent<Patient>(), selectedSickness);
+        PatientManager.OnPatientSpawnFinalized.RemoveListener(SetPatientSickness);
     }
 }

@@ -116,8 +116,16 @@ public class Patient : MonoBehaviour
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
     }
 
+
     public void SetSickness(SicknessScriptableObject sickness)
     {
+        if(this.sickness != null)
+        {
+            this.sickness = null;
+            symptoms.Clear();
+            patientStory = null;
+        }
+
         this.sickness = sickness;
         if(sickness.stories.Count > 0)
             patientStory = sickness.stories[Random.Range(0, sickness.stories.Count - 1)];
