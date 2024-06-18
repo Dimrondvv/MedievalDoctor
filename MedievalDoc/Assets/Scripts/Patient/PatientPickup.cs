@@ -9,7 +9,7 @@ public class PatientPickup : MonoBehaviour
     Patient patient;
     Transform toolPickupPoint;
 
-    private void Start()
+    public void ActivatePickup()
     {
         PickupController.OnPickup.AddListener(PickupPatient);
         PickupController.OnPutdown.AddListener(PutdownPatient);

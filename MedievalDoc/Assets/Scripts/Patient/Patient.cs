@@ -71,6 +71,7 @@ public class Patient : MonoBehaviour
     {
         player = App.Instance.GameplayCore.PlayerManager.playerObject;
         isAlive = true;
+        immune = true;
         PatientManager.OnPatientSpawn.Invoke(this);
         PatientManager.OnPatientReleased.AddListener(ReleasePatient);
     }
