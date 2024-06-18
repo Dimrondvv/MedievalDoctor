@@ -18,8 +18,10 @@ public class SicknessScriptableObject : ScriptableObject
     {
         public Symptom symptom;
         public bool isHidden;
-
-
+        public Localization localization;
+        [Header("Is localization sensitive")]
+        public bool isLocalizationSensitive;
+        
         public string GetSymptomName()
         {
             return symptom.symptomName;

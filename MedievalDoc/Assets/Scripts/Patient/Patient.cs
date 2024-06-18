@@ -130,6 +130,9 @@ public class Patient : MonoBehaviour
     {
         foreach(SicknessScriptableObject.SymptomStruct symptom in sickness.symptomList)
         {
+            GameObject sympt = PatientSymptomHandler.FindSymptomObject(this, symptom);
+            if(sympt != null)
+                sympt.SetActive(true);
             symptoms.Add(symptom);
         }
     }

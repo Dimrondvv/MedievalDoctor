@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDeaths: 4
   bedHealingValue: 5
+  quests: []
+  tutorialQuests: []
+  dayOfWin: 15
   deathCounter: 0
   delayQuestInSeconds: 3
   listOfSymptoms:
@@ -69,6 +72,10 @@ MonoBehaviour:
   SymptomAddedToDictionary:
     m_PersistentCalls:
       m_Calls: []
+  OnGameWin:
+    m_PersistentCalls:
+      m_Calls: []
+  listOfCurrentPatients: []
 --- !u!114 &2225845763392631534
 MonoBehaviour:
   m_ObjectHideFlags: 0

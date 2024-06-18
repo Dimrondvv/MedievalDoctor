@@ -76,7 +76,8 @@ public class DayAndNightController : MonoBehaviour
     [SerializeField]
     private GameObject LightsToTurnOn;
 
-    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>(); 
+    public static UnityEvent<float> OnEndOfaDay = new UnityEvent<float>();
+    public static UnityEvent OnNewDay = new UnityEvent();
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -90,7 +91,7 @@ public class DayAndNightController : MonoBehaviour
 
 
 
-    bool UseJustOnce;
+    public bool UseJustOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -200,5 +201,22 @@ public class DayAndNightController : MonoBehaviour
             LightsToTurnOn.SetActive(false);
             App.Instance.GameplayCore.GameManager.IsNight = false;
         }
+    }
+
+    public void setTimeInHours(int h)
+    {
+        currentTime = DateTime.Now.Date + TimeSpan.FromHours(h);
+    }
+
+    public void resetDay()
+    { 
+        currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
+        sunriseTime = TimeSpan.FromHours(sunriseHour);
+        sunsetTime = TimeSpan.FromHours(sunsetHour);
+        timeMultiplier = 0;
+        dayCounter += 1;
+        UseJustOnce = false;
+        App.Instance.GameplayCore.DaySummaryManager.IsTimeStoped = false;
+        App.Instance.GameplayCore.DaySummaryManager.newDay();
     }
 }
