@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class NewspaperInteraction : MonoBehaviour, IInteractable
 {
-    [SerializeField]
-    float interactionTime;
+    [SerializeField] private float interactionTime;
+    [SerializeField] private NewsPaper newspaper;
+
 
     private bool isPaperOn = false;
     public float InteractionTime { get { return interactionTime; } set { interactionTime = value; } }
@@ -18,11 +19,12 @@ public class NewspaperInteraction : MonoBehaviour, IInteractable
         PickupController.OnInteract.AddListener(InteractWithNewspaper);
     }
 
+
     private void Update()
     {
         if (isPaperOn && SharedOverlapBox.HighestCollider.gameObject != gameObject)
         {
-            App.Instance.GameplayCore.UIManager.DisablePatientCard();
+            App.Instance.GameplayCore.UIManager.DisableNewspaper();
             isPaperOn = false;
         }
     }
@@ -32,7 +34,7 @@ public class NewspaperInteraction : MonoBehaviour, IInteractable
         if (interactionObject != gameObject)
             return;
 
-        App.Instance.GameplayCore.UIManager.ChangePatientCardState();
+        App.Instance.GameplayCore.UIManager.ChangeNewspaperState();
         isPaperOn = !isPaperOn;
     }
 }

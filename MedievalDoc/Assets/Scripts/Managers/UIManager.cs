@@ -6,12 +6,14 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
     [SerializeField] GameObject patientCardCanvas;
+    [SerializeField] GameObject newspaperCanvas;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiPrefab;
     [SerializeField] private Canvas loadingScreen;
     [SerializeField] private NotebookDataHandler notebookDataHandler;
     [SerializeField] public QuestUI questUI;
     [SerializeField] public UpgradeUI upgradeUI;
+    [SerializeField] public NewsPaper newsPaper;
     [SerializeField] public TextMeshProUGUI winText;
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
@@ -35,8 +37,10 @@ public class UIManager : MonoBehaviour
     }
 
     private GameObject instantiatedUI;
+    private GameObject currentNewspaperUI;
     private bool isNotebookEnabled = false;
     private bool isPatientCardEnabled = false;
+    private bool isNewspaperEnabled = false;
     public bool IsNotebookEnabled
     {
         get
@@ -59,10 +63,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public bool IsNewspaperEnabled
+    {
+        get
+        {
+            return isNewspaperEnabled;
+        }
+        set
+        {
+            isNewspaperEnabled = value;
+        }
+    }
+
 
     private void Awake()
     {
         App.Instance.GameplayCore.RegisterUIManager(this);
+        App.Instance.GameplayCore.DaySummaryManager.onNewDay.AddListener(UpdateNewspaper);
+
     }
 
     private void Start()
@@ -74,6 +92,8 @@ public class UIManager : MonoBehaviour
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
         App.Instance.GameplayCore.GameManager.OnGameWin.AddListener(DisplayWinMessage);
     }
+
+
     private void OnDestroy()
     {
         App.Instance.GameplayCore.UnregisterUIManager();
@@ -150,6 +170,16 @@ public class UIManager : MonoBehaviour
         patientCardCanvas.GetComponent<PatientCard>().background.gameObject.SetActive(false);
     }
 
+    private void EnableNewspaper() {
+        isNewspaperEnabled = true;
+        currentNewspaperUI = Instantiate(newspaperCanvas);  
+    }
+
+    public void DisableNewspaper() {
+        isNewspaperEnabled = false;
+        Destroy(currentNewspaperUI);
+    }
+
     public void ChangeNotebookState()
     {
         if (isNotebookEnabled)
@@ -163,5 +193,21 @@ public class UIManager : MonoBehaviour
             DisablePatientCard();
         else
             EnablePatientCard();
+    }
+
+    public void ChangeNewspaperState()
+    {
+        if (isNewspaperEnabled)
+            DisableNewspaper();
+        else
+            EnableNewspaper();
+    }
+
+    private void UpdateNewspaper()
+    {
+        if (newsPaper != null)
+        {
+            newsPaper.UpgradeText("DUPIS£AW");
+        }
     }
 }

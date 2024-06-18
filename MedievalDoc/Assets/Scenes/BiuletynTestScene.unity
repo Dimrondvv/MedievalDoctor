@@ -4939,6 +4939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionTime: 0
+  newspaper: {fileID: 0}
 --- !u!65 &2082244217
 BoxCollider:
   m_ObjectHideFlags: 0
