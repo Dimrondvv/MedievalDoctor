@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 5433737236969319706}
   - component: {fileID: 7077554657266055620}
   - component: {fileID: 2716473883976261723}
+  - component: {fileID: 8618745893716941815}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -118,6 +119,7 @@ MonoBehaviour:
   blueprintBlue: {fileID: -876546973899608171, guid: 475eace2a76a2a945a0779d3eb8368d7, type: 3}
   blueprintRed: {fileID: -876546973899608171, guid: 650a391ed8139c34e9872447bf41c823, type: 3}
   player: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &7077554657266055620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +145,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e538a099340ced349a38f194939b41eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &8618745893716941815
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &6410083005953355421
 PrefabInstance:
   m_ObjectHideFlags: 0

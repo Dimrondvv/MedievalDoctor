@@ -84,6 +84,7 @@ public class PatientWalking : MonoBehaviour
         patient.GetComponent<PatientStory>().StoryTime();
         patient.GetComponent<PatientAngry>().StartAnger();
         patient.GetComponent<Patient>().Immune = false;
+        patient.GetComponent<PatientPickup>().ActivatePickup();
     }
 
     private Vector3 Rotation(Transform rotatingObject, Transform facingObject)
