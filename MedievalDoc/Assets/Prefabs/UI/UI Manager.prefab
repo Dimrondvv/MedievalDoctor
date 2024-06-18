@@ -46,11 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notebookCanvas: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
-  patientCardCanvas: {fileID: 732741638234926446, guid: 9f8b081d6b259234ea9d237787f75bdb, type: 3}
+  patientCardCanvas: {fileID: 0}
+  DebugUICanvas: {fileID: 773164800666246368, guid: df0ca3d5eaadc0549b7b0a963ba71eb3, type: 3}
   pauseMenu: {fileID: 0}
   uiPrefab: {fileID: 0}
   loadingScreen: {fileID: 0}
   notebookDataHandler: {fileID: 7365904910426799913}
+  questUI: {fileID: 0}
+  upgradeUI: {fileID: 0}
+  winText: {fileID: 0}
 --- !u!114 &7365904910426799913
 MonoBehaviour:
   m_ObjectHideFlags: 0

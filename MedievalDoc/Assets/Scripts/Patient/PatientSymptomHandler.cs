@@ -18,14 +18,12 @@ public class PatientSymptomHandler : MonoBehaviour
         Patient.OnTryAddSymptom.AddListener(AddSymptom);
         Patient.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
         Patient.OnRemoveSymptom.AddListener(CheckIfCured);
-        Patient.OnCheckSymptom.AddListener(DiscoverSymptom);
     }
     private void OnDestroy()
     {
         Patient.OnTryAddSymptom.RemoveListener(AddSymptom);
         Patient.OnTryRemoveSymptom.RemoveListener(RemoveDiscoveredSymptom);
         Patient.OnRemoveSymptom.RemoveListener(CheckIfCured);
-        Patient.OnCheckSymptom.RemoveListener(DiscoverSymptom);
     }
 
     private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
@@ -50,7 +48,6 @@ public class PatientSymptomHandler : MonoBehaviour
                         }
                     }
                     patient.Symptoms.Remove(i);
-                    patient.DiscoveredSymptoms.Remove(symptom);
                     Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
                     break;
                 }
@@ -66,7 +63,6 @@ public class PatientSymptomHandler : MonoBehaviour
         if (symptomDependencies.canSymptomBeAdded(symptom, patient))
         {
             patient.InsertSymptomToList(symptom);
-            patient.DiscoveredSymptoms.Add(symptom, symptom.symptomName + " (+)");
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
@@ -84,14 +80,6 @@ public class PatientSymptomHandler : MonoBehaviour
             Patient.OnCureDisease.Invoke(patient);
         }
     }
-    
-    private void DiscoverSymptom(Symptom symptom, Patient patient)
-    {
-        if (patient != this.patient)
-            return;
-        patient.DiscoveredSymptoms[symptom] = symptom.symptomName;
-    }
-
     public static GameObject FindSymptomObject(Patient patient, SicknessScriptableObject.SymptomStruct symptom)
     {
         foreach(Transform child in patient.transform)

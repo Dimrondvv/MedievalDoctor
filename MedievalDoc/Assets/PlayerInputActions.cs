@@ -540,6 +540,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Debug"",
+            ""id"": ""5b03ed4d-5cee-43a2-88b0-5951d3994d6c"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""afeef027-d58e-4de7-997c-0092cdb92e0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1ae50fd8-ad7a-45e6-8da2-5eee58dfbb90"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -555,6 +583,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_InteractPress = m_Player.FindAction("InteractPress", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Bookmarks = m_Player.FindAction("Bookmarks", throwIfNotFound: true);
+        // Debug
+        m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
+        m_Debug_OpenDebug = m_Debug.FindAction("OpenDebug", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -722,6 +753,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Debug
+    private readonly InputActionMap m_Debug;
+    private List<IDebugActions> m_DebugActionsCallbackInterfaces = new List<IDebugActions>();
+    private readonly InputAction m_Debug_OpenDebug;
+    public struct DebugActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public DebugActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenDebug => m_Wrapper.m_Debug_OpenDebug;
+        public InputActionMap Get() { return m_Wrapper.m_Debug; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DebugActions set) { return set.Get(); }
+        public void AddCallbacks(IDebugActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DebugActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DebugActionsCallbackInterfaces.Add(instance);
+            @OpenDebug.started += instance.OnOpenDebug;
+            @OpenDebug.performed += instance.OnOpenDebug;
+            @OpenDebug.canceled += instance.OnOpenDebug;
+        }
+
+        private void UnregisterCallbacks(IDebugActions instance)
+        {
+            @OpenDebug.started -= instance.OnOpenDebug;
+            @OpenDebug.performed -= instance.OnOpenDebug;
+            @OpenDebug.canceled -= instance.OnOpenDebug;
+        }
+
+        public void RemoveCallbacks(IDebugActions instance)
+        {
+            if (m_Wrapper.m_DebugActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDebugActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DebugActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DebugActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DebugActions @Debug => new DebugActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -733,5 +810,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteractPress(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnBookmarks(InputAction.CallbackContext context);
+    }
+    public interface IDebugActions
+    {
+        void OnOpenDebug(InputAction.CallbackContext context);
     }
 }
