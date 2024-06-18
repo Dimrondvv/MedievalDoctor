@@ -38,6 +38,7 @@ public class Patient : MonoBehaviour
     private void Start()
     {
         isAlive = true;
+        immune = true;
         PatientManager.OnPatientSpawn.Invoke(this);
         PatientManager.OnPatientReleased.AddListener(ReleasePatient);
     }
