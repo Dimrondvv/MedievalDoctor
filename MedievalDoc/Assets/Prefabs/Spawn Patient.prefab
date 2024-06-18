@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6682869168454420248}
   - component: {fileID: 7992913163658081798}
   - component: {fileID: 607279469159437885}
-  - component: {fileID: 7496916244943641361}
   m_Layer: 7
   m_Name: Spawn Patient
   m_TagString: Untagged
@@ -151,19 +150,3 @@ MonoBehaviour:
   delay: 0
   rotationDelay: 0
   lookTowards: {fileID: 0}
---- !u!208 &7496916244943641361
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316902132969748743}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 0
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
