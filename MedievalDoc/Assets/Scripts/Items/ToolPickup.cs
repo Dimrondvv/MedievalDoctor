@@ -59,7 +59,7 @@ public class ToolPickup : MonoBehaviour
 
             Vector3 offset = pickedToolMeshCollider.bounds.size;
 
-            putDownTool.transform.position = LayDownPoint.transform.position + new Vector3(0, offset.y/2, 0);
+            putDownTool.transform.position = LayDownPoint.transform.position /*+ new Vector3(0, offset.y/2, 0)*/;
             putDownTool.transform.rotation = LayDownPoint.transform.rotation;
             putDownTool.transform.SetParent(pickupPoint);
             pickedTool.PickedItem = null;
