@@ -105,6 +105,12 @@ public class Patient : MonoBehaviour
             GameObject sympt = PatientSymptomHandler.FindSymptomObject(this, symptom);
             if(sympt != null)
                 sympt.SetActive(true);
+            if (symptom.isHidingLocalization)
+            {
+                GameObject loc = PatientSymptomHandler.FindLocationObject(this, symptom.localization);
+                if(loc != null)
+                    loc.SetActive(false);
+            }
             symptoms.Add(symptom);
         }
     }

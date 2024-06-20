@@ -91,4 +91,13 @@ public class PatientSymptomHandler : MonoBehaviour
         }
         return null;
     }
+    public static GameObject FindLocationObject(Patient patient, Localization localization)
+    {
+        foreach (Transform child in patient.transform)
+        {
+            if (child.gameObject.name == localization.ToString())
+                return child.gameObject;
+        }
+        return null;
+    }
 }
