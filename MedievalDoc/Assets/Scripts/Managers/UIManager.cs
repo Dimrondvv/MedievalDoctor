@@ -85,7 +85,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        QuestFunctionality.TutorialQuestLine();
+        Debug.Log("Dzia³a UIManager");
+        //QuestFunctionality.TutorialQuestLine();
         uiPrefab.SetActive(true);
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -205,6 +206,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateNewspaper()
     {
+
         if (newsPaper != null)
         {
             newsPaper.UpgradeText("DUPIS£AW");
