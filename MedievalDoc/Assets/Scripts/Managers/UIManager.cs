@@ -12,10 +12,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject uiPrefab;
     [SerializeField] private Canvas loadingScreen;
     [SerializeField] private NotebookDataHandler notebookDataHandler;
+    [SerializeField] private NewspaperNews news;
     [SerializeField] public QuestUI questUI;
     [SerializeField] public UpgradeUI upgradeUI;
     [SerializeField] public NewsPaper newsPaper;
     [SerializeField] public TextMeshProUGUI winText;
+    [SerializeField] DayAndNightController dayAndNightController;
+
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
     public GameObject PauseMenu { get { return pauseMenu; } }
@@ -82,7 +85,6 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         App.Instance.GameplayCore.RegisterUIManager(this);
-        App.Instance.GameplayCore.DaySummaryManager.onNewDay.AddListener(UpdateNewspaper);
 
     }
 
@@ -97,6 +99,7 @@ public class UIManager : MonoBehaviour
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
         playerInputActions.Debug.OpenDebug.performed += OpenDebugWindow;
         App.Instance.GameplayCore.GameManager.OnGameWin.AddListener(DisplayWinMessage);
+        App.Instance.GameplayCore.DaySummaryManager.onNewDay.AddListener(UpdateNewspaper);
     }
 
 
@@ -222,7 +225,12 @@ public class UIManager : MonoBehaviour
 
         if (newsPaper != null)
         {
-            newsPaper.UpgradeText("DUPIS�AW");
+            var day = dayAndNightController.DayCounter;
+            if (day == news.EventDay[day-1])
+            {
+                newsPaper.UpgradeText(news.EventText[day-1]);
+            }
+            
         }
     }
 }

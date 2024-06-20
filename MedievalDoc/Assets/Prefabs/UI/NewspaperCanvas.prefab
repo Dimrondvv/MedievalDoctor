@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6a9a531e7bd8141a505d765b2449cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newsPaperText: {fileID: 7737467658164693911}
 --- !u!1 &7090638310068654801
 GameObject:
   m_ObjectHideFlags: 0
