@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4141828291047590350}
   - component: {fileID: 6682869168454420248}
   - component: {fileID: 7992913163658081798}
+  - component: {fileID: 607279469159437885}
   m_Layer: 7
   m_Name: Spawn Patient
   m_TagString: Untagged
@@ -133,3 +134,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &607279469159437885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316902132969748743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251a73ba9b9fa2449942dc31f049fac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPoint: {fileID: 0}
+  delay: 0
+  rotationDelay: 0
+  lookTowards: {fileID: 0}

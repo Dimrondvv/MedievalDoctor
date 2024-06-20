@@ -21,7 +21,7 @@ public class PatientStory : MonoBehaviour
 
     [SerializeField] private float timeToFade;
 
-    private void Start()
+    public void StoryTime()
     {
         cloud.transform.localScale = new Vector3(0, 0, 0);
         storyObject.SetActive(true);

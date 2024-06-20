@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public List<Quest> quests;
     [SerializeField] public List<TutorialQuest> tutorialQuests;
     [SerializeField] public int dayOfWin;
+    [SerializeField] public List<Tool> starterTools;
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;

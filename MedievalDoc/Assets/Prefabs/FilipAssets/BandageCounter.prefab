@@ -85,7 +85,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Counter
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5864317210319020472, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
+      propertyPath: m_CarveOnlyStationary
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7742177838083782563, guid: 089d372bf3f46f346a62d6d5ff8f2947, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -109,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 3666776307591895051, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
       propertyPath: m_LocalPosition.z

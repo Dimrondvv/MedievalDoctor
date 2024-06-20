@@ -58,7 +58,15 @@ public static class UpgradeSelection
             else
                 index = 0;
         } while (!spawnPoints[index].CheckSpawnConditions());
-        GameObject.Instantiate(upgrade.roomPrefab, spawnPoints[index].transform);
+        var room = GameObject.Instantiate(upgrade.roomPrefab, spawnPoints[index].transform);
+        int i = 0;
+        foreach (Transform child in room.transform)
+        {
+            if (child.gameObject.name.Contains("Counter"))
+            {
+                GameObject.Instantiate(upgrade.toolsAdded[i++].gameObject, child.GetComponentInChildren<ItemLayDownPoint>().gameObject.transform);
+            }
+        }
         spawnPoints.RemoveAt(index);
 
     }

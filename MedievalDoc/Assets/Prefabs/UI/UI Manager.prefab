@@ -47,14 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notebookCanvas: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
   patientCardCanvas: {fileID: 0}
-  newspaperCanvas: {fileID: 6287982403141615780, guid: dfaf0f4de703fe64b817a12427fc6808, type: 3}
+  DebugUICanvas: {fileID: 773164800666246368, guid: df0ca3d5eaadc0549b7b0a963ba71eb3, type: 3}
   pauseMenu: {fileID: 0}
   uiPrefab: {fileID: 0}
   loadingScreen: {fileID: 0}
   notebookDataHandler: {fileID: 7365904910426799913}
   questUI: {fileID: 0}
   upgradeUI: {fileID: 0}
-  newsPaper: {fileID: 1289262013277632148, guid: dfaf0f4de703fe64b817a12427fc6808, type: 3}
   winText: {fileID: 0}
 --- !u!114 &7365904910426799913
 MonoBehaviour:
