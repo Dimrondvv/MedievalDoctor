@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         if (interactionLog.symptomsCured.ContainsKey(symptom.symptomName))
         {
             interactionLog.symptomsCured[symptom.symptomName]++;
-            if (localInteractionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+            if (localInteractionLog.symptomsCured.ContainsKey(symptom.symptomName))
                 localInteractionLog.symptomsCured[symptom.symptomName]++;
             else
                 localInteractionLog.symptomsCured.Add(symptom.symptomName, 1);
@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
         else
         {
             interactionLog.symptomsCured.Add(symptom.symptomName, 1);
-            if (localInteractionLog.symptomsCaused.ContainsKey(symptom.symptomName))
+            if (localInteractionLog.symptomsCured.ContainsKey(symptom.symptomName))
                 localInteractionLog.symptomsCured[symptom.symptomName]++;
             else
                 localInteractionLog.symptomsCured.Add(symptom.symptomName, 1);
