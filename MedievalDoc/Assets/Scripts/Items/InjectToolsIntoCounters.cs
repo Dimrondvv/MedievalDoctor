@@ -11,7 +11,10 @@ public class InjectToolsIntoCounters : MonoBehaviour
         for(int i = 0; i < gameManager.starterTools.Count; i++)
         {
             if (i < counters.Count)
-                Instantiate(gameManager.starterTools[i], counters[i].GetComponentInChildren<ItemLayDownPoint>().transform);
+            {
+                var tool = Instantiate(gameManager.starterTools[i], counters[i].GetComponentInChildren<ItemLayDownPoint>().transform);
+                tool.name = (gameManager.starterTools[i].name).ToString();
+            }
             else
                 throw new System.Exception("Not enough counters to instantiate all tools");
         }

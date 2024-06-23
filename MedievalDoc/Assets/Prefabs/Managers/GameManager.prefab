@@ -48,7 +48,8 @@ MonoBehaviour:
   maxDeaths: 4
   bedHealingValue: 5
   quests: []
-  tutorialQuests: []
+  tutorialQuests:
+  - {fileID: 11400000, guid: 327dcead9867d59488b1ed5bc589fc6c, type: 2}
   dayOfWin: 15
   starterTools:
   - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
