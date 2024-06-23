@@ -380,13 +380,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: High Wall
       objectReference: {fileID: 0}
+    - target: {fileID: -8267060593782352737, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 359e6f66a7000784e90c697ebd77dcfc, type: 2}
     - target: {fileID: -7792854805417321218, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4cab3767dbfd85c45b245ccfd430ab60, type: 2}
+      objectReference: {fileID: 2100000, guid: 359e6f66a7000784e90c697ebd77dcfc, type: 2}
+    - target: {fileID: -4480067585346293626, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 359e6f66a7000784e90c697ebd77dcfc, type: 2}
     - target: {fileID: 842644116475837091, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 842644116475837091, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
       propertyPath: m_TagString
@@ -400,6 +408,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: High Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 6477768060674866036, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 359e6f66a7000784e90c697ebd77dcfc, type: 2}
     - target: {fileID: 8854334934867418194, guid: f6baf1bb0d239d744b21036f8414658b, type: 3}
       propertyPath: m_TagString
       value: High Wall
