@@ -17,13 +17,13 @@ public class PatientSymptomHandler : MonoBehaviour
     {
         Patient.OnTryAddSymptom.AddListener(AddSymptom);
         Patient.OnTryRemoveSymptom.AddListener(RemoveDiscoveredSymptom);
-        Patient.OnRemoveSymptom.AddListener(CheckIfCured);
+        PatientManager.OnPatientReleased.AddListener(CheckIfCured);
     }
     private void OnDestroy()
     {
         Patient.OnTryAddSymptom.RemoveListener(AddSymptom);
         Patient.OnTryRemoveSymptom.RemoveListener(RemoveDiscoveredSymptom);
-        Patient.OnRemoveSymptom.RemoveListener(CheckIfCured);
+        PatientManager.OnPatientReleased.RemoveListener(CheckIfCured);
     }
 
     private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
@@ -68,9 +68,9 @@ public class PatientSymptomHandler : MonoBehaviour
     }
 
 
-    private void CheckIfCured(Symptom symptom, Patient patient, Tool tool)
+    private void CheckIfCured(Patient patient)
     {
-        if (patient != this.patient || tool.SymptomsAdded.Count > 0)
+        if (patient != this.patient)
             return;
 
 
