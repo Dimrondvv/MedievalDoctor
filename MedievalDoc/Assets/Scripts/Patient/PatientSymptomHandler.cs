@@ -74,7 +74,7 @@ public class PatientSymptomHandler : MonoBehaviour
             return;
 
 
-        bool isCured = false;
+        bool isCured = patient.symptoms.Count == 0;
         if (isCured)
         {
             Patient.OnCureDisease.Invoke(patient);
