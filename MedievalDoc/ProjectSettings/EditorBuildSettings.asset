@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomsTest.unity
     guid: aebbe8851f5a32347bb5f0383c3e7e6c
+  - enabled: 1
+    path: Assets/Scenes/BiuletynTestScene.unity
+    guid: 0ff3fecd5b1b6fa40a85d6bcaa946b68
   m_configObjects: {}
