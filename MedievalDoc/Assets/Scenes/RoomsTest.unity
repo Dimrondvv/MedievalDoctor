@@ -3626,6 +3626,10 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
+      propertyPath: news
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c3a54abca9983a47b60d6c55acaa6b1, type: 2}
+    - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
       propertyPath: questUI
       value: 
       objectReference: {fileID: 479424129}
