@@ -2520,6 +2520,9 @@ MonoBehaviour:
   onEndDayPressed:
     m_PersistentCalls:
       m_Calls: []
+  onNewDay:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1595712936
 Transform:
   m_ObjectHideFlags: 0
@@ -2763,6 +2766,10 @@ PrefabInstance:
       propertyPath: LightsToTurnOn
       value: 
       objectReference: {fileID: 745655879}
+    - target: {fileID: 3528179028443677121, guid: f217023e1d87bb246943c6b1a07e53f8, type: 3}
+      propertyPath: timeMultiplier
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 7165032936891186285, guid: f217023e1d87bb246943c6b1a07e53f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3642,6 +3649,10 @@ PrefabInstance:
       propertyPath: patientCardCanvas
       value: 
       objectReference: {fileID: 1131157136}
+    - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
+      propertyPath: dayAndNightController
+      value: 
+      objectReference: {fileID: 1828308195}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
