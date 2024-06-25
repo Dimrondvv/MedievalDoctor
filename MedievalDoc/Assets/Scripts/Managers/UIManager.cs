@@ -230,7 +230,6 @@ public class UIManager : MonoBehaviour
             {
                 newsPaper.UpgradeText(news.EventText[day-1]);
             }
-            
         }
     }
 }

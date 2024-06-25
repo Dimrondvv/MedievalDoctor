@@ -763,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7379503740492420412, guid: 445e408cf60afdc4aa0bd85d1cf1fa4f, type: 3}
       propertyPath: nameSceneToLoad
-      value: BiuletynTestScene
+      value: RoomsTest
       objectReference: {fileID: 0}
     - target: {fileID: 8481207904364671251, guid: 445e408cf60afdc4aa0bd85d1cf1fa4f, type: 3}
       propertyPath: m_LocalPosition.x
