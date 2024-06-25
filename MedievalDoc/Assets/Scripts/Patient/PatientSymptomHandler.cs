@@ -76,6 +76,16 @@ public class PatientSymptomHandler : MonoBehaviour
     private void RemoveLocalization(Patient patient, Localization localization)
     {
         FindLocationObject(patient, localization).SetActive(false);
+        List<SicknessScriptableObject.SymptomStruct> symptomsToRemove = new List<SicknessScriptableObject.SymptomStruct>();
+        foreach (var sympt in patient.symptoms)
+        {
+            if (sympt.localization == localization)
+                symptomsToRemove.Add(sympt);
+        }
+        foreach(var sympt in symptomsToRemove)
+        {
+            patient.symptoms.Remove(sympt);
+        }
     }
 
     private void CheckIfCured(Patient patient)
