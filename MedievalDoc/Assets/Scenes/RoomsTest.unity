@@ -2520,6 +2520,9 @@ MonoBehaviour:
   onEndDayPressed:
     m_PersistentCalls:
       m_Calls: []
+  onNewDay:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1595712936
 Transform:
   m_ObjectHideFlags: 0
@@ -3619,6 +3622,10 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
+      propertyPath: news
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c3a54abca9983a47b60d6c55acaa6b1, type: 2}
+    - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
       propertyPath: questUI
       value: 
       objectReference: {fileID: 479424129}
@@ -3642,6 +3649,10 @@ PrefabInstance:
       propertyPath: patientCardCanvas
       value: 
       objectReference: {fileID: 1131157136}
+    - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
+      propertyPath: dayAndNightController
+      value: 
+      objectReference: {fileID: 1828308195}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
