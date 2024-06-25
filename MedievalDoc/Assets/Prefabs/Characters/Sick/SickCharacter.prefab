@@ -1373,13 +1373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sickness: {fileID: 0}
-  spawnerID: 0
   health: 800
   maxHealth: 800
+  immune: 0
+  spawnerID: 0
+  maximumAnger: 30
   symptoms: []
   patientStory: 
-  immune: 0
-  maximumAnger: 30
 --- !u!114 &2487607957396924146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,7 +1521,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.7
-  m_Speed: 2
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
