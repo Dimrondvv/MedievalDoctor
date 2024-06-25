@@ -226,9 +226,12 @@ public class UIManager : MonoBehaviour
         if (newsPaper != null)
         {
             var day = dayAndNightController.DayCounter;
-            if (day == news.EventDay[day-1])
+            if (news.EventDay.Count > (day - 1))
             {
-                newsPaper.UpgradeText(news.EventText[day-1]);
+                if (day == news.EventDay[day - 1])
+                {
+                    newsPaper.UpgradeText(news.EventText[day - 1]);
+                }
             }
         }
     }
