@@ -17,6 +17,8 @@ MonoBehaviour:
   damage: 10
   score: 0
   possibleLocalizations: 02000000030000000400000005000000
+  doesRemoveLocalization: 1
+  localizationRemoved: 2
   addOnRemove:
     symtpomAddedOnRemoval: {fileID: 0}
     notPresentToAdd: {fileID: 0}

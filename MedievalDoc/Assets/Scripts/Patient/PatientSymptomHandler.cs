@@ -66,10 +66,17 @@ public class PatientSymptomHandler : MonoBehaviour
                 patient.InsertSymptomToList(symptom, symptom.possibleLocalizations[Random.Range(0, symptom.possibleLocalizations.Count - 1)]);
             else
                 patient.InsertSymptomToList(symptom);
+
+            if (symptom.doesRemoveLocalization)
+                RemoveLocalization(patient, symptom.localizationRemoved);
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
 
+    private void RemoveLocalization(Patient patient, Localization localization)
+    {
+        FindLocationObject(patient, localization).SetActive(false);
+    }
 
     private void CheckIfCured(Patient patient)
     {
