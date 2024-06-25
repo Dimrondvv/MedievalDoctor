@@ -23,7 +23,7 @@ public class CallPatient : MonoBehaviour, IInteractable
 
     private void CallPatientIn(GameObject interactionObject, PickupController player)
     {
-        if (interactionObject != gameObject)
+        if (interactionObject != gameObject || App.Instance.GameplayCore.PatientManager.patients.Count != 0)
             return;
 
         var patient = Instantiate(patientPrefab, tempSpawnPosition); //Instantiate patient prefab at spawn position

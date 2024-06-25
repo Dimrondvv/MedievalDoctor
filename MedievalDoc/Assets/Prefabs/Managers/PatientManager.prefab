@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc1c2847d14d80468305fd08227e94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientPrefab: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
   patients: []
+  sicknessPool:
+  - {fileID: 11400000, guid: 0902f3b402028d444975f82a93fa1ff3, type: 2}
+  - {fileID: 11400000, guid: b9fabfb85c3755b4da7f10701218d515, type: 2}
+  - {fileID: 11400000, guid: 79ff41a7ad26ada43aecb56d26480b5e, type: 2}
+  - {fileID: 11400000, guid: b73a42b1d6fd3ff4a998152a96acc441, type: 2}
+  names: {fileID: 11400000, guid: abe8a88ac2acaaa49860dc3014b4be5c, type: 2}
