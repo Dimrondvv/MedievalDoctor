@@ -2766,6 +2766,10 @@ PrefabInstance:
       propertyPath: LightsToTurnOn
       value: 
       objectReference: {fileID: 745655879}
+    - target: {fileID: 3528179028443677121, guid: f217023e1d87bb246943c6b1a07e53f8, type: 3}
+      propertyPath: timeMultiplier
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 7165032936891186285, guid: f217023e1d87bb246943c6b1a07e53f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
