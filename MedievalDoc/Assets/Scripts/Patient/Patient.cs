@@ -124,12 +124,13 @@ public class Patient : MonoBehaviour
         }
         return false;
     }
-    public void InsertSymptomToList(Symptom sympt)
+    public void InsertSymptomToList(Symptom sympt, Localization local = Localization.None)
     {
         SicknessScriptableObject.SymptomStruct symptomStruct = new SicknessScriptableObject.SymptomStruct
         {
             symptom = sympt,
-            isHidden = false
+            isHidden = false,
+            localization = local
         };
 
         symptoms.Add(symptomStruct);

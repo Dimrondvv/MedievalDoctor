@@ -62,7 +62,10 @@ public class PatientSymptomHandler : MonoBehaviour
 
         if (symptomDependencies.canSymptomBeAdded(symptom, patient))
         {
-            patient.InsertSymptomToList(symptom);
+            if(symptom.possibleLocalizations.Count > 0)
+                patient.InsertSymptomToList(symptom, symptom.possibleLocalizations[Random.Range(0, symptom.possibleLocalizations.Count - 1)]);
+            else
+                patient.InsertSymptomToList(symptom);
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
