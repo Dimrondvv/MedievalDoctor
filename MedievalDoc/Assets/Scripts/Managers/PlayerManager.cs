@@ -13,9 +13,6 @@ public class PlayerManager : MonoBehaviour
     private int score = 0; // player score
     public int Score { get { return score; } set { score = value; } }
 
-    [SerializeField] private int playerHealth; // player Health (if =< 0 - game over)
-    public int PlayerHealth { get { return playerHealth; } set { playerHealth = value; } }
-
     private int money = 0; // money
     public int Money { get { return money; } set { money = value; } }
 
@@ -42,8 +39,6 @@ public class PlayerManager : MonoBehaviour
 
     public void UpdateStats(int health, int score, int cash)
     {
-        Debug.Log("Updating :D");
-        playerHealth += health;
         this.score += score;
         money += cash;
     }
