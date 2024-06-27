@@ -2045,18 +2045,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sicknessList:
-  - {fileID: 11400000, guid: e7cba49fc746bd444a3e8c987b9b139f, type: 2}
-  - {fileID: 11400000, guid: 0902f3b402028d444975f82a93fa1ff3, type: 2}
-  - {fileID: 11400000, guid: b9fabfb85c3755b4da7f10701218d515, type: 2}
-  - {fileID: 11400000, guid: 8af7f2fa5bc1c8b48a4d2a9a76e1b187, type: 2}
-  - {fileID: 11400000, guid: 16bb8cee22d41674ca83a86a12a195ef, type: 2}
-  - {fileID: 11400000, guid: f638bdbfd82b9f447a71e402c1de27eb, type: 2}
-  - {fileID: 11400000, guid: 676de0d44b4bcd542b7ae03c95910b91, type: 2}
-  - {fileID: 11400000, guid: 79ff41a7ad26ada43aecb56d26480b5e, type: 2}
-  - {fileID: 11400000, guid: 9abbd78fb565e2b4ea9ec0dbf78e29be, type: 2}
-  - {fileID: 11400000, guid: b73a42b1d6fd3ff4a998152a96acc441, type: 2}
-  - {fileID: 11400000, guid: c558eeae1ede31b47b438d56f5d99206, type: 2}
-  - {fileID: 11400000, guid: 27de1233ff62d004ca52853118a2bc65, type: 2}
+  - {fileID: 11400000, guid: 0753ab78e417c4847915c2e18104f8a6, type: 2}
+  - {fileID: 11400000, guid: 4a77e1627ad6dfa46ac895854b223b0b, type: 2}
+  - {fileID: 11400000, guid: 0fba642657abb7a47926650f78b94d7f, type: 2}
+  - {fileID: 11400000, guid: 575969dd5265d924daf0bd9232c3fe42, type: 2}
+  - {fileID: 11400000, guid: cdb28336cb8fc9849a915ca3ea6ae9bb, type: 2}
   patientDebug: {fileID: 3412748776966626545}
   buttonPrefab: {fileID: 9175557649994080803, guid: e4381450d3bf9ce44b9046847fb4234d, type: 3}
   content: {fileID: 7325233782239826166}

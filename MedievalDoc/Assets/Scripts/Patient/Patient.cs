@@ -13,6 +13,7 @@ public class Patient : MonoBehaviour
     [SerializeField] public int maximumAnger;
 
     public List<SicknessScriptableObject.SymptomStruct> symptoms;
+    public List<Symptom> removedSymptoms;
     public List<SicknessScriptableObject.SymptomStruct> Symptoms { get { return symptoms; } set { symptoms = value; } }
     public string patientStory;
     private bool isAlive;
@@ -142,8 +143,11 @@ public class Patient : MonoBehaviour
 
         foreach(var symptom in symptoms)
         {
-            score += symptom.symptom.score;
+            score -= symptom.symptom.score;
         }
+
+        foreach (var symptom in removedSymptoms)
+            score += symptom.score;
 
         return score;
     }

@@ -15,7 +15,7 @@ public class Symptom : ScriptableObject
     public List<Localization> possibleLocalizations;
     public bool doesRemoveLocalization;
     [MyBox.ConditionalField(nameof(doesRemoveLocalization))] public Localization localizationRemoved;
-    public AddedOnRemoval addOnRemove;
+    public List<AddedOnRemoval> addOnRemove;
     public bool isHidden;
 
     [System.Serializable]

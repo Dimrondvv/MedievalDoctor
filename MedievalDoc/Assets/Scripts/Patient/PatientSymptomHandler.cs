@@ -39,16 +39,20 @@ public class PatientSymptomHandler : MonoBehaviour
             {
                 if (i.symptom == symptom)
                 {
-                    Symptom.AddedOnRemoval symptomAdded = i.symptom.addOnRemove;
-                    if (symptomAdded.symtpomAddedOnRemoval != null) //Check if addOnRemove variable equals the default value and therefore is null
+                    List<Symptom.AddedOnRemoval> symptomAdded = i.symptom.addOnRemove;
+                    foreach (var smpt in symptomAdded)
                     {
-                        if(!GetComponent<Patient>().FindSymptom(symptomAdded.notPresentToAdd))
+                        if (smpt != null) //Check if addOnRemove variable equals the default value and therefore is null
                         {
-                            Patient.OnTryAddSymptom.Invoke(symptomAdded.symtpomAddedOnRemoval, patient, tool);
+                            if (!GetComponent<Patient>().FindSymptom(smpt.notPresentToAdd))
+                            {
+                                Patient.OnTryAddSymptom.Invoke(smpt.symtpomAddedOnRemoval, patient, tool);
+                            }
                         }
                     }
                     patient.Symptoms.Remove(i);
                     Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);
+                    patient.removedSymptoms.Add(symptom);
                     break;
                 }
             }
@@ -62,6 +66,7 @@ public class PatientSymptomHandler : MonoBehaviour
 
         if (symptomDependencies.canSymptomBeAdded(symptom, patient))
         {
+            Debug.Log(symptom.possibleLocalizations);
             if(symptom.possibleLocalizations.Count > 0)
                 patient.InsertSymptomToList(symptom, symptom.possibleLocalizations[Random.Range(0, symptom.possibleLocalizations.Count - 1)]);
             else
