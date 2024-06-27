@@ -54,5 +54,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  upgradeDays: 01000000030000000500000007000000
+  upgradeDays: 020000000500000007000000
   upgradeTable: {fileID: 0}

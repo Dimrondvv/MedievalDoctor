@@ -51,8 +51,7 @@ MonoBehaviour:
   toolName: Organ
   toolDescription: Transplant
   symptomsAdded: []
-  symptomsRemoved:
-  - {fileID: 11400000, guid: d3322c48fdb35f04297a5879425170a9, type: 2}
+  symptomsRemoved: []
   symptomsChecked: []
   isOneUse: 0
   interactionTime: 0

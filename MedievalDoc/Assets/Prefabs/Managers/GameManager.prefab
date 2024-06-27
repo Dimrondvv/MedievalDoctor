@@ -52,9 +52,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 327dcead9867d59488b1ed5bc589fc6c, type: 2}
   dayOfWin: 15
   starterTools:
-  - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
+  - {fileID: -8713386820704438159, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
   - {fileID: 7695447329451422416, guid: 50698cd0673fbe84199975f1e7848705, type: 3}
-  - {fileID: 8286880015189026379, guid: 48e0bddb2a0914b4fa3c3a3a6b98d5e2, type: 3}
   deathCounter: 0
   royalTax: 0
   delayQuestInSeconds: 3

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
+  m_Name: Cut
+  m_EditorClassIdentifier: 
+  sicknessName: Cut
+  sicknessDescritpion: Patient has been cut by somtehing
+  symptomList:
+  - symptom: {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    isHidden: 0
+    localization: 6
+    isLocalizationSensitive: 0
+    isHidingLocalization: 0
+  stories:
+  - I have been cut please put a bandage on me
+  solutionList: []
+  icon: {fileID: 21300000, guid: cffe8cbc2909667489d7fba1d407fe75, type: 3}

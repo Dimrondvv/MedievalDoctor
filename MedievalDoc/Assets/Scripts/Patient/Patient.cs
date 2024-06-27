@@ -13,6 +13,7 @@ public class Patient : MonoBehaviour
     [SerializeField] public int maximumAnger;
 
     public List<SicknessScriptableObject.SymptomStruct> symptoms;
+    public List<Symptom> removedSymptoms;
     public List<SicknessScriptableObject.SymptomStruct> Symptoms { get { return symptoms; } set { symptoms = value; } }
     public string patientStory;
     private bool isAlive;
@@ -105,6 +106,12 @@ public class Patient : MonoBehaviour
             GameObject sympt = PatientSymptomHandler.FindSymptomObject(this, symptom);
             if(sympt != null)
                 sympt.SetActive(true);
+            if (symptom.isHidingLocalization)
+            {
+                GameObject loc = PatientSymptomHandler.FindLocationObject(this, symptom.localization);
+                if(loc != null)
+                    loc.SetActive(false);
+            }
             symptoms.Add(symptom);
         }
     }
@@ -118,12 +125,13 @@ public class Patient : MonoBehaviour
         }
         return false;
     }
-    public void InsertSymptomToList(Symptom sympt)
+    public void InsertSymptomToList(Symptom sympt, Localization local = Localization.None)
     {
         SicknessScriptableObject.SymptomStruct symptomStruct = new SicknessScriptableObject.SymptomStruct
         {
             symptom = sympt,
-            isHidden = false
+            isHidden = false,
+            localization = local
         };
 
         symptoms.Add(symptomStruct);
@@ -135,8 +143,11 @@ public class Patient : MonoBehaviour
 
         foreach(var symptom in symptoms)
         {
-            score += symptom.symptom.score;
+            score -= symptom.symptom.score;
         }
+
+        foreach (var symptom in removedSymptoms)
+            score += symptom.score;
 
         return score;
     }

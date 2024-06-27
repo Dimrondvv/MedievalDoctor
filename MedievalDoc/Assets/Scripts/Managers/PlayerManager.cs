@@ -42,6 +42,7 @@ public class PlayerManager : MonoBehaviour
 
     public void UpdateStats(int health, int score, int cash)
     {
+        Debug.Log("Updating :D");
         playerHealth += health;
         this.score += score;
         money += cash;
