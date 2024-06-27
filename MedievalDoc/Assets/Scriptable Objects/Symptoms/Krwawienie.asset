@@ -15,3 +15,9 @@ MonoBehaviour:
   symptomName: Krwawienie
   symptomIcon: {fileID: 21300000, guid: 07d308587a50b684b8f7d8d4c119bce5, type: 3}
   damage: 10
+  score: 0
+  possibleLocalizations: 010000000000000002000000030000000400000005000000
+  addOnRemove:
+    symtpomAddedOnRemoval: {fileID: 0}
+    notPresentToAdd: {fileID: 0}
+  isHidden: 0

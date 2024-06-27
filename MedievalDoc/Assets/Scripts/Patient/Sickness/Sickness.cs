@@ -21,7 +21,8 @@ public class SicknessScriptableObject : ScriptableObject
         public Localization localization;
         [Header("Is localization sensitive")]
         public bool isLocalizationSensitive;
-        
+        public bool isHidingLocalization;
+
         public string GetSymptomName()
         {
             return symptom.symptomName;

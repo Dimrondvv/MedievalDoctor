@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
+  m_Name: Head ache
+  m_EditorClassIdentifier: 
+  sicknessName: Head ache
+  sicknessDescritpion: Patient has a head ache
+  symptomList:
+  - symptom: {fileID: 11400000, guid: 5dba04e92a0f27e4791901ee2d16fda7, type: 2}
+    isHidden: 0
+    localization: 7
+    isLocalizationSensitive: 0
+    isHidingLocalization: 0
+  stories:
+  - I have a head ache
+  solutionList: []
+  icon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}

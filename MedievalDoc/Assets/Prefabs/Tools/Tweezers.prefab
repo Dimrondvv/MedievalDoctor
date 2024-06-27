@@ -52,14 +52,12 @@ MonoBehaviour:
   toolDescription: Removes foreign objects from body
   symptomsAdded: []
   symptomsRemoved:
-  - {fileID: 11400000, guid: b60d336077464c64bb94e4602c64706f, type: 2}
-  - {fileID: 11400000, guid: baabad1d35bcbf84f9d788930adb37d4, type: 2}
-  - {fileID: 11400000, guid: 89d5c873efefb4b4aaa00b8cc38191a9, type: 2}
-  - {fileID: 11400000, guid: 39f05df63f21b494b9c0719c8a387c81, type: 2}
-  - {fileID: 11400000, guid: 43c42d771bbde0f44a012fd28088dcda, type: 2}
+  - {fileID: 11400000, guid: 6d3609d53aac3064abd42b260a248c8c, type: 2}
+  - {fileID: 11400000, guid: 97c840c32265967478955303cdafb200, type: 2}
+  - {fileID: 11400000, guid: d2155f8a9552da14cbdcb1e800c24ae7, type: 2}
   symptomsChecked: []
   isOneUse: 0
-  interactionTime: 0
+  interactionTime: 2
 --- !u!64 &6743448797544277155
 MeshCollider:
   m_ObjectHideFlags: 0
