@@ -19,6 +19,7 @@ MonoBehaviour:
     isHidden: 0
     localization: 1
     isLocalizationSensitive: 1
+    isHidingLocalization: 1
   stories:
   - I can't sleep, is there a cure for that?
   solutionList:

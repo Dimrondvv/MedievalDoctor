@@ -15,3 +15,11 @@ MonoBehaviour:
   symptomName: "Brak ko\u0144czyny"
   symptomIcon: {fileID: 21300000, guid: 2929bea84d9dee04eb10c53b8ce0795c, type: 3}
   damage: 10
+  score: 0
+  possibleLocalizations: 02000000030000000400000005000000
+  doesRemoveLocalization: 1
+  localizationRemoved: 2
+  addOnRemove:
+    symtpomAddedOnRemoval: {fileID: 0}
+    notPresentToAdd: {fileID: 0}
+  isHidden: 0

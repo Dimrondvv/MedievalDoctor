@@ -62,11 +62,31 @@ public class PatientSymptomHandler : MonoBehaviour
 
         if (symptomDependencies.canSymptomBeAdded(symptom, patient))
         {
-            patient.InsertSymptomToList(symptom);
+            if(symptom.possibleLocalizations.Count > 0)
+                patient.InsertSymptomToList(symptom, symptom.possibleLocalizations[Random.Range(0, symptom.possibleLocalizations.Count - 1)]);
+            else
+                patient.InsertSymptomToList(symptom);
+
+            if (symptom.doesRemoveLocalization)
+                RemoveLocalization(patient, symptom.localizationRemoved);
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
 
+    private void RemoveLocalization(Patient patient, Localization localization)
+    {
+        FindLocationObject(patient, localization).SetActive(false);
+        List<SicknessScriptableObject.SymptomStruct> symptomsToRemove = new List<SicknessScriptableObject.SymptomStruct>();
+        foreach (var sympt in patient.symptoms)
+        {
+            if (sympt.localization == localization)
+                symptomsToRemove.Add(sympt);
+        }
+        foreach(var sympt in symptomsToRemove)
+        {
+            patient.symptoms.Remove(sympt);
+        }
+    }
 
     private void CheckIfCured(Patient patient)
     {
@@ -87,6 +107,15 @@ public class PatientSymptomHandler : MonoBehaviour
             if (child.gameObject.name == symptom.GetSymptomName() + "_" + symptom.localization.ToString() && symptom.isLocalizationSensitive)
                 return child.gameObject;
             else if (child.gameObject.name == symptom.GetSymptomName())
+                return child.gameObject;
+        }
+        return null;
+    }
+    public static GameObject FindLocationObject(Patient patient, Localization localization)
+    {
+        foreach (Transform child in patient.transform)
+        {
+            if (child.gameObject.name == localization.ToString())
                 return child.gameObject;
         }
         return null;

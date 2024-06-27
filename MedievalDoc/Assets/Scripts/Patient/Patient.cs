@@ -105,6 +105,12 @@ public class Patient : MonoBehaviour
             GameObject sympt = PatientSymptomHandler.FindSymptomObject(this, symptom);
             if(sympt != null)
                 sympt.SetActive(true);
+            if (symptom.isHidingLocalization)
+            {
+                GameObject loc = PatientSymptomHandler.FindLocationObject(this, symptom.localization);
+                if(loc != null)
+                    loc.SetActive(false);
+            }
             symptoms.Add(symptom);
         }
     }
@@ -118,12 +124,13 @@ public class Patient : MonoBehaviour
         }
         return false;
     }
-    public void InsertSymptomToList(Symptom sympt)
+    public void InsertSymptomToList(Symptom sympt, Localization local = Localization.None)
     {
         SicknessScriptableObject.SymptomStruct symptomStruct = new SicknessScriptableObject.SymptomStruct
         {
             symptom = sympt,
-            isHidden = false
+            isHidden = false,
+            localization = local
         };
 
         symptoms.Add(symptomStruct);
