@@ -44,7 +44,6 @@ public class AppGameState : BaseState
     {
         Parent.MakeTransition((int)EAppState.Summary);
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.RemoveListener(ChanageToSummaryState);
-
     }
 
 
