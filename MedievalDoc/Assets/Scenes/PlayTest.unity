@@ -10290,7 +10290,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc1c2847d14d80468305fd08227e94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientPrefab: {fileID: 0}
   patients: []
+  sicknessPool: []
+  names: {fileID: 0}
 --- !u!4 &1327659875
 Transform:
   m_ObjectHideFlags: 0
@@ -15556,6 +15559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfac5186a55fec4f8f6d4ea9f0b351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSunRotating: 1
+  SummaryHour: 20
   timeMultiplier: 2000
   startHour: 12
   maxSunLightIntensity: 1
@@ -15603,6 +15608,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   clock: {fileID: 1899718553}
   LightsToTurnOn: {fileID: 745655879}
+  UseJustOnce: 0
 --- !u!1 &1882790920
 GameObject:
   m_ObjectHideFlags: 0
@@ -17990,7 +17996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.300921
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17998,23 +18004,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.371366
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.101236
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18026,6 +18032,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820979240745591868, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296740950154623369, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296740950154623369, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296740950154623369, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495029147128959049, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495029147128959049, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553484371711699104, guid: 4b3abb550c25fc5478eb33f219625892, type: 3}

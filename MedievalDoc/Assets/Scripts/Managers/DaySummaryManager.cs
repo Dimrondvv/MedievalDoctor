@@ -9,6 +9,9 @@ public class DaySummaryManager : MonoBehaviour
     [SerializeField]
     public DayAndNightController dayAndNightController;
 
+    [SerializeField]
+    private Fading fadeing;
+
     //[SerializeField]
     //private PatientManager patientManager;
 
@@ -82,10 +85,14 @@ public class DaySummaryManager : MonoBehaviour
 
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
-            //isSummaryState = true;
-            ChangingToSummaryState?.Invoke();
-            OnTimeStoped.RemoveListener(ChangeToSummaryState);
-            DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
+            fadeing.FadeOut();
+
+            if (!fadeing.Locked) {       
+                ChangingToSummaryState?.Invoke();
+                OnTimeStoped.RemoveListener(ChangeToSummaryState);
+                DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
+                fadeing.Locked = true;
+            }
         }
     }
 
@@ -96,6 +103,7 @@ public class DaySummaryManager : MonoBehaviour
 
     public void startDay()
     {
+        fadeing.FadeIn();
         dayAndNightController.resetDay();
     }
 
