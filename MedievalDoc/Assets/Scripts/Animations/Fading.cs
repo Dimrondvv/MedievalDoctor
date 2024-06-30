@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class Fading : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
+    private bool locked;
+
+    public bool Locked {
+        get { return locked; }
+        set { locked = value; }
+    }
+
+    private void Start() {
+        animator = GetComponent<Animator>();
+        locked = true;
+    }
 
     public void FadeOut() {
         animator.SetTrigger("FadeOut");
+    }
+
+    public void Unlock() {
+        locked = false;
     }
 }

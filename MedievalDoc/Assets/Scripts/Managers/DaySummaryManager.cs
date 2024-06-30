@@ -85,10 +85,14 @@ public class DaySummaryManager : MonoBehaviour
 
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
-            //AnimateFade();
-            ChangingToSummaryState?.Invoke();
-            OnTimeStoped.RemoveListener(ChangeToSummaryState);
-            DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
+            fadeing.FadeOut();
+
+            if (!fadeing.Locked) {
+                ChangingToSummaryState?.Invoke();
+                OnTimeStoped.RemoveListener(ChangeToSummaryState);
+                DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
+                fadeing.Locked = true;
+            }
         }
     }
 
@@ -100,10 +104,6 @@ public class DaySummaryManager : MonoBehaviour
     public void startDay()
     {
         dayAndNightController.resetDay();
-    }
-
-    public void AnimateFade() {
-        fadeing.FadeOut();
     }
 
     private void OnDestroy()
