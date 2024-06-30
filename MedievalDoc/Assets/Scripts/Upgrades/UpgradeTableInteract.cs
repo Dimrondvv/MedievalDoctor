@@ -29,6 +29,9 @@ public class UpgradeTableInteract : MonoBehaviour, IInteractable
 
     private void OnTableInteract(GameObject obj, PickupController pcp) 
     {
+        if (obj != gameObject)
+            return;
+
         manager.UpgradeBoard();
         PickupController.OnInteract.RemoveListener(OnTableInteract);
         gameObject.layer = 0;
