@@ -87,7 +87,7 @@ public class DaySummaryManager : MonoBehaviour
         if (isTimeStoped && patientCount == 0) {
             fadeing.FadeOut();
 
-            if (!fadeing.Locked) {
+            if (!fadeing.Locked) {       
                 ChangingToSummaryState?.Invoke();
                 OnTimeStoped.RemoveListener(ChangeToSummaryState);
                 DayAndNightController.OnEndOfaDay.RemoveListener(stopTime);
@@ -103,6 +103,7 @@ public class DaySummaryManager : MonoBehaviour
 
     public void startDay()
     {
+        fadeing.FadeIn();
         dayAndNightController.resetDay();
     }
 

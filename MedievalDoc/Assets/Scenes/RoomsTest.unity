@@ -2782,7 +2782,7 @@ PrefabInstance:
       objectReference: {fileID: 677138852}
     - target: {fileID: 3528179028443677121, guid: f217023e1d87bb246943c6b1a07e53f8, type: 3}
       propertyPath: SummaryHour
-      value: 13
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3528179028443677121, guid: f217023e1d87bb246943c6b1a07e53f8, type: 3}
       propertyPath: LightsToTurnOn

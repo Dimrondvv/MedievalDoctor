@@ -20,6 +20,10 @@ public class Fading : MonoBehaviour
     public void FadeOut() {
         animator.SetTrigger("FadeOut");
     }
+    public void FadeIn() {
+        animator.ResetTrigger("FadeOut");
+        animator.Play("Fade_In");
+    }
 
     public void Unlock() {
         locked = false;
