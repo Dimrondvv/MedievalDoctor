@@ -82,7 +82,7 @@ public class DaySummaryManager : MonoBehaviour
     }
 
     void stopTime(float endTime) {
-        bellAudio.Play();
+        //bellAudio.Play();
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
     }
