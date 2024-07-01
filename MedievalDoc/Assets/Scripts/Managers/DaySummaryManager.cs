@@ -24,6 +24,8 @@ public class DaySummaryManager : MonoBehaviour
     [SerializeField]
     private bool isTimeStoped;
 
+    private AudioSource bellAudio;
+
     public bool IsTimeStoped
     {
         get { return isTimeStoped;  }
@@ -56,6 +58,7 @@ public class DaySummaryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bellAudio = GetComponent<AudioSource>();
         DayAndNightController.OnEndOfaDay.AddListener(stopTime);
         OnTimeStoped.AddListener(ChangeToSummaryState);
     }
@@ -79,6 +82,7 @@ public class DaySummaryManager : MonoBehaviour
     }
 
     void stopTime(float endTime) {
+        bellAudio.Play();
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
     }
