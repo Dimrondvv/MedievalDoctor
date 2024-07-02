@@ -66,16 +66,32 @@ public class PatientSymptomHandler : MonoBehaviour
 
         if (symptomDependencies.canSymptomBeAdded(symptom, patient))
         {
-            Debug.Log(symptom.possibleLocalizations);
-            if(symptom.possibleLocalizations.Count > 0)
+            if (symptom.possibleLocalizations.Count > 0)
+            {
+                if (SelectLocalization(patient, symptom) == Localization.None && !symptom.possibleLocalizations.Contains(Localization.None))
+                    return;
                 patient.InsertSymptomToList(symptom, symptom.possibleLocalizations[Random.Range(0, symptom.possibleLocalizations.Count - 1)]);
+            }
             else
                 patient.InsertSymptomToList(symptom);
-
             if (symptom.doesRemoveLocalization)
                 RemoveLocalization(patient, symptom.localizationRemoved);
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
+    }
+
+    private Localization SelectLocalization(Patient patient, Symptom symptom)
+    {
+        List<Localization> locsToCheck = symptom.possibleLocalizations;
+        while (locsToCheck.Count > 0)
+        {
+            Localization loc = locsToCheck[Random.Range(0, locsToCheck.Count - 1)];
+            if (FindLocationObject(patient, loc) != null)
+                return loc;
+            else
+                locsToCheck.Remove(loc);
+        }
+        return Localization.None;
     }
 
     private void RemoveLocalization(Patient patient, Localization localization)
