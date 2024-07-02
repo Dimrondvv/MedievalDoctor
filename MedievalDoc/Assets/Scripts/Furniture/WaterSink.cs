@@ -18,6 +18,13 @@ public class WaterSink : MonoBehaviour
             return;
         }
         var item = player.PickedItem;
+        if(item == null)
+        {
+            return;
+        }
+        if(item.GetComponent<Item>() == null){
+            return;
+        }
         if (item.GetComponent<Item>().ItemName == emptyWaterFlask.GetComponent<Item>().ItemName)
         {
             player.PickedItem = null;
