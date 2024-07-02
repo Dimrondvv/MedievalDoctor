@@ -66,7 +66,7 @@ public class PickupController : MonoBehaviour {
     }
 
     private void RotateBlueprint_performed(UnityEngine.InputSystem.InputAction.CallbackContext callback) { // Rotate Blueprint
-        if (pickedItem != null) {
+        if (pickedItem != null && pickedItem.GetComponent<SnapBlueprint>()) { 
             float inputVector = playerInputActions.Player.RotateBlueprint.ReadValue<float>();
             if (inputVector == 1) {
                 pickedItem.GetComponent<SnapBlueprint>().Blueprint.transform.eulerAngles += new Vector3(0, 90f, 0);
