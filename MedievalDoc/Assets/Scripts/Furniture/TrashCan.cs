@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class TrashCan : MonoBehaviour
 {
-    private Patient patient;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
