@@ -66,6 +66,14 @@ public class Crafting : MonoBehaviour
                     Destroy(i);
                 }
                 insertedItems.Clear();
+                for(int i = 0; i < insertedItems.Count; i++)
+                {
+                    if (item.requiredItems[i].isConsumed)
+                    {
+                        Destroy(insertedItems[i]);
+                        insertedItems.RemoveAt(i);
+                    }
+                }
             }
         }
 
