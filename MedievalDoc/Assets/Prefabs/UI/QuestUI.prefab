@@ -183,7 +183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quest Reward:'
+  m_text: 'Quest Reward: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
   m_sharedMaterial: {fileID: -7035118502853451386, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
@@ -317,9 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quest name:
-
-'
+  m_text: 'Quest name: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
   m_sharedMaterial: {fileID: -7035118502853451386, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
@@ -453,9 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quest description:
-
-'
+  m_text: "Quest description: \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}
   m_sharedMaterial: {fileID: -7035118502853451386, guid: ce7d94b83fb1ee34bb0c80986d434150, type: 2}

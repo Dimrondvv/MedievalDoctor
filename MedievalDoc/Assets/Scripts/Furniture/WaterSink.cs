@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WaterSink : MonoBehaviour
 {
@@ -10,35 +10,28 @@ public class WaterSink : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< Updated upstream
-        PickupController.OnPutdown.AddListener(PourWater);     
-=======
-        PickupController.OnInteract.AddListener(PourWater);
->>>>>>> Stashed changes
+        PickupController.OnInteract.AddListener(PourWater);     
     }
-    private void PourWater(PickupController player, Transform objectType)
+    private void PourWater(GameObject interactedObject, PickupController player)
     {
-<<<<<<< Updated upstream
-        var item = player.PickedItem;
-        if (item.GetComponent<Item>().ItemName == emptyWaterFlask.GetComponent<Item>().ItemName)
-=======
-        try
-        {
-            var item = player.PickedItem;
-            if (item == emptyWaterFlask)
-            {
-                player.PickedItem = null;
-                Destroy(item);
-                item = Instantiate(waterFlask);
-                PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
-                playerManager.PickupController.SetPickedItem(item);
-            }
-
+        if (interactedObject != gameObject) {
+            return;
         }
-        catch (Exception ex)
->>>>>>> Stashed changes
+        var item = player.PickedItem;
+        if(item == null)
         {
-            Debug.LogException(ex, this);
+            return;
+        }
+        if(item.GetComponent<Item>() == null){
+            return;
+        }
+        if (item.GetComponent<Item>().ItemName == emptyWaterFlask.GetComponent<Item>().ItemName)
+        {
+            player.PickedItem = null;
+            Destroy(item);
+            item = Instantiate(waterFlask);
+            PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+            playerManager.PickupController.SetPickedItem(item);
         }
     }
 }
