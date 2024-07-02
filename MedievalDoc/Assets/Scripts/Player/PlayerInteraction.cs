@@ -8,11 +8,13 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float defaultInteractionTime;
     private PlayerInputActions playerInputActions;
     private PickupController controller;
+    private AudioSource interactionAudio;
     //private bool hasInteracted;
     
     private void Start()
     {
         controller = GetComponent<PickupController>();
+        interactionAudio = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
 
@@ -55,6 +57,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         float time = 0.0f;
         GetComponent<ProgressBar>().StartProgressBar(interactTime);
+        interactionAudio.Play();
         while (time < interactTime && playerInputActions.Player.InteractPress.IsPressed())
         {
 
@@ -64,6 +67,7 @@ public class PlayerInteraction : MonoBehaviour
                 Debug.Log(SharedOverlapBox.HighestCollider.gameObject);
                 //hasInteracted = false;
                 GetComponent<ProgressBar>().StopProgressBar();
+                interactionAudio.Stop();
                 yield break;
             }
 
@@ -74,12 +78,14 @@ public class PlayerInteraction : MonoBehaviour
         {
             //hasInteracted = false;
             GetComponent<ProgressBar>().StopProgressBar();
+            interactionAudio.Stop();
             yield break;
         }
         Collider highestCollider = SharedOverlapBox.HighestCollider;
         if (highestCollider.GetComponent<PickupController>() == null)
         {
             GetComponent<ProgressBar>().StopProgressBar();
+            interactionAudio.Stop();
             PickupController.OnInteract.Invoke(highestCollider.gameObject, controller);
         }
     }
