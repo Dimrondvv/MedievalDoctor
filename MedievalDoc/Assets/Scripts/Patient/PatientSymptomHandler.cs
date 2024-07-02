@@ -107,7 +107,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     public static GameObject FindSymptomObject(Patient patient, SicknessScriptableObject.SymptomStruct symptom)
     {
-        foreach(Transform child in patient.transform)
+        foreach(Transform child in patient.GetComponentsInChildren<Transform>())
         {
             if (child.gameObject.name == symptom.GetSymptomName() + "_" + symptom.localization.ToString() && symptom.isLocalizationSensitive)
                 return child.gameObject;
@@ -118,7 +118,7 @@ public class PatientSymptomHandler : MonoBehaviour
     }
     public static GameObject FindLocationObject(Patient patient, Localization localization)
     {
-        foreach (Transform child in patient.transform)
+        foreach (Transform child in patient.GetComponentsInChildren<Transform>())
         {
             if (child.gameObject.name == localization.ToString())
                 return child.gameObject;
