@@ -55,6 +55,7 @@ public class PatientWalking : MonoBehaviour
     private void StopWalking()
     {
         StopCoroutine(Walking());
+        Debug.Log("stop walking");
         StartCoroutine(RotatePatient());
     }
 
