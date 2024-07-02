@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WaterSink : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class WaterSink : MonoBehaviour
 
     private void Start()
     {
-        PickupController.OnPutdown.AddListener(PourWater);     
+        PickupController.OnInteract.AddListener(PourWater);     
     }
-    private void PourWater(PickupController player, Transform objectType)
+    private void PourWater(GameObject interactedObject, PickupController player)
     {
+        if (interactedObject != gameObject) {
+            return;
+        }
         var item = player.PickedItem;
         if (item.GetComponent<Item>().ItemName == emptyWaterFlask.GetComponent<Item>().ItemName)
         {
