@@ -13,6 +13,7 @@ public class InjectToolsIntoCounters : MonoBehaviour
             if (i < counters.Count)
             {
                 var tool = Instantiate(gameManager.starterTools[i], counters[i].GetComponentInChildren<ItemLayDownPoint>().transform);
+                counters[i].GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = true;
                 tool.name = (gameManager.starterTools[i].name).ToString();
             }
             else
