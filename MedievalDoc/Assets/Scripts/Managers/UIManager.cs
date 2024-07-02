@@ -97,7 +97,9 @@ public class UIManager : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Debug.Enable();
         playerInputActions.Player.Pause.performed += PauseMenuFunction;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         playerInputActions.Debug.OpenDebug.performed += OpenDebugWindow;
+#endif
         App.Instance.GameplayCore.GameManager.OnGameWin.AddListener(DisplayWinMessage);
         App.Instance.GameplayCore.DaySummaryManager.onNewDay.AddListener(UpdateNewspaper);
     }
@@ -111,7 +113,7 @@ public class UIManager : MonoBehaviour
     public void DisplayWinMessage() => winText.gameObject.SetActive(true);
     public void InitializeUpgradeBoard() => upgradeUI.InitializeUpgradeBoard();
     public void DisableUpgradeBoard() => upgradeUI.ClearUpgradeBoard();
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
+
     private void OpenDebugWindow(UnityEngine.InputSystem.InputAction.CallbackContext callback) 
     {
         if (currentCheatCanvas == null)
@@ -119,7 +121,6 @@ public class UIManager : MonoBehaviour
         else
             Destroy(currentCheatCanvas);
     }
-#endif
     public void UpgradeBoard()
     {
         if (!upgradeUI.isActive)
