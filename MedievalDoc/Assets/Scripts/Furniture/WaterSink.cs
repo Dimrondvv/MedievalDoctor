@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class WaterSink : MonoBehaviour
@@ -9,18 +10,35 @@ public class WaterSink : MonoBehaviour
 
     private void Start()
     {
+<<<<<<< Updated upstream
         PickupController.OnPutdown.AddListener(PourWater);     
+=======
+        PickupController.OnInteract.AddListener(PourWater);
+>>>>>>> Stashed changes
     }
     private void PourWater(PickupController player, Transform objectType)
     {
+<<<<<<< Updated upstream
         var item = player.PickedItem;
         if (item.GetComponent<Item>().ItemName == emptyWaterFlask.GetComponent<Item>().ItemName)
+=======
+        try
         {
-            player.PickedItem = null;
-            Destroy(item);
-            item = Instantiate(waterFlask);
-            PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
-            playerManager.PickupController.SetPickedItem(item);
+            var item = player.PickedItem;
+            if (item == emptyWaterFlask)
+            {
+                player.PickedItem = null;
+                Destroy(item);
+                item = Instantiate(waterFlask);
+                PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+                playerManager.PickupController.SetPickedItem(item);
+            }
+
+        }
+        catch (Exception ex)
+>>>>>>> Stashed changes
+        {
+            Debug.LogException(ex, this);
         }
     }
 }
