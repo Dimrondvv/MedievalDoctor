@@ -30,6 +30,6 @@ public class CallPatient : MonoBehaviour, IInteractable
 
         bellAudio.Play();
         var patient = Instantiate(patientPrefab, tempSpawnPosition); //Instantiate patient prefab at spawn position
-        patientWalking.StartWalking(patient);
+        patientWalking.StartWalking(patient, patientWalking.endPoint);
     }
 }

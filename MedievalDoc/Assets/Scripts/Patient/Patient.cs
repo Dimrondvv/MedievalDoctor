@@ -176,8 +176,6 @@ public class Patient : MonoBehaviour
     {
         if (patient != this)
             return;
-
         UpdatePlayerScore();
-        Destroy(gameObject); //TODO - animation of walking out
     }
 }
