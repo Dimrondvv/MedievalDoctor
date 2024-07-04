@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
@@ -62,10 +63,12 @@ public class PatientWalking : MonoBehaviour
 
     private void StopWalking()
     {
-        StopCoroutine(Walking());
-        if (exit == true)
+        Debug.Log(patient.GetComponent<Patient>().IsQuitting);
+        //StopCoroutine(Walking());
+        if (patient.GetComponent<Patient>().IsQuitting == true)
         {
             Destroy(patient);
+            return;
         }
         else
         {
@@ -75,12 +78,12 @@ public class PatientWalking : MonoBehaviour
 
     IEnumerator RotatePatient()
     {
-        while (!rotated)
+        while (!rotated && !exit)
         {
             var rot = Rotation(patient.transform, lookTowards);
             float singleStep = 2f * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(patient.transform.forward, rot, singleStep, 0.0f);
-            if(newDirection.x != tempX)
+            if (newDirection.x != tempX)
             {
                 tempX = newDirection.x;
             }
@@ -96,9 +99,10 @@ public class PatientWalking : MonoBehaviour
 
     private void ActivatePatient()
     {
+        patient.GetComponent<Patient>().Immune = false;
+        patient.GetComponent<Patient>().Tiltproof = false;
         patient.GetComponent<PatientStory>().StoryTime();
         patient.GetComponent<PatientAngry>().StartAnger();
-        patient.GetComponent<Patient>().Immune = false;
         patient.GetComponent<NavMeshAgent>().enabled = false;
         //patient.GetComponent<PatientPickup>().ActivatePickup();
     }
@@ -106,7 +110,9 @@ public class PatientWalking : MonoBehaviour
     private void HandleRelease(Patient patient)
     {
         patient.GetComponent<NavMeshAgent>().enabled = true;
-        exit = true;
+        patient.IsQuitting = true;
+        patient.Immune = true;
+        patient.Tiltproof = true;
         StartWalking(patient.gameObject, callPatient.tempSpawnPosition);
     }
 
