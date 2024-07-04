@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 public class PatientWalking : MonoBehaviour
 {
-    [SerializeField] private Transform endPoint;
+    [SerializeField] public Transform endPoint;
     [SerializeField] private float delay;
     [SerializeField] private float rotationDelay;
     [SerializeField] private Transform lookTowards;
@@ -17,14 +17,22 @@ public class PatientWalking : MonoBehaviour
     private Vector3 endPointVector;
     private bool move;
     private bool rotated;
+    private bool exit;
     private GameObject patient;
     private float tempX=9999;
+    private CallPatient callPatient;
 
-    public void StartWalking(GameObject patientObject)
+    private void Start()
+    {
+        PatientManager.OnPatientReleased.AddListener(HandleRelease);
+        callPatient = GetComponent<CallPatient>();
+    }
+
+    public void StartWalking(GameObject patientObject, Transform destination)
     {
         patient = patientObject;
         meshAgent = patient.GetComponent<NavMeshAgent>();
-        endPointVector = new Vector3(endPoint.position.x, endPoint.position.y, endPoint.position.z);
+        endPointVector = new Vector3(destination.position.x, destination.position.y, destination.position.z);
         move = true;
         rotated = false;
         //meshAgent.destination = endPointVector;
@@ -55,7 +63,14 @@ public class PatientWalking : MonoBehaviour
     private void StopWalking()
     {
         StopCoroutine(Walking());
-        StartCoroutine(RotatePatient());
+        if (exit == true)
+        {
+            Destroy(patient);
+        }
+        else
+        {
+            StartCoroutine(RotatePatient());
+        }
     }
 
     IEnumerator RotatePatient()
@@ -84,8 +99,17 @@ public class PatientWalking : MonoBehaviour
         patient.GetComponent<PatientStory>().StoryTime();
         patient.GetComponent<PatientAngry>().StartAnger();
         patient.GetComponent<Patient>().Immune = false;
-        patient.GetComponent<PatientPickup>().ActivatePickup();
+        patient.GetComponent<NavMeshAgent>().enabled = false;
+        //patient.GetComponent<PatientPickup>().ActivatePickup();
     }
+
+    private void HandleRelease(Patient patient)
+    {
+        patient.GetComponent<NavMeshAgent>().enabled = true;
+        exit = true;
+        StartWalking(patient.gameObject, callPatient.tempSpawnPosition);
+    }
+
 
     private Vector3 Rotation(Transform rotatingObject, Transform facingObject)
     {
