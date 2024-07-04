@@ -20,7 +20,7 @@ public class PatientManager : MonoBehaviour
     private void Start()
     {
         Patient.OnCureDisease.AddListener(RemovePatientFromList);
-        Patient.OnPatientDeath.AddListener(RemovePatientFromList);
+        //Patient.OnPatientDeath.AddListener(RemovePatientFromList);
         OnPatientSpawn.AddListener(AddPatientToList);
         OnPatientReleased.AddListener(RemovePatientFromList);
     }
