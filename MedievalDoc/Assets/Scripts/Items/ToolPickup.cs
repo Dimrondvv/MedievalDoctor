@@ -25,17 +25,17 @@ public class ToolPickup : MonoBehaviour
 
 
     private void PickupTool(GameObject pickedTool, Transform objectPoint) {
-        if (objectPoint == null) {
+        if (pickedTool != this.gameObject) {
             return;
         }
 
-        ItemLayDownPoint LayDownPoint = objectPoint.GetComponentInChildren<ItemLayDownPoint>();
+        //ItemLayDownPoint LayDownPoint = objectPoint.GetComponentInChildren<ItemLayDownPoint>();
 
         if (pickedTool == this.gameObject) {
-            if (objectPoint != null && objectPoint.GetComponentInChildren<ItemLayDownPoint>() != null) {
-                objectPoint.GetComponentInChildren<ItemLayDownPoint>().checkIfOccupied = false;
-            }
 
+            ItemLayDownPoint parentLayDown = transform.parent.GetComponent<ItemLayDownPoint>();
+            if(parentLayDown != null)
+                parentLayDown.checkIfOccupied = false;
             
             pickupController.SetPickedItem(pickedTool);
         }
@@ -60,7 +60,7 @@ public class ToolPickup : MonoBehaviour
 
             putDownTool.transform.position = LayDownPoint.transform.position;
             putDownTool.transform.rotation = LayDownPoint.transform.rotation;
-            putDownTool.transform.SetParent(pickupPoint);
+            putDownTool.transform.SetParent(LayDownPoint.transform);
             pickedTool.PickedItem = null;
         }
     }
