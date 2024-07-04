@@ -32,6 +32,7 @@ public class ToolCreator : EditorWindow
 
         tool = new GameObject();
 
+        tool.layer = 10;
         tool.name = toolName;
         GameObject newToolModel = Instantiate(toolModel);
 
