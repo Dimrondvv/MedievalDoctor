@@ -15,7 +15,7 @@ public class PatientAngry : MonoBehaviour
 
     private void MadMeter()
     {
-        if (!patient.IsAlive || patient.AngryMeter == patient.MaximumAnger)
+        if (!patient.IsAlive || patient.AngryMeter == patient.MaximumAnger || patient.Tiltproof)
         {
             return;
         }

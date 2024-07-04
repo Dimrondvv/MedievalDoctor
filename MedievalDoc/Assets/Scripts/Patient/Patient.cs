@@ -19,6 +19,8 @@ public class Patient : MonoBehaviour
     private bool isAlive;
     private string patientName;
     private int angryMeter;
+    private bool isQuitting;
+    private bool tiltproof;
 
     public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
     public static UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
@@ -29,6 +31,8 @@ public class Patient : MonoBehaviour
     public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
     public SicknessScriptableObject Sickness { get { return sickness; } set { sickness = value; } }
     public int SpawnerID { get { return spawnerID; } set { spawnerID = value; } }
+    public bool IsQuitting { get { return isQuitting; } set { isQuitting = value; } }
+    public bool Tiltproof { get { return tiltproof; } set { tiltproof = value; } }
     public string PatientName { get { return patientName; } set { patientName = value; } }
     public int AngryMeter { get { return angryMeter; } }
     public int MaximumAnger { get { return maximumAnger; } }
@@ -40,6 +44,7 @@ public class Patient : MonoBehaviour
     {
         isAlive = true;
         immune = true;
+        isQuitting = false;
         PatientManager.OnPatientSpawn.Invoke(this);
         PatientManager.OnPatientReleased.AddListener(ReleasePatient);
     }
