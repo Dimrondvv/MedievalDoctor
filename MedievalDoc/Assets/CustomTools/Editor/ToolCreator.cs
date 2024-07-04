@@ -41,6 +41,9 @@ public class ToolCreator : EditorWindow
         tool.AddComponent<Tool>();
         tool.AddComponent<ToolPickup>();
 
+        MeshFilter modelMesh = (MeshFilter)newToolModel.GetComponent("MeshFilter");
+        tool.GetComponent<MeshCollider>().sharedMesh = modelMesh.sharedMesh;
+
         
 
 
