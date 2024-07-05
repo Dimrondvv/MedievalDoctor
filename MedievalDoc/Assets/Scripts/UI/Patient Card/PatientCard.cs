@@ -15,15 +15,24 @@ public class PatientCard : MonoBehaviour
     private AudioSource patientReleaseAudio;
 
 
-    void Start()
+    private void Start()
     {
         PatientManager.OnPatientSpawnFinalized.AddListener(GoToPatientState);
         Patient.OnPatientDeath.AddListener(ReturnToDefaultState);
         Patient.OnAddSymptom.AddListener(UpdateSymptoms);
         Patient.OnRemoveSymptom.AddListener(UpdateSymptoms);
         patientReleaseAudio = GetComponent<AudioSource>();
+
+        //playerInputActions = new PlayerInputActions();
+        //playerInputActions.Player.Enable();
+        //playerInputActions.Player.PatientCard.performed += CloseCard;
+
     }
 
+    //private void CloseCard(UnityEngine.InputSystem.InputAction.CallbackContext callback)
+    //{
+
+    //}
     public void HandlePatientRelease()
     {
         var patient = App.Instance.GameplayCore.PatientManager.patients[0];
