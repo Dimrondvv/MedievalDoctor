@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Prosthetics Room
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 0}
-  sicknessesAdded: []
+  sicknessesAdded:
+  - {fileID: 11400000, guid: bee5ef0b787cd8749b370b85690ac92c, type: 2}
+  - {fileID: 11400000, guid: b4ded638ef3870d46a212f6376553862, type: 2}
   upgradeName: Prosthetics Tool room
   upgradeDescription: Unlocks prosthetics tools
   upgradeIcon: {fileID: 0}

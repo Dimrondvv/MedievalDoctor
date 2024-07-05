@@ -71,6 +71,7 @@ public class Patient : MonoBehaviour
         App.Instance.GameplayCore.GameManager.CheckDeathCounter();
         App.Instance.GameplayCore.GameManager.deathCounter += 1;
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
+        Destroy(this.gameObject);
     }
 
     public void Upset()

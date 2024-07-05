@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 0}
   sicknessesAdded: []
-  upgradeName: 
-  upgradeDescription: 
+  upgradeName: Mage Tower Room
+  upgradeDescription: Unlocks spell room
   upgradeIcon: {fileID: 0}
   requirements: []
   toolsAdded: []

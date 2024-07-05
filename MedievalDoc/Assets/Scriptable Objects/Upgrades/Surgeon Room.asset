@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Surgeon Room
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 0}
-  sicknessesAdded: []
+  sicknessesAdded:
+  - {fileID: 11400000, guid: d156e2b412d612343b632b69ca07d785, type: 2}
+  - {fileID: 11400000, guid: 3c80e1b88af31a048974d3cdbadb6249, type: 2}
+  - {fileID: 11400000, guid: b1e2ef869af70af499881af61580bd6a, type: 2}
   upgradeName: Surgeon room
   upgradeDescription: Unlocks Surgeon upgrade
   upgradeIcon: {fileID: 0}

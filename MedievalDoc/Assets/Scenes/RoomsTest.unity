@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2225,6 +2225,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PatientManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7751863781013209636, guid: 921552735dbc66142bb6093f0556dbf9, type: 3}
+      propertyPath: sicknessPool.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751863781013209636, guid: 921552735dbc66142bb6093f0556dbf9, type: 3}
+      propertyPath: sicknessPool.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 55392c9537260824fabba16724f82d83, type: 2}
+    - target: {fileID: 7751863781013209636, guid: 921552735dbc66142bb6093f0556dbf9, type: 3}
+      propertyPath: sicknessPool.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: cdb28336cb8fc9849a915ca3ea6ae9bb, type: 2}
+    - target: {fileID: 7751863781013209636, guid: 921552735dbc66142bb6093f0556dbf9, type: 3}
+      propertyPath: sicknessPool.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 575969dd5265d924daf0bd9232c3fe42, type: 2}
+    - target: {fileID: 7751863781013209636, guid: 921552735dbc66142bb6093f0556dbf9, type: 3}
+      propertyPath: sicknessPool.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0753ab78e417c4847915c2e18104f8a6, type: 2}
     - target: {fileID: 8341197568284921055, guid: 921552735dbc66142bb6093f0556dbf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2997,6 +3017,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e03527bb43e052e47b641d63cfef8fd9, type: 2}
+    - target: {fileID: 2778160003505865667, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3337269705902208280, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3009,6 +3033,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 359e6f66a7000784e90c697ebd77dcfc, type: 2}
+    - target: {fileID: 4503690984881369406, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503690984881369406, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503690984881369406, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503690984881369406, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503690984881369406, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503690984881369406, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4616177063679403000, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: startPoint
       value: 
