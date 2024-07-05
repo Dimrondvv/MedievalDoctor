@@ -68,7 +68,7 @@ public static class UpgradeSelection
             }
         }
         spawnPoints.RemoveAt(index);
-
+        App.Instance.GameplayCore.UpgradeManager.upgradesPossesed++;
     }
 
 }

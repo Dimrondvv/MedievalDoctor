@@ -46,5 +46,6 @@ public enum RequirementType
     ToolUsed = 2,
     PatientCured = 3,
     PatientKilled = 4,
-    ObjectInteracted = 5
+    ObjectInteracted = 5,
+    UpgradesPossesed = 6
 };
