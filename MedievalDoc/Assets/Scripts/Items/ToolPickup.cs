@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ToolPickup : MonoBehaviour
 {
@@ -29,8 +30,6 @@ public class ToolPickup : MonoBehaviour
             return;
         }
 
-        //ItemLayDownPoint LayDownPoint = objectPoint.GetComponentInChildren<ItemLayDownPoint>();
-
         if (pickedTool == this.gameObject) {
 
             ItemLayDownPoint parentLayDown = transform.parent.GetComponent<ItemLayDownPoint>();
@@ -49,6 +48,22 @@ public class ToolPickup : MonoBehaviour
 
         Tool tool = pickedTool.PickedItem.GetComponent<Tool>();
         ItemLayDownPoint LayDownPoint = pickupPoint.GetComponentInChildren<ItemLayDownPoint>();
+        TrashCan trashCan = pickupPoint.GetComponent<TrashCan>();
+
+        if (trashCan != null)
+        {
+            var player = App.Instance.GameplayCore.PlayerManager.PickupController.GetPlayerGameObject();
+            var item = player.gameObject.GetComponent<PickupController>().PickedItem;
+            if (item == null)
+            {
+                return;
+            }
+            if(pickupPoint.name == trashCan.name)
+            {
+                Destroy(item.gameObject);
+            }
+        }
+
 
         if (tool && LayDownPoint && !LayDownPoint.checkIfOccupied) {
             GameObject putDownTool = pickedTool.PickedItem;
