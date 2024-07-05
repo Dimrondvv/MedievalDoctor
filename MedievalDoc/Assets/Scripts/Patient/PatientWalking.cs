@@ -11,6 +11,7 @@ using UnityEngine.Rendering;
 public class PatientWalking : MonoBehaviour
 {
     [SerializeField] public Transform endPoint;
+    [SerializeField] public Transform startPoint;
     [SerializeField] private float delay;
     [SerializeField] private float rotationDelay;
     [SerializeField] private Transform lookTowards;
@@ -18,15 +19,16 @@ public class PatientWalking : MonoBehaviour
     private Vector3 endPointVector;
     private bool move;
     private bool rotated;
-    private bool exit;
+    public bool exit;
     private GameObject patient;
     private float tempX=9999;
     private CallPatient callPatient;
 
     private void Start()
     {
-        PatientManager.OnPatientReleased.AddListener(HandleRelease);
-        callPatient = GetComponent<CallPatient>();
+        //PatientManager.OnPatientReleased.AddListener(HandleRelease);
+        //callPatient = 
+        PatientManager.ReleasePatient.AddListener(HandleRelease);
     }
 
     public void StartWalking(GameObject patientObject, Transform destination)
@@ -63,10 +65,9 @@ public class PatientWalking : MonoBehaviour
 
     private void StopWalking()
     {
-        Debug.Log(patient.GetComponent<Patient>().IsQuitting);
-        //StopCoroutine(Walking());
         if (patient.GetComponent<Patient>().IsQuitting == true)
         {
+            PatientManager.OnPatientReleased.Invoke(patient.GetComponent<Patient>());
             Destroy(patient);
             return;
         }
@@ -107,13 +108,15 @@ public class PatientWalking : MonoBehaviour
         //patient.GetComponent<PatientPickup>().ActivatePickup();
     }
 
-    private void HandleRelease(Patient patient)
+    public void HandleRelease()
     {
+        exit = true;
+        patient = App.Instance.GameplayCore.PatientManager.patients[0].gameObject;
         patient.GetComponent<NavMeshAgent>().enabled = true;
-        patient.IsQuitting = true;
-        patient.Immune = true;
-        patient.Tiltproof = true;
-        StartWalking(patient.gameObject, callPatient.tempSpawnPosition);
+        patient.GetComponent<Patient>().IsQuitting = true;
+        patient.GetComponent<Patient>().Immune = true;
+        patient.GetComponent<Patient>().Tiltproof = true;
+        StartWalking(patient.gameObject, startPoint);
     }
 
 
