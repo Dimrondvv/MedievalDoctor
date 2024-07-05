@@ -22,13 +22,13 @@ public class PatientWalking : MonoBehaviour
     public bool exit;
     private GameObject patient;
     private float tempX=9999;
-    private CallPatient callPatient;
 
     private void Start()
     {
         //PatientManager.OnPatientReleased.AddListener(HandleRelease);
         //callPatient = 
         PatientManager.ReleasePatient.AddListener(HandleRelease);
+        PatientManager.RageQuitPatient.AddListener(HandleRelease);
     }
 
     public void StartWalking(GameObject patientObject, Transform destination)
