@@ -15,7 +15,7 @@ MonoBehaviour:
   sicknessName: Chairman
   sicknessDescritpion: They/them wanna be chair.
   symptomList:
-  - symptom: {fileID: 11400000, guid: 46ca2e1fbcdad1d49af714a30c4a31dd, type: 2}
+  - symptom: {fileID: 11400000, guid: 829ef8f88005ad945a222c74761e234c, type: 2}
     isHidden: 0
     localization: 0
     isLocalizationSensitive: 0

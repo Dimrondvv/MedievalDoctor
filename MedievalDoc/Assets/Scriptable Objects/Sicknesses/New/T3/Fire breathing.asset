@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sicknessName: Fire breathing
   sicknessDescritpion: Ability to shoot fire from its mouth.
-  symptomList: []
+  symptomList:
+  - symptom: {fileID: 11400000, guid: 5d449dcedc9d5b843b166dd864ef69df, type: 2}
+    isHidden: 0
+    localization: 0
+    isLocalizationSensitive: 0
+    isHidingLocalization: 0
   stories: []
   solutionList: []
   icon: {fileID: 0}
