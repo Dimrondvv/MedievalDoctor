@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  toolName: 
-  toolDescription: 
+  itemIcon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}
+  toolName: Spool and needle
+  toolDescription: Used to sew wounds
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}

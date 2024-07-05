@@ -96,7 +96,8 @@ MonoBehaviour:
   toolName: Stomach ache potion
   toolDescription: Cures stomach ache
   symptomsAdded: []
-  symptomsRemoved: []
+  symptomsRemoved:
+  - {fileID: 11400000, guid: 7411cd28cbab27f4dbd45c8cbe622c1c, type: 2}
   symptomsChecked: []
   isOneUse: 1
   interactionTime: 0.5

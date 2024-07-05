@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
+  m_Name: Anesthesia paste
+  m_EditorClassIdentifier: 
+  recipeName: Anesthesia paste
+  recipeDescription: A paste that prevents patient from feeling pain
+  result: {fileID: 4622855080629322249, guid: f49a83a41bd397f4580acfdd52504fa8, type: 3}
+  requiredItems:
+  - item: {fileID: 6276212561060190205, guid: 8c09557fe12075b4facebe08f10f7432, type: 3}
+    isConsumed: 1
+  timeRequiredToCraft: 1
+  isOrderSensitive: 0
+  icon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}

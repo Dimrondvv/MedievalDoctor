@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c270b53341ecc964abbf849daa1c29d7, type: 3}
   m_Name: Herbal Crafting
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 0}
-  sicknessesAdded: []
+  roomPrefab: {fileID: 154737240844469256, guid: 22eff71a0ff361c408f6ca0822361c8d, type: 3}
+  sicknessesAdded:
+  - {fileID: 11400000, guid: a9a939c7062c1c44c9dc7c30bc5d1717, type: 2}
   upgradeName: Herbal Crafting
   upgradeDescription: Unlocks herbal crafting
-  upgradeIcon: {fileID: 0}
+  upgradeIcon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}
   requirements: []
   toolsAdded: []
