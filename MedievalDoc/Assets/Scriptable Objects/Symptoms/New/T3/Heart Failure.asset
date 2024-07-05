@@ -20,8 +20,6 @@ MonoBehaviour:
   doesRemoveLocalization: 0
   localizationRemoved: 0
   addOnRemove:
-  - symtpomAddedOnRemoval: {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
-    notPresentToAdd: {fileID: 0}
-  - symtpomAddedOnRemoval: {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+  - symtpomAddedOnRemoval: {fileID: 11400000, guid: 55d965b40d9cebf42944b33774efd6d9, type: 2}
     notPresentToAdd: {fileID: 0}
   isHidden: 0

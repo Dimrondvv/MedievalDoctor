@@ -12,4 +12,192 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d2a9e676cc43d4699fe41ca363589f, type: 3}
   m_Name: Dependencies
   m_EditorClassIdentifier: 
-  dependencies: []
+  dependencies:
+  - symptom: {fileID: 11400000, guid: da3d5a8a7bf117643933d6bc4c41fa5b, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: ea1311fd8c0bedb41a6dc1d4b6e13004, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 5dba04e92a0f27e4791901ee2d16fda7, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 87dd5a5dce89e764889283b825622e80, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: d2155f8a9552da14cbdcb1e800c24ae7, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 7411cd28cbab27f4dbd45c8cbe622c1c, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 6d3609d53aac3064abd42b260a248c8c, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 200692f18d32f554c845e4ddfbaf6cb2, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 97c840c32265967478955303cdafb200, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 7ccacd1e54a5e004890e53e1d346a658, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 5864dfed5c7404b4d875f44ef3ef4339, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 96d0d4e37b48eed4c956d92e036d7bc0, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 2cd10683f5834e84d921c77f49da152b, type: 2}
+    symptomsPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 5d449dcedc9d5b843b166dd864ef69df, type: 2}
+    symptomsPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 46ca2e1fbcdad1d49af714a30c4a31dd, type: 2}
+    symptomsPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 829ef8f88005ad945a222c74761e234c, type: 2}
+    symptomsPresentRequiredToRemove:
+    - {fileID: 11400000, guid: bec65038a30e71d4b9d8fdb5ad9cba78, type: 2}
+    - {fileID: 11400000, guid: 2c1572dcb1bf5fd4ea58fb9ade81a816, type: 2}
+    - {fileID: 11400000, guid: c67f33fabf1e807468ac2aad7ba7ab12, type: 2}
+    - {fileID: 11400000, guid: b5982e4d8c0dda14290787810da95b80, type: 2}
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 85ff42624562b5c4fb102defdf20d9c7, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 3921788e142b23e41b01923535de5b71, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 808b925b72b16804c854544e416660be, type: 2}
+    symptomsPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 6d24f3e8b94e62a48a58c24feda4ae09, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 5864dfed5c7404b4d875f44ef3ef4339, type: 2}
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 0e9d32e1423f2bd4da8a1a240539556e, type: 2}
+    symptomsPresentRequiredToRemove: []
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd: []
+    symptomsNotPresentRequiredToAdd: []
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
+  - symptom: {fileID: 11400000, guid: 55d965b40d9cebf42944b33774efd6d9, type: 2}
+    symptomsPresentRequiredToRemove:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToRemove: []
+    symptomsPresentRequiredToAdd:
+    - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
+    symptomsNotPresentRequiredToAdd:
+    - {fileID: 11400000, guid: 46ca2e1fbcdad1d49af714a30c4a31dd, type: 2}
+    symptomsPresentRequiredToCheck: []
+    symptomsNotPresentRequiredToCheck: []
