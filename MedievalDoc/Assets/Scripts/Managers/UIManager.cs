@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject notebookCanvas;
@@ -19,7 +18,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] public NewsPaper newsPaper;
     [SerializeField] public TextMeshProUGUI winText;
     [SerializeField] DayAndNightController dayAndNightController;
-    [SerializeField] private PatientCard patientCard;
 
     private PlayerInputActions playerInputActions;
     public GameObject UiPrefab { get { return uiPrefab; } }
@@ -147,8 +145,6 @@ public class UIManager : MonoBehaviour
         {
             DisablePatientCard();
         }
-
-
 
         //GetComponent<Pause>().isPaused
         else if (!pauseMenu.GetComponent<Pause>().isPaused)
