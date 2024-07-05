@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
-  m_Name: Organ
+  m_Name: Wart
   m_EditorClassIdentifier: 
-  symptomName: No organ
-  symptomIcon: {fileID: 21300000, guid: 3c19347bb622e0843896098522000d63, type: 3}
-  damage: 50
-  score: 0
-  possibleLocalizations: 
+  symptomName: Wart
+  symptomIcon: {fileID: 21300000, guid: 07d308587a50b684b8f7d8d4c119bce5, type: 3}
+  damage: 30
+  score: 20
+  possibleLocalizations: 000000000100000002000000030000000400000005000000
   doesRemoveLocalization: 0
   localizationRemoved: 0
-  addOnRemove: []
+  addOnRemove:
+  - symtpomAddedOnRemoval: {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+    notPresentToAdd: {fileID: 0}
   isHidden: 0
