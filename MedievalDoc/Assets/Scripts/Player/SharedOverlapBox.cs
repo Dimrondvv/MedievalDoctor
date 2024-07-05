@@ -28,7 +28,15 @@ public class SharedOverlapBox : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.4f)) + transform.position + boxOffset, boxSize, transform.rotation);
         if(hitColliders.Length > 0)
         {
+            foreach (var col in hitColliders)
+            {
+                if (col.gameObject.GetComponent<ECM2.Character>())
+                {
+                    return;
+                }
+            }
             highestCollider = GetBestCollider(hitColliders);
+
             itemPoint = null;
             if (highestCollider.GetComponentInChildren<ItemLayDownPoint>() || highestCollider.GetComponentInChildren<PatientLayDownPoint>() || highestCollider.GetComponent<Crafting>() || highestCollider.GetComponent<ItemChest>())
                 itemPoint = highestCollider.transform;
@@ -37,7 +45,6 @@ public class SharedOverlapBox : MonoBehaviour
             {
                 isInteractable = true;
             }
-
 
             //foreach (Collider collider in hitColliders)
             //{
@@ -60,26 +67,27 @@ public class SharedOverlapBox : MonoBehaviour
             itemPoint = null;
             isInteractable = false;
         }
-
-        if(drawBox)
+        if (drawBox)
             VisualiseBox.DisplayBox(transform.rotation * (Vector3.forward - new Vector3(0, 0, 0.4f)) + transform.position + boxOffset, boxSize, transform.rotation);
     }
 
     private Collider GetBestCollider(Collider[] hits)
     {
         Collider closestCollider = hits[0];
+
+
         List<Collider> higherCollider = new List<Collider>();
-        foreach(Collider collider in hits)
+
+        foreach (Collider collider in hits)
         {
-            if(collider.transform.position.y >= closestCollider.transform.position.y)
+            if (collider.transform.position.y >= closestCollider.transform.position.y)
             {
                 closestCollider = collider;
             }
         }
-
-        foreach(Collider collider in hits) //Loop to determine colliders with higher y points
+        foreach (Collider collider in hits) //Loop to determine colliders with higher y points
         {
-            if(collider.transform.position.y > closestCollider.transform.position.y)
+            if (collider.transform.position.y > closestCollider.transform.position.y)
             {
                 higherCollider.Add(collider);
             }
