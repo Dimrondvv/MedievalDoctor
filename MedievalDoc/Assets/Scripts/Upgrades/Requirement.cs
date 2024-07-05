@@ -13,6 +13,13 @@ public class Requirement
     public bool CheckRequirement()
     {
         InteractionLog log;
+
+        if(type == RequirementType.UpgradesPossesed)
+        {
+            return count == App.Instance.GameplayCore.UpgradeManager.upgradesPossesed;
+
+        }
+
         if (!isLocal)
         {
             log = App.Instance.GameplayCore.GameManager.interactionLog;
@@ -46,5 +53,6 @@ public enum RequirementType
     ToolUsed = 2,
     PatientCured = 3,
     PatientKilled = 4,
-    ObjectInteracted = 5
+    ObjectInteracted = 5,
+    UpgradesPossesed = 6
 };
