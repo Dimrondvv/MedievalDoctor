@@ -20,7 +20,11 @@ MonoBehaviour:
   upgradeName: Surgeon room
   upgradeDescription: Unlocks Surgeon upgrade
   upgradeIcon: {fileID: 0}
-  requirements: []
+  requirements:
+  - type: 6
+    count: 1
+    name: 
+    isLocal: 0
   toolsAdded:
   - {fileID: 6365509331743377220, guid: 60cc704e0318bba4bb9f44a28e0f1d5f, type: 3}
   - {fileID: 3550796604154461988, guid: 1968a4d7572859c4a9c724cedd2171d6, type: 3}

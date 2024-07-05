@@ -19,7 +19,11 @@ MonoBehaviour:
   upgradeName: Prosthetics Tool room
   upgradeDescription: Unlocks prosthetics tools
   upgradeIcon: {fileID: 0}
-  requirements: []
+  requirements:
+  - type: 6
+    count: 1
+    name: 
+    isLocal: 0
   toolsAdded:
   - {fileID: 3198481207114560997, guid: 520b9107ad9a9274e91a258b0267c466, type: 3}
   - {fileID: 7555070359265769310, guid: ac238950cfdc80541a21d73f95bbd609, type: 3}

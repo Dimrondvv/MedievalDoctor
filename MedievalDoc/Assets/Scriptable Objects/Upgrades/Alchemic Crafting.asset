@@ -19,9 +19,5 @@ MonoBehaviour:
   upgradeName: Alchemic
   upgradeDescription: Unlocks alchemy crafting
   upgradeIcon: {fileID: 21300000, guid: 2f51ceab3a008ab49a0b7076ba6f9917, type: 3}
-  requirements:
-  - type: 0
-    count: 0
-    name: 
-    isLocal: 0
+  requirements: []
   toolsAdded: []

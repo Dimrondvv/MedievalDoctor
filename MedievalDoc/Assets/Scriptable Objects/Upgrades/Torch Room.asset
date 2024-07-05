@@ -17,6 +17,10 @@ MonoBehaviour:
   upgradeName: Torch room
   upgradeDescription: Tool to burn patients
   upgradeIcon: {fileID: 0}
-  requirements: []
+  requirements:
+  - type: 6
+    count: 1
+    name: 
+    isLocal: 0
   toolsAdded:
   - {fileID: 2550286529999684383, guid: cbf01e0ef7393324a81448e8b06ecaa4, type: 3}

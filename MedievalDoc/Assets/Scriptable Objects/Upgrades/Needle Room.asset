@@ -17,6 +17,10 @@ MonoBehaviour:
   upgradeName: Needle room
   upgradeDescription: Room with Needle on spool
   upgradeIcon: {fileID: 0}
-  requirements: []
+  requirements:
+  - type: 6
+    count: 1
+    name: 
+    isLocal: 0
   toolsAdded:
   - {fileID: 5650594677704632175, guid: 1f7ed536ea01bdc4cbc08ff2a672af5f, type: 3}

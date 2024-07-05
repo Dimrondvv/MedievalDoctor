@@ -46,6 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - {fileID: 11400000, guid: b0e41e46c21d85e4b904c29e6e6dec3c, type: 2}
+  - {fileID: 11400000, guid: 255bc53f228ff3e4ebc626e36fffa1b0, type: 2}
+  - {fileID: 11400000, guid: 97eb73287027f464b99cc2c6ae5d3d9e, type: 2}
+  - {fileID: 11400000, guid: a8cddf0b555b9f744acb31762341f598, type: 2}
+  - {fileID: 11400000, guid: 9688b5e1cf69da5439b85e5eeb4ec695, type: 2}
+  - {fileID: 11400000, guid: 4647595ccbb48d345a6b95c67e025b8a, type: 2}
+  - {fileID: 11400000, guid: f87c0107fdc99de40922bcd2f752326f, type: 2}
   roomSpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
