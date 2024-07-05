@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cd39142ba24478a499048b3d813ddc5b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb1f0b0c4b949ee498862524849a2814, type: 2}
     - target: {fileID: 919132149155446097, guid: cd39142ba24478a499048b3d813ddc5b, type: 3}
       propertyPath: m_Name
       value: Herb

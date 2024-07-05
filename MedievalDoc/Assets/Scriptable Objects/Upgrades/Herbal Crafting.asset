@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 0}
   sicknessesAdded: []
-  upgradeName: 
-  upgradeDescription: 
+  upgradeName: Herbal Crafting
+  upgradeDescription: Unlocks herbal crafting
   upgradeIcon: {fileID: 0}
   requirements: []
   toolsAdded: []
