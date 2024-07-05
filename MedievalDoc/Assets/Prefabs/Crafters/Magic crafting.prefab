@@ -234,8 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0402a46a7449a7d439750f559ac58e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipes:
-  - {fileID: 11400000, guid: 2bebc46171641bc42973def7170ce3dc, type: 2}
+  recipes: []
   insertedItems: []
   resultLayDownPoint: {fileID: 0}
   interactionTime: 1

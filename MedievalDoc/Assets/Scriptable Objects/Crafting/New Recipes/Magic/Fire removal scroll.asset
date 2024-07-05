@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d467f5a6b140fc64fb592f8e3129bc47, type: 3}
-  m_Name: Chairman
+  m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
+  m_Name: Fire removal scroll
   m_EditorClassIdentifier: 
-  symptomName: Chairman
-  symptomIcon: {fileID: 0}
-  damage: 0
-  score: 40
-  possibleLocalizations: 06000000
-  doesRemoveLocalization: 0
-  localizationRemoved: 0
-  addOnRemove: []
-  isHidden: 0
+  recipeName: 
+  recipeDescription: 
+  result: {fileID: 0}
+  requiredItems: []
+  timeRequiredToCraft: 0
+  isOrderSensitive: 0
+  icon: {fileID: 0}

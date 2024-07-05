@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c270b53341ecc964abbf849daa1c29d7, type: 3}
   m_Name: Mage Tower Room
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 0}
+  roomPrefab: {fileID: 154737240844469256, guid: b6eade032a29d8647a6b5a998752c4a6, type: 3}
   sicknessesAdded: []
   upgradeName: Mage Tower Room
   upgradeDescription: Unlocks spell room
