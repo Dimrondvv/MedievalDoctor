@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd1afdf84a4a734a9bd5c16f22eda61, type: 3}
-  m_Name: Cut
+  m_Name: Cut Open
   m_EditorClassIdentifier: 
-  sicknessName: Cut
+  sicknessName: Cut Open
   sicknessDescritpion: Patient has been cut by somtehing
   symptomList:
   - symptom: {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}

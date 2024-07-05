@@ -19,7 +19,5 @@ MonoBehaviour:
   possibleLocalizations: 000000000100000002000000030000000400000005000000
   doesRemoveLocalization: 0
   localizationRemoved: 0
-  addOnRemove:
-  - symtpomAddedOnRemoval: {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
-    notPresentToAdd: {fileID: 0}
+  addOnRemove: []
   isHidden: 0
