@@ -54,8 +54,9 @@ public class SpawnPatientDebug : MonoBehaviour
     }
     public void SpawnPatient()
     {
-        PatientManager.OnPatientSpawnFinalized.AddListener(SetPatientSickness);
+        //PatientManager.OnPatientSpawnFinalized.AddListener(SetPatientSickness);
         var patient = Instantiate(patientPrefab, spawnPosition, Quaternion.identity);
+        SetPatientSickness(patient.GetComponent<Patient>());
     }
 
     private void SetPatientSickness(Patient patient)

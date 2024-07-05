@@ -51,7 +51,8 @@ MonoBehaviour:
   toolName: Scalpel
   toolDescription: scalpel
   symptomsAdded: []
-  symptomsRemoved: []
+  symptomsRemoved:
+  - {fileID: 11400000, guid: 96d0d4e37b48eed4c956d92e036d7bc0, type: 2}
   symptomsChecked: []
   isOneUse: 0
   interactionTime: 0
