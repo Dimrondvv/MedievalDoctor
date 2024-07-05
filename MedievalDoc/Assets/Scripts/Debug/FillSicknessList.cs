@@ -5,14 +5,29 @@ using TMPro;
 using UnityEngine.UI;
 public class FillSicknessList : MonoBehaviour
 {
-    [SerializeField] List<SicknessScriptableObject> sicknessList;
+    List<SicknessScriptableObject> sicknessList;
     [SerializeField] SpawnPatientDebug patientDebug;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform content;
     // Start is called before the first frame update
     void Start()
     {
-        foreach(var sick in sicknessList)
+        if(App.Instance.GameplayCore.PatientManager == null)
+            App.Instance.GameplayCore.OnPatientManagerRegistered.AddListener(SetSicknessList);
+        else
+        {
+            sicknessList = App.Instance.GameplayCore.PatientManager.sicknessPool;
+            foreach (var sick in sicknessList)
+            {
+                AddSicknessButton(sick);
+            }
+        }
+    }
+
+    private void SetSicknessList(PatientManager manager)
+    {
+        sicknessList = manager.sicknessPool;
+        foreach (var sick in sicknessList)
         {
             AddSicknessButton(sick);
         }

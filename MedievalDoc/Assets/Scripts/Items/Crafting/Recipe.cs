@@ -7,10 +7,17 @@ public class Recipe : ScriptableObject
     public string recipeName;
     public string recipeDescription;
     public GameObject result;
-    public List<GameObject> requiredItems;
+    public List<RequiredItem> requiredItems;
     public float timeRequiredToCraft;
     public bool isOrderSensitive;
     public Sprite icon;
+
+    [System.Serializable]
+    public class RequiredItem
+    {
+        public GameObject item;
+        public bool isConsumed = true;
+    }
 
     public bool CheckReq(List<GameObject> itemList)
     {
@@ -21,7 +28,7 @@ public class Recipe : ScriptableObject
         bool doesContain = false;
         for(int i = 0; i < requiredItems.Count; i++)
         {
-            string reqName = requiredItems[i].GetComponent<Item>() != null ? requiredItems[i].GetComponent<Item>().ItemName : requiredItems[i].GetComponent<Tool>().ToolName;
+            string reqName = requiredItems[i].item.GetComponent<Item>() != null ? requiredItems[i].item.GetComponent<Item>().ItemName : requiredItems[i].item.GetComponent<Tool>().ToolName;
             if (isOrderSensitive)
             {
                 string itemName = itemList[i].GetComponent<Item>() != null ? itemList[i].GetComponent<Item>().ItemName : itemList[i].GetComponent<Tool>().ToolName;

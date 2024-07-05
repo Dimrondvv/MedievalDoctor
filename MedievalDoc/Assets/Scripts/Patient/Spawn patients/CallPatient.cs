@@ -12,6 +12,7 @@ public class CallPatient : MonoBehaviour, IInteractable
     public GameObject PatientPrefab { get { return patientPrefab; }}
 
     private PatientWalking patientWalking;
+    private AudioSource bellAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class CallPatient : MonoBehaviour, IInteractable
         PickupController.OnInteract.AddListener(CallPatientIn);
         patientPrefab = App.Instance.GameplayCore.PatientManager.patientPrefab;
         patientWalking = GetComponent<PatientWalking>();
+        bellAudio = GetComponent<AudioSource>();
     }
 
     private void CallPatientIn(GameObject interactionObject, PickupController player)
@@ -26,7 +28,9 @@ public class CallPatient : MonoBehaviour, IInteractable
         if (interactionObject != gameObject || App.Instance.GameplayCore.PatientManager.patients.Count != 0)
             return;
 
+        bellAudio.Play();
         var patient = Instantiate(patientPrefab, tempSpawnPosition); //Instantiate patient prefab at spawn position
-        patientWalking.StartWalking(patient);
+        patientWalking.exit = false;
+        patientWalking.StartWalking(patient, patientWalking.endPoint);
     }
 }

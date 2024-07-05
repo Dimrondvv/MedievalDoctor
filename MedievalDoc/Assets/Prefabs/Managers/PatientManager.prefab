@@ -47,9 +47,5 @@ MonoBehaviour:
   patientPrefab: {fileID: 6227786057089029331, guid: 8ea0bbd33f68f0d4a8bf34a4d57a42c3, type: 3}
   patients: []
   sicknessPool:
-  - {fileID: 11400000, guid: 0753ab78e417c4847915c2e18104f8a6, type: 2}
-  - {fileID: 11400000, guid: 4a77e1627ad6dfa46ac895854b223b0b, type: 2}
-  - {fileID: 11400000, guid: 0fba642657abb7a47926650f78b94d7f, type: 2}
-  - {fileID: 11400000, guid: 575969dd5265d924daf0bd9232c3fe42, type: 2}
-  - {fileID: 11400000, guid: cdb28336cb8fc9849a915ca3ea6ae9bb, type: 2}
+  - {fileID: 11400000, guid: 5b818caaed0f9f54eaf9ab7389b3af89, type: 2}
   names: {fileID: 11400000, guid: abe8a88ac2acaaa49860dc3014b4be5c, type: 2}

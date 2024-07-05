@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
@@ -9,7 +10,8 @@ using UnityEngine.Rendering;
 
 public class PatientWalking : MonoBehaviour
 {
-    [SerializeField] private Transform endPoint;
+    [SerializeField] public Transform endPoint;
+    [SerializeField] public Transform startPoint;
     [SerializeField] private float delay;
     [SerializeField] private float rotationDelay;
     [SerializeField] private Transform lookTowards;
@@ -17,14 +19,23 @@ public class PatientWalking : MonoBehaviour
     private Vector3 endPointVector;
     private bool move;
     private bool rotated;
+    public bool exit;
     private GameObject patient;
     private float tempX=9999;
 
-    public void StartWalking(GameObject patientObject)
+    private void Start()
+    {
+        //PatientManager.OnPatientReleased.AddListener(HandleRelease);
+        //callPatient = 
+        PatientManager.ReleasePatient.AddListener(HandleRelease);
+        PatientManager.RageQuitPatient.AddListener(HandleRelease);
+    }
+
+    public void StartWalking(GameObject patientObject, Transform destination)
     {
         patient = patientObject;
         meshAgent = patient.GetComponent<NavMeshAgent>();
-        endPointVector = new Vector3(endPoint.position.x, endPoint.position.y, endPoint.position.z);
+        endPointVector = new Vector3(destination.position.x, destination.position.y, destination.position.z);
         move = true;
         rotated = false;
         //meshAgent.destination = endPointVector;
@@ -54,19 +65,26 @@ public class PatientWalking : MonoBehaviour
 
     private void StopWalking()
     {
-        StopCoroutine(Walking());
-        Debug.Log("stop walking");
-        StartCoroutine(RotatePatient());
+        if (patient.GetComponent<Patient>().IsQuitting == true)
+        {
+            PatientManager.OnPatientReleased.Invoke(patient.GetComponent<Patient>());
+            Destroy(patient);
+            return;
+        }
+        else
+        {
+            StartCoroutine(RotatePatient());
+        }
     }
 
     IEnumerator RotatePatient()
     {
-        while (!rotated)
+        while (!rotated && !exit)
         {
             var rot = Rotation(patient.transform, lookTowards);
             float singleStep = 2f * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(patient.transform.forward, rot, singleStep, 0.0f);
-            if(newDirection.x != tempX)
+            if (newDirection.x != tempX)
             {
                 tempX = newDirection.x;
             }
@@ -82,11 +100,25 @@ public class PatientWalking : MonoBehaviour
 
     private void ActivatePatient()
     {
+        patient.GetComponent<Patient>().Immune = false;
+        patient.GetComponent<Patient>().Tiltproof = false;
         patient.GetComponent<PatientStory>().StoryTime();
         patient.GetComponent<PatientAngry>().StartAnger();
-        patient.GetComponent<Patient>().Immune = false;
-        patient.GetComponent<PatientPickup>().ActivatePickup();
+        patient.GetComponent<NavMeshAgent>().enabled = false;
+        //patient.GetComponent<PatientPickup>().ActivatePickup();
     }
+
+    public void HandleRelease()
+    {
+        exit = true;
+        patient = App.Instance.GameplayCore.PatientManager.patients[0].gameObject;
+        patient.GetComponent<NavMeshAgent>().enabled = true;
+        patient.GetComponent<Patient>().IsQuitting = true;
+        patient.GetComponent<Patient>().Immune = true;
+        patient.GetComponent<Patient>().Tiltproof = true;
+        StartWalking(patient.gameObject, startPoint);
+    }
+
 
     private Vector3 Rotation(Transform rotatingObject, Transform facingObject)
     {

@@ -61,11 +61,14 @@ public class Crafting : MonoBehaviour
             if (item.CheckReq(insertedItems))
             {
                 validRecipe = item;
-                foreach(var i in insertedItems)
+                for(int i = 0; i < insertedItems.Count; i++)
                 {
-                    Destroy(i);
+                    if (item.requiredItems[i].isConsumed)
+                    {
+                        Destroy(insertedItems[i]);
+                        insertedItems.RemoveAt(i);
+                    }
                 }
-                insertedItems.Clear();
             }
         }
 

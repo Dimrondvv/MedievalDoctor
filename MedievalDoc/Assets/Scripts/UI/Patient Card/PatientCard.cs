@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 public class PatientCard : MonoBehaviour
 {
     [SerializeField] public Image background;
@@ -10,7 +11,9 @@ public class PatientCard : MonoBehaviour
     [SerializeField] GameObject patientState;
     [SerializeField] TextMeshProUGUI patientName; 
     [SerializeField] TextMeshProUGUI patientSymptomList; 
-    [SerializeField] TextMeshProUGUI patientStory; 
+    [SerializeField] TextMeshProUGUI patientStory;
+    private AudioSource patientReleaseAudio;
+
 
     void Start()
     {
@@ -18,12 +21,15 @@ public class PatientCard : MonoBehaviour
         Patient.OnPatientDeath.AddListener(ReturnToDefaultState);
         Patient.OnAddSymptom.AddListener(UpdateSymptoms);
         Patient.OnRemoveSymptom.AddListener(UpdateSymptoms);
-        PatientManager.OnPatientReleased.AddListener(HandlePatientRelease);
+        patientReleaseAudio = GetComponent<AudioSource>();
     }
 
-    private void HandlePatientRelease(Patient patient)
+    public void HandlePatientRelease()
     {
+        var patient = App.Instance.GameplayCore.PatientManager.patients[0];
+        patientReleaseAudio.Play();
         ReturnToDefaultState(patient);
+        PatientManager.ReleasePatient.Invoke();
         App.Instance.GameplayCore.UIManager.DisablePatientCard();
     }
 

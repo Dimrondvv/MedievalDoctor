@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
+  m_Name: Stomachache potion
+  m_EditorClassIdentifier: 
+  recipeName: Stomachache potion
+  recipeDescription: cures stomachache
+  result: {fileID: 4622855080629322249, guid: 80ac8b2b4b7d3464a8ea21b74033d562, type: 3}
+  requiredItems:
+  - item: {fileID: 6224358711912744669, guid: f38f48ef7a2b96e4ea077a2fc8582e6a, type: 3}
+    isConsumed: 0
+  - item: {fileID: 6276212561060190205, guid: a50b8e1ba3d719044969d043a51ad07a, type: 3}
+    isConsumed: 0
+  timeRequiredToCraft: 0
+  isOrderSensitive: 0
+  icon: {fileID: 0}
