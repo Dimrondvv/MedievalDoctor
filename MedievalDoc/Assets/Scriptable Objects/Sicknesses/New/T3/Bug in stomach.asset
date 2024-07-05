@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Bug in stomach
   m_EditorClassIdentifier: 
   sicknessName: Bug in stomach
-  sicknessDescritpion: 
-  symptomList: []
+  sicknessDescritpion: "Co\u015B mi po w\u0105trobie chodzi"
+  symptomList:
+  - symptom: {fileID: 11400000, guid: 2cd10683f5834e84d921c77f49da152b, type: 2}
+    isHidden: 0
+    localization: 0
+    isLocalizationSensitive: 0
+    isHidingLocalization: 0
   stories: []
   solutionList: []
   icon: {fileID: 0}

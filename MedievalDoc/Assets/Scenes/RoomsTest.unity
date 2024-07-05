@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -738,7 +738,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20e9b3f9d08ced54ea8a3d088cf71bec, type: 2}
+  - {fileID: 2100000, guid: d7d010cd752b7b14fb8cec3b56382520, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1960,6 +1960,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 732741638234926446, guid: 9f8b081d6b259234ea9d237787f75bdb, type: 3}
   m_PrefabInstance: {fileID: 468494120}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1131157137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4813624068837893842, guid: 9f8b081d6b259234ea9d237787f75bdb, type: 3}
+  m_PrefabInstance: {fileID: 468494120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131157136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4632911b13755c041ad98dfaa357bf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1148402976 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3818812066675153041, guid: 6a1c1ced40b960c4880b41457d3e350a, type: 3}
@@ -2982,6 +2993,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -5.979
       objectReference: {fileID: 0}
+    - target: {fileID: 2627091693281414935, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e03527bb43e052e47b641d63cfef8fd9, type: 2}
     - target: {fileID: 3337269705902208280, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3673,10 +3688,6 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
-      propertyPath: news
-      value: 
-      objectReference: {fileID: 11400000, guid: 5c3a54abca9983a47b60d6c55acaa6b1, type: 2}
-    - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
       propertyPath: questUI
       value: 
       objectReference: {fileID: 479424129}
@@ -3696,6 +3707,10 @@ PrefabInstance:
       propertyPath: upgradeUI
       value: 
       objectReference: {fileID: 605198866}
+    - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
+      propertyPath: patientCard
+      value: 
+      objectReference: {fileID: 1131157137}
     - target: {fileID: 8009204452071913034, guid: 8d14d5a317729f9478941add108c1891, type: 3}
       propertyPath: patientCardCanvas
       value: 

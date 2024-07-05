@@ -53,10 +53,13 @@ MonoBehaviour:
   uiPrefab: {fileID: 0}
   loadingScreen: {fileID: 0}
   notebookDataHandler: {fileID: 7365904910426799913}
+  news: {fileID: 11400000, guid: 5c3a54abca9983a47b60d6c55acaa6b1, type: 2}
   questUI: {fileID: 0}
   upgradeUI: {fileID: 0}
   newsPaper: {fileID: 1289262013277632148, guid: dfaf0f4de703fe64b817a12427fc6808, type: 3}
   winText: {fileID: 0}
+  dayAndNightController: {fileID: 0}
+  patientCard: {fileID: 0}
 --- !u!114 &7365904910426799913
 MonoBehaviour:
   m_ObjectHideFlags: 0
