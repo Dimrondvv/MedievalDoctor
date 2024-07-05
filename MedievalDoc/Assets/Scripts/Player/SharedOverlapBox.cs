@@ -45,21 +45,6 @@ public class SharedOverlapBox : MonoBehaviour
             {
                 isInteractable = true;
             }
-
-            //foreach (Collider collider in hitColliders)
-            //{
-            //    if (collider.transform.position.y > highestCollider.transform.position.y && collider.gameObject != gameObject)
-            //        highestCollider = collider;
-
-            //    if (highestCollider.GetComponentInChildren<ItemLayDownPoint>() || highestCollider.GetComponentInChildren<PatientLayDownPoint>() || highestCollider.GetComponent<Crafting>() || highestCollider.GetComponent<ItemChest>())
-            //        itemPoint = highestCollider.transform;
-
-            //    if (collider.gameObject.layer == 7 && isInteractable == false)
-            //    {
-            //        isInteractable = true;
-            //    }
-                
-            //}
         }
         else
         {
