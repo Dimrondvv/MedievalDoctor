@@ -13,6 +13,13 @@ public class Requirement
     public bool CheckRequirement()
     {
         InteractionLog log;
+
+        if(type == RequirementType.UpgradesPossesed)
+        {
+            return count == App.Instance.GameplayCore.UpgradeManager.upgradesPossesed;
+
+        }
+
         if (!isLocal)
         {
             log = App.Instance.GameplayCore.GameManager.interactionLog;
