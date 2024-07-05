@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c270b53341ecc964abbf849daa1c29d7, type: 3}
   m_Name: Prosthetics Room
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 0}
+  roomPrefab: {fileID: 154737240844469256, guid: 600a66f9bf138b748844cf5667d2278b, type: 3}
   sicknessesAdded:
   - {fileID: 11400000, guid: bee5ef0b787cd8749b370b85690ac92c, type: 2}
   - {fileID: 11400000, guid: b4ded638ef3870d46a212f6376553862, type: 2}
