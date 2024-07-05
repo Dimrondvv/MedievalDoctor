@@ -46,8 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - {fileID: 11400000, guid: b0e41e46c21d85e4b904c29e6e6dec3c, type: 2}
-  - {fileID: 11400000, guid: 11d67e0a62ef9ce45bd34c58bd2660f2, type: 2}
-  - {fileID: 11400000, guid: 232d064eed73f074488141e5c1967997, type: 2}
   roomSpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -56,3 +54,4 @@ MonoBehaviour:
   - {fileID: 0}
   upgradeDays: 020000000500000007000000
   upgradeTable: {fileID: 0}
+  upgradesPossesed: 0
