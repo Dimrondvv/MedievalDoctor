@@ -83,9 +83,9 @@ public class Patient : MonoBehaviour
 
     public void RageQuit()
     {
+        PatientManager.RageQuitPatient.Invoke();
         Upset();
         Debug.Log("Im Leaving >:(");
-        Destroy(gameObject);
     }
 
     public void SetSickness(SicknessScriptableObject sickness)

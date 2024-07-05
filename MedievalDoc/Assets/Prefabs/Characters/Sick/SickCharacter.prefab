@@ -1285,7 +1285,7 @@ MonoBehaviour:
   maxHealth: 800
   immune: 0
   spawnerID: 0
-  maximumAnger: 30
+  maximumAnger: 10
   symptoms: []
   removedSymptoms: []
   patientStory: 
