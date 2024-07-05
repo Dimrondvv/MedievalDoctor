@@ -12,6 +12,7 @@ public class PatientManager : MonoBehaviour
     public static UnityEvent<Patient> OnPatientSpawn = new UnityEvent<Patient>();
     public static UnityEvent<Patient> OnPatientSpawnFinalized = new UnityEvent<Patient>(); //Event called after patient stats are set
     public static UnityEvent<Patient> OnPatientReleased = new UnityEvent<Patient>(); //Event called after patient stats are set
+    public static UnityEvent ReleasePatient = new UnityEvent();
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class PatientManager : MonoBehaviour
     private void Start()
     {
         Patient.OnCureDisease.AddListener(RemovePatientFromList);
-        Patient.OnPatientDeath.AddListener(RemovePatientFromList);
+        //Patient.OnPatientDeath.AddListener(RemovePatientFromList);
         OnPatientSpawn.AddListener(AddPatientToList);
         OnPatientReleased.AddListener(RemovePatientFromList);
     }
