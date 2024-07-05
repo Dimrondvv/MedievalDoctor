@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Chair scroll
   recipeDescription: Turn person in to chair
-  result: {fileID: 0}
-  requiredItems: []
+  result: {fileID: 6546199079622105537, guid: 323806649f69de949a9acfc60f9084d8, type: 3}
+  requiredItems:
+  - item: {fileID: 6276212561060190205, guid: 0e8b579c1cdc5de4dad15154d136b28e, type: 3}
+    isConsumed: 1
   timeRequiredToCraft: 0
   isOrderSensitive: 0
   icon: {fileID: 0}

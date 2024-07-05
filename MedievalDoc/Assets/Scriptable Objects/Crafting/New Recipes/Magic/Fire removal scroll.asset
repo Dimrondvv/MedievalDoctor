@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2522d006a148f04f9d6fc6ebb3e790a, type: 3}
   m_Name: Fire removal scroll
   m_EditorClassIdentifier: 
-  recipeName: 
-  recipeDescription: 
-  result: {fileID: 0}
-  requiredItems: []
+  recipeName: Fire removal scroll
+  recipeDescription: Remove fire breathing
+  result: {fileID: 4821844210277148865, guid: e156accfe38cf36428e3d70ac2af53e8, type: 3}
+  requiredItems:
+  - item: {fileID: 6276212561060190205, guid: 0e8b579c1cdc5de4dad15154d136b28e, type: 3}
+    isConsumed: 1
+  - item: {fileID: 3850150780989037182, guid: cbf01e0ef7393324a81448e8b06ecaa4, type: 3}
+    isConsumed: 0
   timeRequiredToCraft: 0
   isOrderSensitive: 0
   icon: {fileID: 0}
