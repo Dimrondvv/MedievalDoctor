@@ -141,6 +141,10 @@ public class UIManager : MonoBehaviour
             isNotebookEnabled = false;
             Destroy(instantiatedUI);
         }
+        if (isPatientCardEnabled)
+        {
+            DisablePatientCard();
+        }
 
         //GetComponent<Pause>().isPaused
         else if (!pauseMenu.GetComponent<Pause>().isPaused)
