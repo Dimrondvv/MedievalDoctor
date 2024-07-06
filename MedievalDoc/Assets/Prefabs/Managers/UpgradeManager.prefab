@@ -58,6 +58,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  upgradeDays: 020000000500000007000000
+  upgradeDays: 010000000500000007000000
   upgradeTable: {fileID: 0}
   upgradesPossesed: 0
