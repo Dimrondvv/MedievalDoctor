@@ -154,12 +154,14 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 2f1f3489e61fd7e408110ef88bdcc653, type: 3}
   toolName: Scalpel
   toolDescription: Very sharp tool. Great for opening things.
-  symptomsAdded: []
+  symptomsAdded:
+  - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
   symptomsRemoved:
   - {fileID: 11400000, guid: 96d0d4e37b48eed4c956d92e036d7bc0, type: 2}
+  - {fileID: 11400000, guid: 46ca2e1fbcdad1d49af714a30c4a31dd, type: 2}
   symptomsChecked: []
   isOneUse: 0
-  interactionTime: 0
+  interactionTime: 1
 --- !u!64 &8219617635775317190
 MeshCollider:
   m_ObjectHideFlags: 0
