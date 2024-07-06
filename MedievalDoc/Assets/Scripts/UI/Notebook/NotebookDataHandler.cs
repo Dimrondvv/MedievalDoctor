@@ -8,11 +8,31 @@ public class NotebookDataHandler : MonoBehaviour
     [SerializeField] int interactionsRequired; //Field to see how many interactions are required with something to add it to discovered
     NotebookData data;
     SaveManager saveManager;
+
+    //TO JEST DO USUNIÊCIA TODO
+    [System.Serializable]
+    public class itemsData
+    {
+        public string name;
+        public string description;
+        public Sprite icon;
+    }
+    [SerializeField] private List<itemsData> itemData;
+    //TO TE¯ DO ZMIANY
+    private Dictionary<string, DiscoveredData> items;
+
     // Start is called before the first frame update
     void Start()
     {
         saveManager = App.Instance.GameplayCore.SaveManager;
-        if(saveManager == null) //Wait for save manager to register if its null
+        items = new Dictionary<string, DiscoveredData>();
+        foreach (var item in itemData)
+        {
+            DiscoveredData dta = new DiscoveredData(item.name, item.description, item.icon.name);
+            dta.icon = item.icon;
+            items.Add(item.name, dta);
+        }
+        if (saveManager == null) //Wait for save manager to register if its null
         {
             App.Instance.GameplayCore.OnSaveManagerRegistered.AddListener(WaitForManagerRegister);
         }
@@ -38,6 +58,8 @@ public class NotebookDataHandler : MonoBehaviour
                 return data.discoveredIngredients;
             case "sicknesses":
                 return data.discoveredSicknesses;
+            case "items":
+                return items;
             default:
                 return null;
         }

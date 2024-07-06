@@ -19,7 +19,6 @@ public class DiscoveredData
         this.iconName = iconName;
     }
 
-    
 
     [OnDeserialized]
     public void DeserializeIcon(StreamingContext context)

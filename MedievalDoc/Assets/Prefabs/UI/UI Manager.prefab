@@ -59,7 +59,6 @@ MonoBehaviour:
   newsPaper: {fileID: 1289262013277632148, guid: dfaf0f4de703fe64b817a12427fc6808, type: 3}
   winText: {fileID: 0}
   dayAndNightController: {fileID: 0}
-  patientCard: {fileID: 0}
 --- !u!114 &7365904910426799913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,3 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notebookDataFileName: NotebookData
   interactionsRequired: 1
+  itemData:
+  - name: Mint
+    description: stomachace
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
