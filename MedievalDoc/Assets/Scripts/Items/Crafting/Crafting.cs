@@ -67,6 +67,7 @@ public class Crafting : MonoBehaviour
                     {
                         Destroy(insertedItems[i]);
                         insertedItems.RemoveAt(i);
+                        i--;
                     }
                 }
             }
