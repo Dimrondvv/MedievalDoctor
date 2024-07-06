@@ -15,7 +15,7 @@ MonoBehaviour:
   symptomName: 
   symptomIcon: {fileID: 0}
   damage: 10
-  score: 10
+  score: 50
   possibleLocalizations: 00000000
   doesRemoveLocalization: 0
   localizationRemoved: 0
