@@ -15,7 +15,7 @@ MonoBehaviour:
   symptomName: Heart Failure
   symptomIcon: {fileID: 21300000, guid: 68e06176d0e68154d84e46d0b221fdb9, type: 3}
   damage: 30
-  score: 30
+  score: 100
   possibleLocalizations: 00000000
   doesRemoveLocalization: 0
   localizationRemoved: 0

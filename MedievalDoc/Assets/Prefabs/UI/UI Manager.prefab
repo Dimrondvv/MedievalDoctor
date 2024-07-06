@@ -78,13 +78,13 @@ MonoBehaviour:
     description: Herb used for curing stomaches
     icon: {fileID: 21300000, guid: 31a8313479770384ca651a754eac3e96, type: 3}
   - name: Aloe
-    description: Herb used for curing stomaches
-    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+    description: Herb used for curing Burn
+    icon: {fileID: 21300000, guid: cf364052a57e27c4ea15dafbd4022bfd, type: 3}
   - name: Ginger
-    description: Herb used for curing stomaches
+    description: Herb used for curing Pain
     icon: {fileID: 21300000, guid: e49188c204e417d4bae00337c4e28e8c, type: 3}
   - name: Lavender
-    description: Herb used for curing stomaches
+    description: Herb used for anesthetics
     icon: {fileID: 21300000, guid: 7b50f75df01a0ae44b19a7e63b17781e, type: 3}
   - name: Empty Water Flask
     description: Flask which is empty. Ideal for first step to make a potion
