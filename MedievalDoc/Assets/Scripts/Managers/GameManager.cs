@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        royalTax = 150;
         foreach (Symptom symptom in listOfSymptoms)
         {
             listOfAddedSymptoms.Add(symptom, 0);

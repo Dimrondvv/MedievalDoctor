@@ -86,7 +86,7 @@ public class SummaryUI : MonoBehaviour
     
     private void UpdateRoyalTax()
     {
-        BillText.text = "Royal tax: " + "-150";
+        BillText.text = "Royal tax: " + royalTax.ToString();
     }
 
     private void UpdatePatientDeathText()
