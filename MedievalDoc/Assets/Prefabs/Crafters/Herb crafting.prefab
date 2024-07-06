@@ -297,14 +297,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - {fileID: 11400000, guid: 2bebc46171641bc42973def7170ce3dc, type: 2}
+  - {fileID: 11400000, guid: 324d46e71d0fb164fb8f346b596343cc, type: 2}
+  - {fileID: 11400000, guid: f41a9eba5373416459538a89a27aab87, type: 2}
   insertedItems: []
   resultLayDownPoint: {fileID: 0}
   interactionTime: 1
   itemSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1458508863419168494}
+  - {fileID: 3030433298872462446}
+  - {fileID: 7970493926404574686}
 --- !u!114 &4840310065005068099
 MonoBehaviour:
   m_ObjectHideFlags: 0

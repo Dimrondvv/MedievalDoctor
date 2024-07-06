@@ -18,5 +18,9 @@ MonoBehaviour:
   upgradeName: Herbal Crafting
   upgradeDescription: Unlocks herbal crafting
   upgradeIcon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}
-  requirements: []
+  requirements:
+  - type: 6
+    count: 0
+    name: 
+    isLocal: 0
   toolsAdded: []
