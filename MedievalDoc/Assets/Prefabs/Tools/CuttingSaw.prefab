@@ -55,6 +55,10 @@ MonoBehaviour:
   symptomsAdded:
   - {fileID: 11400000, guid: da3d5a8a7bf117643933d6bc4c41fa5b, type: 2}
   - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
+  - {fileID: 11400000, guid: bec65038a30e71d4b9d8fdb5ad9cba78, type: 2}
+  - {fileID: 11400000, guid: 2c1572dcb1bf5fd4ea58fb9ade81a816, type: 2}
+  - {fileID: 11400000, guid: c67f33fabf1e807468ac2aad7ba7ab12, type: 2}
+  - {fileID: 11400000, guid: b5982e4d8c0dda14290787810da95b80, type: 2}
   symptomsRemoved:
   - {fileID: 11400000, guid: 7ccacd1e54a5e004890e53e1d346a658, type: 2}
   symptomsChecked: []
