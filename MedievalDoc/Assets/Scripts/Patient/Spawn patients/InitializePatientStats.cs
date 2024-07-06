@@ -8,7 +8,6 @@ public class InitializePatientStats : MonoBehaviour
 
     void Start()
     {
-        sicknessPool = App.Instance.GameplayCore.PatientManager.sicknessPool;
         PatientManager.OnPatientSpawn.AddListener(SetPatientStats);
     }
 
@@ -16,6 +15,7 @@ public class InitializePatientStats : MonoBehaviour
 
     private void SetPatientStats(Patient patient)
     {
+        sicknessPool = App.Instance.GameplayCore.PatientManager.sicknessPool;
         patient.SetSickness(sicknessPool[Random.Range(0, sicknessPool.Count - 1)]);
         patient.PatientName = App.Instance.GameplayCore.PatientManager.names.GetRandomName();
         PatientManager.OnPatientSpawnFinalized.Invoke(patient);
