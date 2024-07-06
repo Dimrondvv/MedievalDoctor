@@ -14,7 +14,6 @@ public class ToolName : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        Debug.Log(itemPrefab.GetComponent<Tool>().ToolName);
         nameDisplay.text = itemPrefab.GetComponent<Tool>().ToolName;
     }
     private void Update()

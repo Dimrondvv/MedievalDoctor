@@ -45,6 +45,7 @@ public class DaySummaryManager : MonoBehaviour
     private UnityEvent OnTimeStoped = new UnityEvent();
     public  UnityEvent ChangingToSummaryState = new UnityEvent();
     public UnityEvent onEndDayPressed = new UnityEvent();
+    public UnityEvent onMenuPressed = new UnityEvent();
     public UnityEvent onNewDay = new UnityEvent();
 
 
@@ -104,6 +105,12 @@ public class DaySummaryManager : MonoBehaviour
     {
         onEndDayPressed.Invoke();
     }
+
+    public void PressMenu()
+    {
+        onMenuPressed.Invoke();
+    }
+
 
     public void startDay()
     {
