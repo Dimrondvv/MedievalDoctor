@@ -15,7 +15,7 @@ MonoBehaviour:
   symptomName: Bug in stomach
   symptomIcon: {fileID: 21300000, guid: 2f1912cd72b14cb41b883dd7590ae949, type: 3}
   damage: 30
-  score: 30
+  score: 100
   possibleLocalizations: 00000000
   doesRemoveLocalization: 0
   localizationRemoved: 0

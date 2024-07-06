@@ -15,7 +15,7 @@ MonoBehaviour:
   symptomName: Necrosis
   symptomIcon: {fileID: 21300000, guid: 07d308587a50b684b8f7d8d4c119bce5, type: 3}
   damage: 30
-  score: 20
+  score: 80
   possibleLocalizations: 02000000030000000400000005000000
   doesRemoveLocalization: 0
   localizationRemoved: 0

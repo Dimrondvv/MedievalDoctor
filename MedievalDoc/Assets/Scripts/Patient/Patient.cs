@@ -73,6 +73,7 @@ public class Patient : MonoBehaviour
         App.Instance.GameplayCore.GameManager.deathCounter += 1;
         PickupController.OnInteract.RemoveListener(InteractWithPatient);
         Destroy(this.gameObject);
+        UpdatePlayerScore();
     }
 
     public void Upset()
@@ -87,6 +88,7 @@ public class Patient : MonoBehaviour
     {
         PatientManager.RageQuitPatient.Invoke();
         Upset();
+        UpdatePlayerScore();
         Debug.Log("Im Leaving >:(");
     }
 

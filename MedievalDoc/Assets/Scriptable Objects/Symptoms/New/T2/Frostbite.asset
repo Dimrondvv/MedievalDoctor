@@ -15,7 +15,7 @@ MonoBehaviour:
   symptomName: Frostbite
   symptomIcon: {fileID: 21300000, guid: 29072820b8e22fd419d22ab24300d160, type: 3}
   damage: 20
-  score: 20
+  score: 80
   possibleLocalizations: 000000000100000002000000030000000400000005000000
   doesRemoveLocalization: 0
   localizationRemoved: 0
