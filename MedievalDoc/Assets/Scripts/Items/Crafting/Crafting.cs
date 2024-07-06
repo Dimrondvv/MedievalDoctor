@@ -65,9 +65,17 @@ public class Crafting : MonoBehaviour
                 {
                     if (item.requiredItems[i].isConsumed)
                     {
-                        Destroy(insertedItems[i]);
-                        insertedItems.RemoveAt(i);
-                        i--;
+                        for(int j = 0; j < insertedItems.Count; j++)
+                        {
+                            if (insertedItems[j].GetComponent<Item>() != null && item.requiredItems[i].item.GetComponent<Item>() != null)
+                            {
+                                if (insertedItems[j].GetComponent<Item>().ItemName == item.requiredItems[i].item.GetComponent<Item>().ItemName)
+                                {
+                                    Destroy(insertedItems[j]);
+                                    insertedItems.RemoveAt(j);
+                                }
+                            }
+                        }
                     }
                 }
             }

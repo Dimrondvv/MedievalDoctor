@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Burn compress
   recipeDescription: A bandage variant used to treat burns
-  result: {fileID: 0}
+  result: {fileID: 4622855080629322249, guid: e49d61082a178834e8a55f6796194918, type: 3}
   requiredItems:
   - item: {fileID: 4622855080629322249, guid: 54cfc761c0977ce4895340447e229d91, type: 3}
     isConsumed: 0
