@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: NewspaperScriptable
   m_EditorClassIdentifier: 
   EventText:
-  - Dzien pierwszy
-  - Dzien Drugi
-  EventDay: 0100000002000000
+  - "NEW DOCTOR IN TOWN! \nIs he a man of god?"
+  - New Rooms in our loved hospital! How fast can he build them?
+  - Our doctor bought new tools!!! What new disease can he treat?
+  - I'm worried about hospital? How much people are dead after treatment there?
+  EventDay: 01000000020000000500000007000000
