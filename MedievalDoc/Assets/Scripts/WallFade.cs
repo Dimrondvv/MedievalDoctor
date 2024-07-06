@@ -17,11 +17,13 @@ public class WallFade : MonoBehaviour
 
     void Update()
     {
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
-        Ray ray = new Ray(pos, (playerPosition.position - transform.position));
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
+        Vector3 secondaryPos = playerPosition.position - pos;
+        secondaryPos.y += 1f;
+        Ray ray = new Ray(pos, secondaryPos);
         RaycastHit hit;
         Gizmos.color = Color.yellow;
-        Debug.DrawRay(pos, (playerPosition.position - transform.position));
+        Debug.DrawRay(pos, secondaryPos);
         if(Physics.Raycast(ray, out hit))
         {
             if(hit.collider.tag == "High Wall" && !isRunning)
