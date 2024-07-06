@@ -19,6 +19,9 @@ public class DaySummaryManager : MonoBehaviour
     private GameObject SummaryUI;
 
     [SerializeField]
+    private GameObject callPatient;
+
+    [SerializeField]
     private bool isSummaryState;
 
     [SerializeField]
@@ -84,6 +87,7 @@ public class DaySummaryManager : MonoBehaviour
 
     void stopTime(float endTime) {
         //bellAudio.Play();
+        callPatient.layer = 0;
         dayAndNightController.TimeMultiplier = endTime;
         isTimeStoped = true;
     }
@@ -116,6 +120,7 @@ public class DaySummaryManager : MonoBehaviour
     {
         fadeing.FadeIn();
         dayAndNightController.resetDay();
+        callPatient.layer = 7;
     }
 
     private void OnDestroy()
