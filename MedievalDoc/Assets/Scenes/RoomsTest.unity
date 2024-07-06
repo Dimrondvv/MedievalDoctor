@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2403,6 +2403,7 @@ MonoBehaviour:
   dayAndNightController: {fileID: 1828308195}
   fadeing: {fileID: 967731407}
   SummaryUI: {fileID: 9024034326732092549, guid: c16cf95ab9134b046bd3074bbc9cd52b, type: 3}
+  callPatient: {fileID: 1938680588}
   isSummaryState: 0
   isTimeStoped: 0
   ChangingToSummaryState:
