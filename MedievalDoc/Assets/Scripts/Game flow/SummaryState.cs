@@ -20,6 +20,7 @@ public class SummaryState : BaseState
     {
         SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
         App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.AddListener(HandleEndDayPressed);
+        App.Instance.GameplayCore.DaySummaryManager.onMenuPressed.AddListener(HandleMenuPressed);
     }
 
     private void HandleEndDayPressed()
@@ -27,6 +28,19 @@ public class SummaryState : BaseState
         App.Instance.GameplayCore.DaySummaryManager.startDay();
         App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.RemoveListener(HandleEndDayPressed);
         Parent.MakeTransition((int)EAppState.Game);
+    }
+
+    private void HandleMenuPressed()
+    {
+        int c = SceneManager.sceneCount;
+        for (int i = 0; i < c; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            Debug.Log(scene.name);
+            SceneManager.UnloadSceneAsync(scene);
+        }
+        App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveAllListeners();
+        SceneManager.LoadSceneAsync("GlobalScene");
     }
 
     public override void OnExit(int next)

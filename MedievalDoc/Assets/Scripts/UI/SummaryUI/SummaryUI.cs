@@ -123,8 +123,7 @@ public class SummaryUI : MonoBehaviour
 
     private void HandleMenuPressed()
     {
-        SceneManager.LoadScene(0);
-        App.Instance.GameplayCore.TimerManager.ElapsedTime = 0;
-        Time.timeScale = 1f;
+        OnMainMenuPressed.Invoke();
+        App.Instance.GameplayCore.DaySummaryManager.PressMenu();
     }
 }
