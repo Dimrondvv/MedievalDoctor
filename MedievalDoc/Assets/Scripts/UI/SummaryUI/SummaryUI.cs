@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SummaryUI : MonoBehaviour
 {
@@ -28,16 +29,21 @@ public class SummaryUI : MonoBehaviour
     [SerializeField]
     private Button endDayButton;
 
+    [SerializeField]
+    private Button mainMenuButton;
+
     private int money;
     private int madPatients;
     private int deadPatients;
     private int royalTax;
 
     public UnityEvent OnEndDayPressed = new UnityEvent();
+    public UnityEvent OnMainMenuPressed = new UnityEvent();
 
     private void Awake()
     {
         endDayButton.onClick.AddListener(HandlePlayPressed);
+        mainMenuButton.onClick.AddListener(HandleMenuPressed);
     }
 
     // Start is called before the first frame update
@@ -60,7 +66,16 @@ public class SummaryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (money - royalTax >= 0)
+        {
+            endDayButton.gameObject.SetActive(true);
+            mainMenuButton.gameObject.SetActive(false);
+        }
+        if (money - royalTax < 0)
+        {
+            mainMenuButton.gameObject.SetActive(true);
+            endDayButton.gameObject.SetActive(false);
+        }
     }
 
     private void UpdateHealedPatientText()
@@ -96,15 +111,20 @@ public class SummaryUI : MonoBehaviour
 
     private void UpdateSummaryMoney()
     {
-
         SummaryText.text ="Summary: " + (money - royalTax).ToString();
         App.Instance.GameplayCore.PlayerManager.Money = money - royalTax;
     }
 
     private void HandlePlayPressed()
-    {
-        
+    {      
         OnEndDayPressed.Invoke();
         App.Instance.GameplayCore.DaySummaryManager.PressEndDay();
+    }
+
+    private void HandleMenuPressed()
+    {
+        SceneManager.LoadScene(0);
+        App.Instance.GameplayCore.TimerManager.ElapsedTime = 0;
+        Time.timeScale = 1f;
     }
 }
