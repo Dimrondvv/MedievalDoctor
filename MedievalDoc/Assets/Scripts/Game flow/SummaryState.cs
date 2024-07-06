@@ -32,15 +32,16 @@ public class SummaryState : BaseState
 
     private void HandleMenuPressed()
     {
-        int c = SceneManager.sceneCount;
-        for (int i = 0; i < c; i++)
-        {
-            Scene scene = SceneManager.GetSceneAt(i);
-            Debug.Log(scene.name);
-            SceneManager.UnloadSceneAsync(scene);
-        }
-        App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveAllListeners();
-        SceneManager.LoadSceneAsync("GlobalScene");
+        Application.Quit();
+        //int c = SceneManager.sceneCount;
+        //for (int i = 0; i < c; i++)
+        //{
+        //    Scene scene = SceneManager.GetSceneAt(i);
+        //    Debug.Log(scene.name);
+        //    SceneManager.UnloadSceneAsync(scene);
+        //}
+        //App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveAllListeners();
+        //SceneManager.LoadSceneAsync("GlobalScene");
     }
 
     public override void OnExit(int next)
