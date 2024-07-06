@@ -17,5 +17,9 @@ MonoBehaviour:
   upgradeName: Mage Tower Room
   upgradeDescription: Unlocks spell room
   upgradeIcon: {fileID: 0}
-  requirements: []
+  requirements:
+  - type: 6
+    count: 0
+    name: 
+    isLocal: 0
   toolsAdded: []

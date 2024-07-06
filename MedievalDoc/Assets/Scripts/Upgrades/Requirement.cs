@@ -17,7 +17,6 @@ public class Requirement
         if(type == RequirementType.UpgradesPossesed)
         {
             return count == App.Instance.GameplayCore.UpgradeManager.upgradesPossesed;
-
         }
 
         if (!isLocal)

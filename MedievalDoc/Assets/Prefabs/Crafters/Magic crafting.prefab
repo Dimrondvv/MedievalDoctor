@@ -238,12 +238,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d1e6639af204054fa570881ae521dbc, type: 2}
   - {fileID: 11400000, guid: c7e05dc1f76502240b5a39ab01065d84, type: 2}
   insertedItems: []
-  resultLayDownPoint: {fileID: 0}
+  resultLayDownPoint: {fileID: 6793675267325408785}
   interactionTime: 1
   itemSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2789426743814210082}
+  - {fileID: 6793675267325408785}
+  - {fileID: 8972024440924913678}
 --- !u!114 &4840310065005068099
 MonoBehaviour:
   m_ObjectHideFlags: 0
