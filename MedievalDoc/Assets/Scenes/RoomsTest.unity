@@ -191,7 +191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbors:
   - {fileID: 521890086}
-  - {fileID: 264487174}
   isTaken: 0
 --- !u!1 &153893324
 GameObject:
@@ -485,7 +484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbors:
   - {fileID: 136742670}
-  - {fileID: 1488853692}
   isTaken: 0
 --- !u!1 &272433617
 GameObject:
@@ -1188,10 +1186,10 @@ Transform:
   m_Children:
   - {fileID: 521890085}
   - {fileID: 1646798173}
-  - {fileID: 1285873827}
   - {fileID: 136742669}
-  - {fileID: 264487173}
   - {fileID: 1488853691}
+  - {fileID: 1285873827}
+  - {fileID: 264487173}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558231612 stripped
@@ -1940,7 +1938,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbors:
   - {fileID: 1646798174}
-  - {fileID: 1488853692}
   isTaken: 0
 --- !u!1001 &1329704474
 PrefabInstance:
@@ -2325,9 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbors:
-  - {fileID: 521890086}
-  - {fileID: 264487174}
-  - {fileID: 1285873828}
+  - {fileID: 136742670}
   isTaken: 0
 --- !u!1 &1489442715
 GameObject:
@@ -2576,7 +2571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbors:
   - {fileID: 521890086}
-  - {fileID: 1285873828}
   isTaken: 0
 --- !u!1 &1651966593
 GameObject:
@@ -3064,7 +3058,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2364918419081518582, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+    - {fileID: 7013305960738153927, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2290270509509233858, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
