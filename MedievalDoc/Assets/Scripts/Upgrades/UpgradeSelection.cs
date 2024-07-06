@@ -62,7 +62,7 @@ public static class UpgradeSelection
         int i = 0;
         foreach (Transform child in room.transform)
         {
-            if (child.gameObject.name.Contains("Counter"))
+            if (child.gameObject.name.Contains("Counter") && upgrade.toolsAdded.Count != 0)
             {
                 GameObject.Instantiate(upgrade.toolsAdded[i++].gameObject, child.GetComponentInChildren<ItemLayDownPoint>().gameObject.transform);
             }
