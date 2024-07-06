@@ -20,6 +20,7 @@ MonoBehaviour:
     localization: 0
     isLocalizationSensitive: 0
     isHidingLocalization: 0
-  stories: []
+  stories:
+  - I constantly breath fire, like a dragon
   solutionList: []
   icon: {fileID: 0}

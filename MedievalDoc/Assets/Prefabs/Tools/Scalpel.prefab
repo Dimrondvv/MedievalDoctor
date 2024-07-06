@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 2f1f3489e61fd7e408110ef88bdcc653, type: 3}
   toolName: Scalpel
-  toolDescription: scalpel
+  toolDescription: Very sharp tool. Great for opening things.
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: 96d0d4e37b48eed4c956d92e036d7bc0, type: 2}

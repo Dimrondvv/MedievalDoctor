@@ -75,5 +75,27 @@ MonoBehaviour:
   interactionsRequired: 1
   itemData:
   - name: Mint
-    description: stomachace
+    description: Herb used for curing stomaches
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Aloe
+    description: Herb used for curing stomaches
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Ginger
+    description: Herb used for curing stomaches
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Lavender
+    description: Herb used for curing stomaches
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Empty Water Flask
+    description: Flask which is empty. Ideal for first step to make a potion
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Magic Scroll
+    description: Scroll that can be infused with ancient wording, to create various
+      spells
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Newspaper
+    description: Its the news
+    icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
+  - name: Water Flask
+    description: Glass flask filled with water
     icon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}

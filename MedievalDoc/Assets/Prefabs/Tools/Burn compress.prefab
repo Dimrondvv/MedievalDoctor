@@ -207,7 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
   toolName: Burn compress
-  toolDescription: Used to treat burns
+  toolDescription: Compress made with combining aloe with bandage. Great for treating
+    burn conditions
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: ea1311fd8c0bedb41a6dc1d4b6e13004, type: 2}

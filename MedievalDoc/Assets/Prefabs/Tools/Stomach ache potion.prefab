@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 2f51ceab3a008ab49a0b7076ba6f9917, type: 3}
   toolName: Stomach ache potion
-  toolDescription: Cures stomach ache
+  toolDescription: Nospa
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: 7411cd28cbab27f4dbd45c8cbe622c1c, type: 2}

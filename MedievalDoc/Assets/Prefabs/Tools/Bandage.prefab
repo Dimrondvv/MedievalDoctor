@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
   toolName: Bandage
-  toolDescription: for wrapping
+  toolDescription: A universal item for dressing wounds
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}

@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 5013fa906e97af949ae6af7375446b9f, type: 3}
   toolName: Potion of regeneration
-  toolDescription: Slows down patient's death
+  toolDescription: Potion that will help with faster recovery
   symptomsAdded:
   - {fileID: 11400000, guid: 0e9d32e1423f2bd4da8a1a240539556e, type: 2}
   symptomsRemoved: []

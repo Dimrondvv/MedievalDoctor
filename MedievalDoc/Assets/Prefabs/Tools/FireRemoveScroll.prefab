@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   toolName: Fire removal scroll
-  toolDescription: Removes fire breathing
+  toolDescription: Cast it to get rid of fiery curse.
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: 5d449dcedc9d5b843b166dd864ef69df, type: 2}

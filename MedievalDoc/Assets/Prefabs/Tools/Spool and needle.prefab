@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 53e23144d1a01954291003b18000f03c, type: 3}
   toolName: Spool and needle
-  toolDescription: Used to sew wounds
+  toolDescription: You can stich more than just cloathes
   symptomsAdded: []
   symptomsRemoved:
   - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}

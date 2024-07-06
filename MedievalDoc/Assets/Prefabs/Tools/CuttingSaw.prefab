@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 8b1ebcb3fa85bbc48b0906fef3d5e4bc, type: 3}
   toolName: Cutting Saw
-  toolDescription: Cuts off limbs
+  toolDescription: Very sharp, ideal for getting rid of unusable limbs, need stasis
   symptomsAdded:
   - {fileID: 11400000, guid: da3d5a8a7bf117643933d6bc4c41fa5b, type: 2}
   - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
