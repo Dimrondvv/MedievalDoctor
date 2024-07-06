@@ -86,6 +86,7 @@ public class Crafting : MonoBehaviour
 
         GameObject result = Instantiate(recipe.result);
         result.transform.position = resultLayDownPoint.position;
+        result.transform.parent = resultLayDownPoint;
         OnCraftingCompleted.Invoke(recipe);
     }
 }
