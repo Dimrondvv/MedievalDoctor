@@ -37,10 +37,16 @@ public class Pause : MonoBehaviour
     public void MainMenu()
     {
         Debug.Log("MainMenu");
-        
-        SceneManager.LoadScene(0);
-        App.Instance.GameplayCore.TimerManager.ElapsedTime = 0;
-        Time.timeScale = 1f;
+
+        //int c = SceneManager.sceneCount;
+        //for (int i = 0; i < c; i++)
+        //{
+        //    Scene scene = SceneManager.GetSceneAt(i);
+        //    Debug.Log(scene.name);
+        //    SceneManager.UnloadSceneAsync(scene);
+        //}
+        //App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveAllListeners();
+        //SceneManager.LoadSceneAsync("GlobalScene");
     }
 
 
