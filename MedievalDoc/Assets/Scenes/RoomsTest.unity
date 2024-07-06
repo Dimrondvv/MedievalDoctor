@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -816,6 +816,32 @@ MonoBehaviour:
   - {fileID: 1938680587}
   - {fileID: 1938680586}
   - {fileID: 1938680585}
+--- !u!1 &408248362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1309032767872087871, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+  m_PrefabInstance: {fileID: 1938680583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &408248363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408248362}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.77, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 1.09}
 --- !u!1001 &427853818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2997,6 +3023,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 359e6f66a7000784e90c697ebd77dcfc, type: 2}
+    - target: {fileID: 1951313372770099640, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990843040238342615, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2213347899922816373, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -3144,6 +3178,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2290270509509233858, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1938680589}
+    - targetCorrespondingSourceObject: {fileID: 1309032767872087871, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 408248363}
   m_SourcePrefab: {fileID: 100100000, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
 --- !u!4 &1938680584 stripped
 Transform:

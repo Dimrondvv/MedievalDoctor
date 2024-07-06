@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4578977567589347804}
   - component: {fileID: 6317155917232233704}
+  - component: {fileID: 6077682330150251515}
   m_Layer: 7
   m_Name: Water sink
   m_TagString: Untagged
@@ -47,6 +48,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterFlask: {fileID: 6224358711912744669, guid: f38f48ef7a2b96e4ea077a2fc8582e6a, type: 3}
   emptyWaterFlask: {fileID: 6224358711912744669, guid: 54a03db4258bd7a4486a7dc01b4c5769, type: 3}
+--- !u!65 &6077682330150251515
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942092951329957723}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.361342, z: 1}
+  m_Center: {x: 0, y: 0.680671, z: 0}
 --- !u!1001 &5263181532032076018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106,37 +128,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55736247051dbba4d9491577f221d01a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4557462265212453299}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55736247051dbba4d9491577f221d01a, type: 3}
---- !u!1 &5029388725439051171 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55736247051dbba4d9491577f221d01a, type: 3}
-  m_PrefabInstance: {fileID: 5263181532032076018}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &4557462265212453299
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5029388725439051171}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.361342, z: 1}
-  m_Center: {x: 0, y: 0.680671, z: 0}
 --- !u!4 &5656568182196301593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55736247051dbba4d9491577f221d01a, type: 3}
