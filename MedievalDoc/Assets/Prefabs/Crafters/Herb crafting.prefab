@@ -303,9 +303,9 @@ MonoBehaviour:
   resultLayDownPoint: {fileID: 0}
   interactionTime: 1
   itemSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1458508863419168494}
+  - {fileID: 3030433298872462446}
+  - {fileID: 7970493926404574686}
 --- !u!114 &4840310065005068099
 MonoBehaviour:
   m_ObjectHideFlags: 0
