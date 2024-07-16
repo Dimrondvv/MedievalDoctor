@@ -15,7 +15,15 @@ public class GameManager : MonoBehaviour
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
-    [SerializeField] private int royalTax; // w starcie przypisywana wartoœæ -150 c:
+    
+    private int choosenLevel;
+    public int ChoosenLevel
+    {
+        get { return ChoosenLevel; }
+        set { choosenLevel = value; }
+    }
+
+    [SerializeField] private int royalTax;
     public int RoyalTax
     {
         get { return royalTax; }

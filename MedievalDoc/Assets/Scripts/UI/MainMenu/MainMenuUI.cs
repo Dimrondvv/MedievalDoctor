@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour {
 
     public UnityEvent OnPlayPressed = new UnityEvent();
 
+    [SerializeField] private GameObject levelMenu;
     [SerializeField] private Button playButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button quitButton;
@@ -27,7 +28,8 @@ public class MainMenuUI : MonoBehaviour {
 
     private void HandlePlayPressed()
     {
-        OnPlayPressed.Invoke();
-        App.Instance.GameplayCore.PressPlay();
+        levelMenu.SetActive(true);
+        // OnPlayPressed.Invoke();
+        // App.Instance.GameplayCore.PressPlay();
     }
 }
