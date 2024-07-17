@@ -1,0 +1,17 @@
+{
+"Tools":[
+ {
+  "toolID": "t_bandage",
+  "toolPrefab": "tool_bandage",
+  "toolName": "Bandage",
+  "toolDescription": "t_bandage_desc",
+  "toolIcon": "bandage_icon",
+  "symptomRemove": "sym_bleeding",
+  "interactionTime": 5
+ }
+],
+"toolChest":[
+  "chestID": null,
+  "toolID": null
+]
+}

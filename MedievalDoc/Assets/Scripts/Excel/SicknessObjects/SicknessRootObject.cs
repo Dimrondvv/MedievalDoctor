@@ -6,8 +6,8 @@ using Newtonsoft.Json;
 namespace Data {
     public class SicknessRootObject
     {
-        [JsonProperty] public Sickness[] sicknesses { get; set; }
+        [JsonProperty] public Sickness[] sickness { get; set; }
         [JsonProperty] public Symptom[] symptoms { get; set; }
-        [JsonProperty] public SymptomDependencies[] symptomDependencies { get; set; }
+        [JsonProperty] public SymptomDependencies[] dependencies { get; set; }
     }
 }

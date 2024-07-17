@@ -1,0 +1,27 @@
+{
+"Crafting tables":[
+  "craftingID": null,
+  "recipesContainer": null,
+  "interactionTime": null
+],
+"Recipes":[
+  "recipeID": null,
+  "recipeName": null,
+  "recipeDescription": null,
+  "itemContainer": null,
+  "recipeResult": null
+],
+"itemChest":[
+  "chestID": null,
+  "itemID": null
+],
+"Items":[
+  "itemID": null,
+  "itemDescription": null
+],
+"itemChanger":[
+  "changerID": null,
+  "itemReq": null,
+  "itemResult": null
+]
+}
