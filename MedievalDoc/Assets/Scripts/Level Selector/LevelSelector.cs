@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class LevelSelector : MonoBehaviour
 {
-    
+    public UnityEvent OnLevelSelected = new UnityEvent();
     void Start()
     {
-        App.Instance.GameplayCore.OnLevelChange.AddListener(DebugLevel);    
+        Debug.Log(LevelButtons.levelID);
+        Debug.Log(App.Instance.GameplayCore.GameManager.ChoosenLevel);
     }
 
-    private void DebugLevel(int i)
-    {
-        Debug.Log(App.Instance.GameplayCore.GameManager.ChoosenLevel);
-        Debug.Log("DuPSKO: " + i);
+    private void LoadLevel() {
+        // Load level
     }
+
 }

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private int choosenLevel;
     public int ChoosenLevel
     {
-        get { return ChoosenLevel; }
+        get { return choosenLevel; }
         set { choosenLevel = value; }
     }
 

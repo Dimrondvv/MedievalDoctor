@@ -15,7 +15,6 @@ public class GameplayCore
     public UnityEvent<UpgradeManager> OnUpgradeManagerRegistered = new UnityEvent<UpgradeManager>();
     public UnityEvent<DaySummaryManager> OnDaySummaryRegistered = new UnityEvent<DaySummaryManager>();
     public UnityEvent OnPlayPressed = new UnityEvent();
-    public UnityEvent<int> OnLevelChange = new UnityEvent<int>();
 
     public GameManager GameManager { get; private set; }
     public LoadManager LoadManager { get; private set; }
@@ -132,11 +131,5 @@ public class GameplayCore
     public void PressPlay()
     {
         OnPlayPressed.Invoke();
-    }
-
-    public void ChangeLevel(int i)
-    {
-        OnLevelChange.Invoke(i);
-        Debug.Log("DUPAAAAAAAAAAAAAAAAA");
     }
 }
