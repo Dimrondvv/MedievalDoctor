@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Levels : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
+namespace Data {
+    public class Levels
     {
-        
-    }
+        [JsonProperty] public string levelID { get; set; }
+        [JsonProperty] public string levelOrder { get; set; }
+        [JsonProperty] public string levelPrefab { get; set; }
+        [JsonProperty] public string sicknessContainer { get; set; }
+        [JsonProperty] public string starsRange { get; set; }
+        [JsonProperty] public string toolNotes { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public string[] starsRangeList;
+
+        [OnDeserialized]
+        public void DeserializeArrays(StreamingContext context)
+        {
+            ImportJsonData.ConvertJsonToArray(starsRange, ref starsRangeList);
+        }
     }
 }

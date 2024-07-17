@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SicknessContainers : MonoBehaviour
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
+namespace Data
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SicknessContainers
     {
-        
-    }
+        [JsonProperty] public string key { get; set; }
+        [JsonProperty] public string sicknessCount { get; set; }
+        [JsonProperty] public string sicknessArray { get; set; }
+        [JsonProperty] public string toolNotes { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public string[] levelSicknesses;
+
+        [OnDeserialized]
+        public void DeserializeArrays(StreamingContext context)
+        {
+            ImportJsonData.ConvertJsonToArray(sicknessArray, ref levelSicknesses);
+        }
     }
 }
