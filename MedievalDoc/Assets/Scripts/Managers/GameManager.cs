@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
     public UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
     public UnityEvent OnGameWin = new UnityEvent();
+    public UnityEvent OnLevelComplete = new UnityEvent();
 
     public Dictionary<Symptom, int> ListOfRemovedSymptoms
     {
