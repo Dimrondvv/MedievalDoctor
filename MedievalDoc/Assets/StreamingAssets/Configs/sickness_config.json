@@ -1,0 +1,79 @@
+{
+"Sickness":[
+ {
+  "sicknessID": "sic_bleeding",
+  "sicknessName": "bleeding",
+  "sicknessDescription": "sic_bleeding_d",
+  "sicknessStory": "sic_bleeding_s",
+  "symptomsContainer": "sym_bleeding"
+ },
+ {
+  "sicknessID": "sic_arrow",
+  "sicknessName": "Arrow",
+  "sicknessDescription": "sic_arrow_d",
+  "sicknessStory": "sic_arrow_s",
+  "symptomsContainer": "sym_arrow"
+ },
+ {
+  "sicknessID": "sic_poisonedarrow",
+  "sicknessName": "Poisoned Arrow",
+  "sicknessDescription": "sic_poisonedarrow_d",
+  "sicknessStory": "sic_poisonedarrow_s",
+  "symptomsContainer": "sym_poisonedarrow,sym_poison"
+ }
+],
+"Symptoms":[
+ {
+  "symptomID": "sym_bleeding",
+  "symptomName": "bleeding",
+  "symptomDescription": "bleeding",
+  "symptomIcon": "bleeding_icon",
+  "symptomDmg": 10,
+  "symptomPoints": 10
+ },
+ {
+  "symptomID": "sym_arrow",
+  "symptomName": "Arrow",
+  "symptomDescription": "sym_arrow_d",
+  "symptomIcon": "arrow_icon",
+  "symptomLocalization": "arm_left,arm_right,leg_left,leg_right",
+  "symptomDmg": 15,
+  "symptomPoints": 20
+ },
+ {
+  "symptomID": "sym_poisonedarrow",
+  "symptomName": "Poisoned Arrow",
+  "symptomDescription": "sym_poisonedarrow_d",
+  "symptomIcon": "poisonedarrow_icon",
+  "symptomLocalization": "arm_left,arm_right,leg_left,leg_right",
+  "symptomDmg": 25,
+  "symptomPoints": 25
+ },
+ {
+  "symptomID": "sym_poison",
+  "symptomName": "Poison",
+  "symptomDescription": "sym_poison_d",
+  "symptomIcon": "poison_icon",
+  "symptomLocalization": "arm_left,arm_right,leg_left,leg_right",
+  "symptomDmg": 20,
+  "symptomPoints": 20
+ }
+],
+"Dependencies":[
+ {
+  "symptomID": "sym_bleeding"
+ },
+ {
+  "symptomID": "sym_arrow",
+  "symptomIDaddonremove": "sym_bleeding"
+ },
+ {
+  "symptomID": "sym_poisonedarrow",
+  "symptomIDaddonremove": "sym_bleeding"
+ },
+ {
+  "symptomID": "sym_poison",
+  "symptomIDblockremove": "sym_posionedarrow"
+ }
+]
+}
