@@ -14,12 +14,18 @@ namespace Data
         public static SicknessContainers[] sicknessContainersConfig;
         public static Tool[] toolConfig;
         public static ToolChest[] toolChestConfig;
+        public static CraftingTable[] craftingTables;
+        public static Recipes[] recipes;
+        public static ItemChest[] itemChests;
+        public static ItemChanger[] itemChangers;
+        public static Items[] items;
 
         void Start()
         {
             DeserializeSicknessConfig();
             DeserializeLevelConfig();
             DeserializeToolConfig();
+            DeserializeCraftingConfig();
         }
 
         //Helper function to convert json string seperated with comas into arrays
@@ -51,8 +57,16 @@ namespace Data
             ToolRootObject toolRoot = JsonConvert.DeserializeObject<ToolRootObject>(json);
             toolConfig = toolRoot.tools;
             toolChestConfig = toolRoot.toolChest;
-
-            Debug.Log(toolChestConfig);
+        }
+        private void DeserializeCraftingConfig()
+        {
+            string json = File.ReadAllText(Application.streamingAssetsPath + "/Configs/crafting_config.json");
+            CraftingRootObject craftRoot = JsonConvert.DeserializeObject<CraftingRootObject>(json);
+            craftingTables = craftRoot.craftingTables;
+            recipes = craftRoot.recipes;
+            itemChests = craftRoot.itemChest;
+            itemChangers = craftRoot.itemChanger;
+            items = craftRoot.items;
         }
     }
 }
