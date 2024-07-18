@@ -8,6 +8,7 @@ TagManager:
   - Clinic
   - Workshop
   - High Wall
+  - Bell
   layers:
   - Default
   - TransparentFX
