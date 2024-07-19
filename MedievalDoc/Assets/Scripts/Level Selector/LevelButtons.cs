@@ -16,14 +16,22 @@ public class LevelButtons : MonoBehaviour
         if (UnlockedLevels == 0) {
             UnlockedLevels = PlayerPrefs.GetInt("UnlockedLevels", 0);
         }
-        
-        Debug.Log($"DUPSKO {UnlockedLevels}");
+
         int i = 0;
+
         foreach (var btn in levelBtnList) {
             if (UnlockedLevels >= i) {
                 btn.interactable = true;
             }
-            
+
+            if (levelID == i && i > 0) {
+                for (int j = 0; j < levelBtnList[i - 1].gameObject.transform.childCount; j++) {
+                    if (levelBtnList[i - 1].gameObject.transform.GetChild(j).GetComponent<Image>() && j <= App.Instance.GameplayCore.GameManager.LevelStarsCount[levelID]) {
+                        levelBtnList[i - 1].gameObject.transform.GetChild(j).GetComponent<Image>().color = new Color32(229, 235, 52, 100);
+                    }
+                }
+            }
+
             i++;
             btn.gameObject.GetComponentInChildren<TMP_Text>().text = i.ToString();
             btn.onClick.AddListener(delegate { LoadLevel(int.Parse(btn.gameObject.GetComponentInChildren<TMP_Text>().text)); });
