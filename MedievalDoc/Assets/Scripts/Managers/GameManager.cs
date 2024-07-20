@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
         set { isNight = value; }
     }
 
-    private List<int> levelStarsCount = new List<int>();
-    public List<int> LevelStarsCount {
+    private int[] levelStarsCount;
+    public int[] LevelStarsCount {
         get { return levelStarsCount; }
         set { LevelStarsCount = value; }
     }
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
             listOfRemovedSymptoms.Add(symptom, 0);
         }
         localInteractionLog = new InteractionLog();
-        levelStarsCount.Add(0);
+        levelStarsCount = new int[20]; // Iloœæ poziomów;
     }
 
     private void Update()
