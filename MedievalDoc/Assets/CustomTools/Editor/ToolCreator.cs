@@ -39,7 +39,7 @@ public class ToolCreator : EditorWindow
         newToolModel.transform.SetParent(tool.transform);
 
         tool.AddComponent<MeshCollider>();
-        tool.AddComponent<Tool>();
+        tool.AddComponent<InteractionTool>();
         tool.AddComponent<ToolPickup>();
 
         MeshFilter modelMesh = (MeshFilter)newToolModel.GetComponent("MeshFilter");

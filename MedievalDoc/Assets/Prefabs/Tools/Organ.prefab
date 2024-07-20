@@ -147,7 +147,8 @@ GameObject:
   - component: {fileID: 2284068821810129801}
   - component: {fileID: 8780955930566993679}
   - component: {fileID: 6331229231564918398}
-  m_Layer: 10
+  - component: {fileID: -6967307468878536578}
+  m_Layer: 7
   m_Name: Organ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8586565331621046186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
   m_Name: 
@@ -240,6 +241,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 8586565331621046186}
   nameDisplay: {fileID: 238674857386078565}
+--- !u!114 &-6967307468878536578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586565331621046186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8688363883552124705
 GameObject:
   m_ObjectHideFlags: 0

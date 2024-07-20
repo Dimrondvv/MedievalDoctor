@@ -92,7 +92,7 @@ public class NotebookDataHandler : MonoBehaviour
     private void AddEventListeners()
     {
         Patient.OnCureDisease.AddListener(AddCuredSicknessToDict);
-        Tool.OnToolInteract.AddListener(AddDiscoveredToolToDict);
+        InteractionTool.OnToolInteract.AddListener(AddDiscoveredToolToDict);
         Crafting.OnCraftingCompleted.AddListener(AddDiscoveredRecipeToDict);
     }
 
@@ -137,7 +137,7 @@ public class NotebookDataHandler : MonoBehaviour
     }
     private void AddDiscoveredToolToDict(GameObject tool, Patient patient)
     {
-        Tool toolUsed = tool.GetComponent<Tool>();
+        InteractionTool toolUsed = tool.GetComponent<InteractionTool>();
         string toolName = toolUsed.ToolName;
         string toolDescription = toolUsed.ToolDescription;
         Sprite toolIcon = toolUsed.ItemIcon;
