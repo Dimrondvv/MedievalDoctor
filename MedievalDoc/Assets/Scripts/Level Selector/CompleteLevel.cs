@@ -21,7 +21,6 @@ public class CompleteLevel : MonoBehaviour
             PlayerPrefs.GetInt("UnlockedLevels", LevelButtons.UnlockedLevels);
 
             int playerScore = App.Instance.GameplayCore.PlayerManager.Score;
-            playerScore = 100;
             if (playerScore >= stars[0] && playerScore < stars[1]) {
                 App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID] = 1;
             } else if(playerScore >= stars[1] && playerScore < stars[2]) {

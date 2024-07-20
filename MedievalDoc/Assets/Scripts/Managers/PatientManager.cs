@@ -21,6 +21,15 @@ public class PatientManager : MonoBehaviour
     }
     private void Start()
     {
+        //Clear Sickness Pool
+        sicknessPool.Clear();
+
+        // Load Data from Imported json
+        foreach (var sickness in Data.ImportJsonData.sicknessContainersConfig[LevelButtons.levelID - 1].levelSicknesses) {
+            sicknessPool.Add(Resources.Load($"Sicknesses/{sickness}") as SicknessScriptableObject);
+        }
+
+        //Debug.Log(Data.ImportJsonData.sicknessContainersConfig[LevelButtons.levelID-1].levelSicknesses[0]);
         Patient.OnCureDisease.AddListener(RemovePatientFromList);
         //Patient.OnPatientDeath.AddListener(RemovePatientFromList);
         OnPatientSpawn.AddListener(AddPatientToList);
