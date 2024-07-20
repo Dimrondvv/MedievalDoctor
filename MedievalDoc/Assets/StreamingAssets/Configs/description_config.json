@@ -1,22 +1,32 @@
 {
 "Recipes":[
-  "recipeDescription": null,
-  "Description": null
+ {
+  "recipeDescription": "d_burncompress",
+  "Description": "compress for burns"
+ }
 ],
 "Items":[
-  "itemDescription": null,
-  "Description": null
+ {
+  "itemDescription": "d_emptyflask",
+  "Description": "empty flask"
+ }
 ],
-"Sicknesess":[
-  "sicknessDescription": null,
-  "Description": null
+"Sicknesses":[
+ {
+  "sicknessDescription": "d_splinter",
+  "Description": "splinter in him"
+ }
 ],
 "Symptoms":[
-  "symptomsDescription": null,
-  "Description": null
+ {
+  "symptomsDescription": "d_bleeding",
+  "Description": "bleeds"
+ }
 ],
 "Tools":[
-  "toolDescription": null,
-  "Description": null
+ {
+  "toolDescription": "d_bandage",
+  "Description": "wraps wounds"
+ }
 ]
 }
