@@ -9,10 +9,11 @@ public class CompleteLevel : MonoBehaviour
 
 
     private void Start() {
-        foreach (var star in Data.ImportJsonData.levelConfig[LevelButtons.levelID-1].starsRangeList) {
-            stars.Add(int.Parse(star));
+        if (Data.ImportJsonData.levelConfig.Length > (LevelButtons.levelID - 1)) {
+            foreach (var star in Data.ImportJsonData.levelConfig[LevelButtons.levelID - 1].starsRangeList) {
+                stars.Add(int.Parse(star));
+            }
         }
-        
     }
 
     public void OnLevelComplete() {
