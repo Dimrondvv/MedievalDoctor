@@ -855,7 +855,7 @@ PrefabInstance:
     - target: {fileID: 2962114453205137915, guid: e9afeb333236a2c459199561c374155b, type: 3}
       propertyPath: Patron
       value: 
-      objectReference: {fileID: 812176827}
+      objectReference: {fileID: 0}
     - target: {fileID: 2962114453205137915, guid: e9afeb333236a2c459199561c374155b, type: 3}
       propertyPath: questInfo
       value: 
@@ -1498,76 +1498,6 @@ Transform:
 Animator:
   m_CorrespondingSourceObject: {fileID: 4337350177968908528, guid: 75a68369c2e8d504395e7c18861fd3e3, type: 3}
   m_PrefabInstance: {fileID: 1329704474}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &812176826
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 96486536025720453, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: dayController
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 96486536025720453, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: spawnPatientTimer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 21.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888341431747078456, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3666012372141686754, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-      propertyPath: m_Name
-      value: Patron
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
---- !u!1 &812176827 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3666012372141686754, guid: e1f69fcf43d411347a22b7b5d7790ceb, type: 3}
-  m_PrefabInstance: {fileID: 812176826}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &923884041
 GameObject:
@@ -3821,7 +3751,6 @@ SceneRoots:
   - {fileID: 272433618}
   - {fileID: 1329704474}
   - {fileID: 340947822}
-  - {fileID: 812176826}
   - {fileID: 468494120}
   - {fileID: 2908832040574567944}
   - {fileID: 923884042}

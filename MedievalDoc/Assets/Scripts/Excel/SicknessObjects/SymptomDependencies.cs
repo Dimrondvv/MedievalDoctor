@@ -14,7 +14,7 @@ namespace Data
         [JsonProperty] public string symptomIDblockadd { get; set; }
         [JsonProperty] public string symptomIDaddonremove { get; set; }
 
-        public string[] syptomsRequiredToRemove;
+        public string[] symptomsRequiredToRemove;
         public string[] symptomsRequiredToAdd;
         public string[] symptomsBlockingRemove;
         public string[] symptomsBlockingAdd;
@@ -23,7 +23,7 @@ namespace Data
         [OnDeserialized]
         public void DeserializeContainer(StreamingContext context)
         {
-            ImportJsonData.ConvertJsonToArray(symptomIDreqtoremove, ref syptomsRequiredToRemove);
+            ImportJsonData.ConvertJsonToArray(symptomIDreqtoremove, ref symptomsRequiredToRemove);
             ImportJsonData.ConvertJsonToArray(symptomIDreqtoadd, ref symptomsRequiredToAdd);
             ImportJsonData.ConvertJsonToArray(symptomIDblockremove, ref symptomsBlockingRemove);
             ImportJsonData.ConvertJsonToArray(symptomIDblockadd, ref symptomsBlockingAdd);

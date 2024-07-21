@@ -33,7 +33,7 @@ namespace Data
         public static Description.Symptoms[] symptomDescriptions;
         public static Description.Tools[] toolDescriptions;
         #endregion
-        void Start()
+        void Awake()
         {
             DeserializeSicknessConfig();
             DeserializeLevelConfig();
@@ -57,6 +57,8 @@ namespace Data
             sicknessConfig = sicknessRoot.sickness;
             symptomConfig = sicknessRoot.symptoms;
             symptomDependenciesConfig = sicknessRoot.dependencies;
+
+            Debug.Log($"Symptom config: {symptomConfig}");
         }
         private void DeserializeLevelConfig()
         {

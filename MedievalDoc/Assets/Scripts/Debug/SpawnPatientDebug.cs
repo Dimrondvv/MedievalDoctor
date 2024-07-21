@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Data;
 public class SpawnPatientDebug : MonoBehaviour
 {
-    private SicknessScriptableObject selectedSickness;
+    private Sickness selectedSickness;
 
     [SerializeField] TextMeshProUGUI sicknessName;
     [SerializeField] TextMeshProUGUI sicknessDescription;
@@ -26,7 +27,7 @@ public class SpawnPatientDebug : MonoBehaviour
     }
 
 
-    public void SelectSickness(SicknessScriptableObject sickness)
+    public void SelectSickness(Sickness sickness)
     {
         selectedSickness = sickness;
         ClearSelectedSicknessWindow();
@@ -41,14 +42,14 @@ public class SpawnPatientDebug : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-    public void SetSelectedSicknessWindow(SicknessScriptableObject sickness)
+    public void SetSelectedSicknessWindow(Sickness sickness)
     {
         sicknessName.text = sickness.sicknessName;
-        sicknessDescription.text = sickness.sicknessDescritpion;
-        foreach(var smpt in sickness.symptomList)
+        sicknessDescription.text = sickness.sicknessDescription;
+        foreach(var smpt in sickness.symptomsContainerList)
         {
             var obj = Instantiate(textPrefab, scrollViewContent);
-            obj.GetComponent<TextMeshProUGUI>().text = smpt.GetSymptomName();
+            obj.GetComponent<TextMeshProUGUI>().text = HelperFunctions.SymptomLookup(smpt).symptomName;
         }
 
     }

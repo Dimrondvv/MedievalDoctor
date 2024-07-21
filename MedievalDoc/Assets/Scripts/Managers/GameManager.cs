@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-
+using Data;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int maxDeaths;
@@ -43,9 +43,9 @@ public class GameManager : MonoBehaviour
         set { delayQuestInSeconds = value; }
     }
 
-    [SerializeField] private List<Symptom> listOfSymptoms;
+    private Symptom[] listOfSymptoms;
 
-    public List<Symptom> ListOfSymptoms
+    public Symptom[] ListOfSymptoms
     {
         get { return listOfSymptoms; }
         set { listOfSymptoms = value; }
@@ -97,13 +97,22 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        foreach (Symptom symptom in listOfSymptoms)
+        if (App.Instance.GameplayCore.SaveManager != null)
         {
-            listOfAddedSymptoms.Add(symptom, 0);
-            listOfRemovedSymptoms.Add(symptom, 0);
+            listOfSymptoms = Data.ImportJsonData.symptomConfig;
+            foreach (Symptom symptom in listOfSymptoms)
+            {
+                listOfAddedSymptoms.Add(symptom, 0);
+                listOfRemovedSymptoms.Add(symptom, 0);
+            }
         }
+        else
+            App.Instance.GameplayCore.OnSaveManagerRegistered.AddListener(SetUpListsOfSymptoms);
+
         localInteractionLog = new InteractionLog();
+
     }
+
 
     private void Update()
     {
@@ -113,6 +122,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SetUpListsOfSymptoms(SaveManager manager)
+    {
+        foreach (Symptom symptom in listOfSymptoms)
+        {
+            listOfAddedSymptoms.Add(symptom, 0);
+            listOfRemovedSymptoms.Add(symptom, 0);
+        }
+    }
     private void RemovedPatient(Patient patient)
     {
         listOfCurrentPatients.Remove(patient);
