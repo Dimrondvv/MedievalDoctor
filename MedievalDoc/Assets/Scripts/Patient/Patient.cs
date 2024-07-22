@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Data;
 
 public class Patient : MonoBehaviour
 {
-    [SerializeField] private SicknessScriptableObject sickness;
+    [SerializeField] private Sickness sickness;
     [SerializeField] private int health; // player Health (if =< 0 - game over)
     [SerializeField] private int maxHealth; // player Health (if =< 0 - game over)
     [SerializeField] private bool immune; // immunity for tests
     [SerializeField] private int spawnerID;
     [SerializeField] public int maximumAnger;
 
-    public List<SicknessScriptableObject.SymptomStruct> symptoms;
+    public List<Symptom> symptoms;
     public List<Symptom> removedSymptoms;
-    public List<SicknessScriptableObject.SymptomStruct> Symptoms { get { return symptoms; } set { symptoms = value; } }
+    public List<Symptom> Symptoms { get { return symptoms; } set { symptoms = value; } }
     public string patientStory;
     private bool isAlive;
     private string patientName;
@@ -29,7 +30,7 @@ public class Patient : MonoBehaviour
     public static UnityEvent<Symptom, Patient, Tool> OnRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Symptom, Patient, Tool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
-    public SicknessScriptableObject Sickness { get { return sickness; } set { sickness = value; } }
+    public Sickness Sickness { get { return sickness; } set { sickness = value; } }
     public int SpawnerID { get { return spawnerID; } set { spawnerID = value; } }
     public bool IsQuitting { get { return isQuitting; } set { isQuitting = value; } }
     public bool Tiltproof { get { return tiltproof; } set { tiltproof = value; } }
@@ -52,7 +53,7 @@ public class Patient : MonoBehaviour
     private void OnEnable()
     {
         PickupController.OnInteract.AddListener(InteractWithPatient);
-        symptoms = new List<SicknessScriptableObject.SymptomStruct>();
+        symptoms = new List<Symptom>();
     }
 
     private void OnDisable()
@@ -92,7 +93,7 @@ public class Patient : MonoBehaviour
         Debug.Log("Im Leaving >:(");
     }
 
-    public void SetSickness(SicknessScriptableObject sickness)
+    public void SetSickness(Sickness sickness)
     {
         if(this.sickness != null)
         {
@@ -102,62 +103,71 @@ public class Patient : MonoBehaviour
         }
 
         this.sickness = sickness;
-        if(sickness.stories.Count > 0)
-            patientStory = sickness.stories[Random.Range(0, sickness.stories.Count - 1)];
+        patientStory = sickness.sicknessStory;
 
         CopySymptoms(sickness);
     }
 
-    public void CopySymptoms(SicknessScriptableObject sickness)
+    public void CopySymptoms(Sickness sickness)
     {
-        foreach(SicknessScriptableObject.SymptomStruct symptom in sickness.symptomList)
+        foreach(string symptomKey in sickness.symptomsContainerList)
         {
-            GameObject sympt = PatientSymptomHandler.FindSymptomObject(this, symptom);
+            /*GameObject sympt = PatientSymptomHandler.FindSymptomObject(this, symptom);
             if(sympt != null)
                 sympt.SetActive(true);
-            if (symptom.isHidingLocalization)
+            if (symptom.partOverride != null)
             {
                 GameObject loc = PatientSymptomHandler.FindLocationObject(this, symptom.localization);
                 if(loc != null)
                     loc.SetActive(false);
-            }
-            symptoms.Add(symptom);
+            }*/
+            symptoms.Add(HelperFunctions.SymptomLookup(symptomKey));
         }
     }
 
     public bool FindSymptom(Symptom symptom)
     {
-        foreach(var i in symptoms)
+        foreach(var sympt in symptoms)
         {
-            if (i.symptom == symptom)
+            if (sympt == symptom)
                 return true;
         }
         return false;
     }
     public void InsertSymptomToList(Symptom sympt, Localization local = Localization.None)
     {
-        SicknessScriptableObject.SymptomStruct symptomStruct = new SicknessScriptableObject.SymptomStruct
-        {
-            symptom = sympt,
-            isHidden = false,
-            localization = local
-        };
-
-        symptoms.Add(symptomStruct);
+        symptoms.Add(sympt);
     }
 
     private int CalculateSCore()
     {
         int score = 0;
 
+
+
         foreach(var symptom in symptoms)
         {
-            score -= symptom.symptom.score;
+            try
+            {
+                score -= System.Int32.Parse(symptom.symptomPoints);
+            }
+            catch
+            {
+                Debug.LogError($"Unable to convert {symptom.symptomPoints} to a number");
+            }
         }
 
         foreach (var symptom in removedSymptoms)
-            score += symptom.score;
-
+        {
+            try
+            {
+                score += System.Int32.Parse(symptom.symptomPoints);
+            }
+            catch
+            {
+                Debug.LogError($"Unable to convert {symptom.symptomPoints} to a number");
+            }
+        }
         return score;
     }
 

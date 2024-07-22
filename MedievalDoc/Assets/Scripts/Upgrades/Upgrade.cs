@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Upgrade : ScriptableObject
 {
     [SerializeField] public GameObject roomPrefab;
-    [SerializeField] public List<SicknessScriptableObject> sicknessesAdded;
+    [SerializeField] public List<Data.Sickness> sicknessesAdded;
     [SerializeField] public string upgradeName;
     [SerializeField] public string upgradeDescription;
     [SerializeField] public Sprite upgradeIcon;

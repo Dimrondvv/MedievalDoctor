@@ -7,7 +7,6 @@ public class PatientManager : MonoBehaviour
 {
     [SerializeField] public GameObject patientPrefab;
     [SerializeField] public List<Patient> patients;
-    [SerializeField] public List<SicknessScriptableObject> sicknessPool; //List of sicknesses available to spawn
     [SerializeField] public Names names;
     public static UnityEvent<Patient> OnPatientSpawn = new UnityEvent<Patient>();
     public static UnityEvent<Patient> OnPatientSpawnFinalized = new UnityEvent<Patient>(); //Event called after patient stats are set

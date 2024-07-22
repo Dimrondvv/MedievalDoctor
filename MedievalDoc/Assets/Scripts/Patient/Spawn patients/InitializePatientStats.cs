@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Data;
 public class InitializePatientStats : MonoBehaviour
 {
-    private List<SicknessScriptableObject> sicknessPool;
+    private Sickness[] sicknessPool;
 
     void Start()
     {
@@ -15,12 +15,12 @@ public class InitializePatientStats : MonoBehaviour
 
     private void SetPatientStats(Patient patient)
     {
-        sicknessPool = App.Instance.GameplayCore.PatientManager.sicknessPool;
-        patient.SetSickness(sicknessPool[Random.Range(0, sicknessPool.Count - 1)]);
+        sicknessPool = ImportJsonData.sicknessConfig;
+        patient.SetSickness(sicknessPool[Random.Range(0, sicknessPool.Length - 1)]);
         patient.PatientName = App.Instance.GameplayCore.PatientManager.names.GetRandomName();
         PatientManager.OnPatientSpawnFinalized.Invoke(patient);
     }
-    public void SetPatientStats(Patient patient, SicknessScriptableObject sickness) 
+    public void SetPatientStats(Patient patient, Sickness sickness) 
     {
         patient.SetSickness(sickness);
         patient.PatientName = App.Instance.GameplayCore.PatientManager.names.GetRandomName();

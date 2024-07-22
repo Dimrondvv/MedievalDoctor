@@ -106,8 +106,9 @@ public class NotebookDataHandler : MonoBehaviour
     private void AddCuredSicknessToDict(Patient curedPatient)
     {
         string sicknessName = curedPatient.Sickness.sicknessName;
-        string sicknessDecsription = curedPatient.Sickness.sicknessDescritpion;
-        Sprite sicknessIcon = curedPatient.Sickness.icon;
+        string sicknessDecsription = curedPatient.Sickness.sicknessDescription;
+        //todo: add sickness icon to config
+        Sprite sicknessIcon = Resources.Load<Sprite>(" ");
         
         if (data.discoveredSicknesses.ContainsKey(sicknessName)) //If sickness is already discovered return
             return;

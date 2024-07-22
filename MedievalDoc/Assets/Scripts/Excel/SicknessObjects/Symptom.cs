@@ -14,6 +14,7 @@ namespace Data
         [JsonProperty] public string symptomLocalization { get; set; }
         [JsonProperty] public string symptomDmg { get; set; }
         [JsonProperty] public string symptomPoints { get; set; }
+        [JsonProperty] public string partOverride { get; set; }
 
         public string[] symptomLocalizationArray;
 
