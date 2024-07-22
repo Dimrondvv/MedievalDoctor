@@ -7,12 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelector : MonoBehaviour
 {
-    private string levelID;
-    private int levelOrder;
     private GameObject levelPrefab;
-    
-
-    public UnityEvent OnLevelSelected = new UnityEvent();
     
     void Start()
     {

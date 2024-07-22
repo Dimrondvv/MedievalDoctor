@@ -14,6 +14,15 @@ public class HelperFunctions
 
         return null;
     }
+
+    public static Sickness SicknessLookup(string sicknessKey) {
+        foreach (Sickness sickness in ImportJsonData.sicknessConfig) {
+            if (sicknessKey == sickness.sicknessID)
+                return sickness;
+        }
+
+        return null;
+    }
     public static bool CanSymptomBeRemoved(Symptom symptom, Patient patient)
     {
         SymptomDependencies dependency = new SymptomDependencies();

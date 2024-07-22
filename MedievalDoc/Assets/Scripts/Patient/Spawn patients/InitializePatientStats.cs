@@ -4,19 +4,25 @@ using UnityEngine;
 using Data;
 public class InitializePatientStats : MonoBehaviour
 {
-    private Sickness[] sicknessPool;
+    private List<Sickness> sicknessPool;
 
     void Start()
     {
         PatientManager.OnPatientSpawn.AddListener(SetPatientStats);
+        sicknessPool = new List<Sickness>();
     }
 
     
 
     private void SetPatientStats(Patient patient)
     {
-        sicknessPool = ImportJsonData.sicknessConfig;
-        patient.SetSickness(sicknessPool[Random.Range(0, sicknessPool.Length - 1)]);
+        if (Data.ImportJsonData.sicknessContainersConfig.Length > (LevelButtons.levelID - 1)) { // Check if sickness container exists for this level
+            foreach (var sickness in Data.ImportJsonData.sicknessContainersConfig[LevelButtons.levelID - 1].levelSicknesses) {
+                sicknessPool.Add(HelperFunctions.SicknessLookup(sickness));      
+            }
+        }
+
+        patient.SetSickness(sicknessPool[Random.Range(0, sicknessPool.Count - 1)]);
         patient.PatientName = App.Instance.GameplayCore.PatientManager.names.GetRandomName();
         PatientManager.OnPatientSpawnFinalized.Invoke(patient);
     }
