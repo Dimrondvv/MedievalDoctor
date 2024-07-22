@@ -1146,7 +1146,11 @@ MonoBehaviour:
   _interactableMask:
     serializedVersion: 2
     m_Bits: 128
+  _laydownMask:
+    serializedVersion: 2
+    m_Bits: 512
   _numFound: 0
+  _numLaydownFound: 0
 --- !u!1 &3352193522366169673
 GameObject:
   m_ObjectHideFlags: 0
