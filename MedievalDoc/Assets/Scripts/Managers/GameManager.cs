@@ -15,7 +15,15 @@ public class GameManager : MonoBehaviour
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
-    [SerializeField] private int royalTax; // w starcie przypisywana wartoœæ -150 c:
+    
+    private int choosenLevel;
+    public int ChoosenLevel
+    {
+        get { return choosenLevel; }
+        set { choosenLevel = value; }
+    }
+
+    [SerializeField] private int royalTax;
     public int RoyalTax
     {
         get { return royalTax; }
@@ -34,6 +42,12 @@ public class GameManager : MonoBehaviour
     {
         get { return isNight; }
         set { isNight = value; }
+    }
+
+    private int[] levelStarsCount;
+    public int[] LevelStarsCount {
+        get { return levelStarsCount; }
+        set { LevelStarsCount = value; }
     }
 
     [SerializeField] private int delayQuestInSeconds;
@@ -55,6 +69,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
     public UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
     public UnityEvent OnGameWin = new UnityEvent();
+    public UnityEvent OnLevelComplete = new UnityEvent();
 
     public Dictionary<Symptom, int> ListOfRemovedSymptoms
     {
@@ -110,6 +125,7 @@ public class GameManager : MonoBehaviour
             App.Instance.GameplayCore.OnSaveManagerRegistered.AddListener(SetUpListsOfSymptoms);
 
         localInteractionLog = new InteractionLog();
+        levelStarsCount = new int[20]; // Iloï¿½ï¿½ poziomï¿½w;
 
     }
 

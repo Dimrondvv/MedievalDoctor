@@ -16,6 +16,7 @@ public class AppGameState : BaseState
     {
         base.Initialize();
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.AddListener(ChangeToMainMenuState);
         CheckForUpgrade();
         CheckForWin();
     }
@@ -46,12 +47,17 @@ public class AppGameState : BaseState
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.RemoveListener(ChanageToSummaryState);
     }
 
+    public void ChangeToMainMenuState() {
+        Parent.MakeTransition((int)EAppState.Intro);
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.RemoveListener(ChangeToMainMenuState);
+    }
+
 
     public override void OnExit(int next)
     {
         if (next != (int)EAppState.Summary)
         {
-            SceneManager.UnloadSceneAsync("GameScene");
+            SceneManager.UnloadSceneAsync("RoomsTest");
         }
         base.OnExit(next);
     }
