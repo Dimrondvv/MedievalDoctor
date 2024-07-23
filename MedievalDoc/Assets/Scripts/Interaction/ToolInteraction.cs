@@ -4,13 +4,11 @@ public class ToolInteraction : MonoBehaviour, IInteract
 {
     public string InteractionPrompt => "Interacting";
 
-    [SerializeField] private float pickupRange;
     private PickupController playerController;
-    private PlayerInputActions playerInputActions;
 
     private void Start()
     {
-        playerController = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
+        playerController = App.Instance.GameplayCore.PlayerManager.PickupController;
     }
 
     public bool Interact(Interactor interactor)
@@ -24,8 +22,8 @@ public class ToolInteraction : MonoBehaviour, IInteract
         if (playerController.PickedItem == null)
         {
             // Pick up the item
-            PickupController.OnPickup?.Invoke(this.gameObject, interactor.transform);
-            playerController.SetPickedItem(this.gameObject);
+            PickupController.OnPickup?.Invoke(gameObject, interactor.transform);
+            playerController.SetPickedItem(gameObject);
             Debug.Log("Picked up tool.");
         }
         return true;

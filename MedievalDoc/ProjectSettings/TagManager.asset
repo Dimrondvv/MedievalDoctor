@@ -8,6 +8,7 @@ TagManager:
   - Clinic
   - Workshop
   - High Wall
+  - Patient
   layers:
   - Default
   - TransparentFX

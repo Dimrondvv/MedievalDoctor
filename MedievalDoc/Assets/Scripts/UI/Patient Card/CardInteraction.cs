@@ -15,7 +15,7 @@ public class CardInteraction : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        if (isCardOn && !SharedOverlapBox.HighestCollider)
+        if (isCardOn && !Interactor.InteractableCollider)
         {
             App.Instance.GameplayCore.UIManager.DisablePatientCard();
             isCardOn = false;

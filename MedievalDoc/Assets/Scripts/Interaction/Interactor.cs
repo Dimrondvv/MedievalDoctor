@@ -17,20 +17,23 @@ public class Interactor : MonoBehaviour
 
     private PlayerInputActions playerInputActions;
     private bool isInteracting;
+    private GameObject currentOutlinedObject;
+    private PickupController pickupController;
+
+    private static Collider closestInteractable;
+    public static Collider InteractableCollider { get { return closestInteractable; } }
 
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        playerInputActions.Player.InteractPress.performed += OnInteractPressPerformed;
-        playerInputActions.Player.InteractPress.canceled += OnInteractPressCanceled;
+        playerInputActions.Player.InteractPress.started += OnInteractPressPerformed;
         playerInputActions.Player.Pickup.performed += OnPickupPerformed;
     }
 
     private void OnDestroy()
     {
-        playerInputActions.Player.InteractPress.performed -= OnInteractPressPerformed;
-        playerInputActions.Player.InteractPress.canceled -= OnInteractPressCanceled;
+        playerInputActions.Player.InteractPress.started -= OnInteractPressPerformed;
         playerInputActions.Player.Pickup.performed -= OnPickupPerformed;
     }
 
@@ -39,14 +42,47 @@ public class Interactor : MonoBehaviour
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
         _numLaydownFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _laydownColliders, _laydownMask);
 
-        if (isInteracting && _numFound > 0)
+        if (_numFound > 0)
         {
-            var closestInteractable = GetClosestInteractable();
+            closestInteractable = GetClosestInteractable();
             if (closestInteractable != null)
             {
-                // Handle continuous interaction logic here
-                // For example, closestInteractable.ContinueInteract(this);
+                // If there is a current outlined object, remove its outline if it's different from the closest interactable
+                if (currentOutlinedObject != null && currentOutlinedObject != closestInteractable.gameObject)
+                {
+                    RemoveOutline(currentOutlinedObject);
+                }
+
+                currentOutlinedObject = closestInteractable.gameObject;
+
+                if (currentOutlinedObject.GetComponent<Outline>() == null)
+                {
+                    AddOutline(currentOutlinedObject);
+                }
             }
+        }
+        else if (currentOutlinedObject != null)
+        {
+            RemoveOutline(currentOutlinedObject);
+            currentOutlinedObject = null;
+            closestInteractable = null;
+        }
+    }
+
+    private void AddOutline(GameObject obj)
+    {
+        var outline = obj.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineAndSilhouette;
+        outline.OutlineColor = Color.yellow;
+        outline.OutlineWidth = 5f;
+    }
+
+    private void RemoveOutline(GameObject obj)
+    {
+        var outline = obj.GetComponent<Outline>();
+        if (outline != null)
+        {
+            Destroy(outline);
         }
     }
 
@@ -58,7 +94,7 @@ public class Interactor : MonoBehaviour
         for (int i = 0; i < _numFound; i++)
         {
             float distance = Vector3.Distance(_interactionPoint.position, _colliders[i].transform.position);
-            if (distance < closestDistance && _colliders[i].GetComponent<IInteract>() != null)
+            if (distance < closestDistance && _colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("Patient"))
             {
                 closestDistance = distance;
                 closestCollider = _colliders[i];
@@ -96,19 +132,8 @@ public class Interactor : MonoBehaviour
         var closestInteractable = GetClosestInteractable();
         if (closestInteractable != null)
         {
-            closestInteractable.GetComponent<IInteract>().Interact(this);
-            isInteracting = true;
-            Debug.Log("Interaction started with " + closestInteractable.name);
-        }
-    }
-
-    private void OnInteractPressCanceled(InputAction.CallbackContext context)
-    {
-        isInteracting = false;
-        var closestInteractable = GetClosestInteractable();
-        if (closestInteractable != null)
-        {
-            Debug.Log("Interaction stopped with " + closestInteractable.name);
+            PickupController.OnInteract.Invoke(closestInteractable.gameObject, pickupController);
+            Debug.Log("Interacted");
         }
     }
 
@@ -140,6 +165,7 @@ public class Interactor : MonoBehaviour
                 Debug.LogWarning("No valid laydown point found");
             }
         }
+
     }
 
     private void OnDrawGizmos()

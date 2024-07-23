@@ -1246,7 +1246,7 @@ GameObject:
   - component: {fileID: 5565440005234598381}
   m_Layer: 7
   m_Name: SickCharacter
-  m_TagString: Untagged
+  m_TagString: Patient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

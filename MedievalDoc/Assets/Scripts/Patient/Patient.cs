@@ -163,6 +163,7 @@ public class Patient : MonoBehaviour
 
     public void InteractWithPatient(GameObject interactedObject, PickupController controller)
     {
+        Debug.Log(interactedObject, controller);
         if (interactedObject != this.gameObject || controller.PickedItem == null)
             return;
         if(controller.PickedItem.GetComponent<InteractionTool>() != null)

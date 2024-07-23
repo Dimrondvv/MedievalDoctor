@@ -23,9 +23,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Interact(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     {
-        if (SharedOverlapBox.HighestCollider == null)
-            return;
-        if (SharedOverlapBox.HighestCollider.gameObject.layer != 7)
+        if (Interactor.InteractableCollider == null)
             return;
 
         float interactTime = defaultInteractionTime;
@@ -40,9 +38,9 @@ public class PlayerInteraction : MonoBehaviour
             }
 
         }
-        if (SharedOverlapBox.HighestCollider != null && !setFlag) //If no tool in hand set the interact time to the time specified in crafting
+        if (Interactor.InteractableCollider != null && !setFlag) //If no tool in hand set the interact time to the time specified in crafting
         {
-            var interactable = SharedOverlapBox.HighestCollider.GetComponent<IInteractable>();
+            var interactable = Interactor.InteractableCollider.GetComponent<IInteractable>();
             if (interactable != null)
                 interactTime = interactable.InteractionTime;
         }
@@ -64,7 +62,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (!SharedOverlapBox.IsInteractable) //Stop the interaction if player leaves the hitbox of interactable object
             {
-                Debug.Log(SharedOverlapBox.HighestCollider.gameObject);
+                Debug.Log(Interactor.InteractableCollider.gameObject);
                 //hasInteracted = false;
                 GetComponent<ProgressBar>().StopProgressBar();
                 interactionAudio.Stop();
@@ -81,7 +79,7 @@ public class PlayerInteraction : MonoBehaviour
             interactionAudio.Stop();
             yield break;
         }
-        Collider highestCollider = SharedOverlapBox.HighestCollider;
+        Collider highestCollider = Interactor.InteractableCollider;
         if (highestCollider.GetComponent<PickupController>() == null)
         {
             GetComponent<ProgressBar>().StopProgressBar();
