@@ -19,9 +19,7 @@ public class InitializePatientStats : MonoBehaviour
     private void SetPatientStats(Patient patient)
     {
         if (Data.ImportJsonData.sicknessContainersConfig.Length > (LevelButtons.levelID - 1)) { // Check if sickness container exists for this level
-
-            Debug.Log(HelperFunctions.SicknessContainersLookup(sicknessContainersKey));
-            foreach (var sickness in Data.ImportJsonData.sicknessContainersConfig[LevelButtons.levelID - 1].levelSicknesses) {
+            foreach (var sickness in HelperFunctions.SicknessContainersLookup(sicknessContainersKey).levelSicknesses) {
                 sicknessPool.Add(HelperFunctions.SicknessLookup(sickness));
                 Debug.Log(sickness);
             }
