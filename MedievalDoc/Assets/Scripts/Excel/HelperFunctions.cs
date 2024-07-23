@@ -23,6 +23,19 @@ public class HelperFunctions
 
         return null;
     }
+
+    public static SicknessContainers SicknessContainersLookup(string sickContainersKey)
+    {
+        //Data.ImportJsonData.sicknessContainersConfig[LevelButtons.levelID - 1]
+        foreach (SicknessContainers sicknessContainers in ImportJsonData.sicknessContainersConfig)
+        {
+            Debug.Log(sicknessContainers.key);
+            if (sickContainersKey == sicknessContainers.key)
+                return sicknessContainers;
+        }
+
+        return null;
+    }
     public static bool CanSymptomBeRemoved(Symptom symptom, Patient patient)
     {
         SymptomDependencies dependency = new SymptomDependencies();
