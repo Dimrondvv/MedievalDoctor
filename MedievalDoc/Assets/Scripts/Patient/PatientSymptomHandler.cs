@@ -31,8 +31,6 @@ public class PatientSymptomHandler : MonoBehaviour
         if (patient != this.patient || !patient.FindSymptom(symptom))
             return;
 
-
-
         if (HelperFunctions.CanSymptomBeRemoved(symptom, patient))
         {
             foreach (var i in patient.Symptoms)
@@ -40,11 +38,13 @@ public class PatientSymptomHandler : MonoBehaviour
                 if (i == symptom)
                 {
                     Symptom[] symptomAdded = HelperFunctions.GetSymptomsAddedOnRemove(symptom);
-
-                    foreach (var smpt in symptomAdded)
+                    if (symptomAdded != null)
                     {
-                        if(HelperFunctions.CanSymptomBeAdded(smpt, patient))
-                            Patient.OnTryAddSymptom.Invoke(smpt, patient, tool);
+                        foreach (var smpt in symptomAdded)
+                        {
+                            if (HelperFunctions.CanSymptomBeAdded(smpt, patient))
+                                Patient.OnTryAddSymptom.Invoke(smpt, patient, tool);
+                        }
                     }
                     patient.Symptoms.Remove(i);
                     Patient.OnRemoveSymptom.Invoke(symptom, patient, tool);

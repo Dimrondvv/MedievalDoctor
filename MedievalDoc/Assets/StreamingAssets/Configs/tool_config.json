@@ -5,7 +5,7 @@
     "toolPrefab": "tool_bandage",
     "toolName": "Bandage",
     "toolDescription": "t_bandage_desc",
-    "toolIcon": "bandage_icon",
+    "toolIcon": "Bandage_Sprite",
     "symptomRemove": "sym_bleeding",
     "interactionTime": 5
    }

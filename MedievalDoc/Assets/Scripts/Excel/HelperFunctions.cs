@@ -23,6 +23,17 @@ public class HelperFunctions
 
         return null;
     }
+    public static Data.Tool ToolLookup(GameObject toolObject)
+    {
+        Debug.Log(toolObject.name);
+        foreach (Data.Tool tool in ImportJsonData.toolConfig)
+        {
+            if (toolObject.name == tool.toolPrefab)
+                return tool;
+        }
+
+        return null;
+    }
     public static bool CanSymptomBeRemoved(Symptom symptom, Patient patient)
     {
         SymptomDependencies dependency = new SymptomDependencies();
@@ -98,9 +109,9 @@ public class HelperFunctions
             if (symptom.symptomID == dependencyIterator.symptomID)
                 dependency = dependencyIterator;
         }
-        if (dependency.symptomID == null)
+        if (dependency.symptomsAddOnRemove == null)
         {
-            Debug.LogWarning($"Cannon find dependencies for symptom: {symptom.symptomName}");
+            Debug.LogWarning($"No symptoms added on remove for symptom: {symptom.symptomName}");
             return null;
         }
         Symptom[] addOnRemoveArray = new Symptom[dependency.symptomsAddOnRemove.Length];
