@@ -8,7 +8,7 @@ TagManager:
   - Clinic
   - Workshop
   - High Wall
-  - Patient
+  - IsInteractable
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ToolInteraction : MonoBehaviour, IInteract
+public class ItemInteractor : MonoBehaviour, IInteract
 {
     public string InteractionPrompt => "Interacting";
 

@@ -36,7 +36,7 @@ public class Interactor : MonoBehaviour
 
         // Initialize pickupController and progressBar
         pickupController = GetComponent<PickupController>();
-        progressBar = GetComponent<ProgressBar>();
+        progressBar = GetComponentInChildren<ProgressBar>();
         interactionAudio = GetComponent<AudioSource>();
 
         if (pickupController == null)
@@ -117,7 +117,7 @@ public class Interactor : MonoBehaviour
         for (int i = 0; i < _numFound; i++)
         {
             float distance = Vector3.Distance(_interactionPoint.position, _colliders[i].transform.position);
-            if (distance < closestDistance && (_colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("Patient")))
+            if (distance < closestDistance && (_colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("IsInteractable")))
             {
                 closestDistance = distance;
                 closestCollider = _colliders[i];
@@ -172,34 +172,26 @@ public class Interactor : MonoBehaviour
 
     private IEnumerator InteractionCoroutine(Collider interactable)
     {
-        float interactTime = 1.0f; // Default interaction time
-        var interactableComponent = interactable.GetComponent<IInteractable>();
-        if (interactableComponent != null)
+        float interactTime = 0f; // Default interaction time
+        var pickedItemComponent = pickupController.PickedItem?.GetComponent<IInteractable>();
+
+        if (pickedItemComponent != null)
         {
-            interactTime = interactableComponent.InteractionTime;
+            interactTime = pickedItemComponent.InteractionTime;
         }
 
-        float elapsedTime = 0.0f;
-        if (progressBar != null) progressBar.StartProgressBar(interactTime);
-        if (interactionAudio != null) interactionAudio.Play();
-
-        while (elapsedTime < interactTime)
+        if (interactTime > 0f)
         {
-            if (!playerInputActions.Player.InteractPress.IsPressed())
-            {
-                // Interaction was cancelled
-                if (progressBar != null) progressBar.StopProgressBar();
-                if (interactionAudio != null) interactionAudio.Stop();
-                yield break;
-            }
+            if (progressBar != null) progressBar.StartProgressBar(interactTime);
+            if (interactionAudio != null) interactionAudio.Play();
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            yield return new WaitForSeconds(interactTime);
+
+            // Interaction completed
+            if (progressBar != null) progressBar.StopProgressBar();
+            if (interactionAudio != null) interactionAudio.Stop();
         }
 
-        // Interaction completed
-        if (progressBar != null) progressBar.StopProgressBar();
-        if (interactionAudio != null) interactionAudio.Stop();
         PickupController.OnInteract.Invoke(interactable.gameObject, pickupController);
     }
 
@@ -231,7 +223,6 @@ public class Interactor : MonoBehaviour
                 Debug.LogWarning("No valid laydown point found");
             }
         }
-
     }
 
     private void OnDrawGizmos()
