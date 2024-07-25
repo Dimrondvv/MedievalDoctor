@@ -40,13 +40,13 @@ public class BuyFurniture : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        if(SharedOverlapBox.HighestCollider.gameObject == gameObject && !textflag)
+        if(Interactor.InteractableCollider.gameObject == gameObject && !textflag)
         {
             priceText.gameObject.SetActive(true);
             priceText.text = price.ToString() + "$";
             textflag = true;
         }
-        else if(SharedOverlapBox.HighestCollider.gameObject != gameObject && textflag)
+        else if(Interactor.InteractableCollider.gameObject != gameObject && textflag)
         {
             priceText.gameObject.SetActive(false);
             textflag = false;

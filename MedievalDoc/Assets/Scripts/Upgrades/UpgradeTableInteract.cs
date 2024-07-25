@@ -17,7 +17,7 @@ public class UpgradeTableInteract : MonoBehaviour, IInteractable
     private void Update()
     {
 
-        if(manager.upgradeUI.isActive && SharedOverlapBox.HighestCollider.gameObject != gameObject)
+        if(manager.upgradeUI.isActive && !Interactor.InteractableCollider)
         {
             manager.UpgradeBoard();
         }

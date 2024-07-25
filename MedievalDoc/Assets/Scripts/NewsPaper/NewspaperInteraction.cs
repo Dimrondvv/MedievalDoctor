@@ -22,7 +22,7 @@ public class NewspaperInteraction : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (isPaperOn && SharedOverlapBox.HighestCollider.gameObject != gameObject)
+        if (isPaperOn && !Interactor.InteractableCollider)
         {
             App.Instance.GameplayCore.UIManager.DisableNewspaper();
             isPaperOn = false;

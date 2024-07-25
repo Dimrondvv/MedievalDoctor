@@ -19,6 +19,9 @@ public class Interactor : MonoBehaviour
     private bool isInteracting;
     private GameObject currentOutlinedObject;
     private PickupController pickupController;
+    private ProgressBar progressBar;
+    private AudioSource interactionAudio;
+    private Coroutine interactionCoroutine;
 
     private static Collider closestInteractable;
     public static Collider InteractableCollider { get { return closestInteractable; } }
@@ -28,12 +31,32 @@ public class Interactor : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.InteractPress.started += OnInteractPressPerformed;
+        playerInputActions.Player.InteractPress.canceled += OnInteractPressCanceled;
         playerInputActions.Player.Pickup.performed += OnPickupPerformed;
+
+        // Initialize pickupController and progressBar
+        pickupController = GetComponent<PickupController>();
+        progressBar = GetComponent<ProgressBar>();
+        interactionAudio = GetComponent<AudioSource>();
+
+        if (pickupController == null)
+        {
+            Debug.LogError("PickupController not found on the GameObject");
+        }
+        if (progressBar == null)
+        {
+            Debug.LogError("ProgressBar not found on the GameObject");
+        }
+        if (interactionAudio == null)
+        {
+            Debug.LogError("AudioSource not found on the GameObject");
+        }
     }
 
     private void OnDestroy()
     {
         playerInputActions.Player.InteractPress.started -= OnInteractPressPerformed;
+        playerInputActions.Player.InteractPress.canceled -= OnInteractPressCanceled;
         playerInputActions.Player.Pickup.performed -= OnPickupPerformed;
     }
 
@@ -94,7 +117,7 @@ public class Interactor : MonoBehaviour
         for (int i = 0; i < _numFound; i++)
         {
             float distance = Vector3.Distance(_interactionPoint.position, _colliders[i].transform.position);
-            if (distance < closestDistance && _colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("Patient"))
+            if (distance < closestDistance && (_colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("Patient")))
             {
                 closestDistance = distance;
                 closestCollider = _colliders[i];
@@ -132,9 +155,52 @@ public class Interactor : MonoBehaviour
         var closestInteractable = GetClosestInteractable();
         if (closestInteractable != null)
         {
-            PickupController.OnInteract.Invoke(closestInteractable.gameObject, pickupController);
-            Debug.Log("Interacted");
+            interactionCoroutine = StartCoroutine(InteractionCoroutine(closestInteractable));
         }
+    }
+
+    private void OnInteractPressCanceled(InputAction.CallbackContext context)
+    {
+        if (interactionCoroutine != null)
+        {
+            StopCoroutine(interactionCoroutine);
+            interactionCoroutine = null;
+            if (progressBar != null) progressBar.StopProgressBar();
+            if (interactionAudio != null) interactionAudio.Stop();
+        }
+    }
+
+    private IEnumerator InteractionCoroutine(Collider interactable)
+    {
+        float interactTime = 1.0f; // Default interaction time
+        var interactableComponent = interactable.GetComponent<IInteractable>();
+        if (interactableComponent != null)
+        {
+            interactTime = interactableComponent.InteractionTime;
+        }
+
+        float elapsedTime = 0.0f;
+        if (progressBar != null) progressBar.StartProgressBar(interactTime);
+        if (interactionAudio != null) interactionAudio.Play();
+
+        while (elapsedTime < interactTime)
+        {
+            if (!playerInputActions.Player.InteractPress.IsPressed())
+            {
+                // Interaction was cancelled
+                if (progressBar != null) progressBar.StopProgressBar();
+                if (interactionAudio != null) interactionAudio.Stop();
+                yield break;
+            }
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Interaction completed
+        if (progressBar != null) progressBar.StopProgressBar();
+        if (interactionAudio != null) interactionAudio.Stop();
+        PickupController.OnInteract.Invoke(interactable.gameObject, pickupController);
     }
 
     private void OnPickupPerformed(InputAction.CallbackContext context)

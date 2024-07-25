@@ -18,7 +18,7 @@ public class ToolName : MonoBehaviour
     }
     private void Update()
     {
-        if (SharedOverlapBox.HighestCollider == GetComponent<Collider>())
+        if (Interactor.InteractableCollider == GetComponent<Collider>())
         {
 
             nameDisplay.enabled = true;
