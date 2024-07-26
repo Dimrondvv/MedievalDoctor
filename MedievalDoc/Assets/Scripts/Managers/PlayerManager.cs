@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject playerObject;
     public PickupController PickupController { get { return pickupController; } }
 
-    private int score = 100; // player score
+    private int score = 0; // player score
     public int Score { get { return score; } set { score = value; } }
 
     private int money = 0; // money

@@ -19,23 +19,14 @@ public class SummaryState : BaseState
     private void LoadSummaryState()
     {
         SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
-        App.Instance.GameplayCore.GameManager.OnLevelComplete.AddListener(HandleMenuPressed);
-        //App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.AddListener(HandleEndDayPressed);
-        // App.Instance.GameplayCore.DaySummaryManager.onMenuPressed.AddListener(HandleMenuPressed);
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.AddListener(HandleLevelComplition);
+
     }
 
-    private void HandleEndDayPressed()
+    private void HandleLevelComplition()
     {
         Parent.MakeTransition((int)EAppState.Intro);
-        App.Instance.GameplayCore.DaySummaryManager.startDay();
-        App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.RemoveListener(HandleEndDayPressed);
-        
-    }
-
-    private void HandleMenuPressed()
-    {
-        Parent.MakeTransition((int)EAppState.Intro);
-        App.Instance.GameplayCore.GameManager.OnLevelComplete.RemoveListener(HandleMenuPressed);
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.RemoveListener(HandleLevelComplition);
 
     }
 

@@ -21,28 +21,24 @@ public class CompleteLevel : MonoBehaviour
     }
 
     public void OnLevelComplete() {
-        if (LevelButtons.levelID == (LevelButtons.UnlockedLevels+1)) {
-            Debug.Log(LevelButtons.levelID);
+        if (LevelButtons.levelID == (LevelButtons.UnlockedLevels + 1)) {
             int playerScore = App.Instance.GameplayCore.PlayerManager.Score;
-            
+
             if (playerScore >= stars[0] && playerScore < stars[1]) {
                 LevelButtons.UnlockedLevels++;
-                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID-1] = 1;
-            } else if(playerScore >= stars[1] && playerScore < stars[2]) {
+                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID - 1] = 1;
+            } else if (playerScore >= stars[1] && playerScore < stars[2]) {
                 LevelButtons.UnlockedLevels++;
-                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID-1] = 2;
-            } else  if (playerScore >= stars[2]) {
+                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID - 1] = 2;
+            } else if (playerScore >= stars[2]) {
                 LevelButtons.UnlockedLevels++;
-                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID-1] = 3;
+                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID - 1] = 3;
             } else {
-                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID-1] = 0;
+                App.Instance.GameplayCore.GameManager.LevelStarsCount[LevelButtons.levelID - 1] = 0;
             }
 
             PlayerPrefs.GetInt("UnlockedLevels", LevelButtons.UnlockedLevels);
             App.Instance.GameplayCore.GameManager.OnStarCount.RemoveListener(OnLevelComplete);
-            
         }
-        //App.Instance.GameplayCore.GameManager.OnLevelComplete.Invoke();
-
     }
 }
