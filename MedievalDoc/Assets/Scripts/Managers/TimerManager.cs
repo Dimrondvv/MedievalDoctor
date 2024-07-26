@@ -10,10 +10,10 @@ public class TimerManager : MonoBehaviour
     public int ElapsedTime { get { return elapsedTime; } set { elapsedTime = value; } }
 
     [SerializeField]
-    const int HowManySeconds = 10;
+    private float HowManySeconds = 600;
 
     static public float currCountdownValue;
-    public IEnumerator StartCountdown(float countdownValue = HowManySeconds)
+    public IEnumerator StartCountdown(float countdownValue)
     {
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)
@@ -31,9 +31,9 @@ public class TimerManager : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(StartCountdown());
+        StartCoroutine(StartCountdown(HowManySeconds));
         InvokeRepeating("OneSecondTimer", 0, 1);
-        elapsedTime = HowManySeconds;
+        elapsedTime = (int)HowManySeconds;
     }
     private void OnDestroy()
     {
