@@ -9,6 +9,17 @@ public class TimerManager : MonoBehaviour
     private int elapsedTime;
     public int ElapsedTime { get { return elapsedTime; } set { elapsedTime = value; } }
 
+    float currCountdownValue;
+    public IEnumerator StartCountdown(float countdownValue = 600)
+    {
+        currCountdownValue = countdownValue;
+        while (currCountdownValue > 0)
+        {
+            Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
+        }
+    }
 
     //[SerializeField] TextMeshProUGUI timerText;
 
@@ -18,6 +29,7 @@ public class TimerManager : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(StartCountdown());
         InvokeRepeating("OneSecondTimer", 0, 1);
         elapsedTime = 0;
     }
