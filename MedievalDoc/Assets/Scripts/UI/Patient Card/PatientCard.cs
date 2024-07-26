@@ -59,7 +59,7 @@ public class PatientCard : MonoBehaviour
     private void FillPatientInformation(Patient patient)
     {
         patientName.text = patient.PatientName;
-        patientStory.text = patient.patientStory;
+        patientStory.text = HelperFunctions.SicknessDescriptionLookup(patient.Sickness.sicknessDescription).description;
 
         UpdateSymptoms(null, patient, null);
     }

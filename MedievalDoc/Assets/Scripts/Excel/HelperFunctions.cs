@@ -23,6 +23,16 @@ public class HelperFunctions
 
         return null;
     }
+    public static Data.Description.Sicknesses SicknessDescriptionLookup(string descriptionKey)
+    {
+        foreach(Data.Description.Sicknesses sicknessDescription in ImportJsonData.sicknessDescriptions)
+        {
+            if (sicknessDescription.sicknessDescription == descriptionKey)
+                return sicknessDescription;
+        }
+
+        return null;
+    }
     public static Data.Tool ToolLookup(GameObject toolObject)
     {
         Debug.Log(toolObject.name);

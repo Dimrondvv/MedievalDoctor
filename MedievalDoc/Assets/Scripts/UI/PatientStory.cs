@@ -26,7 +26,7 @@ public class PatientStory : MonoBehaviour
         cloud.transform.localScale = new Vector3(0, 0, 0);
         storyObject.SetActive(true);
         patient = GetComponent<Patient>();
-        fullText = patient.Sickness.sicknessStory;
+        fullText = HelperFunctions.SicknessDescriptionLookup(patient.Sickness.sicknessDescription).description;
         StartCoroutine(Cloud());
     }
     IEnumerator Cloud()
