@@ -9,13 +9,15 @@ public class TimerManager : MonoBehaviour
     private int elapsedTime;
     public int ElapsedTime { get { return elapsedTime; } set { elapsedTime = value; } }
 
-    float currCountdownValue;
-    public IEnumerator StartCountdown(float countdownValue = 600)
+    [SerializeField]
+    const int HowManySeconds = 600;
+
+    static public float currCountdownValue;
+    public IEnumerator StartCountdown(float countdownValue = HowManySeconds)
     {
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)
         {
-            Debug.Log("Countdown: " + currCountdownValue);
             yield return new WaitForSeconds(1.0f);
             currCountdownValue--;
         }
@@ -31,7 +33,7 @@ public class TimerManager : MonoBehaviour
     {
         StartCoroutine(StartCountdown());
         InvokeRepeating("OneSecondTimer", 0, 1);
-        elapsedTime = 0;
+        elapsedTime = HowManySeconds;
     }
     private void OnDestroy()
     {
@@ -41,6 +43,6 @@ public class TimerManager : MonoBehaviour
 
     void OneSecondTimer()
     {
-        elapsedTime+=1;
+        elapsedTime-=1;
     }
 }
