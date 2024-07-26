@@ -31,6 +31,10 @@ public class Tool : MonoBehaviour, IInteractable
     {
         gameObject.name.Replace("(clone)", "").Trim();
         toolData = HelperFunctions.ToolLookup(gameObject);
+
+        if (toolData == null)
+            return;
+
         itemIcon = Resources.Load<Sprite>("Icons/" + toolData.toolIcon);
 
     }
@@ -40,9 +44,9 @@ public class Tool : MonoBehaviour, IInteractable
         if (tool != gameObject)
             return;
 
-        if (toolData.symptomsRemoved.Length > 0)
+        if (toolData.symptomsRemoved != null)
             RemoveSymptom(patient);
-        if (toolData.symptomsAdded.Length > 0)
+        if (toolData.symptomsAdded != null)
             AddSymptom(patient);
 
         if (toolData.oneUse != null)

@@ -57,8 +57,6 @@ namespace Data
             sicknessConfig = sicknessRoot.sickness;
             symptomConfig = sicknessRoot.symptoms;
             symptomDependenciesConfig = sicknessRoot.dependencies;
-
-            Debug.Log($"Symptom config: {symptomConfig}");
         }
         private void DeserializeLevelConfig()
         {
@@ -93,8 +91,6 @@ namespace Data
             sicknessDescriptions = descriptionRoot.sicknesses;
             symptomDescriptions = descriptionRoot.symptoms;
             toolDescriptions = descriptionRoot.tools;
-
-            Debug.Log(toolDescriptions);
         }
     }
 }
