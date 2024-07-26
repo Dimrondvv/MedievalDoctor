@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 5014068149990184592}
   m_Layer: 7
   m_Name: Upgrade Counter
-  m_TagString: Untagged
+  m_TagString: IsInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

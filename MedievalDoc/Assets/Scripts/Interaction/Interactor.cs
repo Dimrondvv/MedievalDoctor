@@ -89,6 +89,13 @@ public class Interactor : MonoBehaviour
             RemoveOutline(currentOutlinedObject);
             currentOutlinedObject = null;
             closestInteractable = null;
+            if (interactionCoroutine != null)
+            {
+                StopCoroutine(interactionCoroutine);
+                interactionCoroutine = null;
+                if (progressBar != null) progressBar.StopProgressBar();
+                if (interactionAudio != null) interactionAudio.Stop();
+            }
         }
     }
 
@@ -199,7 +206,7 @@ public class Interactor : MonoBehaviour
     {
         var playerController = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
 
-        if (playerController.PickedItem == null)
+        if (playerController.PickedItem == null || playerController.PickedItem.GetComponent<Item>() != null)
         {
             // Try to find the closest interactable object to pick up
             var closestInteractable = GetClosestInteractable();
