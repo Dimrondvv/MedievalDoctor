@@ -24,10 +24,10 @@ public class LevelButtons : MonoBehaviour
                 btn.interactable = true;
             }
 
-            if (levelID == i && i > 0) {
-                for (int j = 0; j < levelBtnList[i - 1].gameObject.transform.childCount; j++) {
-                    if (levelBtnList[i - 1].gameObject.transform.GetChild(j).GetComponent<Image>() && j <= App.Instance.GameplayCore.GameManager.LevelStarsCount[levelID]) {
-                        levelBtnList[i - 1].gameObject.transform.GetChild(j).GetComponent<Image>().color = new Color32(229, 235, 52, 100);
+            if (i < UnlockedLevels) {
+                for (int j = 0; j < levelBtnList[i].gameObject.transform.childCount; j++) {
+                    if (levelBtnList[i].gameObject.transform.GetChild(j).GetComponent<Image>() && j <= App.Instance.GameplayCore.GameManager.LevelStarsCount[i]) {
+                        levelBtnList[i].gameObject.transform.GetChild(j).GetComponent<Image>().color = new Color32(229, 235, 52, 100);
                     }
                 }
             }

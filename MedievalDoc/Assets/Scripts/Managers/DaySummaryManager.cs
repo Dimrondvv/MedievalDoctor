@@ -96,7 +96,7 @@ public class DaySummaryManager : MonoBehaviour
     void ChangeToSummaryState() {
         if (isTimeStoped && patientCount == 0) {
             fadeing.FadeOut();
-
+            App.Instance.GameplayCore.GameManager.OnStarCount.Invoke();
             if (!fadeing.Locked) {       
                 ChangingToSummaryState?.Invoke();
                 OnTimeStoped.RemoveListener(ChangeToSummaryState);

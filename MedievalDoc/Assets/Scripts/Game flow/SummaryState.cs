@@ -19,29 +19,24 @@ public class SummaryState : BaseState
     private void LoadSummaryState()
     {
         SceneManager.LoadScene("SummaryScene", LoadSceneMode.Additive);
-        App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.AddListener(HandleEndDayPressed);
-        App.Instance.GameplayCore.DaySummaryManager.onMenuPressed.AddListener(HandleMenuPressed);
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.AddListener(HandleMenuPressed);
+        //App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.AddListener(HandleEndDayPressed);
+        // App.Instance.GameplayCore.DaySummaryManager.onMenuPressed.AddListener(HandleMenuPressed);
     }
 
     private void HandleEndDayPressed()
     {
+        Parent.MakeTransition((int)EAppState.Intro);
         App.Instance.GameplayCore.DaySummaryManager.startDay();
         App.Instance.GameplayCore.DaySummaryManager.onEndDayPressed.RemoveListener(HandleEndDayPressed);
-        Parent.MakeTransition((int)EAppState.Game);
+        
     }
 
     private void HandleMenuPressed()
     {
-        Application.Quit();
-        //int c = SceneManager.sceneCount;
-        //for (int i = 0; i < c; i++)
-        //{
-        //    Scene scene = SceneManager.GetSceneAt(i);
-        //    Debug.Log(scene.name);
-        //    SceneManager.UnloadSceneAsync(scene);
-        //}
-        //App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveAllListeners();
-        //SceneManager.LoadSceneAsync("GlobalScene");
+        Parent.MakeTransition((int)EAppState.Intro);
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.RemoveListener(HandleMenuPressed);
+
     }
 
     public override void OnExit(int next)

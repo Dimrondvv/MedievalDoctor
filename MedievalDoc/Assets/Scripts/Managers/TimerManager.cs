@@ -10,7 +10,7 @@ public class TimerManager : MonoBehaviour
     public int ElapsedTime { get { return elapsedTime; } set { elapsedTime = value; } }
 
     [SerializeField]
-    const int HowManySeconds = 600;
+    const int HowManySeconds = 10;
 
     static public float currCountdownValue;
     public IEnumerator StartCountdown(float countdownValue = HowManySeconds)
