@@ -13,8 +13,8 @@ public class Patient : MonoBehaviour
     [SerializeField] private int spawnerID;
     [SerializeField] public int maximumAnger;
 
-    public List<Symptom> symptoms;
-    public List<Symptom> removedSymptoms;
+    public List<Symptom> symptoms = new List<Symptom>();
+    public List<Symptom> removedSymptoms = new List<Symptom>();
     public List<Symptom> Symptoms { get { return symptoms; } set { symptoms = value; } }
     public string patientStory;
     private bool isAlive;

@@ -108,7 +108,7 @@ public class NotebookDataHandler : MonoBehaviour
         string sicknessName = curedPatient.Sickness.sicknessName;
         string sicknessDecsription = curedPatient.Sickness.sicknessDescription;
         //todo: add sickness icon to config
-        Sprite sicknessIcon = Resources.Load<Sprite>(" ");
+        Sprite sicknessIcon = Resources.Load<Sprite>("Icons/"+ curedPatient.Sickness.sicknessName);
         
         if (data.discoveredSicknesses.ContainsKey(sicknessName)) //If sickness is already discovered return
             return;
@@ -139,8 +139,8 @@ public class NotebookDataHandler : MonoBehaviour
     private void AddDiscoveredToolToDict(GameObject tool, Patient patient)
     {
         Tool toolUsed = tool.GetComponent<Tool>();
-        string toolName = toolUsed.ToolName;
-        string toolDescription = toolUsed.ToolDescription;
+        string toolName = toolUsed.toolData.toolName;
+        string toolDescription = toolUsed.toolData.toolDescription;
         Sprite toolIcon = toolUsed.ItemIcon;
         if (data.discoveredTools.ContainsKey(toolName)) //Return if tool already discovered
             return;
