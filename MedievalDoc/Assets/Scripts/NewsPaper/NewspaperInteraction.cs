@@ -22,7 +22,7 @@ public class NewspaperInteraction : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (isPaperOn && !Interactor.InteractableCollider || !Interactor.IsOpen)
+        if (isPaperOn && (!Interactor.InteractableCollider || !Interactor.IsOpen))
         {
             App.Instance.GameplayCore.UIManager.DisableNewspaper();
             isPaperOn = false;

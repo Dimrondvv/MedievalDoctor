@@ -16,7 +16,7 @@ public class NotebookStand : MonoBehaviour, IInteractable
     }
     private void Update()
     {
-        if (isNoteBookOn && !Interactor.InteractableCollider && !Interactor.IsOpen)
+        if (isNoteBookOn && (!Interactor.InteractableCollider || !Interactor.IsOpen))
         {
             InteractWithStand(gameObject, null);
         }
