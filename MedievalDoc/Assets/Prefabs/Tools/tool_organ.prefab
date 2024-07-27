@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8780955930566993679}
   - component: {fileID: 6331229231564918398}
   m_Layer: 10
-  m_Name: Organ
+  m_Name: tool_organ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

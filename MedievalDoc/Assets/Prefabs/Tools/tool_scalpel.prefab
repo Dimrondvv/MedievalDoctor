@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5852893886065976870}
   - component: {fileID: 1810217246033083044}
   m_Layer: 10
-  m_Name: Scalpel
+  m_Name: tool_scalpel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

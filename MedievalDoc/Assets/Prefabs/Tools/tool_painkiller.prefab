@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 8910808791885417675}
   - component: {fileID: 1683167180355023550}
   m_Layer: 10
-  m_Name: Painkiller potion
+  m_Name: tool_painkiller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
