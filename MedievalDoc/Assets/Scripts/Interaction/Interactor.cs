@@ -242,7 +242,7 @@ public class Interactor : MonoBehaviour
             else if (closestLaydownPoint.CompareTag("Crafting"))
             {
 
-               playerController.PutDownItemAt(closestLaydownPoint.transform);
+                PickupController.OnPutdown?.Invoke(playerController, closestLaydownPoint.transform);
                 Debug.Log("Put down item at " + closestLaydownPoint.name);
             }
             else if (closestLaydownPoint == null)
