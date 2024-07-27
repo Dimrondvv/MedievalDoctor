@@ -38,7 +38,7 @@ namespace Data
             DeserializeSicknessConfig();
             DeserializeLevelConfig();
             DeserializeToolConfig();
-            //DeserializeCraftingConfig();
+            DeserializeCraftingConfig();
             DeserializeDescriptionConfig();
         }
 
@@ -76,7 +76,7 @@ namespace Data
         {
             string json = File.ReadAllText(Application.streamingAssetsPath + "/Configs/craft_config.json");
             CraftingRootObject craftRoot = JsonConvert.DeserializeObject<CraftingRootObject>(json);
-            craftingTables = craftRoot.craftingTables;
+            craftingTables = craftRoot.crafting_Tables;
             recipes = craftRoot.recipes;
             itemChests = craftRoot.itemChest;
             itemChangers = craftRoot.itemChanger;
