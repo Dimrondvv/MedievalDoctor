@@ -150,7 +150,7 @@ public class Interactor : MonoBehaviour
             {
                 // Check if the laydown point is already occupied by another interactable object
                 bool isOccupied = Physics.CheckSphere(_laydownColliders[i].transform.position, 0.1f, _interactableMask);
-                if (!isOccupied)
+                if (!isOccupied || _laydownColliders[i].CompareTag("Crafting"))
                 {
                     closestDistance = distance;
                     closestCollider = _laydownColliders[i];
@@ -220,7 +220,7 @@ public class Interactor : MonoBehaviour
     {
         var playerController = App.Instance.GameplayCore.PlayerManager.PickupController.GetPickupController();
 
-        if (playerController.PickedItem == null || playerController.PickedItem.GetComponent<Item>() != null)
+        if (playerController.PickedItem == null)
         {
             // Try to find the closest interactable object to pick up
             var closestInteractable = GetClosestInteractable();
@@ -230,7 +230,7 @@ public class Interactor : MonoBehaviour
                 Debug.Log("Picked up " + closestInteractable.name);
             }
         }
-        else
+        else if (playerController.PickedItem != null)
         {
             // Try to find the closest valid laydown point to put down the item
             var closestLaydownPoint = GetClosestLaydownPoint();
@@ -239,7 +239,13 @@ public class Interactor : MonoBehaviour
                 playerController.PutDownItemAt(closestLaydownPoint.transform);
                 Debug.Log("Put down item at " + closestLaydownPoint.name);
             }
-            else
+            else if (closestLaydownPoint.CompareTag("Crafting"))
+            {
+
+               playerController.PutDownItemAt(closestLaydownPoint.transform);
+                Debug.Log("Put down item at " + closestLaydownPoint.name);
+            }
+            else if (closestLaydownPoint == null)
             {
                 Debug.LogWarning("No valid laydown point found");
             }

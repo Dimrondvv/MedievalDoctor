@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4939991889581106212}
   - component: {fileID: 1682712866405683646}
   - component: {fileID: 8324552206533749450}
+  - component: {fileID: 3658191559306782312}
   m_Layer: 7
   m_Name: Aloe
-  m_TagString: Untagged
+  m_TagString: Crafting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +69,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Aloe
+--- !u!114 &3658191559306782312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276212561060190205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7479537894833554489
 PrefabInstance:
   m_ObjectHideFlags: 0

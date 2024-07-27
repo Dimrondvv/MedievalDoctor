@@ -9,6 +9,7 @@ TagManager:
   - Workshop
   - High Wall
   - IsInteractable
+  - Crafting
   layers:
   - Default
   - TransparentFX
