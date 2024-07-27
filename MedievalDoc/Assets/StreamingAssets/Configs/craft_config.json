@@ -1,27 +1,44 @@
 {
-"Crafting tables":[
-  "craftingID": null,
-  "recipesContainer": null,
-  "interactionTime": null
+"Crafting_tables":[
+ {
+  "craftingID": "c_alchemy",
+  "recipesContainer": "r_painkiller,r_burncompress",
+  "interactionTime": 5
+ }
 ],
 "Recipes":[
-  "recipeID": null,
-  "recipeName": null,
-  "recipeDescription": null,
-  "itemContainer": null,
-  "recipeResult": null
+ {
+  "recipeID": "r_painkiller",
+  "recipeName": "Painkiller",
+  "recipeDescription": "r_painkiller_d",
+  "itemContainer": "i_mint,i_waterflask",
+  "recipeResult": "t_painkiller"
+ },
+ {
+  "recipeID": "r_burncompress",
+  "recipeName": "Burn compress",
+  "recipeDescription": "r_burncompress_d",
+  "itemContainer": "t_bandage,i_mint",
+  "recipeResult": "t_burncompress"
+ }
 ],
 "itemChest":[
-  "chestID": null,
-  "itemID": null
+ {
+  "chestID": "ich_mint",
+  "itemID": "i_mint"
+ }
 ],
 "Items":[
-  "itemID": null,
-  "itemDescription": null
+ {
+  "itemID": "i_mint",
+  "itemDescription": "i_mint_d"
+ }
 ],
 "itemChanger":[
-  "changerID": null,
-  "itemReq": null,
-  "itemResult": null
+ {
+  "changerID": "ch_sink",
+  "itemReq": "i_emptyflask",
+  "itemResult": "i_waterflask"
+ }
 ]
 }

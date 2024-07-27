@@ -28,5 +28,15 @@
   "toolDescription": "d_bandage",
   "Description": "wraps wounds"
  }
+],
+"SicknessStories":[
+ {
+  "sicknessStory": "sic_bleeding_s",
+  "Description": "im bleeding, pls help"
+ },
+ {
+  "sicknessStory": "sic_arrow_s",
+  "Description": "i was warrior once"
+ }
 ]
 }
