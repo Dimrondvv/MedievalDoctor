@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemChest : MonoBehaviour, IInteract
+public class ItemChest : MonoBehaviour, IInteract, IInteractable
 {
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private TextMeshPro nameDisplay;
     private bool isClosed = false;
-    private Animator animator;
     private Item chestItem;
 
-    public string InteractionPrompt => throw new System.NotImplementedException();
+    public string InteractionPrompt => "Trying to interact";
+
+    [SerializeField] float interactionTime;
+    public float InteractionTime { get { return interactionTime; } set { interactionTime = value; } }
 
     private void Start()
     {
         nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
-        animator = GetComponent<Animator>();
         chestItem = itemPrefab.GetComponent<Item>();
         PickupController.OnPickup.AddListener(TakeItemFromChest);
         PickupController.OnPutdown.AddListener(PutItemInChest);
-        PickupController.OnInteract.AddListener(CloseChest);
     }
 
     private void TakeItemFromChest(GameObject item, Transform objectType)
@@ -47,39 +47,6 @@ public class ItemChest : MonoBehaviour, IInteract
         Destroy(item);
     }
 
-    private void CloseChest(GameObject interactedObject, PickupController player)
-    {
-        if (interactedObject != gameObject)
-            return;
-
-        if (isClosed)
-        {
-            animator.SetBool("isOpen", true);
-            isClosed = false;
-            PickupController.OnPickup.AddListener(TakeItemFromChest);
-            PickupController.OnPutdown.AddListener(PutItemInChest);
-        }
-        else
-        {
-            animator.SetBool("isOpen", false);
-            isClosed = true;
-            PickupController.OnPickup.RemoveListener(TakeItemFromChest);
-            PickupController.OnPutdown.RemoveListener(PutItemInChest);
-        }
-    }
-
-    private void Update()
-    {
-        if (Interactor.InteractableCollider == GetComponent<Collider>())
-        {
-            nameDisplay.gameObject.SetActive(true);
-        }
-        else
-        {
-            nameDisplay.gameObject.SetActive(false);
-        }
-    }
-
     public bool Interact(Interactor interactor)
     {
         // Disable interaction
@@ -92,23 +59,14 @@ public class ItemChest : MonoBehaviour, IInteract
         PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
         PickupController playerController = playerManager.PickupController;
 
-        if (isClosed)
+        // Pick up the item from the chest
+        if (playerManager.PickupController.PickedItem != null)
         {
-            // Open the chest and enable item interaction
-            Debug.Log("Tosty");
-            CloseChest(gameObject, playerController);
+            PutItemInChest(playerController, transform);
         }
         else
         {
-            // Pick up the item from the chest
-            if (playerManager.PickupController.PickedItem != null)
-            {
-                PutItemInChest(playerController, transform);
-            }
-            else
-            {
-                TakeItemFromChest(gameObject, transform);
-            }
+            TakeItemFromChest(gameObject, transform);
         }
 
         return true;
