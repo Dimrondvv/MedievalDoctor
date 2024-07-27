@@ -1,5 +1,7 @@
+using MyBox;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +18,6 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numLaydownFound;
 
     private PlayerInputActions playerInputActions;
-    private bool isInteracting;
     private GameObject currentOutlinedObject;
     private PickupController pickupController;
     private ProgressBar progressBar;
@@ -24,6 +25,8 @@ public class Interactor : MonoBehaviour
     private Coroutine interactionCoroutine;
 
     private static Collider closestInteractable;
+    public static bool isOpen;
+    public static bool IsOpen { get { return isOpen; } }
     public static Collider InteractableCollider { get { return closestInteractable; } }
 
     private void Awake()
@@ -74,6 +77,7 @@ public class Interactor : MonoBehaviour
                 if (currentOutlinedObject != null && currentOutlinedObject != closestInteractable.gameObject)
                 {
                     RemoveOutline(currentOutlinedObject);
+                    isOpen = false;
                 }
 
                 currentOutlinedObject = closestInteractable.gameObject;
@@ -181,10 +185,20 @@ public class Interactor : MonoBehaviour
     {
         float interactTime = 0f; // Default interaction time
         var pickedItemComponent = pickupController.PickedItem?.GetComponent<IInteractable>();
+        var interactableComponent = interactable.GetComponent<IInteractable>();
 
         if (pickedItemComponent != null)
         {
-            interactTime = pickedItemComponent.InteractionTime;
+            if (interactableComponent != null)
+            {
+                interactTime = interactableComponent.InteractionTime;
+            } else
+            {
+                interactTime = pickedItemComponent.InteractionTime;
+            }
+        } else if (interactableComponent != null)
+        {
+            interactTime = interactableComponent.InteractionTime;
         }
 
         if (interactTime > 0f)
@@ -210,7 +224,7 @@ public class Interactor : MonoBehaviour
         {
             // Try to find the closest interactable object to pick up
             var closestInteractable = GetClosestInteractable();
-            if (closestInteractable != null)
+            if (closestInteractable != null && closestInteractable.HasComponent<IInteract>())
             {
                 closestInteractable.GetComponent<IInteract>().Pickup(this);
                 Debug.Log("Picked up " + closestInteractable.name);
