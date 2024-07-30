@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 79022520347482210}
   m_Layer: 7
   m_Name: Herb crafting
-  m_TagString: IsInteractable
+  m_TagString: Crafting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

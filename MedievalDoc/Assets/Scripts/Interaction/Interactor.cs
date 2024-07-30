@@ -128,7 +128,7 @@ public class Interactor : MonoBehaviour
         for (int i = 0; i < _numFound; i++)
         {
             float distance = Vector3.Distance(_interactionPoint.position, _colliders[i].transform.position);
-            if (distance < closestDistance && (_colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("IsInteractable")))
+            if (distance < closestDistance && (_colliders[i].GetComponent<IInteract>() != null || _colliders[i].GetComponent<IInteractable>() != null || _colliders[i].CompareTag("IsInteractable") || _colliders[i].CompareTag("Crafting")))
             {
                 closestDistance = distance;
                 closestCollider = _colliders[i];
@@ -228,22 +228,24 @@ public class Interactor : MonoBehaviour
             {
                 closestInteractable.GetComponent<IInteract>().Pickup(this);
                 Debug.Log("Picked up " + closestInteractable.name);
+            } else if (closestInteractable != null && closestInteractable.CompareTag("Crafting"))
+            {
+                PickupController.OnPickup?.Invoke(gameObject, closestInteractable.transform);
             }
         }
         else if (playerController.PickedItem != null)
         {
             // Try to find the closest valid laydown point to put down the item
             var closestLaydownPoint = GetClosestLaydownPoint();
+            var closestInteractable = GetClosestInteractable();
             if (closestLaydownPoint != null)
             {
                 playerController.PutDownItemAt(closestLaydownPoint.transform);
                 Debug.Log("Put down item at " + closestLaydownPoint.name);
             }
-            else if (closestLaydownPoint.CompareTag("Crafting"))
+            else if (closestInteractable.CompareTag("Crafting"))
             {
-
-                PickupController.OnPutdown?.Invoke(playerController, closestLaydownPoint.transform);
-                Debug.Log("Put down item at " + closestLaydownPoint.name);
+                PickupController.OnPutdown?.Invoke(playerController, closestInteractable.transform);
             }
             else if (closestLaydownPoint == null)
             {
