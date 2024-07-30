@@ -13,6 +13,7 @@ namespace Data
         [JsonProperty] public string recipeDescription { get; set; }
         [JsonProperty] public string itemContainer { get; set; }
         [JsonProperty] public string recipeResult { get; set; }
+        [JsonProperty] public string recipeTime { get; set; }
 
         public string[] itemsRequired;
 

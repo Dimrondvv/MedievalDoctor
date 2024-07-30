@@ -23,6 +23,26 @@ public class HelperFunctions
 
         return null;
     }
+    public static CraftingTable CraftingLookup(string craftingKey)
+    {
+        foreach (CraftingTable crafting in ImportJsonData.craftingTables)
+        {
+            if (craftingKey == crafting.craftingID)
+                return crafting;
+        }
+
+        return null;
+    }
+    public static Recipes RecipeLookup(string recipeKey)
+    {
+        foreach(Recipes recipe in ImportJsonData.recipes)
+        {
+            if (recipeKey == recipe.recipeID)
+                return recipe;
+        }
+
+        return null;
+    }
     public static Data.Description.Sicknesses SicknessDescriptionLookup(string descriptionKey)
     {
         foreach(Data.Description.Sicknesses sicknessDescription in ImportJsonData.sicknessDescriptions)
