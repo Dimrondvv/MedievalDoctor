@@ -26,7 +26,7 @@ public class PatientSymptomHandler : MonoBehaviour
         PatientManager.OnPatientReleased.RemoveListener(CheckIfCured);
     }
 
-    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
+    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, InteractionTool tool)
     {
         if (patient != this.patient || !patient.FindSymptom(symptom))
             return;
@@ -58,7 +58,7 @@ public class PatientSymptomHandler : MonoBehaviour
             }
         }
     }
-    private void AddSymptom(Symptom symptom, Patient patient, Tool tool)
+    private void AddSymptom(Symptom symptom, Patient patient, InteractionTool tool)
     {
         if (patient != this.patient || patient.FindSymptom(symptom))
             return;

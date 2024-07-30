@@ -16,7 +16,7 @@ public class NotebookStand : MonoBehaviour, IInteractable
     }
     private void Update()
     {
-        if (isNoteBookOn && SharedOverlapBox.HighestCollider.gameObject != gameObject)
+        if (isNoteBookOn && (!Interactor.InteractableCollider || !Interactor.IsOpen))
         {
             InteractWithStand(gameObject, null);
         }
@@ -29,6 +29,7 @@ public class NotebookStand : MonoBehaviour, IInteractable
 
         App.Instance.GameplayCore.UIManager.ChangeNotebookState();
         isNoteBookOn = !isNoteBookOn;
+        Interactor.isOpen = true;
     }
 
 

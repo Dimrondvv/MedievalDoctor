@@ -63,7 +63,7 @@ public class PatientCard : MonoBehaviour
         UpdateSymptoms(null, patient, null);
     }
 
-    private void UpdateSymptoms(Symptom smpt, Patient patient, Tool tool)
+    private void UpdateSymptoms(Symptom smpt, Patient patient, InteractionTool tool)
     {
         patientSymptomList.text = ""; //Reset patient symptom list
         foreach (var symptom in patient.symptoms)

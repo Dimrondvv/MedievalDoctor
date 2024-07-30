@@ -14,11 +14,11 @@ public class ToolName : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        nameDisplay.text = itemPrefab.GetComponent<Tool>().ToolName;
+        nameDisplay.text = itemPrefab.GetComponent<InteractionTool>().ToolName;
     }
     private void Update()
     {
-        if (SharedOverlapBox.HighestCollider == GetComponent<Collider>())
+        if (Interactor.InteractableCollider == GetComponent<Collider>())
         {
 
             nameDisplay.enabled = true;

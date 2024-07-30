@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UpgradeTableInteract : MonoBehaviour, IInteractable
+public class UpgradeTableInteract : MonoBehaviour
 {
     [SerializeField] GameObject upgradeText;
-    public float InteractionTime { get; set; }
     private UIManager manager;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +15,7 @@ public class UpgradeTableInteract : MonoBehaviour, IInteractable
 
     private void Update()
     {
-
-        if(manager.upgradeUI.isActive && SharedOverlapBox.HighestCollider.gameObject != gameObject)
+        if(manager.upgradeUI.isActive && !Interactor.InteractableCollider)
         {
             manager.UpgradeBoard();
         }
@@ -26,7 +24,6 @@ public class UpgradeTableInteract : MonoBehaviour, IInteractable
     public void SubscribeToInteract()
     {
         PickupController.OnInteract.AddListener(OnTableInteract);
-        gameObject.layer = 7;
         upgradeText.SetActive(true);
     }
 
@@ -37,7 +34,6 @@ public class UpgradeTableInteract : MonoBehaviour, IInteractable
 
         manager.UpgradeBoard();
         PickupController.OnInteract.RemoveListener(OnTableInteract);
-        gameObject.layer = 0;
         upgradeText.SetActive(false);
     }
 }

@@ -28,10 +28,10 @@ public class Recipe : ScriptableObject
         bool doesContain = false;
         for(int i = 0; i < requiredItems.Count; i++)
         {
-            string reqName = requiredItems[i].item.GetComponent<Item>() != null ? requiredItems[i].item.GetComponent<Item>().ItemName : requiredItems[i].item.GetComponent<Tool>().ToolName;
+            string reqName = requiredItems[i].item.GetComponent<Item>() != null ? requiredItems[i].item.GetComponent<Item>().ItemName : requiredItems[i].item.GetComponent<InteractionTool>().ToolName;
             if (isOrderSensitive)
             {
-                string itemName = itemList[i].GetComponent<Item>() != null ? itemList[i].GetComponent<Item>().ItemName : itemList[i].GetComponent<Tool>().ToolName;
+                string itemName = itemList[i].GetComponent<Item>() != null ? itemList[i].GetComponent<Item>().ItemName : itemList[i].GetComponent<InteractionTool>().ToolName;
 
                 if (reqName != itemName)
                     return false;
@@ -40,7 +40,7 @@ public class Recipe : ScriptableObject
             {
                 foreach(var item in itemList)
                 {
-                    string itemName = item.GetComponent<Item>() != null ? item.GetComponent<Item>().ItemName : item.GetComponent<Tool>().ToolName;
+                    string itemName = item.GetComponent<Item>() != null ? item.GetComponent<Item>().ItemName : item.GetComponent<InteractionTool>().ToolName;
                     if (itemName == reqName)
                         doesContain = true;
                 }
