@@ -46,15 +46,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""28ca830f-0fb1-4e43-afa5-5a32a6951ba4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold(duration=1.5)"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Pickup"",
                     ""type"": ""Button"",
                     ""id"": ""6d2ea798-0809-4e24-b119-6a04fecbf425"",
@@ -274,28 +265,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""RotateBlueprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7e175b23-5097-4c3a-aed3-6620ac8b657e"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f7cb1c91-668a-49f4-8388-f2a2a7bc89d0"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -576,7 +545,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_RotateBlueprint = m_Player.FindAction("RotateBlueprint", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Journal = m_Player.FindAction("Journal", throwIfNotFound: true);
@@ -649,7 +617,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_RotateBlueprint;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Journal;
@@ -662,7 +629,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @RotateBlueprint => m_Wrapper.m_Player_RotateBlueprint;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Journal => m_Wrapper.m_Player_Journal;
@@ -684,9 +650,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @RotateBlueprint.started += instance.OnRotateBlueprint;
             @RotateBlueprint.performed += instance.OnRotateBlueprint;
             @RotateBlueprint.canceled += instance.OnRotateBlueprint;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @Pickup.started += instance.OnPickup;
             @Pickup.performed += instance.OnPickup;
             @Pickup.canceled += instance.OnPickup;
@@ -715,9 +678,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @RotateBlueprint.started -= instance.OnRotateBlueprint;
             @RotateBlueprint.performed -= instance.OnRotateBlueprint;
             @RotateBlueprint.canceled -= instance.OnRotateBlueprint;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @Pickup.started -= instance.OnPickup;
             @Pickup.performed -= instance.OnPickup;
             @Pickup.canceled -= instance.OnPickup;
@@ -803,7 +763,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotateBlueprint(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnJournal(InputAction.CallbackContext context);

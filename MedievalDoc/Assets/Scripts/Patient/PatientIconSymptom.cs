@@ -30,7 +30,7 @@ public class PatientIconSymptom : MonoBehaviour
         Patient.OnRemoveSymptom.AddListener(RemovedDisplay);
     }
 
-    private void AddedDisplay(Symptom symptom, Patient patient, Tool tool)
+    private void AddedDisplay(Symptom symptom, Patient patient, InteractionTool tool)
     {
 
         if (patient != GetComponent<Patient>())
@@ -41,7 +41,7 @@ public class PatientIconSymptom : MonoBehaviour
         states.Add(true);
     }
 
-    private void RemovedDisplay(Symptom symptom, Patient patient, Tool tool)
+    private void RemovedDisplay(Symptom symptom, Patient patient, InteractionTool tool)
     {
         if (patient != GetComponent<Patient>())
         {

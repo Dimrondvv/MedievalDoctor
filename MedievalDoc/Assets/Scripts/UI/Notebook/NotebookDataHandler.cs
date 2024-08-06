@@ -9,7 +9,7 @@ public class NotebookDataHandler : MonoBehaviour
     NotebookData data;
     SaveManager saveManager;
 
-    //TO JEST DO USUNIÊCIA TODO
+    //TO JEST DO USUNIï¿½CIA TODO
     [System.Serializable]
     public class itemsData
     {
@@ -18,7 +18,7 @@ public class NotebookDataHandler : MonoBehaviour
         public Sprite icon;
     }
     [SerializeField] private List<itemsData> itemData;
-    //TO TE¯ DO ZMIANY
+    //TO TEï¿½ DO ZMIANY
     private Dictionary<string, DiscoveredData> items;
 
     // Start is called before the first frame update
@@ -92,7 +92,7 @@ public class NotebookDataHandler : MonoBehaviour
     private void AddEventListeners()
     {
         Patient.OnCureDisease.AddListener(AddCuredSicknessToDict);
-        Tool.OnToolInteract.AddListener(AddDiscoveredToolToDict);
+        InteractionTool.OnToolInteract.AddListener(AddDiscoveredToolToDict);
         Crafting.OnCraftingCompleted.AddListener(AddDiscoveredRecipeToDict);
     }
 
@@ -138,7 +138,7 @@ public class NotebookDataHandler : MonoBehaviour
     }
     private void AddDiscoveredToolToDict(GameObject tool, Patient patient)
     {
-        Tool toolUsed = tool.GetComponent<Tool>();
+        InteractionTool toolUsed = tool.GetComponent<Tool>();
         string toolName = toolUsed.toolData.toolName;
         string toolDescription = toolUsed.toolData.toolDescription;
         Sprite toolIcon = toolUsed.ItemIcon;

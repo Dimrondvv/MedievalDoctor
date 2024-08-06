@@ -2967,6 +2967,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7415681997781298310, guid: f019b00dcded0374d815c05b9d47b500, type: 3}
+      propertyPath: upgradeDays.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415681997781298310, guid: f019b00dcded0374d815c05b9d47b500, type: 3}
       propertyPath: roomSpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 0}

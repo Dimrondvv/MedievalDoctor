@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Data;
-public class Tool : MonoBehaviour, IInteractable
+
+public class InteractionTool : MonoBehaviour, IInteractable
 {
     //Key - bool which defines if symptom action is valid
     private Sprite itemIcon;

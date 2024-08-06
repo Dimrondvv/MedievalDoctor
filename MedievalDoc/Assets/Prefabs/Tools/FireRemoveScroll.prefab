@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 8509086382535948056}
   - component: {fileID: 5071055044695146546}
   - component: {fileID: 5410108177838832948}
-  m_Layer: 10
+  - component: {fileID: -7676686941826584556}
+  m_Layer: 7
   m_Name: FireRemoveScroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,8 +169,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821844210277148865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7676686941826584556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821844210277148865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

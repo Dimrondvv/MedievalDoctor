@@ -50,7 +50,7 @@ public class PlayerProgressionBar : MonoBehaviour
     }
 
     private void OnInteractionStart(UnityEngine.InputSystem.InputAction.CallbackContext callback) {
-        if (SharedOverlapBox.HighestCollider.gameObject.layer != 7)
+        if (!Interactor.InteractableCollider)
             return;
         isPerformingAction = true;
     }
