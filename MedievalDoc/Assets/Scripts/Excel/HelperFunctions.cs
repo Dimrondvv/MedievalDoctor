@@ -101,8 +101,11 @@ public class HelperFunctions
     {
         SymptomDependencies dependency = new SymptomDependencies();
 
+
         foreach (var dependencyIterator in ImportJsonData.symptomDependenciesConfig)
         {
+            if (dependencyIterator == null)
+                return true;
             if (symptom.symptomID == dependencyIterator.symptomID)
                 dependency = dependencyIterator;
         }

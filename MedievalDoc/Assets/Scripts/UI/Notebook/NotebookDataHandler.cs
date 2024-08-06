@@ -141,7 +141,7 @@ public class NotebookDataHandler : MonoBehaviour
         Tool toolUsed = tool.GetComponent<Tool>();
         string toolName = toolUsed.toolData.toolName;
         string toolDescription = toolUsed.toolData.toolDescription;
-        Sprite toolIcon = toolUsed.ItemIcon;
+        Sprite toolIcon = Resources.Load<Sprite>("Icons/"+toolUsed.toolData.toolIcon);
         if (data.discoveredTools.ContainsKey(toolName)) //Return if tool already discovered
             return;
 
