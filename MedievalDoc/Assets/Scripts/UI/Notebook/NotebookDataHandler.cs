@@ -9,7 +9,7 @@ public class NotebookDataHandler : MonoBehaviour
     NotebookData data;
     SaveManager saveManager;
 
-    //TO JEST DO USUNIÊCIA TODO
+    //TO JEST DO USUNIï¿½CIA TODO
     [System.Serializable]
     public class itemsData
     {
@@ -18,7 +18,7 @@ public class NotebookDataHandler : MonoBehaviour
         public Sprite icon;
     }
     [SerializeField] private List<itemsData> itemData;
-    //TO TE¯ DO ZMIANY
+    //TO TEï¿½ DO ZMIANY
     private Dictionary<string, DiscoveredData> items;
 
     // Start is called before the first frame update
@@ -106,8 +106,9 @@ public class NotebookDataHandler : MonoBehaviour
     private void AddCuredSicknessToDict(Patient curedPatient)
     {
         string sicknessName = curedPatient.Sickness.sicknessName;
-        string sicknessDecsription = curedPatient.Sickness.sicknessDescritpion;
-        Sprite sicknessIcon = curedPatient.Sickness.icon;
+        string sicknessDecsription = curedPatient.Sickness.sicknessDescription;
+        //todo: add sickness icon to config
+        Sprite sicknessIcon = Resources.Load<Sprite>("Icons/"+ curedPatient.Sickness.sicknessName);
         
         if (data.discoveredSicknesses.ContainsKey(sicknessName)) //If sickness is already discovered return
             return;
@@ -138,8 +139,8 @@ public class NotebookDataHandler : MonoBehaviour
     private void AddDiscoveredToolToDict(GameObject tool, Patient patient)
     {
         Tool toolUsed = tool.GetComponent<Tool>();
-        string toolName = toolUsed.ToolName;
-        string toolDescription = toolUsed.ToolDescription;
+        string toolName = toolUsed.toolData.toolName;
+        string toolDescription = toolUsed.toolData.toolDescription;
         Sprite toolIcon = toolUsed.ItemIcon;
         if (data.discoveredTools.ContainsKey(toolName)) //Return if tool already discovered
             return;
@@ -168,37 +169,36 @@ public class NotebookDataHandler : MonoBehaviour
             }
         }
     }
-    private void AddDiscoveredRecipeToDict(Recipe recipe)
+    private void AddDiscoveredRecipeToDict(Data.Recipes recipe)
     {
-        string recipeName = recipe.recipeName;
-        string recipeDescription = recipe.recipeDescription;
-        Sprite recipeIcon = recipe.icon;
-        if (data.discoveredRecipes.ContainsKey(recipeName)) //Return if recipe already discovered
-            return;
+        //string recipeName = recipe.recipeName;
+        //string recipeDescription = recipe.recipeDescription;
+        //if (data.discoveredRecipes.ContainsKey(recipeName)) //Return if recipe already discovered
+        //    return;
 
-        DiscoveredData recipesData = new DiscoveredData(recipeName, recipeDescription, recipeIcon.name); 
+        //DiscoveredData recipesData = new DiscoveredData(recipeName, recipeDescription); 
         
 
-        if (data.recipesDiscoveredDuringRun.ContainsKey(recipeName)) //Same as in sickness
-        {
-            data.recipesDiscoveredDuringRun[recipeName]++;
+        //if (data.recipesDiscoveredDuringRun.ContainsKey(recipeName)) //Same as in sickness
+        //{
+        //    data.recipesDiscoveredDuringRun[recipeName]++;
 
-            if (data.recipesDiscoveredDuringRun[recipeName] >= interactionsRequired)
-            {
-                data.discoveredRecipes.Add(recipeName, recipesData);
-                data.recipesDiscoveredDuringRun.Remove(recipeName);
-            }
-        }
-        else
-        {
-            data.recipesDiscoveredDuringRun.Add(recipeName, 1);
+        //    if (data.recipesDiscoveredDuringRun[recipeName] >= interactionsRequired)
+        //    {
+        //        data.discoveredRecipes.Add(recipeName, recipesData);
+        //        data.recipesDiscoveredDuringRun.Remove(recipeName);
+        //    }
+        //}
+        //else
+        //{
+        //    data.recipesDiscoveredDuringRun.Add(recipeName, 1);
 
-            if (data.recipesDiscoveredDuringRun[recipeName] >= interactionsRequired)
-            {
-                data.discoveredRecipes.Add(recipeName, recipesData);
-                data.recipesDiscoveredDuringRun.Remove(recipeName);
-            }
-        }
+        //    if (data.recipesDiscoveredDuringRun[recipeName] >= interactionsRequired)
+        //    {
+        //        data.discoveredRecipes.Add(recipeName, recipesData);
+        //        data.recipesDiscoveredDuringRun.Remove(recipeName);
+        //    }
+        //}
     }
     /*private void AddDiscoveredPatronToDict(PatronScriptableObject patron)
     {

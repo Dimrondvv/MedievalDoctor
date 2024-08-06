@@ -6,21 +6,12 @@ using UnityEngine.Events;
 public class Tool : MonoBehaviour, IInteractable
 {
     //Key - bool which defines if symptom action is valid
-    [SerializeField] private Sprite itemIcon;
-    [SerializeField] private string toolName;
-    [SerializeField] private string toolDescription;
-    [SerializeField] private List<Symptom> symptomsAdded;
-    [SerializeField] private List<Symptom> symptomsRemoved;
-    [SerializeField] private List<Symptom> symptomsChecked;
-    [SerializeField] private bool isOneUse;
-    [SerializeField] private float interactionTime;
+    private Sprite itemIcon;
+    public Data.Tool toolData;
+    private float interactionTime;
+
     public static UnityEvent<GameObject, Patient> OnToolInteract = new UnityEvent<GameObject, Patient>(); //Invoked when interacted with a tool
 
-    public List<Symptom> SymptomsRemoved { get { return symptomsRemoved; } }
-    public List<Symptom> SymptomsAdded { get { return symptomsAdded; } }
-    public List<Symptom> SymptomsChecked { get { return symptomsChecked; } }
-    public string ToolName { get { return toolName; } }
-    public string ToolDescription { get { return toolDescription; } }
     public float InteractionTime { get { return interactionTime; } }
 
     public Sprite ItemIcon
@@ -32,7 +23,20 @@ public class Tool : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        InstantiateTool();
         OnToolInteract.AddListener(UseTool);
+    }
+
+    private void InstantiateTool()
+    {
+        gameObject.name.Replace("(clone)", "").Trim();
+        toolData = HelperFunctions.ToolLookup(gameObject);
+
+        if (toolData == null)
+            return;
+
+        itemIcon = Resources.Load<Sprite>("Icons/" + toolData.toolIcon);
+
     }
 
     private void UseTool(GameObject tool, Patient patient)
@@ -40,14 +44,12 @@ public class Tool : MonoBehaviour, IInteractable
         if (tool != gameObject)
             return;
 
-        if (symptomsRemoved.Count > 0)
+        if (toolData.symptomsRemoved != null)
             RemoveSymptom(patient);
-        if (symptomsAdded.Count > 0)
+        if (toolData.symptomsAdded != null)
             AddSymptom(patient);
-        if (symptomsChecked.Count > 0)
-            CheckSymptom(patient);
 
-        if (isOneUse)
+        if (toolData.oneUse != null)
         {
             Destroy(gameObject);
             App.Instance.GameplayCore.PlayerManager.PickupController.PickedItem = null;
@@ -56,29 +58,14 @@ public class Tool : MonoBehaviour, IInteractable
 
     private void AddSymptom(Patient patient)
     {
-        foreach(var symptom in symptomsAdded)
-            Patient.OnTryAddSymptom.Invoke(symptom, patient, this);
-
-        if (isOneUse)
-            Destroy(gameObject);
-
+        foreach(var symptom in toolData.symptomsAdded)
+            Patient.OnTryAddSymptom.Invoke(HelperFunctions.SymptomLookup(symptom), patient, this);
     }
     private void RemoveSymptom(Patient patient)
     {
-        foreach (Symptom symptom in symptomsRemoved)
+        foreach (var symptom in toolData.symptomsRemoved)
         {
-            Patient.OnTryRemoveSymptom.Invoke(symptom, patient, this);
-        }
-    }
-    private void CheckSymptom(Patient patient)
-    {
-        foreach (Symptom symptom in symptomsChecked)
-        {
-            bool isPresent = patient.FindSymptom(symptom);
-            if (isPresent)
-            {
-                Patient.OnCheckSymptom.Invoke(symptom, patient);
-            }
+            Patient.OnTryRemoveSymptom.Invoke(HelperFunctions.SymptomLookup(symptom), patient, this);
         }
     }
 }

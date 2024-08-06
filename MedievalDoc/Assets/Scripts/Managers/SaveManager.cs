@@ -26,9 +26,15 @@ public class SaveManager : MonoBehaviour
     {
         try
         {
+            var settings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore
+            };
+
             string json = File.ReadAllText(Application.persistentDataPath + "/" + fileName);
             Debug.Log($"LOADED FILE FROM {Application.persistentDataPath + "/" + fileName}");
-            return JsonConvert.DeserializeObject<T>(json);
+            return JsonConvert.DeserializeObject<T>(json, settings);
         }
         catch
         {

@@ -46,7 +46,6 @@ public static class UpgradeSelection
     {
         foreach (var sickness in upgrade.sicknessesAdded)
         {
-            App.Instance.GameplayCore.PatientManager.sicknessPool.Add(sickness);
         }
         Debug.Log($"Selected upgrade {upgrade.upgradeName}");
         List<RoomSpawnPoint> spawnPoints = App.Instance.GameplayCore.UpgradeManager.roomSpawnPoints;

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using Data;
 public class PatientCard : MonoBehaviour
 {
     [SerializeField] public Image background;
@@ -58,7 +59,7 @@ public class PatientCard : MonoBehaviour
     private void FillPatientInformation(Patient patient)
     {
         patientName.text = patient.PatientName;
-        patientStory.text = patient.patientStory;
+        patientStory.text = HelperFunctions.SicknessDescriptionLookup(patient.Sickness.sicknessDescription).description;
 
         UpdateSymptoms(null, patient, null);
     }
@@ -68,8 +69,7 @@ public class PatientCard : MonoBehaviour
         patientSymptomList.text = ""; //Reset patient symptom list
         foreach (var symptom in patient.symptoms)
         {
-            if(!symptom.isHidden)
-                patientSymptomList.text += $"- {symptom.GetSymptomName()} \n";
+            patientSymptomList.text += $"- {symptom.symptomName} \n";
         }
     }
 }

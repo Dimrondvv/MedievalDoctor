@@ -65,6 +65,7 @@ public class DaySummaryManager : MonoBehaviour
         bellAudio = GetComponent<AudioSource>();
         DayAndNightController.OnEndOfaDay.AddListener(stopTime);
         OnTimeStoped.AddListener(ChangeToSummaryState);
+        callPatient = GameObject.Find("Spawn Patient");
     }
     
     public void newDay()

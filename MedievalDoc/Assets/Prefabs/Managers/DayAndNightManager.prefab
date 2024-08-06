@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3490255823189265712}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfac5186a55fec4f8f6d4ea9f0b351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patronCharacter: {fileID: 0}
-  timeMultiplier: 500
+  isSunRotating: 0
+  SummaryHour: 20
+  timeMultiplier: 300
   startHour: 12
   maxSunLightIntensity: 1
   maxMoonLightIntensity: 0.5
@@ -92,3 +93,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   clock: {fileID: 0}
   LightsToTurnOn: {fileID: 0}
+  UseJustOnce: 0

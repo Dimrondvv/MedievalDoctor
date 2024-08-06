@@ -13,6 +13,7 @@ public class LoadingState : BaseState
     {
         loadManager.LoadGame();
         loadManager.OnGameSceneLoaded.AddListener(UnloadLoadingState);
+        App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveListener(StartLoading);
     }
 
 
@@ -28,6 +29,7 @@ public class LoadingState : BaseState
     private void UnloadLoadingState()
     {
         Parent.MakeTransition((int)EAppState.Game);
+        
     }
     public override void Initialize()
     {
