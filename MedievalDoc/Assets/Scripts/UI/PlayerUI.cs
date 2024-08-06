@@ -46,7 +46,7 @@ public class PlayerUI : MonoBehaviour
 
     private void SetItemSlot(GameObject item, Transform obj)
     {
-        InteractionTool tool = item.GetComponent<InteractionTool>();
+        Tool tool = item.GetComponent<Tool>();
         if (!tool)
             return;
         if (tool.ItemIcon != null)

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public List<Quest> quests;
     [SerializeField] public List<TutorialQuest> tutorialQuests;
     [SerializeField] public int dayOfWin;
-    [SerializeField] public List<InteractionTool> starterTools;
+    [SerializeField] public List<Tool> starterTools;
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
         Patient.OnPatientDeath.AddListener(RemovedPatient);
-        InteractionTool.OnToolInteract.AddListener(ToolUsed);
+        Tool.OnToolInteract.AddListener(ToolUsed);
         PickupController.OnInteract.AddListener(ObjectInteracted);
         Patient.OnPatientDeath.AddListener(PatientKilled);
         Patient.OnCureDisease.AddListener(PatientCured);
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void AddedSymptom(Symptom symptom, Patient patient, InteractionTool tool)
+    private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (interactionLog.symptomsCaused.ContainsKey(symptom.symptomName))
         {
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RemovedSymptom(Symptom symptom, Patient patient, InteractionTool tool)
+    private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (interactionLog.symptomsCured.ContainsKey(symptom.symptomName))
         {

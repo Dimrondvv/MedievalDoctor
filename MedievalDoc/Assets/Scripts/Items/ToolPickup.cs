@@ -45,7 +45,7 @@ public class ToolPickup : MonoBehaviour
         }
 
 
-        InteractionTool tool = pickedTool.PickedItem.GetComponent<InteractionTool>();
+        Tool tool = pickedTool.PickedItem.GetComponent<Tool>();
         ItemLayDownPoint LayDownPoint = pickupPoint.GetComponentInChildren<ItemLayDownPoint>();
         TrashCan trashCan = pickupPoint.GetComponent<TrashCan>();
 

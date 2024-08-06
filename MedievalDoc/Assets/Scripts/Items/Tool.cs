@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InteractionTool : MonoBehaviour, IInteractable
+public class Tool : MonoBehaviour, IInteractable
 {
     //Key - bool which defines if symptom action is valid
     [SerializeField] private Sprite itemIcon;

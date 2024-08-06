@@ -24,10 +24,10 @@ public class Patient : MonoBehaviour
 
     public static UnityEvent<Patient> OnPatientDeath = new UnityEvent<Patient>();
     public static UnityEvent<Symptom, Patient> OnCheckSymptom = new UnityEvent<Symptom, Patient>(); //Invoked when tool is used to check for symptom
-    public static UnityEvent<Symptom, Patient, InteractionTool> OnAddSymptom = new UnityEvent<Symptom, Patient, InteractionTool>(); //Invoked when tool used adds a symptom to patient
-    public static UnityEvent<Symptom, Patient, InteractionTool> OnTryAddSymptom = new UnityEvent<Symptom, Patient, InteractionTool>(); //Invoked when tool used adds a symptom to patient
-    public static UnityEvent<Symptom, Patient, InteractionTool> OnRemoveSymptom = new UnityEvent<Symptom, Patient, InteractionTool>(); //Invoked when tool used removes a symptom from patient
-    public static UnityEvent<Symptom, Patient, InteractionTool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, InteractionTool>(); //Invoked when tool used removes a symptom from patient
+    public static UnityEvent<Symptom, Patient, Tool> OnAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
+    public static UnityEvent<Symptom, Patient, Tool> OnTryAddSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used adds a symptom to patient
+    public static UnityEvent<Symptom, Patient, Tool> OnRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
+    public static UnityEvent<Symptom, Patient, Tool> OnTryRemoveSymptom = new UnityEvent<Symptom, Patient, Tool>(); //Invoked when tool used removes a symptom from patient
     public static UnityEvent<Patient> OnCureDisease = new UnityEvent<Patient>(); //Invoked when patient's disease is cured
     public SicknessScriptableObject Sickness { get { return sickness; } set { sickness = value; } }
     public int SpawnerID { get { return spawnerID; } set { spawnerID = value; } }
@@ -166,9 +166,9 @@ public class Patient : MonoBehaviour
         Debug.Log(interactedObject, controller);
         if (interactedObject != this.gameObject || controller.PickedItem == null)
             return;
-        if(controller.PickedItem.GetComponent<InteractionTool>() != null)
+        if(controller.PickedItem.GetComponent<Tool>() != null)
         {
-            InteractionTool.OnToolInteract.Invoke(controller.PickedItem, this);
+            Tool.OnToolInteract.Invoke(controller.PickedItem, this);
         }
     }
 
