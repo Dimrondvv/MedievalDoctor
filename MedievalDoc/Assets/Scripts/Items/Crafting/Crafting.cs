@@ -115,7 +115,7 @@ public class Crafting : MonoBehaviour
         yield return new WaitForSeconds(System.Int32.Parse(recipe.recipeTime));
         GetComponent<ProgressBar>().StopProgressBar();
 
-        GameObject result = Instantiate(recipe.result);
+        GameObject result = Instantiate(Resources.Load<GameObject>("RecipeResults/" + recipe.recipeResult));
         result.transform.position = resultLayDownPoint.position;
         result.transform.parent = resultLayDownPoint;
         OnCraftingCompleted.Invoke(recipe);
