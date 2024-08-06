@@ -138,7 +138,7 @@ public class NotebookDataHandler : MonoBehaviour
     }
     private void AddDiscoveredToolToDict(GameObject tool, Patient patient)
     {
-        InteractionTool toolUsed = tool.GetComponent<Tool>();
+        InteractionTool toolUsed = tool.GetComponent<InteractionTool>();
         string toolName = toolUsed.toolData.toolName;
         string toolDescription = toolUsed.toolData.toolDescription;
         Sprite toolIcon = toolUsed.ItemIcon;
