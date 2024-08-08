@@ -15,7 +15,7 @@ public class HelperFunctions
         return null;
     }
 
-    public static Sickness SicknessLookup(string sicknessKey) {
+    public static Sickness SicknessLookup(string sicknessKey) { //Find a sickness using it's key
         foreach (Sickness sickness in ImportJsonData.sicknessConfig) {
             if (sicknessKey == sickness.sicknessID)
                 return sickness;
@@ -23,6 +23,18 @@ public class HelperFunctions
 
         return null;
     }
+
+    public static SicknessContainers SicknessContainersLookup(string sickContainersKey) { //Find a sickContainer using it's key
+        foreach (SicknessContainers sicknessContainers in ImportJsonData.sicknessContainersConfig)
+        {
+            if (sickContainersKey.ToLower() == sicknessContainers.key)
+                return sicknessContainers;
+            }       
+
+        return null;
+    }
+
+
     public static CraftingTable CraftingLookup(string craftingKey)
     {
         foreach (CraftingTable crafting in ImportJsonData.craftingTables)

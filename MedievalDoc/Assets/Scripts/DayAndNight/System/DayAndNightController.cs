@@ -138,7 +138,7 @@ public class DayAndNightController : MonoBehaviour
         
 
         
-        if(currentTime.Hour == SummaryHour && !UseJustOnce) {
+        if(TimerManager.currCountdownValue <= 0) {
             UseJustOnce = true;
             OnEndOfaDay?.Invoke(0);
         } 
