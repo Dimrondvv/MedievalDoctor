@@ -34,7 +34,7 @@ public class Tool : MonoBehaviour, IInteractable
 
         if (toolData == null)
             return;
-
+        GetComponent<ToolName>().SetDisplayText(toolData);
         itemIcon = Resources.Load<Sprite>("Icons/" + toolData.toolIcon);
 
     }
