@@ -46,6 +46,17 @@ foreach ($f in $files)
 
         $csvContent = Import-Csv $csvFileFullName -Delimiter "|"
 
+        # Process each row to convert empty strings to null
+        $csvContent = $csvContent | ForEach-Object {
+            $row = $_
+            $row.PSObject.Properties | ForEach-Object {
+                if ($_.Value -eq "") {
+                    $_.Value = $null
+                }
+            }
+            $row
+        }
+
         # If the sheet is supposed to be an array (like Tools), convert it to an array
         if ($cleanSheetName -eq "Tools" -or $cleanSheetName -eq "toolChest")
         {
