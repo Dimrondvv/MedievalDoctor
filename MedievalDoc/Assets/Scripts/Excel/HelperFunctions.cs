@@ -35,6 +35,36 @@ public class HelperFunctions
     }
 
 
+    public static CraftingTable CraftingLookup(string craftingKey)
+    {
+        foreach (CraftingTable crafting in ImportJsonData.craftingTables)
+        {
+            if (craftingKey == crafting.craftingID)
+                return crafting;
+        }
+
+        return null;
+    }
+    public static Recipes RecipeLookup(string recipeKey)
+    {
+        foreach(Recipes recipe in ImportJsonData.recipes)
+        {
+            if (recipeKey == recipe.recipeID)
+                return recipe;
+        }
+
+        return null;
+    }
+    public static Data.Description.Sicknesses SicknessDescriptionLookup(string descriptionKey)
+    {
+        foreach(Data.Description.Sicknesses sicknessDescription in ImportJsonData.sicknessDescriptions)
+        {
+            if (sicknessDescription.sicknessDescription == descriptionKey)
+                return sicknessDescription;
+        }
+
+        return null;
+    }
     public static Data.Tool ToolLookup(GameObject toolObject)
     {
         Debug.Log(toolObject.name);
@@ -83,8 +113,11 @@ public class HelperFunctions
     {
         SymptomDependencies dependency = new SymptomDependencies();
 
+
         foreach (var dependencyIterator in ImportJsonData.symptomDependenciesConfig)
         {
+            if (dependencyIterator == null)
+                return true;
             if (symptom.symptomID == dependencyIterator.symptomID)
                 dependency = dependencyIterator;
         }

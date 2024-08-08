@@ -6,7 +6,7 @@ namespace Data
 {
     public class CraftingRootObject
     {
-        [JsonProperty] public CraftingTable[] craftingTables;
+        [JsonProperty] public CraftingTable[] crafting_Tables;
         [JsonProperty] public Recipes[] recipes;
         [JsonProperty] public ItemChest[] itemChest;
         [JsonProperty] public Items[] items;

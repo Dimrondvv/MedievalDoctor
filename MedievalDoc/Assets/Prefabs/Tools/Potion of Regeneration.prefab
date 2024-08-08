@@ -178,7 +178,8 @@ GameObject:
   - component: {fileID: -6712961200881808252}
   - component: {fileID: 7503252794570523223}
   - component: {fileID: 4768932921575378202}
-  m_Layer: 10
+  - component: {fileID: 860227396985370409}
+  m_Layer: 7
   m_Name: Potion of Regeneration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8704749781019594107}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
   m_Name: 
@@ -271,6 +272,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 8704749781019594107}
   nameDisplay: {fileID: 782574921817836982}
+--- !u!114 &860227396985370409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704749781019594107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8900977632556203745
 GameObject:
   m_ObjectHideFlags: 0

@@ -147,7 +147,8 @@ GameObject:
   - component: {fileID: -8713386820704438159}
   - component: {fileID: 2442407561553157895}
   - component: {fileID: 3689624982804248982}
-  m_Layer: 10
+  - component: {fileID: -4301123563341935560}
+  m_Layer: 7
   m_Name: tool_bandage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,16 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60554a0a6b7cc8942a83b86c3ca6f750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: f97f351dde2fbd2408cd879a9bfda373, type: 3}
-  toolName: Bandage
-  toolDescription: A universal item for dressing wounds
-  symptomsAdded: []
-  symptomsRemoved:
-  - {fileID: 11400000, guid: 87a4d578feec20c48a06ad25e12700d7, type: 2}
-  - {fileID: 11400000, guid: 8afff3acddfaa8e448e0d71e00c8e3ba, type: 2}
-  symptomsChecked: []
-  isOneUse: 0
-  interactionTime: 1
 --- !u!114 &2442407561553157895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4622855080629322249}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0400f8e239266ea47a9ee70c217f14fc, type: 3}
   m_Name: 
@@ -239,8 +230,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80807910ad1b01c4082bde5759b0ab2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 4622855080629322249}
   nameDisplay: {fileID: 6759987808859101966}
+--- !u!114 &-4301123563341935560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622855080629322249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9048498926395440735
 GameObject:
   m_ObjectHideFlags: 0

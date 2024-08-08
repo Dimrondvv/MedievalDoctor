@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Data;
+
 public class Tool : MonoBehaviour, IInteractable
 {
     //Key - bool which defines if symptom action is valid
@@ -34,7 +34,7 @@ public class Tool : MonoBehaviour, IInteractable
 
         if (toolData == null)
             return;
-
+        GetComponent<ToolName>().SetDisplayText(toolData);
         itemIcon = Resources.Load<Sprite>("Icons/" + toolData.toolIcon);
 
     }
