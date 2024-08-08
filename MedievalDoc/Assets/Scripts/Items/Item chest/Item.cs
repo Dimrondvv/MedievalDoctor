@@ -6,4 +6,9 @@ public class Item : MonoBehaviour
 {
     [SerializeField] string itemName;
     public string ItemName { get { return itemName; } }
+
+    private void Start()
+    {
+        
+    }
 }

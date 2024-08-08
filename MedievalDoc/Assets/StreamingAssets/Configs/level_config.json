@@ -1,0 +1,48 @@
+{
+"Levels":[
+ {
+  "levelID": "level_01",
+  "levelOrder": 1,
+  "levelPrefab": "Level_01",
+  "sicknessContainer": "Sc_01",
+  "starsRange": "100,200,300",
+  "toolNotes": "Szczypce i Bandaż"
+ },
+ {
+  "levelID": "level_02",
+  "levelOrder": 2,
+  "levelPrefab": "Level_02",
+  "sicknessContainer": "Sc_01",
+  "starsRange": "100,200,301",
+  "toolNotes": "Szczypce i Bandaż"
+ },
+ {
+  "levelID": "level_03",
+  "levelOrder": 3,
+  "levelPrefab": "Level_03",
+  "sicknessContainer": "Sc_03",
+  "starsRange": "100,200,302",
+  "toolNotes": "Szczypce i Bandaż"
+ }
+],
+"sicknessContainers":[
+ {
+  "key": "sc_01",
+  "sicknessCount": 20,
+  "sicknessArray": "sic_bleeding,sic_arrow",
+  "toolNotes": "Szczypce i Bandaż"
+ },
+ {
+  "key": "sc_02",
+  "sicknessCount": 21,
+  "sicknessArray": "sic_test",
+  "toolNotes": "Szczypce i Bandaż"
+ },
+ {
+  "key": "sc_03",
+  "sicknessCount": 22,
+  "sicknessArray": "sic_bleeding,sic_arrow",
+  "toolNotes": "Szczypce i Bandaż"
+ }
+]
+}

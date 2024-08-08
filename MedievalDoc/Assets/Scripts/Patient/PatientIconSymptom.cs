@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Data;
 public class PatientIconSymptom : MonoBehaviour
 {
     [SerializeField] private List<Image> icons;
@@ -30,7 +30,7 @@ public class PatientIconSymptom : MonoBehaviour
         Patient.OnRemoveSymptom.AddListener(RemovedDisplay);
     }
 
-    private void AddedDisplay(Symptom symptom, Patient patient, InteractionTool tool)
+    private void AddedDisplay(Symptom symptom, Patient patient, Tool tool)
     {
 
         if (patient != GetComponent<Patient>())
@@ -41,7 +41,7 @@ public class PatientIconSymptom : MonoBehaviour
         states.Add(true);
     }
 
-    private void RemovedDisplay(Symptom symptom, Patient patient, InteractionTool tool)
+    private void RemovedDisplay(Symptom symptom, Patient patient, Tool tool)
     {
         if (patient != GetComponent<Patient>())
         {
@@ -73,7 +73,7 @@ public class PatientIconSymptom : MonoBehaviour
 
         icons[0].color = Color.white;
         icons[1].color = Color.white;
-        icons[1].sprite = symptoms[0].symptomIcon;
+        icons[1].sprite = Resources.Load<Sprite>("Icons/" + symptoms[0].symptomIcon);
 
         icons[0].GetComponent<CanvasGroup>().alpha = 1;
         icons[1].GetComponent<CanvasGroup>().alpha = 1;

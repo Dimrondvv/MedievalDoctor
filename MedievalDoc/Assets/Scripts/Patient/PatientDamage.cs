@@ -31,9 +31,16 @@ public class PatientDamage : MonoBehaviour
 
         foreach (var symptStruct in patient.Symptoms)
         {
-            patient.Health -= symptStruct.symptom.damage;
-            patientHealthBar.healthBar();
-            CheckAlive();
+            try
+            {
+                patient.Health -= System.Int32.Parse(symptStruct.symptomDmg);
+                patientHealthBar.healthBar();
+                CheckAlive();
+            }
+            catch
+            {
+                Debug.LogError($"Cannon convert {symptStruct.symptomDmg} to int");
+            }
         }     
     }
 }

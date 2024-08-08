@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-
+using Data;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int maxDeaths;
@@ -11,11 +11,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] public List<Quest> quests;
     [SerializeField] public List<TutorialQuest> tutorialQuests;
     [SerializeField] public int dayOfWin;
-    [SerializeField] public List<InteractionTool> starterTools;
+    [SerializeField] public List<Tool> starterTools;
     public InteractionLog interactionLog;
     public InteractionLog localInteractionLog;
     public int deathCounter;
-    [SerializeField] private int royalTax; // w starcie przypisywana wartoœæ -150 c:
+    
+    private int choosenLevel;
+    public int ChoosenLevel
+    {
+        get { return choosenLevel; }
+        set { choosenLevel = value; }
+    }
+
+    [SerializeField] private int royalTax;
     public int RoyalTax
     {
         get { return royalTax; }
@@ -36,6 +44,12 @@ public class GameManager : MonoBehaviour
         set { isNight = value; }
     }
 
+    private int[] levelStarsCount;
+    public int[] LevelStarsCount {
+        get { return levelStarsCount; }
+        set { LevelStarsCount = value; }
+    }
+
     [SerializeField] private int delayQuestInSeconds;
     public int DelayQuestInSeconds
     {
@@ -43,9 +57,9 @@ public class GameManager : MonoBehaviour
         set { delayQuestInSeconds = value; }
     }
 
-    [SerializeField] private List<Symptom> listOfSymptoms;
+    private Symptom[] listOfSymptoms;
 
-    public List<Symptom> ListOfSymptoms
+    public Symptom[] ListOfSymptoms
     {
         get { return listOfSymptoms; }
         set { listOfSymptoms = value; }
@@ -55,6 +69,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<Symptom, int> listOfRemovedSymptoms = new Dictionary<Symptom, int>();
     public UnityEvent<Symptom> SymptomAddedToDictionary = new UnityEvent<Symptom>(); //Invoked when symptom is added to dictionary
     public UnityEvent OnGameWin = new UnityEvent();
+    public UnityEvent OnLevelComplete = new UnityEvent();
 
     public Dictionary<Symptom, int> ListOfRemovedSymptoms
     {
@@ -87,7 +102,7 @@ public class GameManager : MonoBehaviour
         Patient.OnAddSymptom.AddListener(AddedSymptom);
         Patient.OnRemoveSymptom.AddListener(RemovedSymptom);
         Patient.OnPatientDeath.AddListener(RemovedPatient);
-        InteractionTool.OnToolInteract.AddListener(ToolUsed);
+        Tool.OnToolInteract.AddListener(ToolUsed);
         PickupController.OnInteract.AddListener(ObjectInteracted);
         Patient.OnPatientDeath.AddListener(PatientKilled);
         Patient.OnCureDisease.AddListener(PatientCured);
@@ -97,13 +112,23 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        foreach (Symptom symptom in listOfSymptoms)
+        if (App.Instance.GameplayCore.SaveManager != null)
         {
-            listOfAddedSymptoms.Add(symptom, 0);
-            listOfRemovedSymptoms.Add(symptom, 0);
+            listOfSymptoms = Data.ImportJsonData.symptomConfig;
+            foreach (Symptom symptom in listOfSymptoms)
+            {
+                listOfAddedSymptoms.Add(symptom, 0);
+                listOfRemovedSymptoms.Add(symptom, 0);
+            }
         }
+        else
+            App.Instance.GameplayCore.OnSaveManagerRegistered.AddListener(SetUpListsOfSymptoms);
+
         localInteractionLog = new InteractionLog();
+        levelStarsCount = new int[20]; // Iloï¿½ï¿½ poziomï¿½w;
+
     }
+
 
     private void Update()
     {
@@ -113,6 +138,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SetUpListsOfSymptoms(SaveManager manager)
+    {
+        foreach (Symptom symptom in listOfSymptoms)
+        {
+            listOfAddedSymptoms.Add(symptom, 0);
+            listOfRemovedSymptoms.Add(symptom, 0);
+        }
+    }
     private void RemovedPatient(Patient patient)
     {
         listOfCurrentPatients.Remove(patient);
@@ -124,7 +157,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void AddedSymptom(Symptom symptom, Patient patient, InteractionTool tool)
+    private void AddedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (interactionLog.symptomsCaused.ContainsKey(symptom.symptomName))
         {
@@ -144,7 +177,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RemovedSymptom(Symptom symptom, Patient patient, InteractionTool tool)
+    private void RemovedSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (interactionLog.symptomsCured.ContainsKey(symptom.symptomName))
         {

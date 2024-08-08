@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Data;
 public class PatientSymptomHandler : MonoBehaviour
 {
     [SerializeField] private SymptomDependencies symptomDependencies;
@@ -26,28 +26,24 @@ public class PatientSymptomHandler : MonoBehaviour
         PatientManager.OnPatientReleased.RemoveListener(CheckIfCured);
     }
 
-    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, InteractionTool tool)
+    private void RemoveDiscoveredSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (patient != this.patient || !patient.FindSymptom(symptom))
             return;
 
-
-
-        if (symptomDependencies.canSymptomBeRemoved(symptom, patient))
+        if (HelperFunctions.CanSymptomBeRemoved(symptom, patient))
         {
             foreach (var i in patient.Symptoms)
             {
-                if (i.symptom == symptom)
+                if (i == symptom)
                 {
-                    List<Symptom.AddedOnRemoval> symptomAdded = i.symptom.addOnRemove;
-                    foreach (var smpt in symptomAdded)
+                    Symptom[] symptomAdded = HelperFunctions.GetSymptomsAddedOnRemove(symptom);
+                    if (symptomAdded != null)
                     {
-                        if (smpt != null) //Check if addOnRemove variable equals the default value and therefore is null
+                        foreach (var smpt in symptomAdded)
                         {
-                            if (!GetComponent<Patient>().FindSymptom(smpt.notPresentToAdd))
-                            {
-                                Patient.OnTryAddSymptom.Invoke(smpt.symtpomAddedOnRemoval, patient, tool);
-                            }
+                            if (HelperFunctions.CanSymptomBeAdded(smpt, patient))
+                                Patient.OnTryAddSymptom.Invoke(smpt, patient, tool);
                         }
                     }
                     patient.Symptoms.Remove(i);
@@ -58,29 +54,29 @@ public class PatientSymptomHandler : MonoBehaviour
             }
         }
     }
-    private void AddSymptom(Symptom symptom, Patient patient, InteractionTool tool)
+    private void AddSymptom(Symptom symptom, Patient patient, Tool tool)
     {
         if (patient != this.patient || patient.FindSymptom(symptom))
             return;
 
 
-        if (symptomDependencies.canSymptomBeAdded(symptom, patient))
+        if (HelperFunctions.CanSymptomBeAdded(symptom, patient))
         {
-            if (symptom.possibleLocalizations.Count > 0)
+            /*if (symptom.symptomLocalizationArray.Length > 0)
             {
-                if (SelectLocalization(patient, symptom) == Localization.None && !symptom.possibleLocalizations.Contains(Localization.None))
+                if (SelectLocalization(patient, symptom) == Localization.None && !symptom.symptomLocalizationArray.Contains(Localization.None))
                     return;
                 patient.InsertSymptomToList(symptom, symptom.possibleLocalizations[Random.Range(0, symptom.possibleLocalizations.Count - 1)]);
             }
-            else
+            else*/
                 patient.InsertSymptomToList(symptom);
-            if (symptom.doesRemoveLocalization)
-                RemoveLocalization(patient, symptom.localizationRemoved);
+            /*if (symptom.doesRemoveLocalization)
+                RemoveLocalization(patient, symptom.localizationRemoved);*/
             Patient.OnAddSymptom.Invoke(symptom, patient, tool);
         }
     }
 
-    private Localization SelectLocalization(Patient patient, Symptom symptom)
+    /*private Localization SelectLocalization(Patient patient, Symptom symptom)
     {
         List<Localization> locsToCheck = symptom.possibleLocalizations;
         while (locsToCheck.Count > 0)
@@ -92,9 +88,9 @@ public class PatientSymptomHandler : MonoBehaviour
                 locsToCheck.Remove(loc);
         }
         return Localization.None;
-    }
+    }*/
 
-    private void RemoveLocalization(Patient patient, Localization localization)
+    /*private void RemoveLocalization(Patient patient, Localization localization)
     {
         FindLocationObject(patient, localization).SetActive(false);
         List<SicknessScriptableObject.SymptomStruct> symptomsToRemove = new List<SicknessScriptableObject.SymptomStruct>();
@@ -107,7 +103,7 @@ public class PatientSymptomHandler : MonoBehaviour
         {
             patient.symptoms.Remove(sympt);
         }
-    }
+    }*/
 
     private void CheckIfCured(Patient patient)
     {
@@ -121,7 +117,7 @@ public class PatientSymptomHandler : MonoBehaviour
             Patient.OnCureDisease.Invoke(patient);
         }
     }
-    public static GameObject FindSymptomObject(Patient patient, SicknessScriptableObject.SymptomStruct symptom)
+    /*public static GameObject FindSymptomObject(Patient patient, Symptom symptom)
     {
         foreach(Transform child in patient.GetComponentsInChildren<Transform>())
         {
@@ -131,8 +127,8 @@ public class PatientSymptomHandler : MonoBehaviour
                 return child.gameObject;
         }
         return null;
-    }
-    public static GameObject FindLocationObject(Patient patient, Localization localization)
+    }*/
+    /*public static GameObject FindLocationObject(Patient patient, Localization localization)
     {
         foreach (Transform child in patient.GetComponentsInChildren<Transform>())
         {
@@ -140,5 +136,5 @@ public class PatientSymptomHandler : MonoBehaviour
                 return child.gameObject;
         }
         return null;
-    }
+    }*/
 }
