@@ -27,7 +27,6 @@ public class AppGameState : BaseState
         List<int> upgradeDays = App.Instance.GameplayCore.UpgradeManager.upgradeDays;
         if (upgradeDays.Contains(currentDay))
         {
-            App.Instance.GameplayCore.UpgradeManager.upgradeTable.SubscribeToInteract();
         }
 
     }

@@ -37,9 +37,16 @@ public class HelperFunctions
     {
         foreach(Recipes recipe in ImportJsonData.recipes)
         {
-            Debug.Log($"Recipe key: {recipeKey} RecipeID: {recipe.recipeID}");
-            if (recipeKey == recipe.recipeID)
-                return recipe;
+            try
+            {
+                if (recipeKey == recipe.recipeID)
+                    return recipe;
+            }
+            catch
+            {
+                Debug.LogError($"Error on Recipe key: {recipeKey} RecipeID: {recipe.recipeID}");
+
+            }
         }
 
         return null;

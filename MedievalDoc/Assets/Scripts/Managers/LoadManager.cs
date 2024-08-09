@@ -34,7 +34,6 @@ public class LoadManager : MonoBehaviour
         loadLevel.allowSceneActivation = true;
         while (!loadLevel.isDone)
         {
-            Debug.Log("Loading: " + loadLevel.progress);
             yield return null;
         }
         OnGameSceneLoaded.Invoke();

@@ -14,13 +14,16 @@ namespace Data
         [JsonProperty] public string itemContainer { get; set; }
         [JsonProperty] public string recipeResult { get; set; }
         [JsonProperty] public string recipeTime { get; set; }
+        [JsonProperty] public string itemsDestroyed { get; set; }
 
         public string[] itemsRequired;
+        public string[] destroyedOnCraft;
 
         [OnDeserialized]
         public void DeserializeArrays(StreamingContext context)
         {
             ImportJsonData.ConvertJsonToArray(itemContainer, ref itemsRequired);
+            ImportJsonData.ConvertJsonToArray(itemsDestroyed, ref destroyedOnCraft);
         }
     }
 }

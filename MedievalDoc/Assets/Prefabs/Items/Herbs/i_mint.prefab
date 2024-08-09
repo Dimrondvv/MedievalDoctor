@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3757667583106731316}
   - component: {fileID: 5422707359222611633}
   m_Layer: 7
-  m_Name: Mint
+  m_Name: i_mint
   m_TagString: Crafting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

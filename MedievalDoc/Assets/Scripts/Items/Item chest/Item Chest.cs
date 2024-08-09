@@ -30,6 +30,7 @@ public class ItemChest : MonoBehaviour, IInteract, IInteractable
 
         Debug.Log("Take item");
         item = Instantiate(itemPrefab);
+        item.name = itemPrefab.name;
         PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
         playerManager.PickupController.SetPickedItem(item);
     }

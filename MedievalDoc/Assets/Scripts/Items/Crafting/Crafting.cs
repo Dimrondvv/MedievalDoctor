@@ -27,11 +27,18 @@ public class Crafting : MonoBehaviour
     private void InitializeCrafting()
     {
         craftingName = gameObject.name.Replace("(clone)", "").Trim();
+        recipes = new List<Recipes>();
         foreach (string recipeId in HelperFunctions.CraftingLookup(craftingName).recipes)
         {
-            recipes.Add(HelperFunctions.RecipeLookup(recipeId));
+            try
+            {
+                recipes.Add(HelperFunctions.RecipeLookup(recipeId));
+            }
+            catch
+            {
+                Debug.LogError($"Error on id: {recipeId} and {HelperFunctions.RecipeLookup(recipeId).recipeID}");
+            }
         }
-        Debug.Log(recipes);
     }
 
     public void InsertItem(PickupController player, Transform objectPoint)
@@ -71,7 +78,11 @@ public class Crafting : MonoBehaviour
 
         foreach(GameObject item in insertedItems)
         {
-            itemNames.Add(item.name);
+            Tool tool = item.GetComponent<Tool>();
+            if(tool != null)
+                itemNames.Add(tool.toolData.toolID);
+            else
+                itemNames.Add(item.name);
         }
 
         foreach(string item in recipeChecked.itemsRequired) //Check if items required are present
@@ -100,8 +111,6 @@ public class Crafting : MonoBehaviour
             if (CheckRecipe(item))
             {
                 validRecipe = item;
-
-                //todo: remove items that should be consumed
             }
         }
 
@@ -111,12 +120,51 @@ public class Crafting : MonoBehaviour
         }
     }
 
+    private void DestroyItems(Recipes recipe)
+    {
+        Debug.Log(recipe);
+        foreach(string itemID in recipe.destroyedOnCraft)
+        {
+            foreach (var item in insertedItems)
+            {
+                Tool tool = item.GetComponent<Tool>();
+                if(tool != null)
+                {
+                    if(tool.toolData.toolID == itemID)
+                    {
+                        Destroy(item);
+                        insertedItems.Remove(item);
+                        break;
+                    }
+                }
+                else if (item.name == itemID)
+                {
+                    Destroy(item);
+                    insertedItems.Remove(item);
+                    break;
+                }
+            }
+        }
+    }
+
     IEnumerator CraftingCoroutine(Data.Recipes recipe)
     {
-        GetComponent<ProgressBar>().StartProgressBar(System.Int32.Parse(recipe.recipeTime));
-        yield return new WaitForSeconds(System.Int32.Parse(recipe.recipeTime));
+        float time;
+        try
+        {
+            time = System.Int32.Parse(recipe.recipeTime);
+        }
+        catch
+        {
+            Debug.LogWarning($"No crafting time specified for recipe {recipe.recipeName}");
+            time = 0.1f;    
+        }
+
+        GetComponent<ProgressBar>().StartProgressBar(time);
+        yield return new WaitForSeconds(time);
         GetComponent<ProgressBar>().StopProgressBar();
 
+        DestroyItems(recipe);
         GameObject result = Instantiate(Resources.Load<GameObject>("RecipeResults/" + recipe.recipeResult));
         result.transform.position = resultLayDownPoint.position;
         result.transform.parent = resultLayDownPoint;
