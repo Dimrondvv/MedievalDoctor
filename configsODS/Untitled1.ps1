@@ -13,7 +13,8 @@ if ($null -eq $env:SofficePath) {
 
 $SofficeExePath = $env:SofficePath
 
-Write-Output "----- Starting CSV files export -----"
+# Suppress output by redirecting to null
+$null = Write-Output "----- Starting CSV files export -----"
 
 foreach ($f in $files) {
     $baseFileName = [System.IO.Path]::GetFileNameWithoutExtension($f.Name)
@@ -23,7 +24,8 @@ foreach ($f in $files) {
         New-Item -Path $fileCSVPath -ItemType Directory | Out-Null
     }
     
-    Write-Output "Exporting $f to CSV"
+    # Suppress output by redirecting to null
+    $null = Write-Output "Exporting $f to CSV"
     & $SofficeExePath --headless --convert-to csv:"Text - txt - csv (StarCalc)":$dividerSymbolDecASCICode,34,UTF8,1,0,0,false,true,false,false,false,-1 --outdir $fileCSVPath $f.FullName | Out-Null
     
     # Collect CSV files for this ODS file
@@ -38,7 +40,7 @@ foreach ($f in $files) {
 
         # Remove the base file name and the hyphen from the sheet name
         $cleanSheetName = $sheetName -replace "^$baseFileName-", ""
-        Write-Output "Exporting $csvFileFullName to JSON with sheet name $cleanSheetName"
+        $null = Write-Output "Exporting $csvFileFullName to JSON with sheet name $cleanSheetName"
 
         $csvContent = Import-Csv $csvFileFullName -Delimiter "|"
 
@@ -53,11 +55,20 @@ foreach ($f in $files) {
             $row
         }
 
-        # If the sheet is supposed to be an array (like Tools), convert it to an array
-        if ($cleanSheetName -in @("Tools", "toolChest")) {
-            $jsonData[$cleanSheetName] = @($csvContent)
+        # Grouping similar entities in arrays based on naming conventions
+        if ($cleanSheetName -eq "Recipes") {
+            $jsonData["Recipes"] = @($csvContent)
+        } elseif ($cleanSheetName -eq "Crafting_tables") {
+            $jsonData["Crafting_tables"] = @($csvContent)
+        } elseif ($cleanSheetName -eq "itemChest") {
+            $jsonData["itemChest"] = @($csvContent)
+        } elseif ($cleanSheetName -eq "Items") {
+            $jsonData["Items"] = @($csvContent)
+        } elseif ($cleanSheetName -eq "itemChanger") {
+            $jsonData["itemChanger"] = @($csvContent)
         } else {
-            $jsonData[$cleanSheetName] = $csvContent
+            # If the sheet name is not matched, just add it normally
+            $jsonData[$cleanSheetName] = @($csvContent)
         }
     }
 
@@ -66,5 +77,6 @@ foreach ($f in $files) {
     $jsonData | ConvertTo-Json -Compress | Set-Content -Path $fullJsonFileName -Force | Out-Null
 }
 
-Write-Output "----- Starting CSV files removal -----"
+# Suppress output by redirecting to null
+$null = Write-Output "----- Starting CSV files removal -----"
 Remove-Item -Recurse -Force "$CSVFilesPath" | Out-Null
