@@ -90,7 +90,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Dzia�a UIManager");
         //QuestFunctionality.TutorialQuestLine();
         uiPrefab.SetActive(true);
         playerInputActions = new PlayerInputActions();

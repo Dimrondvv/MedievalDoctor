@@ -29,7 +29,6 @@ public class LoadManager : MonoBehaviour
         loadLevel.allowSceneActivation = false;
         while (loadLevel.progress < 0.9f)
         {
-            Debug.Log("Loading: " + loadLevel.progress);
             yield return null;
         }
         loadLevel.allowSceneActivation = true;

@@ -21,6 +21,7 @@ public class Crafting : MonoBehaviour
         PickupController.OnInteract.AddListener(CraftItem);
         PickupController.OnPickup.AddListener(RemoveItem);
         PickupController.OnPutdown.AddListener(InsertItem);
+        InitializeCrafting();
     }
 
     private void InitializeCrafting()
@@ -30,6 +31,7 @@ public class Crafting : MonoBehaviour
         {
             recipes.Add(HelperFunctions.RecipeLookup(recipeId));
         }
+        Debug.Log(recipes);
     }
 
     public void InsertItem(PickupController player, Transform objectPoint)

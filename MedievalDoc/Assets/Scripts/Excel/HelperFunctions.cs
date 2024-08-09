@@ -37,6 +37,7 @@ public class HelperFunctions
     {
         foreach(Recipes recipe in ImportJsonData.recipes)
         {
+            Debug.Log($"Recipe key: {recipeKey} RecipeID: {recipe.recipeID}");
             if (recipeKey == recipe.recipeID)
                 return recipe;
         }
@@ -55,7 +56,6 @@ public class HelperFunctions
     }
     public static Data.Tool ToolLookup(GameObject toolObject)
     {
-        Debug.Log(toolObject.name);
         foreach (Data.Tool tool in ImportJsonData.toolConfig)
         {
             if (toolObject.name == tool.toolPrefab)
