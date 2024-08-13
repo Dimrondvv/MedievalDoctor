@@ -39,6 +39,11 @@ public class PlayerUI : MonoBehaviour
     {
         TimerManager timerManager = App.Instance.GameplayCore.TimerManager;
         PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
+
+        if (timerManager.ElapsedTime < 0)
+            timerText.text = string.Format("{0:00}:{1:00}", 0, 0);
+
+
         uiText.text = $": {playerManager.Score}\n\n: {playerManager.Money}";
         timerText.text = string.Format("{0:00}:{1:00}", timerManager.ElapsedTime / 60, timerManager.ElapsedTime % 60);
         dayText.text = $"Day: {dayAndNightController.DayCounter}";

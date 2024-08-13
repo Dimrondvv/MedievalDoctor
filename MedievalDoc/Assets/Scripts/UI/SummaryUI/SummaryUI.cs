@@ -29,8 +29,6 @@ public class SummaryUI : MonoBehaviour
     [SerializeField]
     private Button endDayButton;
 
-    [SerializeField]
-    private Button mainMenuButton;
 
     private int money;
     private int madPatients;
@@ -43,7 +41,7 @@ public class SummaryUI : MonoBehaviour
     private void Awake()
     {
         endDayButton.onClick.AddListener(HandlePlayPressed);
-        mainMenuButton.onClick.AddListener(HandleMenuPressed);
+        //mainMenuButton.onClick.AddListener(HandleMenuPressed);
     }
 
     // Start is called before the first frame update
@@ -66,16 +64,16 @@ public class SummaryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (money - royalTax >= 0)
-        {
-            endDayButton.gameObject.SetActive(true);
-            mainMenuButton.gameObject.SetActive(false);
-        }
-        if (money - royalTax < 0)
-        {
-            mainMenuButton.gameObject.SetActive(true);
-            endDayButton.gameObject.SetActive(false);
-        }
+        //if (money - royalTax >= 0)
+        //{
+        //    endDayButton.gameObject.SetActive(true);
+        //    mainMenuButton.gameObject.SetActive(false);
+        //}
+        //if (money - royalTax < 0)
+        //{
+        //    mainMenuButton.gameObject.SetActive(true);
+        //    endDayButton.gameObject.SetActive(false);
+        //}
     }
 
     private void UpdateHealedPatientText()
@@ -115,15 +113,10 @@ public class SummaryUI : MonoBehaviour
         App.Instance.GameplayCore.PlayerManager.Money = money - royalTax;
     }
 
-    private void HandlePlayPressed()
-    {      
-        OnEndDayPressed.Invoke();
-        App.Instance.GameplayCore.DaySummaryManager.PressEndDay();
-    }
-
-    private void HandleMenuPressed()
+    public void HandlePlayPressed()
     {
-        OnMainMenuPressed.Invoke();
-        App.Instance.GameplayCore.DaySummaryManager.PressMenu();
+        App.Instance.GameplayCore.GameManager.OnLevelComplete.Invoke();
+        //OnEndDayPressed.Invoke();
+        //App.Instance.GameplayCore.DaySummaryManager.PressEndDay();
     }
 }

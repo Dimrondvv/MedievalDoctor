@@ -16,7 +16,6 @@ public class AppGameState : BaseState
     {
         base.Initialize();
         App.Instance.GameplayCore.DaySummaryManager.ChangingToSummaryState.AddListener(ChanageToSummaryState);
-        App.Instance.GameplayCore.GameManager.OnLevelComplete.AddListener(ChangeToMainMenuState);
         CheckForUpgrade();
         CheckForWin();
     }
@@ -54,10 +53,7 @@ public class AppGameState : BaseState
 
     public override void OnExit(int next)
     {
-        if (next != (int)EAppState.Summary)
-        {
-            SceneManager.UnloadSceneAsync("RoomsTest");
-        }
+        SceneManager.UnloadSceneAsync("RoomsTest"); 
         base.OnExit(next);
     }
 }
