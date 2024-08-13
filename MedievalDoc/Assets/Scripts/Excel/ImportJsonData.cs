@@ -7,24 +7,24 @@ namespace Data
     public class ImportJsonData : MonoBehaviour
     {
         #region sickness
-        public static Sickness[] sicknessConfig;
-        public static Symptom[] symptomConfig;
-        public static SymptomDependencies[] symptomDependenciesConfig;
+        public static Sickness[] sicknessConfig; //done
+        public static Symptom[] symptomConfig; //done
+        public static SymptomDependencies[] symptomDependenciesConfig; //done
         #endregion
         #region level
         public static Levels[] levelConfig;
         public static SicknessContainers[] sicknessContainersConfig;
         #endregion
         #region tools
-        public static Tool[] toolConfig;
+        public static Tool[] toolConfig; //done
         public static ToolChest[] toolChestConfig;
         #endregion
         #region craftings
-        public static CraftingTable[] craftingTables;
-        public static Recipes[] recipes;
+        public static CraftingTable[] craftingTables; //done
+        public static Recipes[] recipes; //done
         public static ItemChest[] itemChests;
         public static ItemChanger[] itemChangers;
-        public static Items[] items;
+        public static Items[] items; //done?
         #endregion
         #region descriptions
         public static Description.Recipes[] recipeDescriptions;
