@@ -35,6 +35,28 @@ public class HelperFunctions
     }
 
 
+    public static GameObject ChestItemLookup(string chestName) 
+    { 
+        foreach(ToolChest toolChest in ImportJsonData.toolChestConfig)
+        {
+            if(toolChest.chestID == chestName)
+            {
+                Debug.Log(toolChest);
+                return Resources.Load<GameObject>("Tools/" + ToolLookup(toolChest.toolID).toolPrefab);
+            }
+        }
+        foreach (Data.ItemChest chest in ImportJsonData.itemChests)
+        {
+            if (chest.chestID == chestName)
+            {
+                return Resources.Load<GameObject>("Items/" + chest.itemID);
+            }
+        }
+
+        Debug.LogError($"Prefab {chestName} is named wrong or item/took ID doesn't exist");
+        return null;
+    }
+
     public static CraftingTable CraftingLookup(string craftingKey)
     {
         foreach (CraftingTable crafting in ImportJsonData.craftingTables)
@@ -78,6 +100,16 @@ public class HelperFunctions
         foreach (Data.Tool tool in ImportJsonData.toolConfig)
         {
             if (toolObject.name == tool.toolPrefab)
+                return tool;
+        }
+
+        return null;
+    }
+    public static Data.Tool ToolLookup(string toolID)
+    {
+        foreach (Data.Tool tool in ImportJsonData.toolConfig)
+        {
+            if (toolID == tool.toolID)
                 return tool;
         }
 

@@ -624,6 +624,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2364918419081518582, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
     - {fileID: 7013305960738153927, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
+    - {fileID: 7588760482752913263, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2290270509509233858, guid: 04d92ebbeec4e91448f689a5c8a91b62, type: 3}
@@ -839,7 +840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2668031614783209778, guid: 5125a7408a13caa40ba51b5b24b3f244, type: 3}
       propertyPath: m_Name
-      value: Chest
+      value: c_bandage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

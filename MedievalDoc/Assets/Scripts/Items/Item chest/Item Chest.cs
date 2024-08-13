@@ -5,10 +5,9 @@ using TMPro;
 
 public class ItemChest : MonoBehaviour, IInteract, IInteractable
 {
-    [SerializeField] private GameObject itemPrefab;
     [SerializeField] private TextMeshPro nameDisplay;
     private bool isClosed = false;
-    private Item chestItem;
+    private GameObject chestItem;
 
     public string InteractionPrompt => "Trying to interact";
 
@@ -17,10 +16,15 @@ public class ItemChest : MonoBehaviour, IInteract, IInteractable
 
     private void Start()
     {
-        nameDisplay.text = itemPrefab.GetComponent<Item>().ItemName;
-        chestItem = itemPrefab.GetComponent<Item>();
+        InitializeChest();
+        nameDisplay.text = chestItem.GetComponent<Item>().ItemName;
         PickupController.OnPickup.AddListener(TakeItemFromChest);
         PickupController.OnPutdown.AddListener(PutItemInChest);
+    }
+
+    private void InitializeChest()
+    {
+        chestItem = HelperFunctions.ChestItemLookup(gameObject.name);
     }
 
     private void TakeItemFromChest(GameObject item, Transform objectType)
@@ -29,8 +33,8 @@ public class ItemChest : MonoBehaviour, IInteract, IInteractable
             return;
 
         Debug.Log("Take item");
-        item = Instantiate(itemPrefab);
-        item.name = itemPrefab.name;
+        item = Instantiate(chestItem);
+        item.name = chestItem.name;
         PlayerManager playerManager = App.Instance.GameplayCore.PlayerManager;
         playerManager.PickupController.SetPickedItem(item);
     }
@@ -41,7 +45,7 @@ public class ItemChest : MonoBehaviour, IInteract, IInteractable
             return;
 
         var item = player.PickedItem;
-        if (item == null || item.GetComponent<Item>().ItemName != chestItem.ItemName)
+        if (item == null || item.GetComponent<Item>().ItemName != chestItem.GetComponent<Item>().ItemName)
             return;
 
         player.PickedItem = null;
