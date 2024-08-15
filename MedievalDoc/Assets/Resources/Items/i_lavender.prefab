@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8324552206533749450}
   - component: {fileID: -2003331440756112162}
   - component: {fileID: 605126102359934164}
+  - component: {fileID: 4587052386902162722}
   m_Layer: 7
   m_Name: i_lavender
   m_TagString: Crafting
@@ -82,6 +83,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &4587052386902162722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6276212561060190205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7479537894833554489
 PrefabInstance:
   m_ObjectHideFlags: 0

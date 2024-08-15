@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 711031228491107137}
   - component: {fileID: -4075088537175057653}
   - component: {fileID: 5322454832384534546}
+  - component: {fileID: -8878253744279691901}
   m_Layer: 7
   m_Name: i_emptyflask
-  m_TagString: Untagged
+  m_TagString: IsInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +69,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8878253744279691901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224358711912744669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccc4e8139762a64da4f71ee06acdf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8202002145134589488
 GameObject:
   m_ObjectHideFlags: 0

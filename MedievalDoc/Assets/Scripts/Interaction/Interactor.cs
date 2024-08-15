@@ -238,12 +238,15 @@ public class Interactor : MonoBehaviour
             // Try to find the closest valid laydown point to put down the item
             var closestLaydownPoint = GetClosestLaydownPoint();
             var closestInteractable = GetClosestInteractable();
+
             if (closestLaydownPoint != null)
             {
                 playerController.PutDownItemAt(closestLaydownPoint.transform);
                 Debug.Log("Put down item at " + closestLaydownPoint.name);
             }
-            else if (closestInteractable.CompareTag("Crafting"))
+            else if (closestInteractable == null)
+                return;
+            else if (closestInteractable.CompareTag("Crafting") || closestInteractable.CompareTag("Chest"))
             {
                 PickupController.OnPutdown?.Invoke(playerController, closestInteractable.transform);
             }

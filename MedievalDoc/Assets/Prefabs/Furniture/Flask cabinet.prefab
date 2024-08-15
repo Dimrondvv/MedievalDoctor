@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 661023c35e904c14c95ad1fbc21efc23, type: 3}
       propertyPath: m_TagString
-      value: IsInteractable
+      value: Chest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -319,5 +319,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6252a77c44e70f043bd2e70c2395e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 4622855080629322249, guid: ed3a92bede96de44d9a9cf0a02bf8e99, type: 3}
   nameDisplay: {fileID: 4456415991958028817}
+  interactionTime: 0
