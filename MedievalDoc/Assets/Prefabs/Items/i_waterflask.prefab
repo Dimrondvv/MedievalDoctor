@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -4075088537175057653}
   - component: {fileID: 2154554744450080851}
   m_Layer: 7
-  m_Name: Water Flask
+  m_Name: i_waterflask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

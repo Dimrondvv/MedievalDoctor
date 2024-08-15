@@ -17,12 +17,12 @@ namespace Data
         #endregion
         #region tools
         public static Tool[] toolConfig; //done
-        public static ToolChest[] toolChestConfig;
+        public static ToolChest[] toolChestConfig; //done
         #endregion
         #region craftings
         public static CraftingTable[] craftingTables; //done
         public static Recipes[] recipes; //done
-        public static ItemChest[] itemChests;
+        public static ItemChest[] itemChests; //done
         public static ItemChanger[] itemChangers;
         public static Items[] items; //done?
         #endregion

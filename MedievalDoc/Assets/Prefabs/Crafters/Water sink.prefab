@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4578977567589347804}
-  - component: {fileID: 6317155917232233704}
   - component: {fileID: 6077682330150251515}
+  - component: {fileID: 6040865400398205990}
   m_Layer: 7
   m_Name: Water sink
   m_TagString: IsInteractable
@@ -34,20 +34,6 @@ Transform:
   - {fileID: 5656568182196301593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6317155917232233704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942092951329957723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 446381d34604761478b72638066ec3bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterFlask: {fileID: 6224358711912744669, guid: f38f48ef7a2b96e4ea077a2fc8582e6a, type: 3}
-  emptyWaterFlask: {fileID: 6224358711912744669, guid: 54a03db4258bd7a4486a7dc01b4c5769, type: 3}
 --- !u!65 &6077682330150251515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,6 +55,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.361342, z: 1}
   m_Center: {x: 0, y: 0.680671, z: 0}
+--- !u!114 &6040865400398205990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942092951329957723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1629aa9638dee0b469ed53feb9beba64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionTime: 0
 --- !u!1001 &5263181532032076018
 PrefabInstance:
   m_ObjectHideFlags: 0

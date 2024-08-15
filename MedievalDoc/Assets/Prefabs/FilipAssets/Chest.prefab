@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2959800515793880821}
   m_Layer: 7
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6252a77c44e70f043bd2e70c2395e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6276212561060190205, guid: 818253b9d0f3c51458e9677e9e0e7d21, type: 3}
   nameDisplay: {fileID: 2844184687265006861}
+  interactionTime: 0
 --- !u!95 &244409105645163237
 Animator:
   serializedVersion: 5

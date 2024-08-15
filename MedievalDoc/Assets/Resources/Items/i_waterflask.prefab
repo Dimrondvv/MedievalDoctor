@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 711031228491107137}
   - component: {fileID: -4075088537175057653}
-  - component: {fileID: 5322454832384534546}
+  - component: {fileID: 2154554744450080851}
   m_Layer: 7
-  m_Name: Empty Water Flask
+  m_Name: i_waterflask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102c03619f61edd49984d1394a9c50bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Empty Water Flask
---- !u!65 &5322454832384534546
+  itemName: Water Flask
+--- !u!65 &2154554744450080851
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82f9830f2519d8847a5cd5dbb2cd0c59, type: 2}
+  - {fileID: 2100000, guid: 50f741b65de84c04ea446bc5511abeae, type: 2}
   - {fileID: 2100000, guid: 091eb988d108b1c40b1699d4080a002d, type: 2}
   - {fileID: 2100000, guid: 82f9830f2519d8847a5cd5dbb2cd0c59, type: 2}
   m_StaticBatchInfo:

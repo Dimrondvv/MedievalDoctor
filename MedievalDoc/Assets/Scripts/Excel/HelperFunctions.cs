@@ -24,6 +24,17 @@ public class HelperFunctions
         return null;
     }
 
+    public static ItemChanger ChangerLookup(string changerID)
+    {
+        foreach(ItemChanger changer in ImportJsonData.itemChangers)
+        {
+            if(changerID == changer.changerID)
+                return changer;
+        }
+
+        return null;
+    }
+
     public static SicknessContainers SicknessContainersLookup(string sickContainersKey) { //Find a sickContainer using it's key
         foreach (SicknessContainers sicknessContainers in ImportJsonData.sicknessContainersConfig)
         {
@@ -34,6 +45,18 @@ public class HelperFunctions
         return null;
     }
 
+    public static ToolChest ToolChestLookup(string toolChestKey)
+    {
+        foreach (ToolChest toolChest in ImportJsonData.toolChestConfig)
+        {
+            if (toolChest.chestID == toolChestKey)
+            {
+                return toolChest;
+            }
+        }
+
+        return null;
+    }
 
     public static GameObject ChestItemLookup(string chestName) 
     { 
@@ -41,7 +64,6 @@ public class HelperFunctions
         {
             if(toolChest.chestID == chestName)
             {
-                Debug.Log(toolChest);
                 return Resources.Load<GameObject>("Tools/" + ToolLookup(toolChest.toolID).toolPrefab);
             }
         }

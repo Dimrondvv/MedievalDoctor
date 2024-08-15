@@ -10,6 +10,7 @@ TagManager:
   - High Wall
   - IsInteractable
   - Crafting
+  - Chest
   layers:
   - Default
   - TransparentFX
