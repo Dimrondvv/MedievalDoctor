@@ -12,6 +12,8 @@ public class LoadingState : BaseState
     private void StartLoading(LoadManager loadManager)
     {
         loadManager.LoadGame();
+        App.Instance.GameplayCore.GameManager.GetComponent<AudioSource>().clip = App.Instance.GameplayCore.SoundManager.GameMusic;
+        App.Instance.GameplayCore.GameManager.GetComponent<AudioSource>().Play();
         loadManager.OnGameSceneLoaded.AddListener(UnloadLoadingState);
         App.Instance.GameplayCore.OnLoadManagerRegistered.RemoveListener(StartLoading);
     }

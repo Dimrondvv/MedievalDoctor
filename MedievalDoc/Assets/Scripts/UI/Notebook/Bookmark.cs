@@ -12,10 +12,13 @@ public class Bookmark : MonoBehaviour
     [SerializeField] NotebookContentPage notebookContentPage;
 
     private Dictionary<string, DiscoveredData> bookmarkData;
+    private AudioSource pageAudio;
 
 
     private void OnEnable()
     {
+        pageAudio = GetComponent<AudioSource>();
+        pageAudio.Play();
         NotebookDataHandler handler = App.Instance.GameplayCore.UIManager.NotebookDataHandler; //Get the data handler from UI manager
         bookmarkData = handler.RequestBookmarkData(bookmarkName); //Get the bookmark data from handler
         InstantiateBookmark();

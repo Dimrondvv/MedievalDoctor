@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8423,6 +8423,7 @@ MonoBehaviour:
   playButton: {fileID: 927835036}
   optionsButton: {fileID: 1478864456}
   quitButton: {fileID: 1618567650}
+  menuMusic: {fileID: 8300000, guid: 192430323f9a7924e9394d9cc552c15e, type: 3}
 --- !u!1 &1618567646
 GameObject:
   m_ObjectHideFlags: 0

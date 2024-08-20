@@ -976,6 +976,21 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 84
+    m_Metrics:
+      m_Width: 42.75
+      m_Height: 37.078125
+      m_HorizontalBearingX: -4.046875
+      m_HorizontalBearingY: 46.4375
+      m_HorizontalAdvance: 36.90625
+    m_GlyphRect:
+      m_X: 196
+      m_Y: 712
+      m_Width: 44
+      m_Height: 38
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1196,6 +1211,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 70
     m_GlyphIndex: 40
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 120
+    m_GlyphIndex: 84
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 5199882073078245933}
@@ -1419,6 +1438,10 @@ MonoBehaviour:
     m_Y: 0
     m_Width: 67
     m_Height: 94
+  - m_X: 186
+    m_Y: 702
+    m_Width: 63
+    m_Height: 57
   m_FreeGlyphRects:
   - m_X: 49
     m_Y: 0
@@ -1552,22 +1575,6 @@ MonoBehaviour:
     m_Y: 594
     m_Width: 19
     m_Height: 12
-  - m_X: 194
-    m_Y: 702
-    m_Width: 829
-    m_Height: 177
-  - m_X: 206
-    m_Y: 702
-    m_Width: 817
-    m_Height: 321
-  - m_X: 165
-    m_Y: 702
-    m_Width: 858
-    m_Height: 2
-  - m_X: 186
-    m_Y: 702
-    m_Width: 837
-    m_Height: 81
   - m_X: 197
     m_Y: 974
     m_Width: 826
@@ -1592,10 +1599,6 @@ MonoBehaviour:
     m_Y: 569
     m_Width: 792
     m_Height: 25
-  - m_X: 238
-    m_Y: 569
-    m_Width: 785
-    m_Height: 454
   - m_X: 266
     m_Y: 79
     m_Width: 59
@@ -1616,6 +1619,30 @@ MonoBehaviour:
     m_Y: 79
     m_Width: 56
     m_Height: 56
+  - m_X: 194
+    m_Y: 759
+    m_Width: 829
+    m_Height: 120
+  - m_X: 206
+    m_Y: 759
+    m_Width: 817
+    m_Height: 264
+  - m_X: 165
+    m_Y: 702
+    m_Width: 21
+    m_Height: 2
+  - m_X: 186
+    m_Y: 759
+    m_Width: 837
+    m_Height: 24
+  - m_X: 238
+    m_Y: 569
+    m_Width: 785
+    m_Height: 133
+  - m_X: 249
+    m_Y: 569
+    m_Width: 774
+    m_Height: 454
   m_fontInfo:
     Name: 
     PointSize: 0

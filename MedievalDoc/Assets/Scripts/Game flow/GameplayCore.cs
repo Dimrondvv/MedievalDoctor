@@ -8,6 +8,7 @@ public class GameplayCore
     public UnityEvent<GameManager> OnGameManagerRegistered = new UnityEvent<GameManager>();
     public UnityEvent<LoadManager> OnLoadManagerRegistered = new UnityEvent<LoadManager>();
     public UnityEvent<SaveManager> OnSaveManagerRegistered = new UnityEvent<SaveManager>();
+    public UnityEvent<SoundManager> OnSoundManagerRegistered = new UnityEvent<SoundManager>();
     public UnityEvent<PatientManager> OnPatientManagerRegistered = new UnityEvent<PatientManager>();
     public UnityEvent<PlayerManager> OnPlayerManagerRegistered = new UnityEvent<PlayerManager>();
     public UnityEvent<UIManager> OnUIManagerRegistered = new UnityEvent<UIManager>();
@@ -19,6 +20,7 @@ public class GameplayCore
     public GameManager GameManager { get; private set; }
     public LoadManager LoadManager { get; private set; }
     public SaveManager SaveManager { get; private set; }
+    public SoundManager SoundManager { get; private set; }
     public PatientManager PatientManager { get; private set; }
     public PlayerManager PlayerManager { get; private set; }
     public UIManager UIManager { get; private set; }
@@ -41,6 +43,13 @@ public class GameplayCore
         Debug.Log("GameManager Registered");
         OnGameManagerRegistered.Invoke(gameManager);
     }
+    public void RegisterSoundManager(SoundManager soundManager)
+    {
+        SoundManager = soundManager;
+        Debug.Log("SoundManager Registered");
+        OnSoundManagerRegistered.Invoke(soundManager);
+    }
+
     public void RegisterLoadManager(LoadManager loadManager)
     {
         LoadManager = loadManager;
@@ -53,6 +62,8 @@ public class GameplayCore
         Debug.Log("SaveManagerManager Registered");
         OnSaveManagerRegistered.Invoke(saveManager);
     }
+
+
     public void RegisterPatientManager(PatientManager patientManager)
     {
         PatientManager = patientManager;
@@ -98,6 +109,10 @@ public class GameplayCore
     public void UnregisterLoadManager()
     {
         LoadManager = null;
+    }
+    public void UnregisterSoundManager()
+    {
+        SoundManager = null;
     }
     public void UnregisterSaveManager()
     {

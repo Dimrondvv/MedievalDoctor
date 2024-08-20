@@ -15,6 +15,8 @@ public class MainMenuUI : MonoBehaviour {
     [SerializeField] private Button quitButton;
 
     private void Awake() {
+        App.Instance.GameplayCore.GameManager.GetComponent<AudioSource>().clip = App.Instance.GameplayCore.SoundManager.MenuMusic;
+        App.Instance.GameplayCore.GameManager.GetComponent<AudioSource>().Play();
         playButton.onClick.AddListener(HandlePlayPressed);
         optionsButton.onClick.AddListener( () => {
             //click 

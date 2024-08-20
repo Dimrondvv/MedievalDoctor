@@ -7,10 +7,12 @@ public class CardInteraction : MonoBehaviour, IInteractable
     [SerializeField] float interactionTime;
     private bool isCardOn = false;
     public float InteractionTime { get { return interactionTime; } set { interactionTime = value; } }
+    private AudioSource cardOpen;
 
     void Start()
     {
         PickupController.OnInteract.AddListener(InteractWithCard);
+        cardOpen = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -25,6 +27,7 @@ public class CardInteraction : MonoBehaviour, IInteractable
     {
         if (interactionObject != gameObject)
             return;
+        cardOpen.Play();
         App.Instance.GameplayCore.UIManager.ChangePatientCardState();
         isCardOn = !isCardOn;
         Interactor.isOpen = true;

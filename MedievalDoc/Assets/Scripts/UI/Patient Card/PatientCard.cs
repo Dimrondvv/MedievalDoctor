@@ -13,7 +13,6 @@ public class PatientCard : MonoBehaviour
     [SerializeField] TextMeshProUGUI patientName; 
     [SerializeField] TextMeshProUGUI patientSymptomList; 
     [SerializeField] TextMeshProUGUI patientStory;
-    private AudioSource patientReleaseAudio;
 
 
     private void Start()
@@ -22,13 +21,13 @@ public class PatientCard : MonoBehaviour
         Patient.OnPatientDeath.AddListener(ReturnToDefaultState);
         Patient.OnAddSymptom.AddListener(UpdateSymptoms);
         Patient.OnRemoveSymptom.AddListener(UpdateSymptoms);
-        patientReleaseAudio = GetComponent<AudioSource>();
 
         //playerInputActions = new PlayerInputActions();
         //playerInputActions.Player.Enable();
         //playerInputActions.Player.PatientCard.performed += CloseCard;
 
     }
+
 
     //private void CloseCard(UnityEngine.InputSystem.InputAction.CallbackContext callback)
     //{
@@ -37,7 +36,6 @@ public class PatientCard : MonoBehaviour
     public void HandlePatientRelease()
     {
         var patient = App.Instance.GameplayCore.PatientManager.patients[0];
-        patientReleaseAudio.Play();
         ReturnToDefaultState(patient);
         PatientManager.ReleasePatient.Invoke();
         App.Instance.GameplayCore.UIManager.DisablePatientCard();
